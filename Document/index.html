@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_blank" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>STNodeEditor</title>
+        <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+    </head>
+    <body>
+        <div id="div_img_node"><img src="./images/node.png"/><img src="./images/node.gif"/></div>
+        <div id="div_body">
+            <div style="text-align:center">
+                <span class="span_title">STNodeEditor</span><br/>
+                <a class="a_top_btn" href="https://DebugST.github.io/DotNet_WinForm_NodeEditor">项目地址</a><a class="a_top_btn" href="./doc.html">开发文档</a><a class="a_top_btn" href="./ST.Library.UI.dll">类库下载</a>
+            </div>
+            <div style="padding:5px 20px;">
+                <hr/>
+                <p>或许你未曾接触过节点编辑 但节点编辑的影子越来越多 尤其是在影视相关的一些设计类软件当中 Blender,C4D,Houdini,Davinci 等</p>
+                <p style="color:orangered"><span class="span_note">STNodeEditor</span>的使用方式非常简洁 提供了丰富的属性以及事件 可以非常方便的完成节点之间数据的交互及通知 大量的重载函数供开发者使用具有很高的自由性<br/>此控件采用<a class="span_note" href="https://opensource.org/licenses/mit-license.php">MIT</a>开源协议开源 使开发者能够拥有更大的自由度更少的限制</p>
+                <p>节点编辑最大的好处就是可视化操作 将单一的功能点封装到节点之中 让用户通过节点布线来组合自己需要的逻辑 让整个流程可视化 而不是将你程序的整个执行流程固化在你的程序之中 当然在这之前你需要定义好节点的数据类型 <span style="color:orangered">因为数据类型无法兼容是不允许连线的</span> 通常情况下同颜色的连接点表示数据类型相同</p>
+                <p>另一个好处 让开发者只需要注重单一的功能点开发 使得功能与功能之间的耦合度降低 开发者在节点中开发完成需要的功能 无需知道应该把数据交给谁或者怎么去传递数据 只需要将你的结果数据打包给你需要输出的选项点 无论节点间布线多么的复杂 节点编辑器会自动完成数据的投递过程</p>
+                <hr/>
+                <div style="overflow:hidden">
+                    <div style="float:left;"><img src="./images/form1.png" width=642></div>
+                    <div style="float:left; padding:10px; max-width:322px;">
+                        <ul>
+                            <li>
+                                <span>移动画布</span>
+                                <ul>
+                                    <li><span class="span_note">鼠标中键</span>拖动</li>
+                                    <li>MacBook可使用二指拖动<span class="span_note">触控板</span></li>
+                                </ul>
+                            </li>
+                            <br/>
+                            <li>
+                                <span>缩放画布</span>
+                                <ul><li>按下<span class="span_note">Control</span> + <span class="span_note">鼠标滚轮</span></li></ul>
+                            </li>
+                            <br/>
+                            <li>
+                                <span>移动节点</span>
+                                <ul><li><span class="span_note">鼠标左键</span>按下<span class="span_note">节点标题</span>拖动</li></ul>
+                            </li>
+                            <br/>
+                            <li>
+                                <span>删除连线</span>
+                                <ul><li>悬停连线 <span class="span_note">鼠标右键</span></li></ul>
+                            </li>
+                        </ul>
+                        <br/>
+                        <p style="color:hotpink">方形为多连接选项 圆形为单连接选项</p>
+                        <p style="color:hotpink">自定义选项颜色 应当同一颜色为同一数据类型 不同数据类型无法建立连线</p>
+                        <p style="color:hotpink">内置<span class="span_note">HUB</span>集线器节点 方便布线</p>
+                    </div>
+                </div>
+                <hr/>
+                <div style="overflow:hidden">
+                    <div style="float:left; padding:10px; max-width:322px;">
+                        <p style="color:hotpink;">强大的<span class="span_note">UI</span>自定义能力 可快速帮助开发者定义出需要的节点界面</p>
+                        <p style="color:hotpink;">提供的<span class="span_note">STNodeControl</span>基类与<span class="span_note">System.Windows.Forms.Control</span>拥有差不多的接口 可使开发者能够像自定义<span class="span_note">WinForm</span>控件一样定义节点的控件</p>
+                        <p>即便用户不进行自定义 选项默认将按照一行一行排列</p>
+                        <p>基类<span class="span_note">STNode</span>为<span class="span_note">抽象类</span> 不可实例化 需开发者继承向其添加选项 并重载需要的函数进行自定义样式</p>
+                        <p>具体细节参考项目中的Demo或查看开发文档</p>
+                    </div>
+                    <div style="float:left;"><img src="./images/formImage.png" width=642></div>
+                </div>
+                <hr/>
+                <div style="font-size:12px;position:relative;">
+                    <table style="color:gray">
+                        <tr><td style="width:70px;">.Net版本:</td><td>.Net Framework 3.5</td></tr>
+                        <tr><td>&nbsp; VS版本:</td><td>Visual Studio 2010</td></tr>
+                    </table>
+                    <span style="position:absolute;right:0px;bottom:0px;border:solid 1px black;border-radius:5px;padding:1px 5px;">2021-01-06</span>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

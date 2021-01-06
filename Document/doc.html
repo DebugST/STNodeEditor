@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>STNodeEditor Document</title>
+        <link rel="stylesheet" type="text/css" href="./css/doc.css"/>
+        <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript" src="./js/doc.js"></script>
+        <script>
+            $(document).ready(function(){
+                $(".anchor_btn").click(function(){
+                    var nTop = $(".anchor_point[anchor='" + $(this).attr('anchor') + "']").offset().top;
+                    if(!$(this).hasClass("a_node_root")) nTop -= 5;
+                    $('html,body').animate({scrollTop:nTop},500);
+                });
+                $(window).scroll(function(){
+                    var nMin = 100000,strName = '';
+                    var nHeight = document.body.clientHeight;
+                    var nHtmlTop = $(this).scrollTop();
+                    var es = $('.anchor_point');
+                    for(i = 0; i < es.length; i++){
+                        var nSub = Math.abs(es[i].offsetTop - nHtmlTop);
+                        if(nSub < nMin){
+                            nMin = nSub;
+                            if(nHtmlTop + (nHeight / 2) >= es[i].offsetTop)
+                                strName = $(es[i]).attr('anchor');
+                        }
+                    }
+                    //if(nMin > 100) return;
+                    $(".anchor_btn").removeClass('active');
+                    $(".anchor_btn[anchor='" + strName + "']").addClass('active');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <div id="div_body">
+            <div id="div_left">
+                <ul class="ul_group_root">
+                    <li>
+                        <a class="a_node_root anchor_btn active" anchor="a">概述</a>
+                        <ul>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="b">节点编辑器</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="a_node_root anchor_btn" anchor="c">STNodeEditor</a>
+                        <ul>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="d">属性</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="e">受保护字段</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="f">可重载函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="g">公开函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="h">事件</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="a_node_root anchor_btn" anchor="i">STNode</a>
+                        <ul>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="j">属性</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="k">受保护字段</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="l">可重载函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="m">其他重载函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="n">公开函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="o">关于重绘</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="a_node_root anchor_btn" anchor="p">STNodeOption</a>
+                        <ul>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="q">属性</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="r">受保护字段</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="s">构造器</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="t">可重载函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="u">公开函数</a></li>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="v">事件</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="a_node_root anchor_btn" anchor="w">STNodeOptionEventArgs</a>
+                        <ul>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="x">属性</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="a_node_root anchor_btn" anchor="y">STNodeControl</a>
+                        <ul>
+                            <li class="li_node_sub"><a class="anchor_btn" anchor="z">Demo</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <span style="background-color:blueviolet;font-size:12px;text-align:center;width:100%;display:inline-block;">最后编辑时间 2020-12-30</span>
+            </div>
+            <div id="div_right">
+                <h2 class="anchor_point" anchor="a">概述</h2>
+                <p>那是一个冬季 在研究无线电安全的作者接触到了<a target="_bank" href="https://www.gnuradio.org/">GNURadio</a> 那是作者第一次接触到节点编辑器<br/>&nbsp;&nbsp;"What? Excuse me... What's this?.. 这是什么鬼东西?..."</p>
+                <p>那是一个春季 不知道为什么 过完年整个世界都变了 大家被迫窝在家里 无聊至极的作者学起了<a target="_bank" href="https://www.blender.org/">Blender</a> 那是作者第二次接触到节点编辑器<br/>&nbsp;&nbsp;"Wo...原来这东西可以这么玩...真方便"<br/>&nbsp;&nbsp;于是一些想法在作者脑中逐渐诞生 让作者有了想做一个这样的东西的想法</p>
+                <p>那是一个夏季 不知道为什么 作者又玩起了<a target="_bank" href="http://www.blackmagicdesign.com/cn/products/davinciresolve/">Davinci</a> 那是作者第三次接触到节点编辑器 这一次的接触让作者对节点编辑器的好感倍增 作者瞬间觉得 只要是可以模块化流程化的功能 万物皆可节点化</p>
+                <hr/>
+                <center><span class="span_center">于是下面的这个东西就诞生了</span></center>
+                <div id="div_img_node"><img src="./images/node.png"/><img src="./images/node.gif"/></div>
+                <center><span class="span_center">或者这样的一个东西</span></center>
+                <div style="text-align:center;margin:0px 10px;background-color:black;"><img style="width:1077px;max-width:100%;" src="./images/channel.png"/></div>
+                <p>本案例中只是提供了一个节点编辑器控件 并不包含节点列表 属性编辑器等 若后期有空再做一套完整的框架</p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="b">节点编辑器</span>
+                <hr/>
+                <p>或许你未曾接触过节点编辑 但节点编辑的影子越来越多 尤其是在影视相关的一些设计类软件当中 Blender,C4D,Houdini,Davinci 等</p>
+                <p>节点编辑最大的好处就是可视化操作 将单一的功能点封装到节点之中 让用户通过节点布线来组合自己需要的逻辑 让整个流程可视化 而不是将你程序的整个执行流程固化在你的程序之中 当然在这之前你需要定义好节点的数据类型 <span style="color:orangered">因为数据类型无法兼容是不允许连线的</span> 通常情况下同颜色的连接点表示数据类型相同</p>
+                <p>另一个好处 让开发者只需要注重单一的功能点开发 使得功能与功能之间的耦合度降低 开发者在节点中开发完成需要的功能 无需知道应该把数据交给谁或者怎么去传递数据 只需要将你的结果数据打包给你所继承的节点类 节点编辑器会自动完成数据的投递过程
+                </p>
+                <h2 class="anchor_point" anchor="c">STNodeEditor</h2>
+                <p>STNodeEditor为节点容器 其中最重要的一个属性为<span class="span_property">Nodes</span>里面包含了画布中能看到的所有节点</p>
+                <p>STNodeEditor有两套坐标系统 平常情况下使用最多的就直接是控件的坐标系统 需要在控件的什么位置绘图或者添加东西采用的都是相对控件左上角的坐标 但是在节点编辑器中的情况比较复杂 需要引入一个画布的概念 画布是可以移动缩放的 所以在绘图的时候依旧采用控件的坐标系统将带来很多的麻烦 所以为画布定义了一个坐标原点 在节点以及连线绘制的时候采用的是画布的坐标系统 当需要拖动画布位置的时候 改变画布原点的位置就好了 而内部节点的位置依旧不做变更 因为节点采用的坐标位置是相对画布原点的
+                <br/><span style="color:orangered">当画布中<span class="span_property">Nodes</span>没有元素时候 画布将处于重置状态无法缩放与移动 因为作者觉得这样的操作没有任何意义</span></p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="d">属性</span>
+                <hr/>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr>
+                    <td>CanvasOffsetX</td><td>float</td><td>获取画布原点相对于控件 X 方向上的偏移位置</td>
+                    </tr>
+                    <tr>
+                    <td>CanvasOffsetY</td><td>float</td><td>获取画布原点相对于控件 Y 方向上的偏移位置</td>
+                    </tr>
+                    <tr>
+                    <td>CanvasOffset</td><td>PointF</td><td>获取画布原点相对于控件偏移位置</td>
+                    </tr>
+                    <tr>
+                    <td>CanvasValidBounds</td><td>Rectangle</td><td>获取画布中的有被用到的有效区域</td>
+                    </tr>
+                    <tr>
+                    <td>CanvasScale</td><td>float</td><td>获取画布的缩放比例</td>
+                    </tr>
+                    <tr>
+                    <td>Curvature</td><td>float</td><td>获取或设置 Option 之间连线的曲度</td>
+                    </tr>
+                    <tr>
+                    <td>Magnet</td><td>bool</td><td>获取或设置移动画布中 Node 时候 是否启用磁铁效果</td>
+                    </tr>
+                    <tr>
+                    <td>ShowBorder</td><td>bool</td><td>获取或设置移动画布中是否显示 Node 边框</td>
+                    </tr>
+                    <tr>
+                    <td>ShowGrid</td><td>bool</td><td>获取或设置画布中是否绘制背景网格线条</td>
+                    </tr>
+                    <tr>
+                    <td>ShowLocation</td><td>bool</td><td>获取或设置是否在画布边缘显示超出视角的 Node 位置信息</td>
+                    </tr>
+                    <tr>
+                    <td>Nodes</td><td>STNodeCollection</td><td>获取画布中 Node 集合</td>
+                    </tr>
+                    <tr>
+                    <td>ActiveNode</td><td>STNode</td><td>获取当前画布中被选中的活动 Node</td>
+                    </tr>
+                    <tr>
+                    <td>HoverNode</td><td>STNode</td><td>获取当前画布中鼠标悬停的 Node</td>
+                    </tr>
+                    <tr>
+                    <td>GridColor</td><td>Color</td><td>获取或设置绘制画布背景时 网格线条颜色</td>
+                    </tr>
+                    <tr>
+                    <td>BorderColor</td><td>Color</td><td>获取或设置画布中 Node 边框颜色</td>
+                    </tr>
+                    <tr>
+                    <td>BorderHoverColor</td><td>Color</td><td>获取或设置画布中悬停 Node 边框颜色</td>
+                    </tr>
+                    <tr>
+                    <td>BorderSelectColor</td><td>Color</td><td>获取或设置画布中选中 Node 边框颜色</td>
+                    </tr>
+                    <tr>
+                    <td>BorderActiveColor</td><td>Color</td><td>获取或设置画布中活动 Node 边框颜色</td>
+                    </tr>
+                    <tr>
+                    <td>MarkForeColor</td><td>Color</td><td>获取或设置画布绘制 Node 标记详情采用的前景色</td>
+                    </tr>
+                    <tr>
+                    <td>MarkBackColor</td><td>Color</td><td>获取或设置画布绘制 Node 标记详情采用的背景色</td>
+                    </tr>
+                    <tr>
+                    <td>MagnetLineColor</td><td>Color</td><td>获取或设置画布中移动 Node 时候 磁铁标记线颜色</td>
+                    </tr>
+                    <tr>
+                    <td>SelectedRectangleColor</td><td>Color</td><td>获取或设置画布中选择矩形区域的颜色</td>
+                    </tr>
+                    <tr>
+                    <td>HighLineColor</td><td>Color</td><td>获取或设置画布中高亮连线的颜色</td>
+                    </tr>
+                    <tr>
+                    <td>LocationForeColor</td><td>Color</td><td>获取或设置画布中边缘位置提示区域前景色</td>
+                    </tr>
+                    <tr>
+                    <td>LocationBackColor</td><td>Color</td><td>获取或设置画布中边缘位置提示区域背景色</td>
+                    </tr>
+                    <tr>
+                    <td>UnknownTypeColor</td><td>Color</td><td>获取或设置画布中当 Node 中 Option 数据类型无法确定时应当使用的颜色</td>
+                    </tr>
+                    <tr>
+                    <td>TypeColor</td><td>Dictionary&lt;Type, Color&gt;</td><td>获取或设置画布中 Node 中 Option 数据类型预设颜色</td>
+                    </tr>
+                </table>
+                <span class="span_title anchor_point" anchor="e">受保护字段</span>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr>
+                    <td>m_pt_in_control</td><td>Point</td><td>当前鼠标在控件中的实时位置</td>
+                    </tr>
+                    <tr>
+                    <td>m_pt_in_canvas</td><td>PointF</td><td>当前鼠标在画布中的实时位置</td>
+                    </tr>
+                    <tr>
+                    <td>m_pt_down_in_control</td><td>Point</td><td>鼠标点击时在控件上的位置</td>
+                    </tr>
+                    <tr>
+                    <td>m_pt_down_in_canvas</td><td>PointF</td><td>鼠标点击时在画布中的位置</td>
+                    </tr>
+                    <tr>
+                    <td>m_pt_canvas_old</td><td>PointF</td><td>用于鼠标点击移动画布时候 鼠标点下时候的画布坐标位置</td>
+                    </tr>
+                    <tr>
+                    <td>m_pt_dot_down</td><td>Point</td><td>用于保存连线过程中保存点下 Option 的起点坐标</td>
+                    </tr>
+                    <tr>
+                    <td>m_option_down</td><td>STNodeOption</td><td>用于保存连线过程中鼠标点下的起点Option 当MouseUp时候 确定是否连接此节点</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9;">TypeColor</span>
+                        <ul>
+                            <li>此属性为当前<span class="span_property">STNodeEditor</span>中所有的数据类型所对应的颜色 节点中所有的数据类型都应当包含在此集合中 即便有动态需要加载的未知类型的节点 那么对应的节点也应该在节点的<span class="span_property">OnOwnerChanged()</span>中向容器提交自己数据类型以及对应颜色
+                            <br/><span style="color:orangered;">若节点有单独对<span class="span_property">STNodeOption.DotColor</span>设置值 则忽略该对照表中的颜色 即不为默认颜色<span class="span_property">Color.Transparent</span></span></li>
+                        </ul>
+                    </li>
+                    <hr/>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9">UnknownTypeColor</span>
+                        <ul>
+                            <li>若节点中并没有单独设置数据类型颜色且在<span class="span_property">TypeColor</span>中无法匹配时候采用此值 所以将此特殊类型单独设置</li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr/><span class="span_title anchor_point" anchor="f">可重载函数</span><hr/>
+                <table>
+                    <tr style="background-color:#505050"><td colspan="2">当绘制背景网格线时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawGrid(DrawingTools dt, int nWidth, int nHeight)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td>nWidth</td><td>需要绘制宽度</td>
+                    </tr>
+                    <tr>
+                    <td>nHeight</td><td>需要绘制高度</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当绘制 Node 时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawNode(DrawingTools dt, Rectangle rect)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td>rect</td><td>可视画布区域大小</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当绘制已连接路径时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawConnectedLine(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当绘制 Mark 详情信息时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawMark(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当移动 Node 时候 需要显示对齐参考线时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawMagnetLine(DrawingTools dt, MagnetInfo mi)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td>mi</td><td>匹配的磁铁信息</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制选择的矩形区域</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawSelectedRectangle(DrawingTools dt, RectangleF rectf)</td></tr>
+                    <tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td>rectf</td><td>位于控件上的矩形区域</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制超出视觉区域的 Node 位置提示信息</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawNodeOutLocation(DrawingTools dt, Size sz, List&lt;Point&gt; lstPts)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td>sz</td><td>提示框边距</td>
+                    <tr>
+                    <td>lstPts</td><td>超出视觉区域的 Node 位置信息</td>
+                    </tr>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制提示信息</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawAlert(DrawingTools dt, Rectangle rect, string strText, Color foreColor, Color backColor, AlertLocation al)</td></tr>
+                        <tr><td>dt</td><td>绘制工具</td></tr>
+                        <tr><td>rect</td><td>需要绘制区域</td></tr>
+                        <tr><td>strText</td><td>需要绘制文本</td></tr>
+                        <tr><td>foreColor</td><td>信息前景色</td></tr>
+                        <tr><td>backColor</td><td>信息背景色</td></tr>
+                        <tr><td>al</td><td>信息位置</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取提示信息需要绘制的矩形区域</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Rectangle GetAlertRectangle(Graphics g, string strText, AlertLocation al)</td></tr>
+                        <tr><td>g</td><td>绘图表面</td></tr>
+                        <tr><td>strText</td><td>需要绘制文本</td></tr>
+                        <tr><td>al</td><td>信息位置</td></tr>
+                </table>
+                <span class="span_title anchor_point" anchor="g">公开函数</span>
+                <table>
+                    <tr style="background-color:#505050"><td colspan="2">通过画布坐标进行寻找</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">NodeFindInfo FindNodeFromPoint(PointF pt)</td></tr>
+                    <tr>
+                    <td>pt</td><td>画布中的坐标</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取已经被选择的 Node 集合</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">STNode[] GetSelectedNode()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">将画布坐标转换为控件坐标</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">float CanvasToControl(XXX xxx)</td></tr>
+                    <tr>
+                    <td>xxx</td><td>Rectangle,RectangleF,Point,PointF...</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">将控件坐标转换为画布坐标</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">float ControlToCanvas(XXX xxx)</td></tr>
+                    <tr>
+                    <td>xxx</td><td>Rectangle,RectangleF,Point,PointF...</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">移动画布原点坐标到指定的控件坐标位置</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void MoveCanvas(float x, float y, bool bAnimation, CanvasMoveArgs ma)</td></tr>
+                    <tr>
+                    <td>x</td><td>X 坐标</td>
+                    </tr>
+                    <tr>
+                    <td>y</td><td>Y 坐标</td>
+                    </tr>
+                    <tr>
+                    <td>bAnimation</td><td>移动过程中是否启动动画效果</td>
+                    </tr>
+                    <tr>
+                    <td>ma</td><td>指定需要修改的坐标参数</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">缩放画布</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void ScaleCanvas(float f, float x, float y)</td></tr>
+                    <tr>
+                    <td>f</td><td>缩放比例</td>
+                    </tr>
+                    <tr>
+                    <td>x</td><td>以指定控件坐标 X 为中心进行缩放</td>
+                    </tr>
+                    <tr>
+                    <td>y</td><td>以指定控件坐标 Y 为中心进行缩放</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取当前已连接的 Option 对应关系</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">ConnectionInfo[] GetConnectionInfo()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">判断两个 Node 之间是否存在连接路径</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">static bool CanFindNodePath(STNode nodeStart, STNode nodeFind)</td></tr>
+                    <tr>
+                    <td>nodeStart</td><td>起始 Node</td>
+                    </tr>
+                    <tr>
+                    <td>nodeFind</td><td>目标 Node</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取画布中指定矩形区域图像</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Image GetCanvasImage(Rectangle rect, float fScale)</td></tr>
+                    <tr>
+                    <td>rect</td><td>画布中指定的矩形区域</td>
+                    </tr>
+                    <tr>
+                    <td>fScale</td><td>缩放比例</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">保存画布中的类容到文件中</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void SaveCanvas(string strFileName)</td></tr>
+                    <tr>
+                    <td>strFileName</td><td>文件路径</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">保存画布中的类容到数据流</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void SaveCanvas(Stream s)</td></tr>
+                    <tr>
+                    <td>s</td><td>数据流对象</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取画布中内容二进制数据</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">byte[] GetCanvasData()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">加载程序集</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">bool LoadAssembly(string strFile)</td></tr>
+                    <tr>
+                    <td>返回值</td><td>此文件中是否有类型被加载</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">加载程序集</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">int LoadAssembly(string[] strFiles)</td></tr>
+                    <tr>
+                    <td>返回值</td><td>存在STNode类型的文件的个数</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434"><span style="color:orangered">编辑器中的节点并不一定来自自身程序集 也可能包含在其他程序集中 这时候需提前加载对应程序集 对应的<span class="span_property">STNode</span>才能正确的从文件或者数据中动态加载到画布类容</span></td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取当前编辑器中已加载的Node类型</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Type[] GetTypes()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">从文件中加载数据</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void LoadCanvas(string strFileName)</td></tr>
+                    <tr>
+                    <td>strFileName</td><td>文件路径</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">从二进制加载数据</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void LoadCanvas(byte[] byData)</td></tr>
+                    <tr>
+                    <td>byData</td><td>二进制数据</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">从数据流中加载数据</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void LoadCanvas(Stream s)</td></tr>
+                    <tr>
+                    <td>s</td><td>数据流对象</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">在画布中显示提示信息</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void ShowAlert(string strText, Color foreColor, Color backColor, int nTime, AlertLocation al, bool bRedraw)</td></tr>
+                        <tr><td>strText</td><td>要显示的信息</td></tr>
+                        <tr><td>foreColor</td><td>信息前景色</td></tr>
+                        <tr><td>backColor</td><td>信息背景色</td></tr>
+                        <tr><td>nTime</td><td>信息持续时间</td></tr>
+                        <tr><td>al</td><td>信息要显示的位置</td></tr>
+                        <tr><td>bRedraw</td><td>是否立即重绘</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">设置画布中活动的节点</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">STNode SetActiveNode(STNode node)</td></tr>
+                        <tr><td>STNode</td><td>需要被设置为活动的节点</td></tr>
+                        <tr><td>返回值</td><td>设置前的活动节点</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">向编辑器中添加默认数据类型颜色</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">SetTypeColor(Type t, Color clr)</td></tr>
+                        <tr><td>t</td><td>数据类型</td></tr>
+                        <tr><td>clr</td><td>对应颜色</td></tr>
+                </table>
+                <hr/><span class="span_title anchor_point" anchor="h">事件</span><hr/>
+                <table>
+                    <tr><td>SelectedChanged</td><td>选择的节点发生变化时候发生</td><tr/>
+                    <tr><td>HoverChanged</td><td>悬停的节点发生变化时候发生</td><tr/>
+                    <tr><td>NodeAdded</td><td>当节点被添加时候发生</td><tr/>
+                    <tr><td>NodeRemoved</td><td>当节点被移除时候发生</td><tr/>
+                    <tr><td>CanvasMoved</td><td>移动画布原点时候发生</td><tr/>
+                    <tr><td>CanvasScaled</td><td>缩放画布时候发生</td><tr/>
+                    <tr><td>OptionConnected</td><td>连接节点选项时候发生</td><tr/>
+                    <tr><td>OptionDisConnected</td><td>断开节点选项时候发生</td><tr/>
+                    <tr><td>OptionConnecting</td><td>正在连接节点选项时候发生</td><tr/>
+                    <tr><td>OptionDisConnecting</td><td>正在断开节点选项时候发生</td><tr/>
+                </table>
+                <ul>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9;">Option(Dis)Connected</span>
+                        <ul>
+                            <li><span style="color:orangered">此事件触发时并不代表当前画布中的节点连线成功</span> 请通过获取事件参数中的<span class="span_property">Status</span>字段进行判断
+                            <br/>但是<span class="span_property">STNodeOption.Connected</span>事件是成功后才触发 之所以要这样设计是因为考虑到 对于<span class="span_property">STNodeEditor</span>来说 它需要知道一个连接的状态 即使连接不成功也应当告知前端用户为什么会连接不成功 所以失败和成功都会触发事件</li>
+                        </ul>
+                    </li>
+                    <hr/>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9">Option(Dis)Connecting</span>
+                        <ul>
+                            <li>此事件是在连接或者断开连接正在发生的时候触发 <span style="color:orangered">可通过事件参数<span class="span_property">Continue</span>来决定是否继续或者停止操作</span></li>
+                        </ul>
+                    </li>
+                </ul>
+                <h2 class="anchor_point" anchor="i">STNode</h2>
+                <p><span style="color:orangered"><span class="span_property">STNode</span>为抽象类 不可实例化 需要用户自己继承重写</span></p>
+                <p><span class="span_property">STNode</span>有三个比较重要的属性<span class="span_property">InputOptions</span><span class="span_property">OutputOptions</span><span class="span_property">Controls</span></p>
+                <p>若把<span class="span_property">STNodeEditor</span>类比成桌面 那么<span class="span_property">STNode</span>就可以类比成一个窗体 虽然作者在节点中提供了<span class="span_property">Controls</span>集合 但是作者没有提供任何的一个封装好的控件 只提供了一个<span class="span_property">STNodeControl</span>基类 若有需要用户可继承此类绘制自己需要的控件</p>
+                <p><span style="color:orangered">继承<span class="span_property">STNode</span>必须提供空参构造器 否则对节点进行保存后无法还原节点 因为还原过程并非序列化 而是通过反射重新构造对象</span></p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="j">属性</span>
+                <hr/>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr><td>Owner</td><td>STNodeEditor</td><td>获取当前 Node 所有者</td></tr>
+                    <tr><td>IsSelected</td><td>bool</td><td>获取或设置 Node 是否处于被选中状态</td></tr>
+                    <tr><td>IsActive</td><td>bool</td><td>获取 Node 是否处于活动状态</td></tr>
+                    <tr><td>TitleColor</td><td>Color</td><td>获取或设置标题背景颜色</td></tr>
+                    <tr><td>MarkColor</td><td>Color</td><td>获取或设置标记信息背景颜色</td></tr>
+                    <tr><td>ForeColor</td><td>Color</td><td>获取或设置当前 Node 前景色</td></tr>
+                    <tr><td>BackColor</td><td>Color</td><td>获取或设置当前 Node 背景色</td></tr>
+                    <tr><td>Title</td><td>string</td><td>获取或设置 Node 标题</td></tr>
+                    <tr><td>Mark</td><td>string</td><td>获取或设置 Node 标记信息</td></tr>
+                    <tr><td>MarkLines</td><td>string[]</td><td>获取 Node 标记信息行数据</td></tr>
+                    <tr><td>Left</td><td>int</td><td>获取或设置 Node 左边坐标</td></tr>
+                    <tr><td>Top</td><td>int</td><td>获取或设置 Node 上边坐标</td></tr>
+                    <tr><td>Width</td><td>int</td><td>获取或设置 Node 宽度</td></tr>
+                    <tr><td>Height</td><td>int</td><td>获取或设置 Node 高度</td></tr>
+                    <tr><td>Right</td><td>int</td><td>获取 Node 右边边坐标</td></tr>
+                    <tr><td>Bottom</td><td>int</td><td>获取 Node 下边坐标</td></tr>
+                    <tr><td>Rectangle</td><td>Rectangle</td><td>获取 Node 矩形区域</td></tr>
+                    <tr><td>TitleRectangle</td><td>Rectangle</td><td>获取 Node 标题矩形区域</td></tr>
+                    <tr><td>MarkRectangle</td><td>Rectangle</td><td>获取 Node 标记矩形区域</td></tr>
+                    <tr><td>TitleHeight</td><td>int</td><td>获取或设置 Node 标题高度</td></tr>
+                    <tr><td>InputOptions</td><td>STNodeOptionCollection</td><td>获取输入选项集合</td></tr>
+                    <tr><td>InputOptionsCount</td><td>int</td><td>获取输入选项集合个数</td></tr>
+                    <tr><td>OutputOptions</td><td>STNodeOptionCollection</td><td>获取输出选项</td></tr>
+                    <tr><td>OutputOptionsCount</td><td>int</td><td>获取输出选项个数</td></tr>
+                    <tr><td>Controls</td><td>STNodeControlCollection</td><td>获取 Node 所包含的控件集合</td></tr>
+                    <tr><td>ControlsCount</td><td>int</td><td>获取 Node 所包含的控件集合个数</td></tr>
+                    <tr><td>Location</td><td>Point</td><td>获取 Node 坐标位置</td></tr>
+                    <tr><td>Size</td><td>Size</td><td>获取 Node 大小</td></tr>
+                    <tr><td>Font</td><td>Font</td><td>获取或设置 Node 字体</td></tr>
+                    <tr><td>LockOption</td><td>bool</td><td>获取或设置是否锁定Option选项 锁定后不在接受连接</td></tr>
+                    <tr><td>LockLocation</td><td>bool</td><td>获取或设置是否锁定Node位置 锁定后不可移动</td></tr>
+                    <tr><td>ContextMenuStrip</td><td>ContextMenuStrip</td><td>获取或设置当前Node 上下文菜单</td></tr>
+                    <tr><td>Tag</td><td>object</td><td>获取或设置用户自定义保存的数据</td></tr>
+                </table>
+                <ul>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9;">Lock(Option/Location)</span>
+                        <ul>
+                            <li><img src="./images/lock.gif"/><br/><span class="span_property">LockOption</span>被设定后左上角会出现一把锁 表示节点内所有选项不再接受连接 但可以与其他节点选项断开连接 <span style="color:orangered">但是其他节点也同为被锁定状态 则无法断开</span>
+                            <br/><span class="span_property">LockLocation</span>被设定后右上角会出现一枚图钉 表示节点位置不再接受设置</li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr/><span class="span_title anchor_point" anchor="k">受保护字段</span>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr><td>m_ctrl_active</td><td>STNodeControl</td><td>当前Node中 活动的控件</td></tr>
+                    <tr><td>m_ctrl_hover</td><td>STNodeControl</td><td>当前Node中 悬停的控件</td></tr>
+                </table>
+                <p><span style="color:orangered">在上述属性中除了<span class="span_property">Mark</span><span class="span_property">Left</span><span class="span_property">Top</span>其余均为只读属性 被<span class="span_property">protected</span>所修饰 仅继承<span class="span_property">STNode</span>后才可访问 不然作者觉得太危险了 比如下面这段代码</span></p>
+                <p><span class="span_property">NodeXXX.Owner.Nodes[nIndex].InputOptions.RemoveAt(0);</span></p>
+                <p>节点都是模块化的 可能会有不同的人来做开发 甚至是以插件的方式提供 如果大家都遵守约定那将很好 可如果一旦有人不遵守约定 或者出现意外情况 那么就可能出现跨节点操作 破坏掉原本一个正常的节点 如果确实有需要请更改源代码</p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="l">可重载函数</span>
+                <table>
+                    <tr style="background-color:#505050"><td colspan="2">当Node被构造时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnCreate()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当所有者发生改变时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnOwnerChanged()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当选中状态改变时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnSelectedChanged()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当活动状态改变时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnActiveChanged()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制整个Node</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawNode(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制Node标题部分</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawTitle(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制Node主体部分 除去标题部分</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawBody(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制标记信息</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawMark(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当计算Option位置时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Point OnSetOptionLocation(STNodeOption op)</td></tr>
+                    <tr>
+                    <td>op</td><td>需要计算的Option</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制选项连线的点</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawOptionDot(DrawingTools dt, STNodeOption op)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td>op</td><td>指定的选项</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">计算当前Node所需要的矩形区域</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Size OnBuildNodeSize(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" style="background-color:#343434"><span style="color:orangered">若需要自己重绘Node 则应当重写此函数 以确定绘图区域大小
+                    <br/>返回的大小并不会限制绘制区域 任然可以在此区域之外绘制
+                    <br/>但是并不会被STNodeEditor所接受 并触发对应事件</span></td>
+                    </tr>
+                    <tr style="background-color:#505050"><td colspan="2">计算当前Mark所需要的矩形区域</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Rectangle OnBuildMarkRectangle(DrawingTools dt)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    </tr>
+                    <tr>
+                    <td colspan="2" style="background-color:#343434"><span style="color:orangered">若需要自己重绘Mark 则应当重写此函数 以确定绘图区域大小
+                    <br/>返回的大小并不会限制绘制区域 任然可以在此区域之外绘制
+                    <br/>但是并不会被STNodeEditor所接受 并触发对应事件</span></td>
+                    </tr>
+                    <tr style="background-color:#505050"><td colspan="2">当需要保存时候 此Node有哪些需要额外保存的数据</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnSaveNode(Dictionary&lt;string, byte[]&gt;)</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434"><span style="color:orangered">保存时并不会进行序列化 仅自动保存<span class="span_property">Mark</span>属性 还原时候仅重新通过空参数构造器创建此Node
+                    <br/>然后调用<span class="span_property">OnLoadNode()</span>将保存的数据进行还原</span></td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnLoadNode(Dictionary<string, byte[]> dic)</td></tr>
+                    <tr>
+                    <td>dic</td><td>保存时候的数据</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                </table>
+                <div style="overflow:auto;margin:0px 10px;max-width:100%;"><pre><span style="color:cornflowerblue">protected override void</span> OnSaveNode(<span style="color:cyan">Dictionary</span>&lt;<span style="color:cornflowerblue">string</span>, <span style="color:cornflowerblue">byte</span>[]&gt;) {
+    dic.Add(<span style="color:lime">"count"</span>, <span style="color:cyan">BitConverter</span>.GetBytes(<span style="color:cornflowerblue">this</span>.InputOptionsCount));
+}
+
+<span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">internal</span> <span style="color:cornflowerblue">override void </span>OnLoadNode(<span style="color:cyan">Dictionary</span>&lt;<span style="color:cornflowerblue">string</span>, <span style="color:cornflowerblue">byte</span>[]&gt; dic) {
+    <span style="color:cornflowerblue">int</span> nCount = <span style="color:cyan">BitConverter</span>.ToInt32(dic[<span style="color:lime">"count"</span>], 0);
+    <span style="color:cornflowerblue">while</span> (<span style="color:cornflowerblue">this</span>.InputOptionsCount &lt; nCount && <span style="color:cornflowerblue">this</span>.InputOptionsCount != nCount) 
+        <span style="color:cornflowerblue">this</span>.Addhub();
+}
+                </pre></div>
+                <p><img style="width:116px;" src="./images/object_type.png"/>
+                <br/>上面代码片段为<span class="span_property">STNodeHub</span>重载 当需要保存时候此节点需要保存当前已拥有的行数 还原的时候需要将行数还原 因为新构造的节点只有一行 若上面已有连线关系的时候只有一行可能无法正常还原连线关系</p>
+                <hr/>
+                <div><pre><span style="color:cornflowerblue">protected override void</span> OnSaveNode(<span style="color:cyan">Dictionary</span>&lt;<span style="color:cornflowerblue">string</span>, <span style="color:cornflowerblue">byte</span>[]&gt;) {
+    dic.Add(<span style="color:lime">"file"</span>, <span style="color:cyan">Encoding</span>.UTF8.GetBytes(m_str_file));
+}
+
+<span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">override void </span>OnLoadNode(<span style="color:cyan">Dictionary</span>&lt;<span style="color:cornflowerblue">string</span>, <span style="color:cornflowerblue">byte</span>[]&gt; dic) {
+    m_str_file = <span style="color:cyan">Encoding</span>.UTF8.GetString(dic[<span style="color:lime">"file"</span>]);
+    if (System.IO.<span style="color:cyan">File</span>.Exists(m_str_file)) {   <span style="color:lime">//如果文件存在加载并投递数据</span>
+        m_option_out.TransferData(<span style="color:cyan">Image</span>.FromFile(m_str_file));
+    }
+}</pre></div>
+                <p><img style="width:173px;" src="./images/open_image.png"/>
+                <br/>上面代码片段为DEMO中<span class="span_property">STNodeImageInput</span>重载 因为保存时候 需要把已经打开的文件路劲一起保存 还原的时候再次打开文件并传递数据</p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="m">其他重载函数</span>
+                <p>
+                <span class="span_property">OnGotFocus</span><span class="span_property">OnLostFocus</span><span class="span_property">OnMouse***</span><span class="span_property">OnKey***</span><span class="span_property">OnMove</span>
+                </p>
+                <span class="span_title anchor_point" anchor="n">公开函数</span>
+                <table>
+                    <tr style="background-color:#505050"><td colspan="2">重绘Node</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void Invalidate()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">重绘 Node 指定区域</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void Invalidate(Rectangle rect)</td></tr>
+                    <tr>
+                    <td>rect</td><td>Node 指定区域</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取此Node所包含的输入Option集合</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">STNodeOption[] GetInputOptions()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取此Node所包含的输出Option集合</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">STNodeOption[] GetOutputOptions()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">设置Node的选中状态</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void SetSelected(bool bSelected, bool bRedraw)</td></tr>
+                    <tr>
+                    <td>bSelected</td><td>是否选中</td>
+                    </tr>
+                    <tr>
+                    <td>bRedraw</td><td>是否立即重绘</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">此函数参照<span class="span_property">System.Windows.Forms.Control</span></td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">XXX Begin/Invoke(Delegate method, params object[] args)</td></tr>
+                </table>
+                <span class="span_title anchor_point" anchor="o">关于重绘</span>
+                <p><img style="max-width:537px;" src="./images/node.png"/>
+                <br/>若无特殊需求 仅仅需要的是输入输出点就足够了 那么无需用户进行重绘操作 上图 "Demo_Node" 就是默认的绘制 用户只需要在节点中加入需要的输入输出选项即可</p>
+                <div style="overflow:auto;margin:0px 10px;max-width:100%"><pre><span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">override</span> <span style="color:cornflowerblue">void</span> OnCreate() {
+    <span style="color:cornflowerblue">base</span>.OnCreate();
+    <span style="color:cornflowerblue">this</span>.InputOptions.Add(<span style="color:cornflowerblue">new</span> STNodeOption(<span style="color:lime">"Input"</span>, <span style="color:cornflowerblue">typeof</span>(<span style="color:cornflowerblue">string</span>), <span style="color:cornflowerblue">false</span>));
+    <span style="color:cornflowerblue">this</span>.InputOptions.Add(<span style="color:cornflowerblue">new</span> STNodeOption(<span style="color:lime">"SingleNode"</span>, <span style="color:cornflowerblue">typeof</span>(<span style="color:cyan">Image</span>), <span style="color:cornflowerblue">true</span>));
+    <span style="color:cornflowerblue">this</span>.InputOptions.Add(<span style="color:cornflowerblue">new</span> STNodeOption(<span style="color:lime">"SingleNode"</span>, <span style="color:cornflowerblue">typeof</span>(<span style="color:cyan">Icon</span>), <span style="color:cornflowerblue">true</span>));
+
+    <span style="color:cornflowerblue">this</span>.OutputOptions.Add(<span style="color:cornflowerblue">new</span> STNodeOption(<span style="color:lime">"output"</span>, <span style="color:cornflowerblue">typeof</span>(<span style="color:cornflowerblue">string</span>), <span style="color:cornflowerblue">false</span>));
+    <span style="color:cornflowerblue">this</span>.OutputOptions.Add(<span style="color:cornflowerblue">new</span> STNodeOption(<span style="color:lime">"Single"</span>, <span style="color:cornflowerblue">typeof</span>(<span style="color:cornflowerblue">string</span>), <span style="color:cornflowerblue">true</span>));
+    <span style="color:cornflowerblue">this</span>.Title = <span style="color:lime">"Demo_Node"</span>;
+}</pre></div>
+                <p>上面代码片段为 "Demo_Node" 的<span class="span_property">OnCreate</span>重载 加入了三个输入节点和两个输出节点 <span style="color:orangered">(当然上面的代码并没有绑定<span class="span_property">STNodeOption</span>的事件)</span> 若需要自定义绘制参考Demo代码</p>
+                <h2 class="anchor_point" anchor="p">STNodeOption</h2>
+                <p><span class="span_property">STNodeOption</span>为<span class="span_property">STNode</span>下选项的连接点</p>
+                <p style="color:orangered"><span class="span_property">TransferData(object data)</span>是关键函数 当被调用时数据将自动传递到与它相连的所有选项中 并触发目标选项的<span class="span_property">DataTransfer</span>事件
+                <br/>此函数是节点选项之间数据传递的核心</p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="q">属性</span>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr><td>Owner</td><td>STNode</td><td>获取当前 Option 所属的 Node</td></tr>
+                    <tr><td>IsSingle</td><td>bool</td><td>获取当前 Option 是否仅能被连接一次</td></tr>
+                    <tr><td>IsInput</td><td>bool</td><td>获取当前 Option 是否是输入选项</td></tr>
+                    <tr><td>TextColor</td><td>Color</td><td>获取或设置当前 Option 文本的颜色</td></tr>
+                    <tr><td>DotColor</td><td>Color</td><td>获取或设置当前 Option 连接点的颜色</td></tr>
+                    <tr><td>Text</td><td>string</td><td>获取或设置当前 Option 显示文本</td></tr>
+                    <tr><td>DotLeft</td><td>int</td><td>获取当前 Option 连接点的左边坐标</td></tr>
+                    <tr><td>DotTop</td><td>int</td><td>获取当前 Option 连接点的上边坐标</td></tr>
+                    <tr><td>DotSize</td><td>int</td><td>获取当前 Option 连接点的宽度</td></tr>
+                    <tr><td>Data</td><td>object</td><td>获取或者设置当前 Option 所包含的数据</td></tr>
+                    <tr><td>DataType</td><td>Type</td><td>获取当前 Option 数据类型</td></tr>
+                    <tr><td>DotRectangle</td><td>Rectangle</td><td>获取当前 Option 连接点的区域</td></tr>
+                    <tr><td>ConnectionCount</td><td>int</td><td>获取当前 Option 被连接的个数</td></tr>
+                </table>
+                <span class="span_title anchor_point" anchor="r">受保护字段</span>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr><td>m_hs_connected</td><td>HashSet&lt;STNodeOption&gt;</td><td>保存已经被连接的点</td></tr>
+                </table>
+                <p><span style="color:orangered">上述中不带 "设置" 二字的都为只读属性 即便是继承至<span class="span_property">STNodeOption</span></span>
+                <br/>因为作者认为<span class="span_property">STNodeOption</span>最大的用途应该是作为节点之间连线的载体和事件的触发 而对于其他外观需求并不是很重要</p>
+                <ul>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9;">DotColor</span>
+                        <ul>
+                            <li>若设置此值 则绘制时候以此值为准 否则查询<span class="span_property">STNodeEditor.TypeColor</span>字段进行颜色匹配</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <span class="span_property" style="background-color:#0090c9;">DataType</span>
+                        <ul>
+                            <li>此选项允许被连接或者输出的数据类型 若类型无法被兼容 无法完成连线
+                            <br/><span style="color:orangered">对于输入类型的节点 每个与其参与连接的输出节点的数据类型必须与输入节点的数据类型相同 或者为输入节点数据类型的子类</span>
+                            <br/>在使用过程中作者并不建议子类和父类混合使用 对于输入或者输出的数据类型应当统一为子类或者父类 若混合使用将在一定程度上产生歧义 比如父类颜色被设定成红色子类颜色被设定成黄色 那么在UI上会给人一种无法被连接的错觉 应当统一数据类型所对应的颜色
+                            <br/><span style="color:orangered">当数据类型为<span class="span_property">object</span>时 则表示可兼容所有数据类型且以 空心 状态绘制</span>
+                            <br/><img style="width:116px;" src="./images/object_type.png"/>
+                            <br/>上图中的 "HUB" 节点为内置节点 其节点类型为<span class="span_property">STNodeHub</span>默认状态下其输入输出点都为<span class="span_property">object</span>类型 表示可兼容所有类型 且重载了<span class="span_property">ConnectOption(STNodeOption op)</span>与<span class="span_property">CanConnect(STNodeOption op)</span>函数 一旦被接入或者被接入时则会变更为和对应的数据类型进行连接 若连接成功另则会再增加一行类型为<span class="span_property">object</span>的新行
+                            <br/><span style="color:orangered;">但是决定输入类型的<span class="span_property">DataType</span>属性被<span class="span_property">internal</span>修饰 所以若你即使继承至<span class="span_property">STNodeOption</span>也无法改写 只能通过构造器传递 因为处于连线状态突然变更类型会带来一系列的问题 即便编辑器发现变更时候可以选择自动断开所有不相符的连接 但是作者并不建议或者打算这么做 若有此需求请更改源代码</span></li>
+                        </ul>
+                    </li>
+                </ul>
+                <hr/>
+                <span class="span_title anchor_point" anchor="s">构造器</span>
+                <hr/>
+                <table>
+                    <tr style="background-color:#505050"><td colspan="2">构造一个 Option</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">STNodeOption(string strText, Type dataType, bool bSingle)</td></tr>
+                    <tr>
+                    <td>strText</td><td>显示文本</td>
+                    </tr>
+                    <tr>
+                    <td>dataType</td><td>数据类型</td>
+                    </tr>
+                    <tr>
+                    <td>bSingle</td><td>是否为单连接 <span style="color:orangered">若为true则以圆形绘制 否则方形</span></td>
+                    </tr>
+                </table>
+                <hr/>
+                <span class="span_title anchor_point" anchor="t">可重载函数</span>
+                <p><span class="span_property">OnConnected</span><span class="span_property">OnConnecting</span><span class="span_property">OnDisConnected</span><span class="span_property">OnDisConnecting</span><span class="span_property">OnDataTransfer</span></p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="u">公开函数</span>
+                <hr/>
+                <table>
+                    <tr style="background-color:#505050"><td colspan="2">当前 Option 连接目标 Option</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">virtual ConnectionStatus ConnectOption(STNodeOption op)</td></tr>
+                    <tr>
+                    <td>op</td><td>需要连接的 Option</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">检测当前 Option 是否可以连接目标 Option</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">virtual ConnectionStatus CanConnect(STNodeOption op)</td></tr>
+                    <tr>
+                    <td>op</td><td>需要连接的 Option</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434"><span style="color:orangered">当前Option具备连接目标Option的条件 不代表目标Option也具备连当前Option的条件</span></td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当前 Option 断开目标 Option</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">virtual bool DisConnection(STNodeOption op)</td></tr>
+                    <tr>
+                    <td>op</td><td>需要断开的 Option</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">断开当前 Option 的所有连接</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void DisConnectionAll()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">获取当前 Option 所连接的 Option 集合</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">List&lt;STNodeOption&gt; GetConnectedOption()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2"><span style="color:orangered">向当前 Option 所连接的所有 Option 投递数据</span></td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void TransferData()</td></tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2"><span style="color:orangered">向当前 Option 所连接的所有 Option 投递数据</span></td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void TransferData(object data)</td></tr>
+                    <tr>
+                    <td>data</td><td>需要投递的数据</td>
+                    </tr>
+                </table>
+                <hr/><span class="span_title anchor_point" anchor="v">事件</span><hr/>
+                <table>
+                    <tr><td>Connected</td><td>当被连接时候发生</td><tr/>
+                    <tr><td>Connecting</td><td>当连接正在被连接时发生</td><tr/>
+                    <tr><td>Disconnected</td><td>当被断开时候发生</td><tr/>
+                    <tr><td>DisConnecting</td><td>当连接正在被断开时发生</td><tr/>
+                    <tr><td>DataTransfer</td><td>当有数据传递时候发生</td><tr/>
+                </table>
+                <p>当<span class="span_property">Connected</span>与<span class="span_property">DisConnected</span>触发的同时<span class="span_property">DataTransfer</span>也会触发
+                <br/>所以通常情况下<span class="span_property">DataTransfer</span>事件足够使用 通过对事件参数<span class="span_property">Status</span>可得到 当前事件触发时候目标<span class="span_property">Option</span>与当前<span class="span_property">Option</span>的连线关系</p>
+                <p><span style="color:orangered">当一个连线完成或者断开时候 输入和输出<span class="span_property">STNodeOption</span>都将触发事件 因为无论连接还是断开都应该是相对的需要两个节点共同参与 而通常情况下只需要对输入节点进行事件绑定即可</span></p>
+                <h2 class="anchor_point" anchor="w">STNodeOptionEventArgs</h2>
+                <p><span class="span_property">STNodeOptionEventArgs</span>为包含了<span class="span_property">STNodeOption</span>相关事件的事件参数</p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="x">属性</span>
+                <table>
+                    <tr style="text-align:center;background-color:#505050;">
+                    <td>属性名称</td><td>类型</td><td>描述</td>
+                    </tr>
+                    <tr><td>TargetOption</td><td>STNodeOption</td><td>触发此事件的对应Option</td></tr>
+                    <tr><td>Status</td><td>ConnectionStatus</td><td>Option之间的连线状态</td></tr>
+                    <tr><td>IsSponsor</td><td>bool</td><td>是否为此次行为的发起者</td></tr>
+                </table>
+                <hr/>
+                <h2 class="anchor_point" anchor="y">STNodeControl</h2>
+                <p>关于此类不做过多介绍 可将其视为<span class="span_property">System.Windows.Forms.Control</span>虽然提供的属性和事件并没有太多 但是作者认为也应当足够了 若还有其他需求请自行修改源代码</p>
+                <hr/>
+                <span class="span_title anchor_point" anchor="z">Demo</span>
+                <hr/>
+                <div style="overflow:auto;margin:0px 10px;max-width:100%"><pre><span style="color:cornflowerblue">public class</span> <span style="color:cyan">STNodeButton</span> : <span style="color:cyan">STNodeControl</span>   //自定义一个Button控件
+{
+    <span style="color:cornflowerblue">private bool</span> m_isHover;
+
+    <span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">override void</span> OnMouseEnter(<span style="color:cyan">EventArgs</span> e) {
+        <span style="color:cornflowerblue">base</span>.OnMouseEnter(e);
+        m_isHover = <span style="color:cornflowerblue">true</span>;
+        <span style="color:cornflowerblue">this</span>.Invalidate();
+    }
+
+    <span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">override void</span> OnMouseLeave(<span style="color:cyan">EventArgs</span> e) {
+        <span style="color:cornflowerblue">base</span>.OnMouseLeave(e);
+        m_isHover = <span style="color:cornflowerblue">false</span>;
+        <span style="color:cornflowerblue">this</span>.Invalidate();
+    }
+
+    <span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">override void</span> OnPaint(<span style="color:cyan">DrawingTools</span> dt) {
+        <span style="color:lime">//base.OnPaint(dt);</span>
+        <span style="color:cyan">Graphics</span> g = dt.<span style="color:cyan">Graphics</span>;
+        <span style="color:cyan">SolidBrush</span> brush = dt.<span style="color:cyan">SolidBrush</span>;
+        brush.Color = m_isHover ? <span style="color:cyan">Color</span>.DodgerBlue : <span style="color:cornflowerblue">this</span>.BackColor;
+        g.FillRectangle(brush, 0, 0, <span style="color:cornflowerblue">this</span>.Width, <span style="color:cornflowerblue">this</span>.Height);
+        g.DrawString(<span style="color:cornflowerblue">this</span>.Text, <span style="color:cornflowerblue">this</span>.Font, <span style="color:cyan">Brushes</span>.White, <span style="color:cornflowerblue">this</span>.ClientRectangle, <span style="color:cornflowerblue">base</span>.m_sf);
+    }
+}</pre></div><div style="overflow:auto;margin:0px 10px;max-width:100%;"><pre><span style="color:cornflowerblue">public</span> <span style="color:cornflowerblue">class</span> <span style="color:cyan">STNodeImageInput</span> : <span style="color:cyan">STNode</span>
+{
+    <span style="color:cornflowerblue">private</span> <span style="color:cyan">STNodeOption</span> m_option_out;
+
+    <span style="color:cornflowerblue">protected</span> <span style="color:cornflowerblue">override void</span> OnCreate() {
+        <span style="color:cornflowerblue">base</span>.OnCreate();
+        <span style="color:cornflowerblue">this</span>.Title = <span style="color:lime">"ImageInput"</span>;
+        m_option_out = <span style="color:cornflowerblue">new</span> <span style="color:cyan">STNodeOption</span>(<span style="color:lime">""</span>, <span style="color:cornflowerblue">typeof</span>(<span style="color:cyan">Image</span>), <span style="color:cornflowerblue">false</span>);
+        <span style="color:cornflowerblue">this</span>.OutputOptions.Add(m_option_out);
+        <span style="color:cyan">STNodeButton</span> btn = <span style="color:cornflowerblue">new</span> <span style="color:cyan">STNodeButton</span>();
+        btn.Left = 10; btn.Top = 10;
+        btn.Text = <span style="color:lime">"OpenImage"</span>;
+        btn.MouseClick += <span style="color:cornflowerblue">new</span> <span style="color:cyan">MouseEventHandler</span>(btn_MouseClick);
+        <span style="color:cornflowerblue">this</span>.Controls.Add(btn);
+    }
+    <span style="color:lime">//...other code</span>
+}</pre>
+                </div>
+                <p><img style="width:173px;" src="./images/open_image.png"/>
+                <br/>上面代码片段为 DEMO 中 "ImageInput" 节点与自定义 Button 控件代码 以上代码演示了如何自定义与使用一个控件 可以看到与<span class="span_property">System.Windows.Forms.Control</span>差异并不是很大 多以这里并不做过多介绍</p>
+            </div>
+        </div>
+    </body>
+</html>
