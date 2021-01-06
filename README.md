@@ -12,8 +12,6 @@
 
 ![STNodeEditor](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/formImage.png)
 
-<img alr="STNodeEditor" width=537 src="https://debugst.github.io/DotNet_WinForm_NodeEditor/images/formImage.png"/>
-
 ## 简要说明
 * 画布
 	* 移动 `鼠标中键` 拖动 Mac用户可二指拖动 `触控板`
