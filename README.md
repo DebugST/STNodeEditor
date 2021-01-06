@@ -105,8 +105,10 @@ public class NodeNumberAdd : STNode
 更多细节请参考文档
 
 项目主页:  [DebugST.github.io/DotNet_WinForm_NodeEditor](https://DebugST.github.io/DotNet_WinForm_NodeEditor)
+
 开发文档: [DebugST.github.io/DotNet_WinForm_NodeEditor/doc.html](https://DebugST.github.io/DotNet_WinForm_NodeEditor/doc.html)
-##关于作者
+
+## 关于作者
 * Github: [DebugST](https://DebugST.github.io)
 * Blog: [Crystal_lz](http://st233.com)
 * Mail: (2212233137@qq.com)
