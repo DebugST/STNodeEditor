@@ -80,8 +80,8 @@ namespace ST.Library.UI
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "*.stn|*.stn";
             if (ofd.ShowDialog() != DialogResult.OK) return;
-            stNodeEditor1.LoadCanvas(ofd.FileName);
             stNodeEditor1.Nodes.Clear();
+            stNodeEditor1.LoadCanvas(ofd.FileName);
         }
     }
 }

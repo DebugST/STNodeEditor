@@ -48,10 +48,11 @@ namespace ST.Library.UI
             internal set {
                 if (value == _Owner) return;
                 if (_Owner != null) {
-                    foreach (STNodeOption op in this._InputOptions) op.DisConnectionAll();
-                    foreach (STNodeOption op in this._OutputOptions) op.DisConnectionAll();
+                    foreach (STNodeOption op in this._InputOptions.ToArray()) op.DisConnectionAll();
+                    foreach (STNodeOption op in this._OutputOptions.ToArray()) op.DisConnectionAll();
                 }
                 _Owner = value;
+                this.BuildSize(true, true, false);
                 this.OnOwnerChanged();
             }
         }
@@ -368,8 +369,14 @@ namespace ST.Library.UI
             set { _Tag = value; }
         }
 
-        private bool m_isBuildNodeSize;
-        private bool m_isBuildMarkSize;
+        private Guid _Guid;
+        /// <summary>
+        /// 获取全局唯一标识
+        /// </summary>
+        public Guid Guid {
+            get { return _Guid; }
+        }
+
         private static Point m_static_pt_init = new Point(10, 10);
 
         public STNode(/*string strTitle, int x, int y*/) {
@@ -395,6 +402,7 @@ namespace ST.Library.UI
             m_sf.SetTabStops(0, new float[] { 40 });
             m_static_pt_init.X += 10;
             m_static_pt_init.Y += 10;
+            this._Guid = Guid.NewGuid();
             this.OnCreate();
         }
 
@@ -409,30 +417,34 @@ namespace ST.Library.UI
         /// </summary>
         protected STNodeControl m_ctrl_hover;
 
-        public void BuildSize(bool bBuildNode, bool bBuildMark, bool bRedraw) {
-            m_isBuildNodeSize = bBuildNode;
-            m_isBuildMarkSize = bBuildMark;
-            if (bRedraw) {
-                if (this._Owner != null) this._Owner.Invalidate();
+        protected internal void BuildSize(bool bBuildNode, bool bBuildMark, bool bRedraw) {
+            if (this._Owner == null) return;
+            Pen p = new Pen(this._BackColor);
+            SolidBrush sb = new SolidBrush(this._BackColor);
+            using (Graphics g = this._Owner.CreateGraphics()) {
+                DrawingTools dt = new DrawingTools() {
+                    Graphics = g,
+                    Pen = p,
+                    SolidBrush = sb
+                };
+                if (bBuildNode) {
+                    Size sz = this.OnBuildNodeSize(dt);
+                    this._Width = sz.Width;
+                    this._Height = sz.Height;
+                    this.SetOptionLocation();
+                    this.OnResize(new EventArgs());
+                }
+                if (bBuildMark) {
+                    if (string.IsNullOrEmpty(this._Mark)) return;
+                    this._MarkRectangle = this.OnBuildMarkRectangle(dt);
+                }
             }
-        }
-
-        internal void CheckSize(DrawingTools dt) {
-            if (m_isBuildNodeSize) {
-                Size sz = this.OnBuildNodeSize(dt);
-                this._Width = sz.Width;
-                this._Height = sz.Height;
-                m_isBuildNodeSize = false;
-            }
-            if (m_isBuildMarkSize) {
-                m_isBuildMarkSize = true;
-                if (string.IsNullOrEmpty(this._Mark)) return;
-                this._MarkRectangle = this.OnBuildMarkRectangle(dt);
-            }
+            if (bRedraw) this._Owner.Invalidate();
         }
 
         internal Dictionary<string, byte[]> OnSaveNode() {
             Dictionary<string, byte[]> dic = new Dictionary<string, byte[]>();
+            dic.Add("Guid", this._Guid.ToByteArray());
             dic.Add("Left", BitConverter.GetBytes(this._Left));
             dic.Add("Top", BitConverter.GetBytes(this._Top));
             dic.Add("Mark", string.IsNullOrEmpty(this._Mark) ? new byte[] { 0 } : Encoding.UTF8.GetBytes(this._Mark));
@@ -444,7 +456,11 @@ namespace ST.Library.UI
 
         internal virtual byte[] GetSaveData() {
             List<byte> lst = new List<byte>();
-            byte[] byData = Encoding.UTF8.GetBytes(this.GetType().GUID.ToString());
+            Type t = this.GetType();
+            byte[] byData = Encoding.UTF8.GetBytes(t.Module.Name);
+            lst.Add((byte)byData.Length);
+            lst.AddRange(byData); 
+            byData = Encoding.UTF8.GetBytes(t.GUID.ToString());
             lst.Add((byte)byData.Length);
             lst.AddRange(byData);
 
@@ -552,31 +568,13 @@ namespace ST.Library.UI
         /// <param name="dt">绘制工具</param>
         protected virtual void OnDrawBody(DrawingTools dt) {
             SolidBrush brush = dt.SolidBrush;
-            Rectangle rect = new Rectangle(this.Left + 10, this._Top + this._TitleHeight, this._Width - 20, m_nItemHeight);
-            m_sf.Alignment = StringAlignment.Near;
             foreach (STNodeOption op in this._InputOptions) {
-                brush.Color = op.TextColor;// this._ForeColor;
-                dt.Graphics.DrawString(op.Text, this._Font, brush, rect, m_sf);
-                op.DotLeft = this.Left - 5;
-                op.DotTop = rect.Y + 5;
-                Point pt = this.OnSetOptionLocation(op);
-                op.DotLeft = pt.X;
-                op.DotTop = pt.Y;
                 this.OnDrawOptionDot(dt, op);
-                rect.Y += m_nItemHeight;
+                this.OnDrawOptionText(dt, op);
             }
-            rect.Y = this._Top + this._TitleHeight;
-            m_sf.Alignment = StringAlignment.Far;
             foreach (STNodeOption op in this._OutputOptions) {
-                brush.Color = op.TextColor;// this._ForeColor;
-                dt.Graphics.DrawString(op.Text, this._Font, brush, rect, m_sf);
-                op.DotLeft = this.Left + this.Width - 5;
-                op.DotTop = rect.Y + 5;
-                Point pt = this.OnSetOptionLocation(op);
-                op.DotLeft = pt.X;
-                op.DotTop = pt.Y;
                 this.OnDrawOptionDot(dt, op);
-                rect.Y += m_nItemHeight;
+                this.OnDrawOptionText(dt, op);
             }
             if (this._Controls.Count != 0) {    //绘制子控件
                 //将坐标原点与节点对齐
@@ -655,12 +653,38 @@ namespace ST.Library.UI
             }
         }
         /// <summary>
-        /// 当计算Option位置时候发生
+        /// 绘制选项的文本
+        /// </summary>
+        /// <param name="dt">绘制工具</param>
+        /// <param name="op">指定的选项</param>
+        protected virtual void OnDrawOptionText(DrawingTools dt, STNodeOption op) {
+            Graphics g = dt.Graphics;
+            SolidBrush brush = dt.SolidBrush;
+            if (op.IsInput) {
+                m_sf.Alignment = StringAlignment.Near;
+            } else {
+                m_sf.Alignment = StringAlignment.Far;
+            }
+            brush.Color = op.TextColor;
+            g.DrawString(op.Text, this.Font, brush, op.TextRectangle, m_sf);
+        }
+        /// <summary>
+        /// 当计算Option连线点位置时候发生
         /// </summary>
         /// <param name="op">需要计算的Option</param>
+        /// <param name="pt">自动计算出的位置</param>
         /// <returns>新的位置</returns>
-        protected virtual Point OnSetOptionLocation(STNodeOption op) {
-            return new Point(op.DotLeft, op.DotTop);
+        protected virtual Point OnSetOptionDotLocation(STNodeOption op, Point pt) {
+            return pt;
+        }
+        /// <summary>
+        /// 当计算Option文本区域时候发生
+        /// </summary>
+        /// <param name="op">需要计算的Option</param>
+        /// <param name="rect">自动计算出的区域</param>
+        /// <returns>新的区域</returns>
+        protected virtual Rectangle OnSetOptionTextRectangle(STNodeOption op, Rectangle rect) {
+            return rect;
         }
         /// <summary>
         /// 计算当前Node所需要的矩形区域
@@ -712,6 +736,7 @@ namespace ST.Library.UI
         /// </summary>
         /// <param name="dic">保存时候的数据</param>
         protected internal virtual void OnLoadNode(Dictionary<string, byte[]> dic) {
+            if (dic.ContainsKey("Guid")) this._Guid = new Guid(dic["Guid"]);
             if (dic.ContainsKey("Left")) this._Left = BitConverter.ToInt32(dic["Left"], 0);
             if (dic.ContainsKey("Top")) this._Top = BitConverter.ToInt32(dic["Top"], 0);
             if (dic.ContainsKey("Mark")) {
@@ -720,6 +745,12 @@ namespace ST.Library.UI
             }
             if (dic.ContainsKey("LockOption")) this._LockOption = dic["LockOption"][0] == 1;
             if (dic.ContainsKey("LockLocation")) this._LockLocation = dic["LockLocation"][0] == 1;
+        }
+        /// <summary>
+        /// 当编辑器加载完成所有的节点时候发生
+        /// </summary>
+        protected internal virtual void OnEditorLoadCompleted() { 
+        
         }
 
         //[event]===========================[event]==============================[event]============================[event]
@@ -821,8 +852,8 @@ namespace ST.Library.UI
             if (m_ctrl_active != null) m_ctrl_active.OnKeyPress(e);
         }
 
-        protected internal virtual void OnMove(EventArgs e) { }
-        protected internal virtual void OnResize(EventArgs e) { }
+        protected internal virtual void OnMove(EventArgs e) { this.SetOptionLocation(); }
+        protected internal virtual void OnResize(EventArgs e) { this.SetOptionLocation(); }
 
 
         /// <summary>
@@ -839,6 +870,26 @@ namespace ST.Library.UI
         protected virtual void OnActiveChanged() { }
 
         #endregion protected
+
+        private void SetOptionLocation() {
+            Rectangle rect = new Rectangle(this.Left + 10, this._Top + this._TitleHeight, this._Width - 20, m_nItemHeight);
+            foreach (STNodeOption op in this._InputOptions) {
+                Point pt = this.OnSetOptionDotLocation(op, new Point(this.Left - 5, rect.Y + 5));
+                op.TextRectangle = this.OnSetOptionTextRectangle(op, rect);
+                op.DotLeft = pt.X;
+                op.DotTop = pt.Y;
+                rect.Y += m_nItemHeight;
+            }
+            rect.Y = this._Top + this._TitleHeight;
+            m_sf.Alignment = StringAlignment.Far;
+            foreach (STNodeOption op in this._OutputOptions) {
+                Point pt = this.OnSetOptionDotLocation(op, new Point(this._Left + this._Width - 5, rect.Y + 5));
+                op.TextRectangle = this.OnSetOptionTextRectangle(op, rect);
+                op.DotLeft = pt.X;
+                op.DotTop = pt.Y;
+                rect.Y += m_nItemHeight;
+            }
+        }
 
         /// <summary>
         /// 重绘Node

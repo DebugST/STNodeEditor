@@ -220,5 +220,12 @@ namespace ST.Library.UI
         IEnumerator IEnumerable.GetEnumerator() {
             return this.GetEnumerator();
         }
+
+        public STNodeOption[] ToArray() {
+            STNodeOption[] ops = new STNodeOption[this._Count];
+            for (int i = 0; i < ops.Length; i++)
+                ops[i] = m_options[i];
+            return ops;
+        }
     }
 }

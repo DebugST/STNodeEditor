@@ -28,7 +28,7 @@ namespace ST.Library.UI
         //当有数据传入时
         void m_in_num_DataTransfer(object sender, STNodeOptionEventArgs e) {
             //判断连线是否是连接状态(建立连线 断开连线 都会触发该事件)
-            if (e.Status == ConnectionStatus.Connected) {
+            if (e.Status == ConnectionStatus.Connected && e.TargetOption.Data != null) {
                 if (sender == m_in_num1)
                     m_nNum1 = (int)e.TargetOption.Data;//TargetOption为触发此事件的Option
                 else

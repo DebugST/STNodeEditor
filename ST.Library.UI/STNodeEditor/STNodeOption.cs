@@ -103,7 +103,16 @@ namespace ST.Library.UI
         /// </summary>
         public int DotSize {
             get { return _DotSize; }
-            protected internal set { _DotSize = value; }
+            protected set { _DotSize = value; }
+        }
+
+        private Rectangle _TextRectangle;
+        /// <summary>
+        /// 获取当前 Option 文本区域
+        /// </summary>
+        public Rectangle TextRectangle {
+            get { return _TextRectangle; }
+            internal set { _TextRectangle = value; }
         }
 
         private object _Data;

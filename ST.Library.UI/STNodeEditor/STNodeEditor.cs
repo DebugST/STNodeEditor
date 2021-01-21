@@ -10,6 +10,7 @@ using System.Drawing.Drawing2D;
 using System.Threading;
 using System.ComponentModel;
 using System.Reflection;
+using System.IO.Compression;
 /*
 MIT License
 
@@ -632,11 +633,12 @@ namespace ST.Library.UI
             g.TranslateTransform(this._CanvasOffsetX, this._CanvasOffsetY); //移动坐标系
             g.ScaleTransform(this._CanvasScale, this._CanvasScale);         //缩放绘图表面
 
-            this.OnDrawNode(m_drawing_tools, this.ControlToCanvas(this.ClientRectangle));
             this.OnDrawConnectedLine(m_drawing_tools);
+            this.OnDrawNode(m_drawing_tools, this.ControlToCanvas(this.ClientRectangle));
 
             if (m_ca == CanvasAction.ConnectOption) {                       //如果正在连线
                 m_drawing_tools.Pen.Color = this._HighLineColor;
+                g.SmoothingMode = SmoothingMode.HighQuality;
                 if (m_option_down.IsInput)
                     this.DrawBezier(g, m_drawing_tools.Pen, m_pt_in_canvas, m_pt_dot_down, this._Curvature);
                 else
@@ -777,21 +779,23 @@ namespace ST.Library.UI
                 this.OnHoverChanged(new EventArgs());
                 bRedraw = true;
             }
-            if (this._HoverNode != null)
+            if (this._HoverNode != null) {
                 this._HoverNode.OnMouseMove(new MouseEventArgs(e.Button, e.Clicks,
                     (int)m_pt_in_canvas.X - this._HoverNode.Left,
                     (int)m_pt_in_canvas.Y - this._HoverNode.Top, e.Delta));
-
-            GraphicsPath gp = null;
-            foreach (var v in m_dic_gp_info) {          //判断鼠标是否悬停到连线路径上
-                if (v.Key.IsOutlineVisible(m_pt_in_canvas, m_p_line_hover)) {
-                    gp = v.Key;
-                    break;
+                m_gp_hover = null;
+            } else {
+                GraphicsPath gp = null;
+                foreach (var v in m_dic_gp_info) {          //判断鼠标是否悬停到连线路径上
+                    if (v.Key.IsOutlineVisible(m_pt_in_canvas, m_p_line_hover)) {
+                        gp = v.Key;
+                        break;
+                    }
                 }
-            }
-            if (m_gp_hover != gp) {
-                m_gp_hover = gp;
-                bRedraw = true;
+                if (m_gp_hover != gp) {
+                    m_gp_hover = gp;
+                    bRedraw = true;
+                }
             }
             if (bRedraw) this.Invalidate();
         }
@@ -942,7 +946,7 @@ namespace ST.Library.UI
             //var rect_canvas_display = this.ControlToCanvas(rect);
             Image img_border = null;
             foreach (STNode n in this._Nodes) {
-                n.CheckSize(dt);
+                //n.CheckSize(dt);
                 img_border = m_img_border;
                 if (this._ShowBorder) {     //如果绘制边框 判断状态
                     if (this._ActiveNode == n) img_border = m_img_border_active;
@@ -1701,24 +1705,26 @@ namespace ST.Library.UI
             Dictionary<STNodeOption, long> dic = new Dictionary<STNodeOption, long>();
             s.Write(new byte[] { (byte)'S', (byte)'T', (byte)'N', (byte)'D' }, 0, 4); //file head
             s.WriteByte(1);                                                           //ver
-            s.Write(BitConverter.GetBytes(this._CanvasOffsetX), 0, 4);
-            s.Write(BitConverter.GetBytes(this._CanvasOffsetY), 0, 4);
-            s.Write(BitConverter.GetBytes(this._CanvasScale), 0, 4);
-            s.Write(BitConverter.GetBytes(this._Nodes.Count), 0, 4);
-            foreach (STNode node in this._Nodes) {
-                try {
-                    byte[] byNode = node.GetSaveData();
-                    s.Write(BitConverter.GetBytes(byNode.Length), 0, 4);
-                    s.Write(byNode, 0, byNode.Length);
-                    foreach (STNodeOption op in node.InputOptions) dic.Add(op, dic.Count);
-                    foreach (STNodeOption op in node.OutputOptions) dic.Add(op, dic.Count);
-                } catch (Exception ex) {
-                    throw new Exception("获取节点数据出错-" + node.Title, ex);
+            using (GZipStream gs = new GZipStream(s, CompressionMode.Compress)) {
+                gs.Write(BitConverter.GetBytes(this._CanvasOffsetX), 0, 4);
+                gs.Write(BitConverter.GetBytes(this._CanvasOffsetY), 0, 4);
+                gs.Write(BitConverter.GetBytes(this._CanvasScale), 0, 4);
+                gs.Write(BitConverter.GetBytes(this._Nodes.Count), 0, 4);
+                foreach (STNode node in this._Nodes) {
+                    try {
+                        byte[] byNode = node.GetSaveData();
+                        gs.Write(BitConverter.GetBytes(byNode.Length), 0, 4);
+                        gs.Write(byNode, 0, byNode.Length);
+                        foreach (STNodeOption op in node.InputOptions) dic.Add(op, dic.Count);
+                        foreach (STNodeOption op in node.OutputOptions) dic.Add(op, dic.Count);
+                    } catch (Exception ex) {
+                        throw new Exception("获取节点数据出错-" + node.Title, ex);
+                    }
                 }
+                gs.Write(BitConverter.GetBytes(m_dic_gp_info.Count), 0, 4);
+                foreach (var v in m_dic_gp_info.Values)
+                    gs.Write(BitConverter.GetBytes(((dic[v.Output] << 32) | dic[v.Input])), 0, 8);
             }
-            s.Write(BitConverter.GetBytes(m_dic_gp_info.Count), 0, 4);
-            foreach (var v in m_dic_gp_info.Values)
-                s.Write(BitConverter.GetBytes(((dic[v.Output] << 32) | dic[v.Input])), 0, 8);
         }
         /// <summary>
         /// 获取画布中内容二进制数据
@@ -1800,42 +1806,53 @@ namespace ST.Library.UI
             if (BitConverter.ToInt32(byLen, 0) != BitConverter.ToInt32(new byte[] { (byte)'S', (byte)'T', (byte)'N', (byte)'D' }, 0))
                 throw new InvalidDataException("无法识别的文件类型");
             if (s.ReadByte() != 1) throw new InvalidDataException("无法识别的文件版本号");
-            s.Read(byLen, 0, 4);
-            float x = BitConverter.ToSingle(byLen, 0);
-            s.Read(byLen, 0, 4);
-            float y = BitConverter.ToSingle(byLen, 0);
-            s.Read(byLen, 0, 4);
-            float scale = BitConverter.ToSingle(byLen, 0);
-            s.Read(byLen, 0, 4);
-            int nCount = BitConverter.ToInt32(byLen, 0);
-            Dictionary<long, STNodeOption> dic = new Dictionary<long, STNodeOption>();
-            byte[] byData = null;
-            for (int i = 0; i < nCount; i++) {
-                s.Read(byLen, 0, byLen.Length);
-                nLen = BitConverter.ToInt32(byLen, 0);
-                byData = new byte[nLen];
-                s.Read(byData, 0, byData.Length);
-                STNode node = this.GetNodeFromData(byData);
-                try { this._Nodes.Add(node); } catch (Exception ex) { throw new Exception("加载节点出错-" + node.Title, ex); }
-                foreach (STNodeOption op in node.InputOptions) dic.Add(dic.Count, op);
-                foreach (STNodeOption op in node.OutputOptions) dic.Add(dic.Count, op);
+            using (GZipStream gs = new GZipStream(s, CompressionMode.Decompress)) {
+                gs.Read(byLen, 0, 4);
+                float x = BitConverter.ToSingle(byLen, 0);
+                gs.Read(byLen, 0, 4);
+                float y = BitConverter.ToSingle(byLen, 0);
+                gs.Read(byLen, 0, 4);
+                float scale = BitConverter.ToSingle(byLen, 0);
+                gs.Read(byLen, 0, 4);
+                int nCount = BitConverter.ToInt32(byLen, 0);
+                Dictionary<long, STNodeOption> dic = new Dictionary<long, STNodeOption>();
+                byte[] byData = null;
+                for (int i = 0; i < nCount; i++) {
+                    gs.Read(byLen, 0, byLen.Length);
+                    nLen = BitConverter.ToInt32(byLen, 0);
+                    byData = new byte[nLen];
+                    gs.Read(byData, 0, byData.Length);
+                    STNode node = null;
+                    try { node = this.GetNodeFromData(byData); } catch (Exception ex) {
+                        throw new Exception("加载节点时发生错误可能数据已损坏\r\n" + ex.Message, ex);
+                    }
+                    try { this._Nodes.Add(node); } catch (Exception ex) {
+                        throw new Exception("加载节点出错-" + node.Title, ex);
+                    }
+                    foreach (STNodeOption op in node.InputOptions) dic.Add(dic.Count, op);
+                    foreach (STNodeOption op in node.OutputOptions) dic.Add(dic.Count, op);
+                }
+                gs.Read(byLen, 0, 4);
+                nCount = BitConverter.ToInt32(byLen, 0);
+                byData = new byte[8];
+                for (int i = 0; i < nCount; i++) {
+                    gs.Read(byData, 0, byData.Length);
+                    long id = BitConverter.ToInt64(byData, 0);
+                    long op_out = id >> 32;
+                    long op_in = (int)id;
+                    dic[op_out].ConnectOption(dic[op_in]);
+                }
+                this.ScaleCanvas(scale, 0, 0);
+                this.MoveCanvas(x, y, false, CanvasMoveArgs.All);
             }
-            s.Read(byLen, 0, 4);
-            nCount = BitConverter.ToInt32(byLen, 0);
-            byData = new byte[8];
-            for (int i = 0; i < nCount; i++) {
-                s.Read(byData, 0, byData.Length);
-                long id = BitConverter.ToInt64(byData, 0);
-                long op_out = id >> 32;
-                long op_in = (int)id;
-                dic[op_out].ConnectOption(dic[op_in]);
-            }
-            this.ScaleCanvas(scale, 0, 0);
-            this.MoveCanvas(x, y, false, CanvasMoveArgs.All);
             this.BuildBounds();
+            foreach (STNode node in this._Nodes) node.OnEditorLoadCompleted();
         }
+
         private STNode GetNodeFromData(byte[] byData) {
             int nIndex = 0;
+            string strModel = Encoding.UTF8.GetString(byData, nIndex + 1, byData[nIndex]);
+            nIndex += byData[nIndex] + 1;
             string strGUID = Encoding.UTF8.GetString(byData, nIndex + 1, byData[nIndex]);
             nIndex += byData[nIndex] + 1;
 
@@ -1854,7 +1871,7 @@ namespace ST.Library.UI
                 nIndex += nLen;
                 dic.Add(strKey, byValue);
             }
-            if (!m_dic_type.ContainsKey(strGUID)) throw new TypeLoadException("无法找到类型 {" + strGUID + "} 所在程序集 确保所需程序集已被编辑器正确加载 可通过调用LoadAssembly()加载程序集");
+            if (!m_dic_type.ContainsKey(strGUID)) throw new TypeLoadException("无法找到类型 {" + strGUID + "} 所在程序集 确保程序集{" + strModel + "}已被编辑器正确加载 可通过调用LoadAssembly()加载程序集");
             Type t = m_dic_type[strGUID]; ;
             STNode node = (STNode)Activator.CreateInstance(t);
             node.OnLoadNode(dic);

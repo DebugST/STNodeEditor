@@ -41,8 +41,8 @@ namespace ST.Library.UI.Demo_Image
             return m_sz;
         }
 
-        protected override Point OnSetOptionLocation(STNodeOption op) {
-            return new Point(op.DotLeft, this.Top + 35);
+        protected override Point OnSetOptionDotLocation(STNodeOption op, Point pt) {
+            return new Point(pt.X, pt.Y + 10);
             //return base.OnSetOptionLocation(op);
         }
 

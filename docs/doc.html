@@ -88,7 +88,7 @@
                         </ul>
                     </li>
                 </ul>
-                <span style="background-color:blueviolet;font-size:12px;text-align:center;width:100%;display:inline-block;">最后编辑时间 2020-12-30</span>
+                <span style="background-color:blueviolet;font-size:12px;text-align:center;width:100%;display:inline-block;">最后编辑时间 2021-01-21</span>
             </div>
             <div id="div_right">
                 <h2 class="anchor_point" anchor="a">概述</h2>
@@ -595,21 +595,40 @@
                     <tr style="background-color:#505050"><td colspan="2">void OnDrawMark(DrawingTools dt)</td></tr>
                     <tr>
                     <td>dt</td><td>绘制工具</td>
-                    </tr>
-                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
-                    <tr style="background-color:#505050"><td colspan="2">当计算Option位置时候发生</td></tr>
-                    <tr style="background-color:#505050"><td colspan="2">Point OnSetOptionLocation(STNodeOption op)</td></tr>
-                    <tr>
-                    <td>op</td><td>需要计算的Option</td>
-                    </tr>
-                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    </tr><tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
                     <tr style="background-color:#505050"><td colspan="2">绘制选项连线的点</td></tr>
                     <tr style="background-color:#505050"><td colspan="2">void OnDrawOptionDot(DrawingTools dt, STNodeOption op)</td></tr>
                     <tr>
                     <td>dt</td><td>绘制工具</td>
                     </tr>
                     <tr>
-                    <td>op</td><td>指定的选项</td>
+                    <td>op</td><td>需要绘制的Option</td>
+                    </tr></tr><tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">绘制选项的文本</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnDrawOptionText(DrawingTools dt, STNodeOption op)</td></tr>
+                    <tr>
+                    <td>dt</td><td>绘制工具</td>
+                    <tr/>
+                    <tr>
+                    <td>op</td><td>需要绘制的Option</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当计算Option连线点位置时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Point OnSetOptionDotLocation(STNodeOption op, Point pt)</td></tr>
+                    <tr>
+                    <td>op</td><td>需要计算的Option</td>
+                    </tr>
+                    <tr>
+                    <td>op</td><td>自动计算出的位置</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当计算Option文本区域时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">Rectangle OnSetOptionTextRectangle(STNodeOption op, Rectangle rect)</td></tr>
+                    <tr>
+                    <td>op</td><td>需要计算的Option</td>
+                    </tr>
+                    <tr>
+                    <td>op</td><td>自动计算出的区域</td>
                     </tr>
                     <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
                     <tr style="background-color:#505050"><td colspan="2">计算当前Node所需要的矩形区域</td></tr>
@@ -634,13 +653,18 @@
                     </tr>
                     <tr style="background-color:#505050"><td colspan="2">当需要保存时候 此Node有哪些需要额外保存的数据</td></tr>
                     <tr style="background-color:#505050"><td colspan="2">void OnSaveNode(Dictionary&lt;string, byte[]&gt;)</td></tr>
-                    <tr><td colspan="2" style="background-color:#343434"><span style="color:orangered">保存时并不会进行序列化 仅自动保存<span class="span_property">Mark</span>属性 还原时候仅重新通过空参数构造器创建此Node
+                    <tr>
+                    <td>dic</td><td>需要保存的数据</td>
+                    </tr>
+                    <tr><td colspan="2" style="background-color:#343434"><span style="color:orangered">保存时并不会进行序列化 仅自动保存部分(<span class="span_property">Guid,Left,Top,Mark,LockOption,LockLocation</span>)属性 还原时候仅重新通过空参数构造器创建此Node
                     <br/>然后调用<span class="span_property">OnLoadNode()</span>将保存的数据进行还原</span></td></tr>
-                    <tr style="background-color:#505050"><td colspan="2">void OnLoadNode(Dictionary<string, byte[]> dic)</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnLoadNode(Dictionary&lt;string, byte[]&gt; dic)</td></tr>
                     <tr>
                     <td>dic</td><td>保存时候的数据</td>
                     </tr>
                     <tr><td colspan="2" style="background-color:#343434">&nbsp;</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">当编辑器加载完成所有的节点时候发生</td></tr>
+                    <tr style="background-color:#505050"><td colspan="2">void OnEditorLoadCompleted()</td></tr>
                 </table>
                 <div style="overflow:auto;margin:0px 10px;max-width:100%;"><pre><span style="color:cornflowerblue">protected override void</span> OnSaveNode(<span style="color:cyan">Dictionary</span>&lt;<span style="color:cornflowerblue">string</span>, <span style="color:cornflowerblue">byte</span>[]&gt;) {
     dic.Add(<span style="color:lime">"count"</span>, <span style="color:cyan">BitConverter</span>.GetBytes(<span style="color:cornflowerblue">this</span>.InputOptionsCount));

@@ -27,7 +27,7 @@ namespace ST.Library.UI
             if (-1 == nIndex) {
                 nIndex = this._Count;
                 node.Owner = m_owner;
-                node.BuildSize(true, true, false);
+                //node.BuildSize(true, true, false);
                 m_nodes[this._Count++] = node;
                 m_owner.BuildBounds();
                 m_owner.OnNodeAdded(new STNodeEditorEventArgs(node));
@@ -87,7 +87,7 @@ namespace ST.Library.UI
             node.Owner = m_owner;
             m_nodes[nIndex] = node;
             this._Count++;
-            node.BuildSize(true, true,false);
+            //node.BuildSize(true, true,false);
             m_owner.Invalidate();
             m_owner.BuildBounds();
         }
@@ -224,6 +224,13 @@ namespace ST.Library.UI
 
         IEnumerator IEnumerable.GetEnumerator() {
             return this.GetEnumerator();
+        }
+
+        public STNode[] ToArray() {
+            STNode[] nodes = new STNode[this._Count];
+            for (int i = 0; i < nodes.Length; i++)
+                nodes[i] = m_nodes[i];
+            return nodes;
         }
     }
 }
