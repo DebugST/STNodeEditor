@@ -4,75 +4,214 @@
         <base target="_blank" />
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
-        <title>STNodeEditor</title>
+        <title>STNodeEditor - 主页</title>
         <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+        <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+        <style type="text/css">
+            #div_screen{
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0,0,0,.5);
+                left: 0px;
+                top: 0px;
+            }
+            #div_pannel{
+                background-color: white;
+                width: 300px;
+                border-radius: 10px;
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                text-align:center;
+                padding:20px 0px;
+            }
+            .a_lua{
+                display: inline-block;
+                font-size: 2rem;
+                margin: 20px 0px;
+                padding: 10px 0px;
+                width: 200px;
+                background-color: lavender;
+                border-radius: 10px;
+                color: cornflowerblue;
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var nCount = 0;
+                var e_mix = $('#img_node_mix'), e_frm = $('#img_node_frm');
+                setInterval(function(){
+                    nCount++;
+                    if(nCount <= 20){
+                        e_mix.css("opacity", (nCount / 10) / 2);
+                    }else if(nCount > 30 && nCount <= 50){
+                        e_frm.css("opacity", ((nCount - 30) / 10) / 2);
+                    }
+                    if(nCount == 60){
+                        e_mix.css("opacity", 0);
+                        e_frm.css("opacity", 0);
+                    }
+                    if(nCount == 70) nCount = 0;
+                },100);
+                $('#a_lua_cn').click(function(){$('#div_screen').remove();});
+            });
+        </script>
     </head>
     <body>
-        <div id="div_img_node"><img src="./images/node.png"/><img src="./images/node.gif"/></div>
-        <div id="div_body">
-            <div style="text-align:center">
-                <span class="span_title">STNodeEditor</span><br/>
-                <a class="a_top_btn" href="https://github.com/DebugST/DotNet_WinForm_NodeEditor">项目地址</a><a class="a_top_btn" href="./doc.html">开发文档</a><a class="a_top_btn" href="./STNodeEditor.zip">类库下载</a>
+        <div id="div_top">
+            <div id="div_top_left"><img src="./images/page_top.png"/></div>
+            <div id="div_top_right">
+                <h1 id="h1_title">STNodeEditor</h1>
+                <p style="margin-top:2rem;text-align:left;">STNodeEditor 是一个轻量且功能强大的节点编辑器 使用方式非常简洁 提供了丰富的属性以及事件可以非常方便的完成节点之间数据的交互及通知 大量的重载函数供开发者使用具有很高的自由性</p>
+                <center>
+                <a id="a_btn_down" href="https://github.com/DebugST/DotNet_WinForm_NodeEditor/releases">下载 STNodeEditor</a><br/>
+                <a class="a_icon" attr_text="Github" style="background-image:url('./images/github.png'") href="https://github.com/DebugST/DotNet_WinForm_NodeEditor"></a>
+                <a class="a_icon" attr_text="Gitee" style="background-image:url('./images/gitee.png')" href="https://gitee.com/DebugST/DotNet_WinForm_NodeEditor"></a>
+                <a class="a_icon" attr_text="API手册" style="background-image:url('./images/api.png')" href="./doc_cn.html"></a>
+                </center>
             </div>
-            <div style="padding:5px 20px;">
-                <hr/>
-                <p>或许你未曾接触过节点编辑 但节点编辑的影子越来越多 尤其是在影视相关的一些设计类软件当中 Blender,C4D,Houdini,Davinci 等</p>
-                <p style="color:orangered"><span class="span_note">STNodeEditor</span>的使用方式非常简洁 提供了丰富的属性以及事件 可以非常方便的完成节点之间数据的交互及通知 大量的重载函数供开发者使用具有很高的自由性<br/>此控件采用<a class="span_note" href="https://opensource.org/licenses/mit-license.php">MIT</a>开源协议开源 使开发者能够拥有更大的自由度更少的限制</p>
-                <p>节点编辑最大的好处就是可视化操作 将单一的功能点封装到节点之中 让用户通过节点布线来组合自己需要的逻辑 让整个流程可视化 而不是将你程序的整个执行流程固化在你的程序之中 当然在这之前你需要定义好节点的数据类型 <span style="color:orangered">因为数据类型无法兼容是不允许连线的</span> 通常情况下同颜色的连接点表示数据类型相同</p>
-                <p>另一个好处 让开发者只需要注重单一的功能点开发 使得功能与功能之间的耦合度降低 开发者在节点中开发完成需要的功能 无需知道应该把数据交给谁或者怎么去传递数据 只需要将你的结果数据打包给你需要输出的选项点 无论节点间布线多么的复杂 节点编辑器会自动完成数据的投递过程</p>
-                <hr/>
-                <div style="overflow:hidden">
-                    <div style="float:left;"><img src="./images/form1.png" width=642></div>
-                    <div style="float:left; padding:10px; max-width:322px;">
+        </div>
+        <div style="clear:both;text-shadow: 0px 1px 1px #ddd;">
+            <div style="text-align:center;padding:30px;">
+                <h1 style="margin-top:0px;">STNodeEditor 2.0</h1>
+                <p class="quote_symbol">本案例中只是提供了一个节点编辑器控件 并不包含节点列表 属性编辑器等 若后期有空再做一套完整的框架</p>
+                <p>上面是第一版本作者在文档中提到的 <span style="font-size:2rem;color:hotpink">现在<span style="font-size:1.2rem;">都已</span>实现</span></p>
+                <p><span class="span_mark">STNodeEditor</span><span class="span_mark">STNodeTreeView</span><span class="span_mark">STNodePropertyGrid</span><span class="span_mark">STNodeEditorPannel</span></p>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodeeditor.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeEditor</h1>
+                        <p><span class="span_key">STNodeEditor</span>拥有非常强大的功能 支持画布的移动和缩放 可以对节点位置以及连线进行锁定 连线时候会自动检测数据类型是否兼容 以及连线是否重复或者构成环形线路等问题</p>
                         <ul>
-                            <li>
-                                <span>移动画布</span>
-                                <ul>
-                                    <li><span class="span_note">鼠标中键</span>拖动</li>
-                                    <li>MacBook可使用二指拖动<span class="span_note">触控板</span></li>
-                                </ul>
-                            </li>
-                            <br/>
-                            <li>
-                                <span>缩放画布</span>
-                                <ul><li>按下<span class="span_note">Control</span> + <span class="span_note">鼠标滚轮</span></li></ul>
-                            </li>
-                            <br/>
-                            <li>
-                                <span>移动节点</span>
-                                <ul><li><span class="span_note">鼠标左键</span>按下<span class="span_note">节点标题</span>拖动</li></ul>
-                            </li>
-                            <br/>
-                            <li>
-                                <span>删除连线</span>
-                                <ul><li>悬停连线 <span class="span_note">鼠标右键</span></li></ul>
-                            </li>
+                            <li>拖动标题移动节点</li>
+                            <li>右击标题弹出菜单 <span style="color:gray;">(需要设置<span class="span_key">ContextMenuStrip</span>)</span></li>
+                            <li>拖动连接点进行连线</li>
+                            <li>右击连线断开连接</li>
+                            <li>中键拖动移动画布 <span style="color:gray;">(若笔记本触摸板支持 可二指拖动)</span></li>
+                            <li>CTRL+鼠标滚轮 缩放画布</li>
                         </ul>
-                        <br/>
-                        <p style="color:hotpink">方形为多连接选项 圆形为单连接选项</p>
-                        <p style="color:hotpink">自定义选项颜色 应当同一颜色为同一数据类型 不同数据类型无法建立连线</p>
-                        <p style="color:hotpink">内置<span class="span_note">HUB</span>集线器节点 方便布线</p>
+                        <p style="color:hotpink">注:节点Body区域进行的操作编辑器不会响应 因为在节点客户区内部的操作将被转换为节点的事件</p>
+                        <p style="color:hotpink">因为作者将一个节点视为一个Form 而编辑器容器则为Desktop 开发者可以像开发WinForm程序一样去开发一个节点</p>
                     </div>
                 </div>
-                <hr/>
-                <div style="overflow:hidden">
-                    <div style="float:left; padding:10px; max-width:322px;">
-                        <p style="color:hotpink;">强大的<span class="span_note">UI</span>自定义能力 可快速帮助开发者定义出需要的节点界面</p>
-                        <p style="color:hotpink;">提供的<span class="span_note">STNodeControl</span>基类与<span class="span_note">System.Windows.Forms.Control</span>拥有差不多的接口 可使开发者能够像自定义<span class="span_note">WinForm</span>控件一样定义节点的控件</p>
-                        <p>即便用户不进行自定义 选项默认将按照一行一行排列</p>
-                        <p>基类<span class="span_note">STNode</span>为<span class="span_note">抽象类</span> 不可实例化 需开发者继承向其添加选项 并重载需要的函数进行自定义样式</p>
-                        <p>具体细节参考项目中的Demo或查看开发文档</p>
+            </div>
+            <div class="div_content_body">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodehub.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeHub</h1>
+                        <p><span class="span_key">STNodeHub</span>是一个内置的节点 其主要作用分线 可以将一个输出分散到多个输入或多个输出集中到一个输入点上以避免重复布线 也可在节点布线复杂时用于绕线</p>
+                        <p>HUB的输入输出默认为<span class="span_key">object</span>类型 当一个连接被连入时候将会自动更换数据类型并增加新行</p>
+                        <p style="color:hotpink">注:仅<span class="span_key">STNodeHub</span>可以修改连接点的数据类型 因为相应字段被<span class="span_key">internal</span>标记 而作为第三方扩展的<span class="span_key">STNode</span>中是无法修改已添加连接点的数据类型的</p>
                     </div>
-                    <div style="float:left;"><img src="./images/formImage.png" width=642></div>
                 </div>
-                <hr/>
-                <div style="font-size:12px;position:relative;">
-                    <table style="color:gray">
-                        <tr><td style="width:70px;">.Net版本:</td><td>.Net Framework 3.5</td></tr>
-                        <tr><td>&nbsp; VS版本:</td><td>Visual Studio 2010</td></tr>
-                    </table>
-                    <span style="position:absolute;right:0px;bottom:0px;border:solid 1px black;border-radius:5px;padding:1px 5px;">2021-01-06</span>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodetreeview.gif"/></div>
                 </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeTreeView</h1>
+                        <p><span class="span_key">STNodeTreeView</span>可与<span class="span_key">STNodeEditor</span>结合使用 <span class="span_key">STNodeTreeView</span>中的节点可直接拖拽进<span class="span_key">STNodeEditor</span>中 并且提供预览和检索功能</p>
+                        <p><span class="span_key">STNodeTreeView</span>的使用简单 无需像<span class="span_key">System.Windows.Forms.TreeView</span>需要自行去构造树</p>
+                        <p>通过使用<span class="span_key">STNodeAttribute</span>标记继承的<span class="span_key">STNode</span>可直接设置需要在<span class="span_key">STNodeTreeView</span>中显示的路径 以及希望在<span class="span_key">STNodePropertyGrid</span>中显示的信息</p>
+                        <p style="color:hotpink">注:若希望节点能够在<span class="span_key">STNodeTreeView</span>中显示 必须使用<span class="span_key">STNodeAttribute</span>标记<span class="span_key">STNode</span>子类</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img style="border:solid 1px black;" src="./images/stnodepropertygrid.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodePropertyGrid</h1>
+                        <p>若<span class="span_key">STNode</span>中的属性被<span class="span_key">STNodePropertyAttribute</span>标记则会在<span class="span_key">STNodePropertyGrid</span>中显示 默认情况下支持<span class="span_key">int,float,double,bool,string,enum</span>以及上述数据类型的<span class="span_key">Array</span> 若希望显示的属性数据类型不被支持 可以对<span class="span_key">DescriptorType</span>进行扩展重写 详细请参考DEMO</p>
+                        <p>可以看到在<span class="span_key">STNodePropertyGrid</span>的面板中可以显示节点的一些信息 作者认为提供给大家的是一套框架 大家可以基于这套框架打造一套自己的框架 <span style="color:hotpink">而为框架编写节点的Coder应该有权利选择是否留下个人信息</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodeeditorpannel.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeEditorPannel</h1>
+                        <p><span class="span_key">STNodeEditorPannel</span>是<span class="span_key">STNodeEditor</span><span class="span_key">STNodeTreeView</span><span class="span_key">STNodePropertyGrid</span>的一套组合控件</p>
+                        <p>可以通过拖动手柄控制布局</span>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body" style="height:auto;text-align:center;">
+                <p id="p_mengbi" attr_text='这问题好 直接把作者给整懵了' style="position:relative;display:inline-block;"><span id="span_sticker" style="font-size:2rem;color:hotpink;">所以</span>这东西<span style="font-size:3rem;color:hotpink;">有</span>什么<span class="question_symbol" style="font-size:2rem;color:hotpink;">用</span></p>
+                <p style="margin-bottom:45px;"><span style="transform: rotate(-20deg);">这东西可以做啥???</span><span style="transform: rotate(180deg);"> 拉流程图???</span> <span style="transform: rotate(15deg);">自动编排???</span></p>
+                <div id="div_img_pannel">
+                    <img src="./images/node_show_back.png"/>
+                    <img id="img_node_mix" style="position:absolute;left:0px;top:0px;opacity:0" src="./images/node_show_mix.png"/>
+                    <img id="img_node_frm" style="position:absolute;left:0px;top:0px;opacity:0" src="./images/node_show_frm.png"/>
+                </div>
+                <p style="color:gray;font-size:0.8rem;">这动画是作者能想到的最好解释方式了</p>
+                <p>当有很多应用程序(模块) 它们之间需要相互调用传递数据来完成一整套流程的工作<br/>
+                开发单一功能的应用程序(模块)相对比较容易 而实现一整套很多功能相互调用的应用程序相对比较繁琐<br/>
+                此套框架开发者只需要定义好传递的数据类型 然后分别实现单一节点功能 至于执行流程交给框架和用户布线即可</p>
+                <img src="./images/node_scan.png" width=1056 style="max-width:100%"/>
+                <p style="color:gray;font-size:0.8rem;">流程即程序 程序即流程 程序功能可视化</p>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">PNG<img src="./images/node_ui.png"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>关于UI自定义</h1>
+                        <p>由图可见 节点UI定义非常自由</p>
+                        <p><span class="span_key">STNodeControl</span>提供了与<span class="span_key">System.Windows.Forms.Control</span>一样的常用函数与属性 所以开发者只需要像开发<span class="span_key">WinForm</span>控件一样去开发<span class="span_key">STNode</span>的控件即可</p>
+                        <p>如图中<span class="span_key">AttrTestNode</span>没有特殊的UI定义需求 则只需要向<span class="span_key">STNode</span>提供需要输入输出的数据类型及显示文本<span class="span_key">STNode.AutoSize</span>会自动计算大小并布局 <span class="span_key">STNode.AutoSize</span>默认为<span class="span_key">true</span></p>
+                        <p>更多详情请参考 DEMO</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img width=537 src="./images/node.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>关于节点编辑器</h1>
+                        <p>或许你未曾接触过节点编辑 但节点编辑的影子越来越多 尤其是在设计相关的软件 Blender,C4D,Houdini,Davinci 等</p>
+                        <p>节点编辑最大的好处就是可视化操作 将单一功能封装到节点中 让用户通过节点布线来组合需要的逻辑 让整个流程可视化 而不是将程序的整个执行流程固定程序中 当然在这之前需要定义好节点的数据类型 <span style="color:orangered">因为数据类型无法兼容是不允许连线的</span> 通常情况下同颜色的连接点表示数据类型相同</p>
+                        <p>让开发者只需要注重单一的功能点开发 使得功能与功能之间的耦合度降低 开发者在节点中开发完成需要的功能 无需知道如何去调用下一个环节的程序 只需要将结果数据打包给需要输出的选项点 无论节点布线多么的复杂 节点编辑器会自动完成数据的投递过程</p>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:ghostwhite;text-align:center;padding:30px;position:relative;overflow:hidden">
+                <h1 class="question_symbol" style="margin-top:0px;position:relative;display:inline-block">STNodeEditor 3.0</h1><br/>
+                <p class="quote_symbol">本案例中只是Demo中提供了几个节点控件编写示例 并不包含控件 若后期有空再做一些节点可用的常用控件</p>
+                <p>上面是这一版本发布时候作者提到的 <span style="font-size:2rem;color:hotpink">是否<span style="font-size:1.2rem;">期待</span>实现</span> ???</p>
+                <a id="a_fork_me" href="#">Fork me on Github</a>
+            </div>
+            <div style="background-color:black;padding:20px;font-size:0.8rem;position:relative;color:white;text-shadow: 0px 1px 1px black;">
+                <table style="width:100%;">
+                    <tr><td style="width:70px;">.Net版本:</td><td>.Net Framework 3.5</td><td></td></tr>
+                    <tr><td>&nbsp; VS版本:</td><td>Visual Studio 2010</td><td style="text-align:right;">2021-04-27</td></tr>
+                </table>
+                <center>大家都说石头是世界上最帅的码农 好烦</center>
+            </div>
+        </div>
+        <div id="div_screen">
+            <div id="div_pannel">
+                <a target="_self" class="a_lua" id="a_lua_cn" href="javascript:void();">简体中文</a>
+                <a target="_self" class="a_lua" href="./index_en.html">English</a>
             </div>
         </div>
     </body>

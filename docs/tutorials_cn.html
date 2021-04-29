@@ -1,0 +1,1225 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>STNodeEditor - 教程</title>
+<link rel="stylesheet" type="text/css" href="./css/stdoc.css"/>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/stdoc.js"></script>
+</head>
+<body>
+<div id="div_body">
+<div id="div_left">
+<div id="div_left_list">
+<ul class='ul_group_root'>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_a'>前言</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_b'>简介</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_c'>[基础]STNode</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_d'>创建节点</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_e'>STNodeOption</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_f'>STNodeOption.Empty</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_g'>STNode.AutoSize</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_h'>案例 - ClockNode</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_i'>STNode.SetOptionXXX</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_j'>关于数据传递</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_k'>STNodeHub</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_l'>[基础]STNodeControl</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_m'>添加一个控件</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_n'>自定义一个 Button</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_o'>案例 - 图像信息获取</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_p'>[基础]STNodeEditor</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_q'>保存画布</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_r'>加载画布</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_s'>常用事件</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_t'>常用方法</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_u'>STNodePropertyGrid</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_v'>如何使用</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_w'>STNodePropertyAttribute</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_x'>STNodeAttribute</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_y'>查看帮助</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_z'>案例 - 两数相加</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_a'>ReadOnlyModel</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_b'>STNodePropertyDescriptor</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_c'>失败案例 - ColorTestNode</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_d'>关于属性描述器</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_e'>GetValueFromString()</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_f'>GetStringFromValue()</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_g'>成功案例 - ColorTestNode</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_h'>高级案例 - ColorTestNode</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_i'>STNodeTreeView</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_j'>使用方式</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_k'>加载程序集</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_l'>持久化保存</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_m'>保存</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_n'>OnSaveNode(dic)</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_o'>GetBytesFromValue()</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_p'>OnLoadNode(dic)</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_q'>OnEditorLoadCompleted</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_r'>THE END</a>
+    <ul>
+        
+    </ul>
+</li>
+</ul><span class='span_time'>2021-04-29</span>
+</div>
+</div>
+<div id="div_right">
+<h1 class='h_title anchor_point' anchor='a_a'>前言</h1>
+<div><h2 class='h_option anchor_point' anchor='a_b'>简介</h2></div>
+<p>那是一个冬季 在研究无线电安全的作者接触到了<a target='_bank' href='https://www.gnuradio.org/'>GNURadio</a> 那是作者第一次接触到节点编辑器</p>
+<p>-&gt; What? Excuse me... What"s this?.. 这是什么鬼东西?...</p>
+<p>那是一个春季 不知道为什么 过完年整个世界都变了 大家被迫窝在家里 无聊至极的作者学起了<a target='_bank' href='https://www.blender.org/'>Blender</a>那是作者第二次接触到节点编辑器</p>
+<p>-&gt; Wo...原来这东西可以这么玩...真方便</p>
+<p>于是一些想法在作者脑中逐渐诞生 让作者有了想做一个这样的东西的想法</p>
+<p>那是一个夏季 不知道为什么 作者又玩起了<a target='_bank' href='http://www.blackmagicdesign.com/cn/products/davinciresolve/'>Davinci</a>那是作者第三次接触到节点编辑器 这一次的接触让作者对节点编辑器的好感倍增 作者瞬间觉得 只要是可以模块化流程化的功能 万物皆可节点化</p>
+<p>所以<span class='span_mark'>STNodeEditor</span>就诞生了</p>
+<img width=990 src='./images/page_top.png'/>
+<hr/>
+<h1 class='h_title anchor_point' anchor='a_c'>[基础]STNode</h1>
+<p><span class='span_mark'>STNode</span>是整个框架的核心 如果把<span class='span_mark'>STNodeEditor</span>视为<span class='span_mark'>Desktop</span> 那么一个<span class='span_mark'>STNode</span>就可以视为桌面上的一个应用程序 开发一个健壮的<span class='span_mark'>STNode</span>是非常有必要的事情</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_d'>创建节点</h2></div>
+<hr/>
+<p>节点的基类<span class='span_mark'>STNode</span>被<span class='span_mark'>abstract</span>修饰 无法直接创建节点 所以节点必须继承至<span class='span_mark'>STNode</span></p>
+<p><span class='span_mark'>STNode</span>包含了大量的<span class='span_mark'>virtual</span>函数可供开发者重写 对于详细的函数列表请参考<a target='_bank' href='./doc.html'>API文档</a></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>using</span> ST.Library.UI.NodeEditor;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span><span class='code_key'>namespace</span> WinNodeEditorDemo
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>    {
+<span class='span_code_line'></span>        <span class='code_key'>public</span> <span class='code_class'>MyNode</span>() { <span class='code_note'>//与OnCreate()等效</span>
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.Title = <span class='code_string'>"TestNode"</span>;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_note'>//protected override void OnCreate() {</span>
+<span class='span_code_line'></span>        <span class='code_note'>//    base.OnCreate();</span>
+<span class='span_code_line'></span>        <span class='code_note'>//}</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>//添加到STNodeEditor中</span>
+<span class='span_code_line'></span>stNodeEditor1.Nodes.Add(<span class='code_key'>new</span> <span class='code_class'>MyNode</span>());</pre>
+</div>
+<img width=208 src='./images/tu_testnode.png'/>
+<p>会发现只看到一个标题什么都没有 因为并没有为它添加输入输出选项 所以重新修改代码</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"TestNode"</span>;
+<span class='span_code_line'></span>        <span class='code_note'>//此添加方式会得到添加成功后的 STNodeOption 索引位置</span>
+<span class='span_code_line'></span>        <span class='code_key'>int</span> nIndex = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_key'>new</span> <span class='code_class'>STNodeOption</span>(<span class='code_string'>"IN_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>));
+<span class='span_code_line'></span>        <span class='code_note'>//此添加方式能直接得到一个构建的 STNodeOption</span>
+<span class='span_code_line'></span>        <span class='code_class'>STNodeOption</span> op = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_testnode_adop.png'/>
+<p>这样节点上就会出现所添加的选项 但是这样还不够 可以看到一共有两个数据类型<span class='span_mark'>string</span>和<span class='span_mark'>int</span>应该给数据类型赋予颜色信息 来区分不同的数据类型</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"TestNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>int</span> nIndex = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_key'>new</span> <span class='code_class'>STNodeOption</span>(<span class='code_string'>"IN_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>));
+<span class='span_code_line'></span>        <span class='code_class'>STNodeOption</span> op = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//this.SetOptionDotColor(op, Color.Red); 优先级最高 如果被设置 会忽略容器中的颜色信息</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//当所属容器发生变化时候发生 应当向容器提交自己数据类型期望显示的颜色</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnOwnerChanged() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnOwnerChanged();
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (<span class='code_key'>this</span>.Owner == <span class='code_key'>null</span>) <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Owner.SetTypeColor(<span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_class'>Color</span>.Yellow);
+<span class='span_code_line'></span>        <span class='code_note'>//此添加方式 会替换容器中已有的类型颜色信息</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Owner.SetTypeColor(<span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_class'>Color</span>.DodgerBlue, <span class='code_key'>true</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_testnode_adopclr.png'/>
+<p>这样一个节点就创建完成了 但是这个节点目前不具备任何的功能 接下来的案例中将逐步添加功能</p>
+<p class='p_hightlight'>无论如何开发者都应该尽量为扩展的<span class='span_mark'>STNode</span>保留一个空参数构造器 不然在很多功能使用会存在不必要的麻烦</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_e'>STNodeOption</h2></div>
+<hr/>
+<p>由上面的案例可知<span class='span_mark'>STNodeOption</span>是<span class='span_mark'>STNode</span>的连接选项 连接选项可以是<span class='span_mark'>多连接</span>和<span class='span_mark'>单连接</span>模式</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        <span class='code_note'>//单连接选项</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"Single"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//多连接选项</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"Multi"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_single.png'/>
+<p class='p_hightlight'>在<span class='span_mark'>多连接</span>模式下 一个选项可以被<span class='span_mark'>同数据类型</span>的多个选项连接 以方形绘制</p>
+<p class='p_hightlight'>在<span class='span_mark'>单连接</span>模式下 一个选项仅可被<span class='span_mark'>同数据类型</span>的一个选项连接 以圆形绘制</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_f'>STNodeOption.Empty</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodeOption.Empty</span>是一个静态属性 添加到<span class='span_mark'>STNode</span>中仅用于在自动布局时候占位使用 不参与绘制与事件触发</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_class'>STNodeOption</span>.Empty);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_class'>STNodeOption</span>.Empty);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_class'>STNodeOption</span>.Empty);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_empty.png'/>
+<p>每一个<span class='span_mark'>STNodeOption</span>的高度由<span class='span_mark'>STNode.ItemHeight(protected)</span>决定</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_g'>STNode.AutoSize</h2></div>
+<hr/>
+<p><span class='span_mark'>AutoSize</span>默认为<span class='span_mark'>true</span> 在此状态下节点的<span class='span_mark'>Width</span><span class='span_mark'>Height</span>等属性无法被设置</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//需要先设置AutoSize=false 才能设置STNode大小</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(100, 100);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_autosize.png'/>
+<p>可以看到<span class='span_mark'>MyNode</span>的大小不再自动计算 可<span class='span_mark'>STNodeOption</span>的位置依旧会进行自动计算 如果想修改<span class='span_mark'>STNodeOption</span>的位置可以重写<span class='span_mark'>OnSetOptionXXX</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        m_op_in = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//需要先设置AutoSize=false 才能设置STNode大小</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(100, 100);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//无论AutoSize为何值 都可以对选项连接点位置进行修改</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_class'>Point</span> OnSetOptionDotLocation(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Point</span> pt, <span class='code_key'>int</span> nIndex) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (op == m_op_in) <span class='code_key'>return</span> <span class='code_key'>new</span> <span class='code_class'>Point</span>(pt.X, pt.Y + 20);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_key'>base</span>.OnSetOptionDotLocation(op, pt, nIndex);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//无论AutoSize为何值 都可以对选项文本显示区区域进行修改</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_class'>Rectangle</span> OnSetOptionTextRectangle(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Rectangle</span> rect, <span class='code_key'>int</span> nIndex) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (op == m_op_out) <span class='code_key'>return</span> <span class='code_key'>new</span> <span class='code_class'>Rectangle</span>(rect.X, rect.Y + 20, rect.Width, rect.Height);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_key'>base</span>.OnSetOptionTextRectangle(op, rect, nIndex);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_autosize_onset.png'/>
+<p>可以看到代码中修改<span class='span_mark'>STNodeOption</span>连线的点和文本区域是通过重写函数去修改的 为什么不设计成<span class='span_mark'>STNodeOption.DotLeft=xxx</span>的方式是因为作者认为这样反而会更加的麻烦</p>
+<p>重写函数中所传入的<span class='span_mark'>pt</span><span class='span_mark'>rect</span>都是自动计算过后的数据 这样开发者在修改位置的时候会有一定的参照 如果通过<span class='span_mark'>STNodeOption.DotLeft=xxx</span>这样的方式 那么开发者无法得到一个参照位置需要全部自己计算</p>
+<p>而且还需要绑定<span class='span_mark'>STNode.Resize</span>等事件来监听<span class='span_mark'>STNode</span>大小的变化来重新计算位置 所以相比之下<span class='span_mark'>OnSetOptionXXX</span>的方式反而相对没那么繁琐</p>
+<p>目前为止出现的所有案例都不具备数据的传递与接收 在接下来的案例中将开始添加功能</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_h'>案例 - ClockNode</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodeOption</span>通过对<span class='span_mark'>DataTransfer</span>事件的绑定可以获取到此选项的所有数据输入</p>
+<p><span class='span_mark'>STNodeOption.TransferData(object)</span>函数可以向此选项上的所有连线传递数据</p>
+<p>接下来实现一个具备一定功能的节点 目前而言能想到的最好的实现就是定义一个时钟节点</p>
+<p>因为目前介绍到的内容还不足以能够自由的向节点提供任意数据 所以需要一个能自己产生数据的节点</p>
+<p>该节点每秒钟向外输出一次当前系统时间</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ClockNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>Thread</span> m_thread;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out_time;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ClockNode"</span>;
+<span class='span_code_line'></span>        m_op_out_time = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"Time"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//当所属容器发生变化时候发生</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnOwnerChanged() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnOwnerChanged();
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (<span class='code_key'>this</span>.Owner == <span class='code_key'>null</span>) {   <span class='code_note'>//当容器被置空时停止线程</span>
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (m_thread != <span class='code_key'>null</span>) m_thread.Abort();
+<span class='span_code_line'></span>            <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Owner.SetTypeColor(<span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_class'>Color</span>.DarkCyan);
+<span class='span_code_line'></span>        m_thread = <span class='code_key'>new</span> <span class='code_class'>Thread</span>(() =&gt; {
+<span class='span_code_line'></span>            <span class='code_key'>while</span> (<span class='code_key'>true</span>) {
+<span class='span_code_line'></span>                <span class='code_class'>Thread</span>.Sleep(1000);
+<span class='span_code_line'></span>                <span class='code_note'>//STNodeOption.TransferData(object) 会自动的向选项上所有连接投递数据</span>
+<span class='span_code_line'></span>                <span class='code_note'>//STNodeOption.TransferData(object) 会自动设置STNodeOption.Data</span>
+<span class='span_code_line'></span>                m_op_out_time.TransferData(<span class='code_class'>DateTime</span>.Now);
+<span class='span_code_line'></span>                <span class='code_note'>//与WinForm一样 在线程中如果需要跨UI线程操作 节点提供了 Begin/Invoke() 可完成对应操作</span>
+<span class='span_code_line'></span>                <span class='code_note'>//this.BeginInvoke(new MethodInvoker(() =&gt; m_op_out_time.TransferData(DateTime.Now)));</span>
+<span class='span_code_line'></span>            }
+<span class='span_code_line'></span>        }) { IsBackground = <span class='code_key'>true</span> };
+<span class='span_code_line'></span>        m_thread.Start();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>当然上面的节点我们可以直接显示时间 但是为了演示数据的传递 还需要一个作为接受数据的节点</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ShowClockNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_time_in;
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ShowTime"</span>;
+<span class='span_code_line'></span>        <span class='code_note'>//由于此节点仅能显示一个时间 选项应当采用"单连接"模式 仅接受一个时间数据</span>
+<span class='span_code_line'></span>        m_op_time_in = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"--"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//监听事件 当有数据被传输到m_op_time_in时 会触发此事件</span>
+<span class='span_code_line'></span>        m_op_time_in.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(op_DataTransfer);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> op_DataTransfer(<span class='code_key'>object</span> sender, <span class='code_class'>STNodeOptionEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_note'>//不仅仅是有数据传入时才会触发此事件 当有连接或断开时 同样触发此事件 所以需要判断连接状态</span>
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (e.Status != <span class='code_class'>ConnectionStatus</span>.Connected || e.TargetOption.Data == <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>            <span class='code_note'>//当STNode.AutoSize=true时 并不建议使用STNode.SetOptionText</span>
+<span class='span_code_line'></span>            <span class='code_note'>//因为在AutoSize下Text每发生一次变化STNode就会重新计算一次布局 应当通过添加控件方式来显示</span>
+<span class='span_code_line'></span>            <span class='code_note'>//由于当前还并未讲解到STNodeControl 所以这里暂时先采用当前设计</span>
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_time_in, <span class='code_string'>"--"</span>);
+<span class='span_code_line'></span>        } <span class='code_key'>else</span> {
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_time_in, ((<span class='code_class'>DateTime</span>)e.TargetOption.Data).ToString());
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>添加到STNodeEditor中的效果如下</p>
+<img src='./images/tu_clockshowtime.gif'/>
+<p>可以看到<span class='span_mark'>ShowClockNode</span>每秒都在刷新时间 同样通过上面代码可以看到<span class='span_mark'>ShowClockNode</span>并没有重写<span class='span_mark'>OnOwnerChanged()</span>函数向容器添加数据类型颜色信息</p>
+<p>如果先把<span class='span_mark'>ShowClockNode</span>添加到<span class='span_mark'>STNodeEditor</span>中会发现节点选项确实没有颜色 但若<span class='span_mark'>ClockNode</span>被添加时候 会发现<span class='span_mark'>ShowClockNode</span>的选项立马就有了颜色</p>
+<p>因为<span class='span_mark'>ClockNode</span>在添加的时候 向容器提交了数据类型的颜色 而<span class='span_mark'>ShowClockNode</span>选项的数据类型和<span class='span_mark'>ClockNode</span>一样 所以自然在绘制的时候具备了颜色数据</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_i'>STNode.SetOptionXXX</h2></div>
+<hr/>
+<p>在上面和之前的案例中可以看到需要修改<span class='span_mark'>STNodeOption</span>一些属性的时候并不是<span class='span_mark'>STNodeOption.XXX=XXX</span>方式去修改的 之所以这样设计是为了处于安全考虑</p>
+<p>作者认为一个<span class='span_mark'>STNodeOption</span>只能被它的所有者所修改 而<span class='span_mark'>STNodeOption.XXX=XXX</span>的方式无法确定是被谁修改的 而<span class='span_mark'>STNode.SetOptionXXX()</span>被<span class='span_mark'>protected</span>所标记只能在内部被调用且在函数内部会判断<span class='span_mark'>STNodeOption.Owner</span>是否是当前类 以确保安全</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_j'>关于数据传递</h2></div>
+<hr/>
+<p class='p_hightlight'>并不是一定要<span class='span_mark'>STNodeOption.TransferData(object)</span>才能向下面的选项传递数据<span class='span_mark'>TransferData(object)</span>仅仅是主动向下<span class='span_mark'>更新数据</span></p>
+<p>当一个新的连接刚被建立的时候 会被动传递一次数据 下面将<span class='span_mark'>ClockNode</span>的代码修改一下</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ClockNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>Thread</span> m_thread;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out_time;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ClockNode"</span>;
+<span class='span_code_line'></span>        m_op_out_time = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"Time"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//对选项的数据赋值</span>
+<span class='span_code_line'></span>        m_op_out_time.Data = <span class='code_class'>DateTime</span>.Now;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img src='./images/tu_clocknode_data.gif'/>
+<p>可以看到<span class='span_mark'>ShowClockNode</span>依然显示了时间 只是数据不再变化 因为在建立连接的同时也会触发<span class='span_mark'>DataTransfer</span>事件 在事件中<span class='span_mark'>ShowClockNode</span>通过<span class='span_mark'>e.TargetOption.Data</span>获取到了<span class='span_mark'>ClockNode</span>选项的数据</p>
+<p>当一个连接被建立与断开时事件触发顺序如下</p>
+<p><span class='span_mark'>Connecting</span>-<span class='span_mark'>Connected</span>-<span class='span_mark'>DataTransfer</span> | <span class='span_mark'>DisConnecting</span>-<span class='span_mark'>DataTransfer</span>-<span class='span_mark'>DisConnected</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_k'>STNodeHub</h2></div>
+<hr/>
+<img src='./images/stnodehub.gif'/>
+<p><span class='span_mark'>STNodeHub</span>是一个内置的节点 其主要作用分线 可以将一个输出分散到多个输入或多个输出集中到一个输入点上以避免重复布线 也可在节点布线复杂时用于绕线</p>
+<h1 class='h_title anchor_point' anchor='a_l'>[基础]STNodeControl</h1>
+<p><span class='span_mark'>STNodeControl</span>作为<span class='span_mark'>STNode</span>控件的基类 有着许多与<span class='span_mark'>System.Windows.Forms.Control</span>同名的属性及事件 使得开发者可以像开发<span class='span_mark'>WinForm</span>程序一样去开发一个节点</p>
+<p class='p_hightlight'>在此版本(2.0)中 并没有提供任何一个可用控件 仅<span class='span_mark'>STNodeControl</span>基类 需开发者继承进行扩展 若后期有空作者再来完善</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_m'>添加一个控件</h2></div>
+<hr/>
+<p>与<span class='span_mark'>System.Windows.Forms.Control</span>一样 <span class='span_mark'>STNode</span>拥有<span class='span_mark'>Controls</span>集合 其数据类型为<span class='span_mark'>STNodeControl</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        <span class='code_note'>//需要先设置AutoSize=false 才能设置STNode大小</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(100, 100);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>var</span> ctrl = <span class='code_key'>new</span> <span class='code_class'>STNodeControl</span>();
+<span class='span_code_line'></span>        ctrl.Text = <span class='code_string'>"Button"</span>;
+<span class='span_code_line'></span>        ctrl.Location = <span class='code_key'>new</span> <span class='code_class'>Point</span>(10, 10);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Controls.Add(ctrl);
+<span class='span_code_line'></span>        ctrl.MouseClick += <span class='code_key'>new</span> <span class='code_class'>MouseEventHandler</span>(ctrl_MouseClick);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> ctrl_MouseClick(<span class='code_key'>object</span> sender, <span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_class'>MessageBox</span>.Show(<span class='code_string'>"MouseClick"</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=273 src='./images/tu_mynode_ctrl.png'/>
+<p>可以看到与开发<span class='span_mark'>WinForm</span>程序几乎没有任何区别 唯一不同的是<span class='span_mark'>STNode</span>暂时还不提供所见即所得的UI设计器</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_n'>自定义一个 Button</h2></div>
+<hr/>
+<p>虽然上面的代码看起来像是添加了一个按钮控件 事实上那仅仅是<span class='span_mark'>STNodeControl</span>的默认绘制样式</p>
+<p>下面来自定义一个<span class='span_mark'>Button</span>控件 具备鼠标悬停和点击效果 使其更加像一个按钮</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>STNodeButton</span> : <span class='code_class'>STNodeControl</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>bool</span> m_b_enter;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>bool</span> m_b_down;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseEnter(<span class='code_class'>EventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseEnter(e);
+<span class='span_code_line'></span>        m_b_enter = <span class='code_key'>true</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseLeave(<span class='code_class'>EventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseLeave(e);
+<span class='span_code_line'></span>        m_b_enter = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseDown(<span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseDown(e);
+<span class='span_code_line'></span>        m_b_down = <span class='code_key'>true</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseUp(<span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseUp(e);
+<span class='span_code_line'></span>        m_b_down = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnPaint(<span class='code_class'>DrawingTools</span> dt) {
+<span class='span_code_line'></span>        <span class='code_note'>//base.OnPaint(dt);</span>
+<span class='span_code_line'></span>        <span class='code_class'>Graphics</span> g = dt.Graphics;
+<span class='span_code_line'></span>        <span class='code_class'>SolidBrush</span> brush = dt.<span class='code_class'>SolidBrush</span>;
+<span class='span_code_line'></span>        brush.<span class='code_class'>Color</span> = <span class='code_key'>base</span>.BackColor;
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_b_down) brush.<span class='code_class'>Color</span> = <span class='code_class'>Color</span>.SkyBlue;
+<span class='span_code_line'></span>        <span class='code_key'>else</span> <span class='code_key'>if</span> (m_b_enter) brush.<span class='code_class'>Color</span> = <span class='code_class'>Color</span>.DodgerBlue;
+<span class='span_code_line'></span>        g.FillRectangle(brush, 0, 0, <span class='code_key'>this</span>.Width, <span class='code_key'>this</span>.Height);
+<span class='span_code_line'></span>        g.DrawString(<span class='code_key'>this</span>.Text, <span class='code_key'>this</span>.Font, <span class='code_class'>Brushes</span>.White, <span class='code_key'>this</span>.ClientRectangle, <span class='code_key'>base</span>.m_sf);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img src='./images/tu_mynode_btn.gif'/>
+<p>当然为了代码尽可能的简洁 按钮的效果写死在了代码中 上面的代码仅仅是演示如何去构建一个自定义控件 当然在这之前你需要具备一些<span class='span_mark'>GDI</span>相关的知识</p>
+<p>&lt;GDI+程序设计&gt;是一本不错的树</p>
+<img src='./images/gdip.png'/>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_o'>案例 - 图像信息获取</h2></div>
+<hr/>
+<p>在上述的<span class='span_mark'>ClockNode</span>案例中 对于数据的数据是通过代码写死在节点中的 接下来这个案例通过上面编写的<span class='span_mark'>STNodeButton</span>来获取数据进行输出</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ImageShowNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ImageShowNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(160, 150);
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>""</span>, <span class='code_key'>typeof</span>(<span class='code_class'>Image</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>var</span> ctrl = <span class='code_key'>new</span> <span class='code_class'>STNodeButton</span>();
+<span class='span_code_line'></span>        ctrl.Text = <span class='code_string'>"Open Image"</span>;
+<span class='span_code_line'></span>        ctrl.Location = <span class='code_key'>new</span> <span class='code_class'>Point</span>(5, 0);
+<span class='span_code_line'></span>        ctrl.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(150, 20);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Controls.Add(ctrl);
+<span class='span_code_line'></span>        ctrl.MouseClick += <span class='code_key'>new</span> <span class='code_class'>MouseEventHandler</span>(ctrl_MouseClick);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> ctrl_MouseClick(<span class='code_key'>object</span> sender, <span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        OpenFileDialog ofd = <span class='code_key'>new</span> OpenFileDialog();
+<span class='span_code_line'></span>        ofd.Filter = <span class='code_string'>"*.png|*.png|*.jpg|*.jpg"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (ofd.ShowDialog() != DialogResult.OK) <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        m_op_out.TransferData(<span class='code_class'>Image</span>.FromFile(ofd.FileName), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnDrawBody(<span class='code_class'>DrawingTools</span> dt) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnDrawBody(dt);<span class='code_note'>//当然用户可以通过扩展"STNodeControl"编写一个"STNodePictureBox"控件来显示图片</span>
+<span class='span_code_line'></span>        <span class='code_class'>Graphics</span> g = dt.<span class='code_class'>Graphics</span>;
+<span class='span_code_line'></span>        <span class='code_class'>Rectangle</span> rect = <span class='code_key'>new</span> <span class='code_class'>Rectangle</span>(<span class='code_key'>this</span>.Left + 5, <span class='code_key'>this</span>.Top + <span class='code_key'>this</span>.TitleHeight + 20, 150, 105);
+<span class='span_code_line'></span>        g.FillRectangle(<span class='code_class'>Brushes</span>.Gray, rect);
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_op_out.Data != <span class='code_key'>null</span>)
+<span class='span_code_line'></span>            g.DrawImage((<span class='code_class'>Image</span>)m_op_out.Data, rect);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>接下来需要一个数据接收节点 比如获取图像大小</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ImageSizeNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ImageSize"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        m_op_in = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"--"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>Image</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        m_op_in.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(m_op_in_DataTransfer);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> m_op_in_DataTransfer(<span class='code_key'>object</span> sender, <span class='code_class'>STNodeOptionEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (e.Status != <span class='code_class'>ConnectionStatus</span>.Connected || e.TargetOption.Data == <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_in, <span class='code_string'>"--"</span>);
+<span class='span_code_line'></span>        } <span class='code_key'>else</span> { 
+<span class='span_code_line'></span>            <span class='code_class'>Image</span> img = (<span class='code_class'>Image</span>)e.TargetOption.Data;
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_in, <span class='code_string'>"W:"</span> + img.Width + <span class='code_string'>" H:"</span> + img.Height);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=418 src='./images/tu_imagenode.png'/>
+<p>通过点击<span class='span_mark'>Open Image</span>按钮可以选择一张图片并在节点中显示 在<span class='span_mark'>ImageSizeNode</span>连接后 就获取到了图像的大小</p>
+<p>在上图中<span class='span_mark'>ImageChannel</span>节点代码这里并没有给出 代码在<span class='span_mark'>WinNodeEditorDemo</span>工程中 其作用为提取一张图像的RGB通道 对于<span class='span_mark'>ImageShowNode</span>而言它仅仅是提供了数据源并显示 对于<span class='span_mark'>ImageSizeNode</span>和<span class='span_mark'>ImageChannel</span>节点而言 它们并不知道会被什么节点连接 它们仅仅是完成了各自的功能并将结果传递给了输出选项 等待被下一个节点连接</p>
+<p>而对于执行逻辑完全是由用户布线将它们的功能串在了一起 开发期间节点与节点之间没有任何的交互 唯一将它们牵扯在一起的是一个<span class='span_mark'>Image</span>的数据类型 这样一来节点与节点之间几乎不存在耦合关系</p>
+<h1 class='h_title anchor_point' anchor='a_p'>[基础]STNodeEditor</h1>
+<p><span class='span_mark'>STNodeEditor</span>作为<span class='span_mark'>STNode</span>的容器 同样提供了大量的属性与事件供开发者使用 关于<span class='span_mark'>STNodeEditor</span>更为详细的API列表 请参考<a target='_bank' href='./doc.html'>帮助文档</a></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_q'>保存画布</h2></div>
+<hr/>
+<p>对于<span class='span_mark'>STNodeEditor</span>中的节点以及连线的关系是可以文件持久化保存的</p>
+<p>通过<span class='span_mark'>STNodeEditor.SaveCanvas(string strFileName)</span>函数可以将画布中的内容持久化保存</p>
+<p class='p_hightlight'>需要注意的是<span class='span_mark'>SaveCanvas()</span>系列函数会调用<span class='span_mark'>internal byte[] STNode.GetSaveData()</span>函数来获取每个节点的二进制数据</p>
+<p>而<span class='span_mark'>GetSaveData()</span>函数并非将节点自身序列化 <span class='span_mark'>GetSaveData()</span>函数会将节点自身的基础数据及原始属性进行二进制化 然后调用<span class='span_mark'>virtual OnSaveNode(Dictionary&lt;string, byte[]&gt; dic)</span>向扩展节点索要节点需要保存的数据</p>
+<p class='p_hightlight'>所以若有保存需求 节点开发者可能需要通过重写<span class='span_mark'>OnSaveNode()</span>函数 来确保一些需要的数据能够被保存</p>
+<p>关于更多节点保存的内容将会在后面的内容中介绍</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_r'>加载画布</h2></div>
+<hr/>
+<p>通过<span class='span_mark'>STNodeEditor.LoadCanvas(string strFileName)</span>函数可以从文件中加载保存的数据</p>
+<p class='p_hightlight'>若<span class='span_mark'>STNodeEditor</span>存在其他程序集中的节点 则需要通过调用<span class='span_mark'>STNodeEditor.LoadAssembly(string strFile)</span>来加载程序集以确保文件中的节点能够被正确还原</p>
+<p>因为还原过程并非序列化 而是通过<span class='span_mark'>(STNode)Activator.CreateInstance(stNodeType)</span>方式动态创建一个节点然后调用<span class='span_mark'>virtual OnSaveNode(Dictionary&lt;string, byte[]&gt; dic)</span>对数据进行还原 而<span class='span_mark'>dic</span>则为<span class='span_mark'>OnSaveNode()</span>所保存的数据</p>
+<p class='p_hightlight'>因为还原节点是通过反射动态创建节点的 所以扩展的<span class='span_mark'>STNode</span>中必须提供空参数构造器</p>
+<p>关于更多节点加载的内容将会在后面的内容中介绍</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_s'>常用事件</h2></div>
+<hr/>
+<p><span class='span_mark'>ActiveChanged</span>,<span class='span_mark'>SelectedChanged</span> 可以监控控件中节点被选中的变化情况</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.ActiveChanged += (s, e) =&gt; <span class='code_class'>Console</span>.WriteLine(stNodeEditor1.ActiveNode.Title);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>stNodeEditor1.SelectedChanged += (s, e) =&gt; {
+<span class='span_code_line'></span>    <span class='code_key'>foreach</span>(<span class='code_key'>var</span> n <span class='code_key'>in</span> stNodeEditor1.GetSelectedNode()){
+<span class='span_code_line'></span>        <span class='code_class'>Console</span>.WriteLine(n.Title);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>};</pre>
+</div>
+<p>如果希望在画布每次缩放后在编辑器上提示缩放比可以通过<span class='span_mark'>CanvasScaled</span>事件获取</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.CanvasScaled += (s, e) =&gt; {
+<span class='span_code_line'></span>    stNodeEditor1.ShowAlert(stNodeEditor1.CanvasScale.ToString(<span class='code_string'>"F2"</span>),
+<span class='span_code_line'></span>        <span class='code_class'>Color</span>.White, <span class='code_class'>Color</span>.FromArgb(127, 255, 255, 0));
+<span class='span_code_line'></span>};</pre>
+</div>
+<p>如果希望画布中有节点连线时 提示连线状态可以通过<span class='span_mark'>OptionConnected</span>事件获取状态</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.OptionConnected += (s, e) =&gt; {
+<span class='span_code_line'></span>    stNodeEditor1.ShowAlert(e.Status.ToString(), <span class='code_class'>Color</span>.White,
+<span class='span_code_line'></span>        <span class='code_class'>Color</span>.FromArgb(125, e.Status <span class='code_class'>ConnectionStatus</span>.Connected ? <span class='code_class'>Color</span>.Lime : <span class='code_class'>Color</span>.Red));
+<span class='span_code_line'></span>};</pre>
+</div>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_t'>常用方法</h2></div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>移动画布原点坐标到指定的控件坐标位置 (当不存在 Node 时候 无法移动)</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"x"</span>&gt;<span class='code_note_1'>X 坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"y"</span>&gt;<span class='code_note_1'>Y 坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bAnimation"</span>&gt;<span class='code_note_1'>移动过程中是否启动动画效果</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"ma"</span>&gt;<span class='code_note_1'>指定需要修改的坐标参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> MoveCanvas(<span class='code_key'>float</span> x, <span class='code_key'>float</span> y, <span class='code_key'>bool</span> bAnimation, <span class='code_class'>CanvasMoveArgs</span> ma);</pre>
+</div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>缩放画布(当不存在 Node 时候 无法缩放)</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"f"</span>&gt;<span class='code_note_1'>缩放比例</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"x"</span>&gt;<span class='code_note_1'>缩放中心X位于控件上的坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"y"</span>&gt;<span class='code_note_1'>缩放中心Y位于控件上的坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> ScaleCanvas(<span class='code_key'>float</span> f, <span class='code_key'>float</span> x, <span class='code_key'>float</span> y);</pre>
+</div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向编辑器中添加默认数据类型颜色</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"t"</span>&gt;<span class='code_note_1'>数据类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"clr"</span>&gt;<span class='code_note_1'>对应颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bReplace"</span>&gt;<span class='code_note_1'>若已经存在是否替换颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>被设置后的颜色</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Color</span> SetTypeColor(<span class='code_class'>Type</span> t, <span class='code_class'>Color</span> clr, <span class='code_key'>bool</span> bReplace);</pre>
+</div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在画布中显示提示信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>要显示的信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"foreColor"</span>&gt;<span class='code_note_1'>信息前景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"backColor"</span>&gt;<span class='code_note_1'>信息背景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nTime"</span>&gt;<span class='code_note_1'>信息持续时间</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"al"</span>&gt;<span class='code_note_1'>信息要显示的位置</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bRedraw"</span>&gt;<span class='code_note_1'>是否立即重绘</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>void</span> ShowAlert(<span class='code_key'>string</span> strText, <span class='code_class'>Color</span> foreColor, <span class='code_class'>Color</span> backColor, <span class='code_key'>int</span> nTime, <span class='code_class'>AlertLocation</span> al, <span class='code_key'>bool</span> bRedraw);
+<span class='span_code_line'></span><span class='code_note'>//e.g.</span>
+<span class='span_code_line'></span>stNodeEditor1.ShowAlert(<span class='code_string'>"this is test info"</span>, <span class='code_class'>Color</span>.White, <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Yellow));</pre>
+</div>
+<img width=208 src='./images/tu_editor_alert.png'/>
+<p>关于<span class='span_mark'>STNodeEditor</span>更多的<span class='span_mark'>属性</span><span class='span_mark'>函数</span><span class='span_mark'>事件</span>请参考<a target='_bank' href='./doc.html'>API文档</a> 此文档更注重于与<span class='span_mark'>STNode</span>相关的内容及演示</p>
+<h1 class='h_title anchor_point' anchor='a_u'>STNodePropertyGrid</h1>
+<p><span class='span_mark'>STNodePropertyGrid</span>是随着类库一起发布的另一个控件 可以与<span class='span_mark'>STNodeEditor</span>结合使用</p>
+<img width=462 src='./images/tu_stnodepropertygrid.png'/>
+<p><span class='span_mark'>STNodePropertyGrid</span>一共有两个面板 通过右上角的按钮可以进行切换 分别是<span class='span_mark'>属性面板</span>与<span class='span_mark'>节点信息面板</span></p>
+<p class='p_hightlight'>仅存在<span class='span_mark'>属性</span>与<span class='span_mark'>节点信息</span>才会显示对应面板</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_v'>如何使用</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodePropertyGrid</span>的核心方法为<span class='span_mark'>SetNode(STNode)</span>通常与<span class='span_mark'>STNodeEditor</span>绑定使用</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.ActiveChanged += (s, e) =&gt; stNodePropertyGrid1.SetNode(stNodeEditor1.ActiveNode);</pre>
+</div>
+<p>既然叫做属性编辑器必然和<span class='span_mark'>STNode</span>的属性相关 <span class='span_mark'>STNode</span>作为一个普通的<span class='span_mark'>class</span>当然也可以是拥有属性的 而<span class='span_mark'>STNodePropertyGrid</span>就是展示并修改它们 就像在<span class='span_mark'>WinForm</span>开发时候UI设计器中所看到的一样</p>
+<p>接下来编写一个节点试一下</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_1.png'/>
+<p>发现并没有看到想象中的画面 并没有显示<span class='span_mark'>Number</span>属性</p>
+<p>与<span class='span_mark'>System.Windows.Forms.PropertyGrid</span>不同的是<span class='span_mark'>PropertyGrid</span>会显示<span class='span_mark'>class</span>中的所有属性 而<span class='span_mark'>STNodePropertyGrid</span>并没有采用这样的设计方案</p>
+<p>S T N O D E PropertyGrid 这个是<span class='span_mark'>STNodePropertyGrid</span>并不会随便的显示一个属性 因为作者认为开发者可能并不希望<span class='span_mark'>STNode</span>中的所有属性都被显示出来 即使需要显示出来开发者可能也并不希望在属性窗口看到的是<span class='span_mark'>Number</span>而是一个别的名字 毕竟<span class='span_mark'>Number</span>是写代码时候用的</p>
+<p class='p_hightlight'>只有被<span class='span_mark'>STNodePropertyAttribute</span>特性所标记的属性才会被<span class='span_mark'>STNodePropertyGrid</span>显示</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_w'>STNodePropertyAttribute</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodePropertyAttribute</span>拥有三个属性<span class='span_mark'>Name</span><span class='span_mark'>Description</span><span class='span_mark'>DescriptorType</span></p>
+<p><span class='span_mark'>Name</span> - 对于此属性希望在<span class='span_mark'>STNodePropertyGrid</span>上显示的名称</p>
+<p><span class='span_mark'>Description</span> - 当<span class='span_mark'>鼠标左键</span>在<span class='span_mark'>STNodePropertyGrid</span>上<span class='span_mark'>长按</span>属性名称时候希望显示的描述信息</p>
+<p><span class='span_mark'>DescriptorType</span> - 决定属性如何与属性窗口进行数据交互 将在稍后讲解此属性</p>
+<p><span class='span_mark'>STNodePropertyAttribute</span>构造函数为<span class='span_mark'>STNodePropertyAttribute(string strName,string strDescription)</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Name"</span>, <span class='code_string'>"Description for this property"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_2.png'/>
+<p>此时就能看到属性被正确的显示了 并且可以被设置 而且左键长按属性名称会显示描述信息</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_x'>STNodeAttribute</h2></div>
+<hr/>
+<p>若希望显示节点信息 则<span class='span_mark'>STNode</span>需要被<span class='span_mark'>STNodeAttribute</span>特性标记</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>[<span class='code_class'>STNode</span>(<span class='code_string'>"AA/BB"</span>, <span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Description"</span>)]
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Name"</span>, <span class='code_string'>"Description for this property"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>通过右上角的按钮可进行面板切换</p>
+<p class='p_hightlight'>其中<span class='span_mark'>AA/BB</span>用于在<span class='span_mark'>STNodeTreeView</span>中构建路径使用</p>
+<img width=462 src='./images/tu_property_5.png'/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodePropertyGrid1.SetInfoKey(<span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Show Help"</span>);</pre>
+</div>
+<p><span class='span_mark'>信息面板</span>内容的key可通过<span class='span_mark'>SetInfoKey()</span>函数来设置语言 默认简体中文显示</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_y'>查看帮助</h2></div>
+<hr/>
+<p>上面一个<span class='span_mark'>信息面板</span>案例中可以看到<span class='span_mark'>查看帮助</span>按钮不可用 若希望可用则需要提供<span class='span_mark'>魔术方法</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>[<span class='code_class'>STNode</span>(<span class='code_string'>"AA/BB"</span>, <span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Description"</span>)]
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Name"</span>, <span class='code_string'>"Description for this property"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span>    <span class='code_note'>/// <span class='code_note_1'>此方法为魔术方法</span></span>
+<span class='span_code_line'></span>    <span class='code_note'>/// <span class='code_note_1'>若存在 static void ShowHelpInfo(string) 且此类被STNodeAttribute标记</span></span>
+<span class='span_code_line'></span>    <span class='code_note'>/// <span class='code_note_1'>则此方法将作为属性编辑器上 查看帮助 功能</span></span>
+<span class='span_code_line'></span>    <span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span>    <span class='code_note'>/// &lt;param name=<span class='code_string'>"strFileName"</span>&gt;<span class='code_note_1'>此类所在的模块所在的文件路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>static</span> <span class='code_key'>void</span> ShowHelpInfo(<span class='code_key'>string</span> strFileName) {
+<span class='span_code_line'></span>        <span class='code_class'>MessageBox</span>.Show(<span class='code_string'>"this is -&gt; ShowHelpInfo(string);\r\n"</span> + strFileName);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_6.png'/>
+<p>此时发现<span class='span_mark'>查看帮助</span>按钮变成了启用状态 STNodeAttribute还提供了两个<span class='span_mark'>static</span>函数</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取类型的帮助函数</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>节点类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>函数信息</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>static</span> <span class='code_class'>MethodInfo</span> GetHelpMethod(<span class='code_class'>Type</span> stNodeType);
+<span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>执行对应节点类型的帮助函数</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>节点类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>static</span> <span class='code_key'>void</span> ShowHelp(<span class='code_class'>Type</span> stNodeType);</pre>
+</div>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_z'>案例 - 两数相加</h2></div>
+<hr/>
+<p>既然<span class='span_mark'>STNodePropertyGrid</span>可以显示并修改属性 那么接下来这个案例将通过属性窗口来提供一个数据的输入</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>NumberInputNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Input"</span>, <span class='code_string'>"Input number"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> {
+<span class='span_code_line'></span>            _Number = <span class='code_key'>value</span>;
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_out, <span class='code_key'>value</span>.ToString());
+<span class='span_code_line'></span>            m_op_out.TransferData(<span class='code_key'>value</span>);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"NumberInput"</span>;
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>NumberAddNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in_1;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in_2;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"NumberAdd"</span>;
+<span class='span_code_line'></span>        m_op_in_1 = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        m_op_in_2 = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        m_op_in_1.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(m_op_in_DataTransfer);
+<span class='span_code_line'></span>        m_op_in_2.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(m_op_in_DataTransfer);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> m_op_in_DataTransfer(<span class='code_key'>object</span> sender, <span class='code_class'>STNodeOptionEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (e.Status != <span class='code_class'>ConnectionStatus</span>.Connected || e.TargetOption == <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_1) m_op_in_1.Data = 0;
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_2) m_op_in_2.Data = 0;
+<span class='span_code_line'></span>        } <span class='code_key'>else</span> {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_1) m_op_in_1.Data = e.TargetOption.Data;
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_2) m_op_in_2.Data = e.TargetOption.Data;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_op_in_1.Data == <span class='code_key'>null</span>) m_op_in_1.Data = 0;
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_op_in_2.Data == <span class='code_key'>null</span>) m_op_in_2.Data = 0;
+<span class='span_code_line'></span>        <span class='code_key'>int</span> nResult = (<span class='code_key'>int</span>)m_op_in_1.Data + (<span class='code_key'>int</span>)m_op_in_2.Data;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.SetOptionText(m_op_in_1, m_op_in_1.Data.ToString());
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.SetOptionText(m_op_in_2, m_op_in_2.Data.ToString());
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.SetOptionText(m_op_out, nResult.ToString());
+<span class='span_code_line'></span>        m_op_out.TransferData(nResult);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_3.png'/>
+<p>通过<span class='span_mark'>Number</span>属性的<span class='span_mark'>set</span>访问器将输入的数字向下传递</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_a'>ReadOnlyModel</h2></div>
+<hr/>
+<p>某些情况下并不希望<span class='span_mark'>STNodePropertyGrid</span>对属性进行设置 仅仅希望展示属性 则可以启用<span class='span_mark'>ReadOnlyModel</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodePropertyGrid1.ReadOnlyModel = <span class='code_key'>true</span>;</pre>
+</div>
+<img width=462 src='./images/tu_property_4.png'/>
+<p>在<span class='span_mark'>ReadOnlyModel</span>下 属性无法通过<span class='span_mark'>STNodePropertyGrid</span>被设置</p>
+<h1 class='h_title anchor_point' anchor='b_b'>STNodePropertyDescriptor</h1>
+<p>上面介绍了<span class='span_mark'>STNodePropertyAttribute</span>的<span class='span_mark'>Name</span>和<span class='span_mark'>Description</span>属性 还有第三个属性<span class='span_mark'>DescriptorType</span>其数据类型为<span class='span_mark'>Type</span> 默认值为<span class='span_mark'>typeof(STNodePropertyDescriptor)</span></p>
+<p>虽然从目前的案例来看 上面的操作没有任何问题 但是并不是所有数据类型的属性都能够正确的被<span class='span_mark'>STNodePropertyGrid</span>所支持 默认的<span class='span_mark'>STNodePropertyDescriptor</span>仅支持下列数据类型</p>
+<p><span class='span_mark'>int</span><span class='span_mark'>float</span><span class='span_mark'>double</span><span class='span_mark'>bool</span><span class='span_mark'>string</span><span class='span_mark'>Enum</span>以及它们的<span class='span_mark'>Array</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_c'>失败案例 - ColorTestNode</h2></div>
+<hr/>
+<p>下面创建一个节点添加一个<span class='span_mark'>Color</span>类型的属性</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"TitleColor"</span>, <span class='code_string'>"Get or set the node TitleColor"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_class'>Color</span> ColorTest {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> <span class='code_key'>this</span>.TitleColor; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { <span class='code_key'>this</span>.TitleColor = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ColorNode"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_colornode_1.png'/>
+<p>运行上述代码 会发现通过<span class='span_mark'>STNodePropertyGrid</span>对属性进行进行设置会出现错误 而且<span class='span_mark'>STNodePropertyGrid</span>中对于属性的值显示也很奇怪</p>
+<p>即便<span class='span_mark'>System.Windows.Forms.PropertyGrid</span>能支持很多数据类型 但也并非万能 比如当属性类型是用户自定义类型时候属性编辑器根本无法知道要如何与图形化界面上的属性交互</p>
+<p>对于<span class='span_mark'>System.Windows.Forms.PropertyGrid</span>的解决方案便是提供<span class='span_mark'>TypeConverter</span>将目标类型用<span class='span_mark'>TypeConverter</span>标记并实现重写 这样一来<span class='span_mark'>PropertyGrid</span>通过<span class='span_mark'>TypeConverter</span>就能够知道如何与图形化界面进行交互</p>
+<p>而<span class='span_mark'>STNodePropertyGrid</span>提供的解决方案便是<span class='span_mark'>STNodePropertyDescriptor</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_d'>关于属性描述器</h2></div>
+<hr/>
+<p class='p_hightlight'>之所以<span class='span_mark'>STNodePropertyGrid</span>能够正确的获取以及修改<span class='span_mark'>STNode</span>属性的值 全是依靠<span class='span_mark'>STNodePropertyDescriptor</span>在中间做交互 进行数据的转换以及响应属性窗口上的一些行为操作</p>
+<p class='p_hightlight'>被<span class='span_mark'>STNodePropertyAttribute</span>标记的属性都会包装成<span class='span_mark'>STNodePropertyDescriptor</span>传递给<span class='span_mark'>STNodePropertyGrid</span> 一个<span class='span_mark'>STNodePropertyDescriptor</span>包含了<span class='span_mark'>STNodePropertyAttribute</span>中的<span class='span_mark'>Name</span><span class='span_mark'>Description</span>以及属性将会在<span class='span_mark'>STNodePropertyGrid</span>上显示的位置信息等 以及如何响应鼠标事件或键盘事件等</p>
+<p>可以理解为<span class='span_mark'>STNodePropertyDescriptor</span>是每个被<span class='span_mark'>STNodePropertyAttribute</span>所标记属性的图形化界面接口 而主要作用则为在图形界面和真实属性之间传递数据</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_e'>GetValueFromString()</h2></div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将字符串形式的属性值转换为属性目标类型的值</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认只支持 int float double string bool 以及上述类型的Array</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>若目标类型不在上述中 请重写此函数自行转换</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>字符串形式的属性值</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性真实目标类型的值</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText);</pre>
+</div>
+<p class='p_hightlight'><span class='span_mark'>GetValueFromString()</span>函数主要负责将用户在<span class='span_mark'>STNodePropertyGrid</span>中输入字符串转换为对应属性需要的真实值</p>
+<p>如: 假若属性是<span class='span_mark'>int</span>类型值 而用户在<span class='span_mark'>STNodePropertyGrid</span>中只能输入字符串的<span class='span_mark'>123</span>那么默认的<span class='span_mark'>GetValueFromString()</span>函数内部则会<span class='span_mark'>int.Parse(strText)</span>这样<span class='span_mark'>string</span>类型的<span class='span_mark'>123</span>就变成了<span class='span_mark'>int</span>类型的<span class='span_mark'>123</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_f'>GetStringFromValue()</h2></div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将属性目标类型的值转换为字符串形式的值</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认对类型值进行 ToString() 操作</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>如需特殊处理 请重写此函数自行转换</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性值的字符串形式</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>string</span> GetStringFromValue();</pre>
+</div>
+<p class='p_hightlight'><span class='span_mark'>GetStringFromValue()</span>函数主要负责将属性值转换为字符串的方式在<span class='span_mark'>STNodePropertyGrid</span>中显示 默认的<span class='span_mark'>GetStringFromValue()</span>内部仅仅是对属性的值<span class='span_mark'>ToString()</span>操作</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_g'>成功案例 - ColorTestNode</h2></div>
+<hr/>
+<p>对上面失败案例的<span class='span_mark'>ColorTestNode.ColorTest</span>的<span class='span_mark'>STNodePropertyDescriptor</span>进行扩展</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_note'>//指定使用扩展的 STNodePropertyDescriptor 以便完成对 Color 类型的支持</span>
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"TitleColor"</span>, <span class='code_string'>"Get or set the node TitleColor"</span>, DescriptorType = <span class='code_key'>typeof</span>(<span class='code_class'>ColorDescriptor</span>))]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_class'>Color</span> ColorTest {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> <span class='code_key'>this</span>.TitleColor; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { <span class='code_key'>this</span>.TitleColor = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ColorNode"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorDescriptor</span> : <span class='code_class'>STNodePropertyDescriptor</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText) {
+<span class='span_code_line'></span>        <span class='code_key'>string</span>[] strs = strText.Split(<span class='code_string'>','</span>);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_class'>Color</span>.FromArgb(<span class='code_key'>int</span>.Parse(strs[0]), <span class='code_key'>int</span>.Parse(strs[1]), <span class='code_key'>int</span>.Parse(strs[2]), <span class='code_key'>int</span>.Parse(strs[3]));
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetValueFromString(strText);</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>string</span> GetStringFromValue() {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> v = (<span class='code_class'>Color</span>)<span class='code_key'>this</span>.GetValue(<span class='code_key'>null</span>);<span class='code_note'>//获取当前属性值</span>
+<span class='span_code_line'></span>        <span class='code_key'>return</span> v.A + <span class='code_string'>","</span> + v.R + <span class='code_string'>","</span> + v.G + <span class='code_string'>","</span> + v.B;
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetStringFromValue();</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_colornode_2.png'/>
+<p>此时就能够正确的显示与设置属性值了 因为<span class='span_mark'>GetValueFromString()</span>与<span class='span_mark'>GetStringFromValue()</span>正确的完成了属性值与字符串之间的转换</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_h'>高级案例 - ColorTestNode</h2></div>
+<hr/>
+<p>上面的案例虽然可以通过设置<span class='span_mark'>Color</span>的ARGB来完成对属性值的设置 但是明显这样的方式并不够友好</p>
+<img width=462 src='./images/tu_colornode_3.png'/>
+<p>是否能够像<span class='span_mark'>System.Windows.Forms.PropertyGrid</span>一样 能够让用户进行可视化的选择 <span class='span_mark'>STNodePropertyDescriptor</span>当然也能办到</p>
+<p class='p_hightlight'><span class='span_mark'>STNodePropertyDescriptor</span>可以视作是一个显示属性的自定义控件 既然是自定义控件那么就具备了鼠标事件的响应</p>
+<p>下面对<span class='span_mark'>ColorDescriptor</span>增加一些代码</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorDescriptor</span> : <span class='code_class'>STNodePropertyDescriptor</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>Rectangle</span> m_rect;<span class='code_note'>//此区域用作 属性窗口上绘制颜色预览</span>
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText) {
+<span class='span_code_line'></span>        <span class='code_key'>string</span>[] strs = strText.Split(<span class='code_string'>','</span>);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_class'>Color</span>.FromArgb(<span class='code_key'>int</span>.Parse(strs[0]), <span class='code_key'>int</span>.Parse(strs[1]), <span class='code_key'>int</span>.Parse(strs[2]), <span class='code_key'>int</span>.Parse(strs[3]));
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetValueFromString(strText);</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>string</span> GetStringFromValue() {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> v = (<span class='code_class'>Color</span>)<span class='code_key'>this</span>.GetValue(<span class='code_key'>null</span>);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> v.A + <span class='code_string'>","</span> + v.R + <span class='code_string'>","</span> + v.G + <span class='code_string'>","</span> + v.B;
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetStringFromValue();</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_note'>//当此属性在属性窗口中被确定位置时候发生</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnSetItemLocation() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnSetItemLocation();
+<span class='span_code_line'></span>        <span class='code_class'>Rectangle</span> rect = <span class='code_key'>base</span>.RectangleR;
+<span class='span_code_line'></span>        m_rect = <span class='code_key'>new</span> <span class='code_class'>Rectangle</span>(rect.Right - 25, rect.Top + 5, 19, 12);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//绘制属性窗口值区域时候调用</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnDrawValueRectangle(<span class='code_class'>DrawingTools</span> dt) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnDrawValueRectangle(dt);<span class='code_note'>//先采用默认的绘制 再绘制颜色预览</span>
+<span class='span_code_line'></span>        dt.SolidBrush.<span class='code_class'>Color</span> = (<span class='code_class'>Color</span>)<span class='code_key'>this</span>.GetValue(<span class='code_key'>null</span>);
+<span class='span_code_line'></span>        dt.<span class='code_class'>Graphics</span>.FillRectangle(dt.SolidBrush, m_rect);<span class='code_note'>//填充颜色</span>
+<span class='span_code_line'></span>        dt.<span class='code_class'>Graphics</span>.DrawRectangle(<span class='code_class'>Pens</span>.Black, m_rect);   <span class='code_note'>//绘制边框</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseClick(<span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_note'>//如果用户点击在 颜色预览区域 则弹出系统颜色对话框</span>
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_rect.Contains(e.Location)) {
+<span class='span_code_line'></span>            ColorDialog cd = <span class='code_key'>new</span> ColorDialog();
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (cd.ShowDialog() != DialogResult.OK) <span class='code_key'>return</span>;
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetValue(cd.<span class='code_class'>Color</span>, <span class='code_key'>null</span>);
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>            <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_note'>//否则其他区域将采用默认处理方式 弹出字符串输入框</span>
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseClick(e);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_colornode_4.png'/>
+<p>此时可以看到与上一个案例相比 多了一个颜色预览区域 并且鼠标点击预览区域会弹出系统颜色对话框对属性值进行设置 如果在非预览区域点击 则会使用默认操作方式 手动输入ARGB</p>
+<p class='p_hightlight'>关于<span class='span_mark'>STNodePropertyDescriptor</span>还有两个重要虚函数<span class='span_mark'>GetBytesFromValue()</span><span class='span_mark'>SetValue(byte[])</span>将会在后面<span class='span_mark'>保存画布</span>中进行介绍</p>
+<h1 class='h_title anchor_point' anchor='b_i'>STNodeTreeView</h1>
+<p><span class='span_mark'>STNodeTreeView</span>与<span class='span_mark'>STNodePropertyGrid</span>一样 是随着类库一起发布的另一个控件 可以与<span class='span_mark'>STNodeEditor</span>结合使用</p>
+<img src='./images/stnodetreeview.gif'/>
+<p><span class='span_mark'>STNodeTreeView</span>中的节点可直接拖拽进<span class='span_mark'>STNodeEditor</span>中 并且提供预览和检索功能</p>
+<p><span class='span_mark'>STNodeTreeView</span>的使用简单 无需像<span class='span_mark'>System.Windows.Forms.TreeView</span>需要自行去构造树目录</p>
+<p>通过使用<span class='span_mark'>STNodeAttribute</span>标记<span class='span_mark'>STNode</span>子类可直接设置需要在<span class='span_mark'>STNodeTreeView</span>中显示的路径 以及希望在<span class='span_mark'>STNodePropertyGrid</span>中显示的信息</p>
+<p class='p_hightlight'>注:若希望节点能够在<span class='span_mark'>STNodeTreeView</span>中显示 必须使用<span class='span_mark'>STNodeAttribute</span>标记<span class='span_mark'>STNode</span>子类</p>
+<div><h2 class='h_option anchor_point' anchor='b_j'>使用方式</h2></div>
+<p>目前而言 以上案例的节点都是通过<span class='span_mark'>STNodeEditor.Nodes.Add(STNode)</span>方式进行添加 接下来通过<span class='span_mark'>STNodeTreeView</span>拖拽方式进行添加 但在这之前需要先把节点添加到<span class='span_mark'>STNodeTreeView</span>中</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>[<span class='code_class'>STNode</span>(<span class='code_string'>"AA/BB"</span>, <span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Description"</span>)]
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"TreeViewTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>//添加到 STNodeTreeView 中</span>
+<span class='span_code_line'></span>stNodeTreeView1.AddNode(<span class='code_key'>typeof</span>(<span class='code_class'>MyNode</span>));</pre>
+</div>
+<img width=462 src='./images/tu_treeview_1.png'/>
+<p>可以看到<span class='span_mark'>STNodeTreeView</span>中出现了添加的节点 并且自动构建好了路径 节点可以预览并且直接被拖拽到<span class='span_mark'>STNodeEditor</span>中进行添加</p>
+<p class='p_hightlight'>同路径下禁止出现同名节点 不然将会被覆盖</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_k'>加载程序集</h2></div>
+<hr/>
+<p>除了<span class='span_mark'>STNodeTreeView.AddNode(Type)</span>向树中添加节点以外 还可以通过<span class='span_mark'>LoadAssembly(string)</span>方式从一个程序集里面加载节点 <span class='span_mark'>LoadAssembly(string)</span>会自动检测程序集中被<span class='span_mark'>STNodeAttribute</span>标记的节点并添加 并且会以程序集名称创建根节点显示</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeTreeView1.AddNode(<span class='code_key'>typeof</span>(<span class='code_class'>MyNode</span>));
+<span class='span_code_line'></span>stNodeTreeView1.LoadAssembly(Application.ExecutablePath);
+<span class='span_code_line'></span><span class='code_note'>//如果是来自外部程序集 STNodeEditor也应当做同样操作确保节点能够被STNodeEditor正确识别</span>
+<span class='span_code_line'></span>stNodeEditor1.LoadAssembly(Application.ExecutablePath);</pre>
+</div>
+<img width=462 src='./images/tu_treeview_2.png'/>
+<p>可以看到在上图中有两个根节点<span class='span_mark'>AA</span><span class='span_mark'>WinNodeEditorDemo</span> 其实<span class='span_mark'>MyNode</span>是属于<span class='span_mark'>WinNodeEditorDemo</span>程序集的 但是在<span class='span_mark'>WinNodeEditorDemo</span>的子节点中却无法找到 由于在加载程序集之前<span class='span_mark'>MyNode</span>先被添加 当加载程序集是识别到<span class='span_mark'>MyNode</span>被重复添加所以就跳过了</p>
+<p class='p_hightlight'><span class='span_mark'>STNodeTreeView</span>中无法添加重复类型 与 同路径同名节点</p>
+<h1 class='h_title anchor_point' anchor='b_l'>持久化保存</h1>
+<p>在上面<span class='span_mark'>STNodeEditor</span>介绍时提到过画布的保存与加载 这里将详细介绍</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_m'>保存</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodeEditor.SaveCanvas()</span>时<span class='span_mark'>STNodeEditor</span>会遍历所有的<span class='span_mark'>Nodes</span>并调用<span class='span_mark'>internal byte[] STNode.GetSaveData()</span>以获得每个节点的二进制数据</p>
+<p><span class='span_mark'>GetSaveData()</span>为内部方法被<span class='span_mark'>internal</span>修饰 函数体如下</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>internal</span> <span class='code_key'>byte</span>[] GetSaveData() {
+<span class='span_code_line'></span>    <span class='code_class'>List</span>&lt;<span class='code_key'>byte</span>&gt; lst = <span class='code_key'>new</span> <span class='code_class'>List</span>&lt;<span class='code_key'>byte</span>&gt;();
+<span class='span_code_line'></span>    <span class='code_class'>Type</span> t = <span class='code_key'>this</span>.GetType();
+<span class='span_code_line'></span>    <span class='code_key'>byte</span>[] byData = <span class='code_class'>Encoding</span>.UTF8.GetBytes(t.Module.Name + <span class='code_string'>"|"</span> + t.FullName);
+<span class='span_code_line'></span>    lst.Add((<span class='code_key'>byte</span>)byData.Length);
+<span class='span_code_line'></span>    lst.AddRange(byData);
+<span class='span_code_line'></span>    byData = <span class='code_class'>Encoding</span>.UTF8.GetBytes(t.GUID.ToString());
+<span class='span_code_line'></span>    lst.Add((<span class='code_key'>byte</span>)byData.Length);
+<span class='span_code_line'></span>    lst.AddRange(byData);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>var</span> dic = <span class='code_key'>this</span>.OnSaveNode();
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic != <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>        <span class='code_key'>foreach</span> (<span class='code_key'>var</span> v <span class='code_key'>in</span> dic) {
+<span class='span_code_line'></span>            byData = <span class='code_class'>Encoding</span>.UTF8.GetBytes(v.Key);
+<span class='span_code_line'></span>            lst.AddRange(<span class='code_class'>BitConverter</span>.GetBytes(byData.Length));
+<span class='span_code_line'></span>            lst.AddRange(byData);
+<span class='span_code_line'></span>            lst.AddRange(<span class='code_class'>BitConverter</span>.GetBytes(v.Value.Length));
+<span class='span_code_line'></span>            lst.AddRange(v.Value);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>return</span> lst.ToArray();
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>可以看到<span class='span_mark'>GetSaveData()</span>内部先对节点自身基本信息获取二进制 然后调用<span class='span_mark'>OnSaveNode()</span>获取了一个字典类型数据</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>internal</span> <span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; OnSaveNode() {
+<span class='span_code_line'></span>    <span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic = <span class='code_key'>new</span> <span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt;();
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Guid"</span>, <span class='code_key'>this</span>._Guid.ToByteArray());
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Left"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Left));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Top"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Top));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Width"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Width));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Height"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Height));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"AutoSize"</span>, <span class='code_key'>new</span> <span class='code_key'>byte</span>[] { (<span class='code_key'>byte</span>)(<span class='code_key'>this</span>._AutoSize ? 1 : 0) });
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (<span class='code_key'>this</span>._Mark != <span class='code_key'>null</span>) dic.Add(<span class='code_string'>"Mark"</span>, <span class='code_class'>Encoding</span>.UTF8.GetBytes(<span class='code_key'>this</span>._Mark));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"LockOption"</span>, <span class='code_key'>new</span> <span class='code_key'>byte</span>[] { (<span class='code_key'>byte</span>)(<span class='code_key'>this</span>._LockLocation ? 1 : 0) });
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"LockLocation"</span>, <span class='code_key'>new</span> <span class='code_key'>byte</span>[] { (<span class='code_key'>byte</span>)(<span class='code_key'>this</span>._LockLocation ? 1 : 0) });
+<span class='span_code_line'></span>    <span class='code_class'>Type</span> t = <span class='code_key'>this</span>.GetType();
+<span class='span_code_line'></span>    <span class='code_key'>foreach</span> (<span class='code_key'>var</span> p <span class='code_key'>in</span> t.GetProperties()) {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> attrs = p.GetCustomAttributes(<span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_key'>foreach</span> (<span class='code_key'>var</span> a <span class='code_key'>in</span> attrs) {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(a <span class='code_key'>is</span> <span class='code_class'>STNodePropertyAttribute</span>)) <span class='code_key'>continue</span>;
+<span class='span_code_line'></span>            <span class='code_key'>var</span> attr = a <span class='code_key'>as</span> <span class='code_class'>STNodePropertyAttribute</span>;<span class='code_note'>//获取被STNodePropertyAttribute标记的属性进行自动保存</span>
+<span class='span_code_line'></span>            <span class='code_key'>object</span> obj = <span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(obj <span class='code_key'>is</span> <span class='code_class'>STNodePropertyDescriptor</span>))
+<span class='span_code_line'></span>                <span class='code_key'>throw</span> <span class='code_key'>new</span> <span class='code_class'>InvalidOperationException</span>(<span class='code_string'>"[STNodePropertyAttribute.Type]参数值必须为[STNodePropertyDescriptor]或者其子类的类型"</span>);
+<span class='span_code_line'></span>            <span class='code_key'>var</span> desc = (<span class='code_class'>STNodePropertyDescriptor</span>)<span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            desc.Node = <span class='code_key'>this</span>;
+<span class='span_code_line'></span>            desc.PropertyInfo = p;
+<span class='span_code_line'></span>            <span class='code_key'>byte</span>[] byData = desc.GetBytesFromValue();<span class='code_note'>//通过 STNodePropertyDescriptor 获取属性二进制数据</span>
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (byData == <span class='code_key'>null</span>) <span class='code_key'>continue</span>;
+<span class='span_code_line'></span>            dic.Add(p.Name, byData);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>this</span>.OnSaveNode(dic);
+<span class='span_code_line'></span>    <span class='code_key'>return</span> dic;
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当需要保存时候 此Node有哪些需要额外保存的数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>注意: 保存时并不会进行序列化 还原时候仅重新通过空参数构造器创建此Node</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>然后调用 OnLoadNode() 将保存的数据进行还原</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dic"</span>&gt;<span class='code_note_1'>需要保存的数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnSaveNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) { }</pre>
+</div>
+<p>通过上面代码可以看到<span class='span_mark'>STNode</span>会对自身基本属性进行保存二进制数据 并且会识别被<span class='span_mark'>STNodePropertyAttribute</span>标记的属性并通过<span class='span_mark'>GetBytesFromValue()</span>获取对应属性二进制数据 然后再调用<span class='span_mark'>OnSaveNode(dic)</span>向扩展节点索要需要保存的数据</p>
+<p>如果有需要保存的属性则应当用<span class='span_mark'>STNodePropertyAttribute</span>标记并且确保<span class='span_mark'>GetBytesFromValue()</span>能够正确的获取到属性的二进制数据或者通过<span class='span_mark'>OnSaveNode(dic)</span>进行保存</p>
+<p>如果有私有字段需要保存 应当通过<span class='span_mark'>OnSaveNode(dic)</span>进行保存</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_n'>OnSaveNode(dic)</h2></div>
+<hr/>
+<p><span class='span_mark'>OnSaveNode(dic)</span>与<span class='span_mark'>OnLoadNode(dic)</span>互相对应</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnSaveNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"count"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>.InputOptionsCount));
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    <span class='code_key'>base</span>.OnLoadNode(dic);
+<span class='span_code_line'></span>    <span class='code_key'>int</span> nCount = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"count"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>while</span> (<span class='code_key'>this</span>.InputOptionsCount &lt; nCount &amp;&amp; <span class='code_key'>this</span>.InputOptionsCount != nCount) <span class='code_key'>this</span>.Addhub();
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>上面代码片段为<span class='span_mark'>STNodeHub</span>中<span class='span_mark'>OnSaveNode(dic)</span><span class='span_mark'>OnLoadNode(dic)</span>重写 可以看到额外保存了一个<span class='span_mark'>count</span>数据 因为<span class='span_mark'>STNodeHub</span>的选项是动态创建的 而一个新创建的<span class='span_mark'>STNodeHub</span>只有一行连接 所以在保存时候需要记录状态以确保能正确的还原连线状态 然后在<span class='span_mark'>OnLoadNode(dic)</span>中对状态进行还原</p>
+<p class='p_hightlight'><span class='span_mark'>STNodeEditor</span>除了保存节点数据之外还会保存节点选项的连线关系 会对当前画布中的所有节点的每个<span class='span_mark'>STNodeOption</span>进行编号 将编号关系保存 所以<span class='span_mark'>STNodeHub</span>保存和还原的时候一定要确保<span class='span_mark'>STNodeOption</span>的个数是没有变动的</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_o'>GetBytesFromValue()</h2></div>
+<hr/>
+<p>对于被<span class='span_mark'>STNodePropertyAttribute</span>标记的属性在保存时候会自动调用<span class='span_mark'>STNodePropertyDescriptor.GetBytesFromValue()</span>以获取属性的二进制数据</p>
+<p><span class='span_mark'>GetBytesFromValue()</span>与<span class='span_mark'>GetValueFromBytes()</span>互相对应</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将属性目标类型的值转换为二进制形式的值 用于文件存储时候调用</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认调用 GetStringFromValue() 然后将字符串转换为二进制数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>如需特殊处理 请重写此函数自行转换 并且重写 GetValueFromBytes()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性值的二进制形式</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>byte</span>[] GetBytesFromValue() {
+<span class='span_code_line'></span>    <span class='code_key'>string</span> strText = <span class='code_key'>this</span>.GetStringFromValue();
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (strText == <span class='code_key'>null</span>) <span class='code_key'>return</span> <span class='code_key'>null</span>;
+<span class='span_code_line'></span>    <span class='code_key'>return</span> <span class='code_class'>Encoding</span>.UTF8.GetBytes(strText);
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将二进制形式的属性值转换为属性目标类型的值 用于从文件存储中的数据还原属性值</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认将其转换为字符串然后调用 GetValueFromString(string)</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数与 GetBytesFromValue() 相对应 若需要重写函数应当两个函数一起重写</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"byData"</span>&gt;<span class='code_note_1'>二进制数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性真实目标类型的值</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValueFromBytes(<span class='code_key'>byte</span>[] byData) {
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (byData == <span class='code_key'>null</span>) <span class='code_key'>return</span> <span class='code_key'>null</span>;
+<span class='span_code_line'></span>    <span class='code_key'>string</span> strText = <span class='code_class'>Encoding</span>.UTF8.GetString(byData);
+<span class='span_code_line'></span>    <span class='code_key'>return</span> <span class='code_key'>this</span>.GetValueFromString(strText);
+<span class='span_code_line'></span>}</pre>
+</div>
+<p><span class='span_mark'>STNodePropertyDescriptor.GetBytesFromValue()</span>默认调用<span class='span_mark'>STNodePropertyDescriptor.GetStringFromValue()</span>获取属性的字符串值 将字符串转换为<span class='span_mark'>byte[]</span></p>
+<p class='p_hightlight'>如果<span class='span_mark'>GetStringFromValue()</span><span class='span_mark'>GetValueFromString(strText)</span>能正确的运行 那么采用默认处理方式也能够将属性值正确保存</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_p'>OnLoadNode(dic)</h2></div>
+<hr/>
+<p>当还原节点时候 <span class='span_mark'>STNodeEditor</span>通过<span class='span_mark'>(STNode)Activator.CreateInstance(stNodeType)</span>创建节点 然后调用<span class='span_mark'>OnLoadNode(dic)</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"AutoSize"</span>)) <span class='code_key'>this</span>._AutoSize = dic[<span class='code_string'>"AutoSize"</span>][0] == 1;
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"LockOption"</span>)) <span class='code_key'>this</span>._LockOption = dic[<span class='code_string'>"LockOption"</span>][0] == 1;
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"LockLocation"</span>)) <span class='code_key'>this</span>._LockLocation = dic[<span class='code_string'>"LockLocation"</span>][0] == 1;
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Guid"</span>)) <span class='code_key'>this</span>._Guid = <span class='code_key'>new</span> Guid(dic[<span class='code_string'>"Guid"</span>]);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Left"</span>)) <span class='code_key'>this</span>._Left = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Left"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Top"</span>)) <span class='code_key'>this</span>._Top = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Top"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Width"</span>) &amp;&amp; !<span class='code_key'>this</span>._AutoSize) <span class='code_key'>this</span>._Width = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Width"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Height"</span>) &amp;&amp; !<span class='code_key'>this</span>._AutoSize) <span class='code_key'>this</span>._Height = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Height"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Mark"</span>)) <span class='code_key'>this</span>.Mark = <span class='code_class'>Encoding</span>.UTF8.GetString(dic[<span class='code_string'>"Mark"</span>]);
+<span class='span_code_line'></span>    <span class='code_class'>Type</span> t = <span class='code_key'>this</span>.GetType();
+<span class='span_code_line'></span>    <span class='code_key'>foreach</span> (<span class='code_key'>var</span> p <span class='code_key'>in</span> t.GetProperties()) {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> attrs = p.GetCustomAttributes(<span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_key'>foreach</span> (<span class='code_key'>var</span> a <span class='code_key'>in</span> attrs) {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(a <span class='code_key'>is</span> <span class='code_class'>STNodePropertyAttribute</span>)) <span class='code_key'>continue</span>;
+<span class='span_code_line'></span>            <span class='code_key'>var</span> attr = a <span class='code_key'>as</span> <span class='code_class'>STNodePropertyAttribute</span>;
+<span class='span_code_line'></span>            <span class='code_key'>object</span> obj = <span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(obj <span class='code_key'>is</span> <span class='code_class'>STNodePropertyDescriptor</span>))
+<span class='span_code_line'></span>                <span class='code_key'>throw</span> <span class='code_key'>new</span> <span class='code_class'>InvalidOperationException</span>(<span class='code_string'>"[STNodePropertyAttribute.Type]参数值必须为[STNodePropertyDescriptor]或者其子类的类型"</span>);
+<span class='span_code_line'></span>            <span class='code_key'>var</span> desc = (<span class='code_class'>STNodePropertyDescriptor</span>)<span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            desc.Node = <span class='code_key'>this</span>;
+<span class='span_code_line'></span>            desc.PropertyInfo = p;
+<span class='span_code_line'></span>            <span class='code_key'>try</span> {
+<span class='span_code_line'></span>                <span class='code_key'>if</span> (dic.ContainsKey(p.Name)) desc.SetValue(dic[p.Name]);
+<span class='span_code_line'></span>            } <span class='code_key'>catch</span> (<span class='code_class'>Exception</span> ex) {
+<span class='span_code_line'></span>                <span class='code_key'>string</span> strErr = <span class='code_string'>"属性["</span> + <span class='code_key'>this</span>.Title + <span class='code_string'>"."</span> + p.Name + <span class='code_string'>"]的值无法被还原 可通过重写[STNodePropertyAttribute.GetBytesFromValue(),STNodePropertyAttribute.GetValueFromBytes(byte[])]确保保存和加载时候的二进制数据正确"</span>;
+<span class='span_code_line'></span>                <span class='code_class'>Exception</span> e = ex;
+<span class='span_code_line'></span>                <span class='code_key'>while</span> (e != <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>                    strErr += <span class='code_string'>"\r\n----\r\n["</span> + e.GetType().Name + <span class='code_string'>"] -&gt; "</span> + e.Message;
+<span class='span_code_line'></span>                    e = e.InnerException;
+<span class='span_code_line'></span>                }
+<span class='span_code_line'></span>                <span class='code_key'>throw</span> <span class='code_key'>new</span> <span class='code_class'>InvalidOperationException</span>(strErr, ex);
+<span class='span_code_line'></span>            }
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>在默认的<span class='span_mark'>OnLoadNode(dic)</span>中 仅仅对自身基础属性以及被<span class='span_mark'>STNodePropertyAttribute</span>标记的属性进行还原</p>
+<p>对于<span class='span_mark'>STNodeHub</span>的<span class='span_mark'>OnLoadNode(dic)</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    <span class='code_key'>base</span>.OnLoadNode(dic);<span class='code_note'>//先还原自身属性</span>
+<span class='span_code_line'></span>    <span class='code_key'>int</span> nCount = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"count"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>while</span> (<span class='code_key'>this</span>.InputOptionsCount &lt; nCount &amp;&amp; <span class='code_key'>this</span>.InputOptionsCount != nCount) <span class='code_key'>this</span>.Addhub();
+<span class='span_code_line'></span>}</pre>
+</div>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_q'>OnEditorLoadCompleted</h2></div>
+<hr/>
+<p>如果某些节点在整个画布都还原完成后需要一些初始化操作可以重写<span class='span_mark'>OnEditorLoadCompleted</span>来完成操作</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当编辑器加载完成所有的节点时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnEditorLoadCompleted();</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_r'>THE END</h1>
+<p>谢谢你的阅读 同样也谢谢你选择<span class='span_mark'>STNodeEditor</span> 如果你觉得<span class='span_mark'>STNodeEditor</span>还不错的话可以推荐给你的朋友</p>
+
+</div>
+</div>
+</body>
+</html>

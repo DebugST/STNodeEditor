@@ -1,0 +1,1228 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>STNodeEditor - Tutorials</title>
+<link rel="stylesheet" type="text/css" href="./css/stdoc.css"/>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/stdoc.js"></script>
+</head>
+<body>
+<div id="div_body">
+<div id="div_left">
+<div id="div_left_list">
+<ul class='ul_group_root'>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_a'>Foreword</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_b'>Introduction</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_c'>[Basic]STNode</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_d'>Create Node</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_e'>STNodeOption</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_f'>STNodeOption.Empty</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_g'>STNode.AutoSize</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_h'>e.g. - ClockNode</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_i'>STNode.SetOptionXXX</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_j'>About TransferData</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_k'>STNodeHub</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_l'>[basic]STNodeControl</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_m'>add a control</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_n'>Customize a Button</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_o'>e.g. - Image info</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_p'>[basic]STNodeEditor</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_q'>Save canvas</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_r'>Load canvas</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_s'>useful event</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_t'>useful function</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_u'>STNodePropertyGrid</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_v'>how to use</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_w'>STNodePropertyAttribute</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_x'>STNodeAttribute</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_y'>Show help</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_z'>e.g. - Add number</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_a'>ReadOnlyModel</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_b'>STNodePropertyDescriptor</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_c'>e.g. - ColorTestNode</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_d'>about properoty discriptor</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_e'>GetValueFromString()</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_f'>GetStringFromValue()</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_g'>e.g. - ColorTestNode</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_h'>e.g. - ColorTestNode</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_i'>STNodeTreeView</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_j'>how to use</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_k'>Load assembly</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_l'>Save nodes</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_m'>Save</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_n'>OnSaveNode(dic)</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_o'>GetBytesFromValue()</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_p'>OnLoadNode(dic)</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_q'>OnEditorLoadCompleted</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_r'>THE END</a>
+    <ul>
+        
+    </ul>
+</li>
+</ul><span class='span_time'>2021-04-29</span>
+</div>
+</div>
+<div id="div_right">
+<h1 class='h_title anchor_point' anchor='a_a'>Foreword</h1>
+<div><h2 class='h_option anchor_point' anchor='a_b'>Introduction</h2></div>
+<p>It was a winter. The author who was studying radio security used <a target='_bank' href='https://www.gnuradio.org/'>GNURadio</a>. That was the first time the author used the node editor.</p>
+<p>-&gt; What? Excuse me... What"s this?.. What the hell is this?...</p>
+<p>It was a spring season, and I don"t know why the whole world has changed after the Chinese New Year. Everyone was forced to stay at home. The extremely boring author learned <a target='_bank' href='https://www.blender.org/'>Blender</a>. That was the second time the author used the node editor.</p>
+<p>-&gt; Wo...It turns out that this one is really convenient to use.</p>
+<p>So some ideas gradually emerged in the author"s mind, making the author want to make one.</p>
+<p>It was a summer, I don’t know why the author started to learn <a target='_bank' href='http://www.blackmagicdesign.com/cn/products/davinciresolve/'>Davinci</a> again. That was the third time the author used the node editor. The use of this time has doubled the author"s favor with the node editor. The author instantly felt that as long as it is a program that can be modularized and streamlined, everything can be nodeized.</p>
+<p>So <span class='span_mark'>STNodeEditor</span> appeared.</p>
+<img width=990 src='./images/page_top.png'/>
+<hr/>
+<h1 class='h_title anchor_point' anchor='a_c'>[Basic]STNode</h1>
+<p><span class='span_mark'>STNode</span> is the core of the whole framework. If <span class='span_mark'>STNodeEditor</span> is regarded as <span class='span_mark'>Desktop</span>, then an <span class='span_mark'>STNode</span> can be regarded as an <span class='span_mark'>application</span> on the desktop. It is very necessary to develop a strong <span class='span_mark'>STNode</span>.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_d'>Create Node</h2></div>
+<hr/>
+<p>The base class <span class='span_mark'>STNode</span> of the node is modified by <span class='span_mark'>abstract</span>, so the node must be extended to <span class='span_mark'>STNode</span></p>
+<p><span class='span_mark'>STNode</span> contains a large number of <span class='span_mark'>virtual</span> functions for developers to overload. For more information, please refer to <a target='_bank' href='./doc.html'>API Documentation</a></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>using</span> ST.Library.UI.NodeEditor;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span><span class='code_key'>namespace</span> WinNodeEditorDemo
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>    {
+<span class='span_code_line'></span>        <span class='code_key'>public</span> <span class='code_class'>MyNode</span>() { <span class='code_note'>//Equivalent to OnCreate()</span>
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.Title = <span class='code_string'>"TestNode"</span>;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_note'>//protected override void OnCreate() {</span>
+<span class='span_code_line'></span>        <span class='code_note'>//    base.OnCreate();</span>
+<span class='span_code_line'></span>        <span class='code_note'>//}</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>//Add to STNodeEditor</span>
+<span class='span_code_line'></span>stNodeEditor1.Nodes.Add(<span class='code_key'>new</span> <span class='code_class'>MyNode</span>());</pre>
+</div>
+<img width=208 src='./images/tu_testnode.png'/>
+<p>You will find that you only see a title and nothing. Because no input and output options are added to it, let's add some code.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"TestNode"</span>;
+<span class='span_code_line'></span>        <span class='code_note'>//get the index of STNodeOption that added</span>
+<span class='span_code_line'></span>        <span class='code_key'>int</span> nIndex = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_key'>new</span> <span class='code_class'>STNodeOption</span>(<span class='code_string'>"IN_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>));
+<span class='span_code_line'></span>        <span class='code_note'>//get the STNodeOption that added</span>
+<span class='span_code_line'></span>        <span class='code_class'>STNodeOption</span> op = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_testnode_adop.png'/>
+<p>In this way, the added option will be displayed on the node, but this is not enough. You can see that there are two data types <span class='span_mark'>string</span> and <span class='span_mark'>int</span>. Color should be added to the data type to distinguish different data types.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"TestNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>int</span> nIndex = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_key'>new</span> <span class='code_class'>STNodeOption</span>(<span class='code_string'>"IN_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>));
+<span class='span_code_line'></span>        <span class='code_class'>STNodeOption</span> op = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//The highest priority, the color information in the container will be ignored</span>
+<span class='span_code_line'></span>        <span class='code_note'>//this.SetOptionDotColor(op, Color.Red);</span> 
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//Occurs when the owner changes, submit the color</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnOwnerChanged() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnOwnerChanged();
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (<span class='code_key'>this</span>.Owner == <span class='code_key'>null</span>) <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Owner.SetTypeColor(<span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_class'>Color</span>.Yellow);
+<span class='span_code_line'></span>        <span class='code_note'>//will replace old color</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Owner.SetTypeColor(<span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_class'>Color</span>.DodgerBlue, <span class='code_key'>true</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_testnode_adopclr.png'/>
+<p>Such a node is created, but this node does not have any functions. In the next case, functions will be added.</p>
+<p class='p_hightlight'>In any case, developers should try to keep an empty parameter constructor for the extended <span class='span_mark'>STNode</span>, otherwise there will be unnecessary troubles in many functions.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_e'>STNodeOption</h2></div>
+<hr/>
+<p>From the above case, we can see that <span class='span_mark'>STNodeOption</span> is the connection option of <span class='span_mark'>STNode</span>. The connection option can be <span class='span_mark'>multi-connection</span> and <span class='span_mark'>single-connection</span> mode.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        <span class='code_note'>//multi-connection</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"Single"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//single-connection</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"Multi"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_single.png'/>
+<p class='p_hightlight'>In <span class='span_mark'>multi-connection</span> mode, an option can be connected by multiple options of <span class='span_mark'>the same data type</span> (rectangle)</p>
+<p class='p_hightlight'>In single-connection mode, an option can only be connected by one option of the same data type (circle)</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_f'>STNodeOption.Empty</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodeOption.Empty</span> is a static property, added to <span class='span_mark'>STNode</span> is only used to occupy a place during auto layout.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_class'>STNodeOption</span>.Empty);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT_1"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_class'>STNodeOption</span>.Empty);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_class'>STNodeOption</span>.Empty);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT_2"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_empty.png'/>
+<p>a <span class='span_mark'>STNodeOption</span> height can set by <span class='span_mark'>STNode.ItemHeight(protected)</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_g'>STNode.AutoSize</h2></div>
+<hr/>
+<p><span class='span_mark'>AutoSize</span>default value is<span class='span_mark'>true</span>,when <span class='span_mark'>AitoSize</span> is set <span class='span_mark'>Width</span><span class='span_mark'>Height</span>can not be set</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//you should close AutoSize Model before you set the node size</span>
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(100, 100);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_autosize.png'/>
+<p>You can see that the size of <span class='span_mark'>MyNode</span> is no longer automatically calculated, but the position of <span class='span_mark'>STNodeOption</span> will still be automatically calculated. If you want to modify the position of <span class='span_mark'>STNodeOption</span>, you can override <span class='span_mark'>OnSetOptionXXX</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        m_op_in = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"IN"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"OUT"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>string</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(100, 100);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//you can set the location of STNodeOption when the AutoSize is true</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_class'>Point</span> OnSetOptionDotLocation(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Point</span> pt, <span class='code_key'>int</span> nIndex) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (op == m_op_in) <span class='code_key'>return</span> <span class='code_key'>new</span> <span class='code_class'>Point</span>(pt.X, pt.Y + 20);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_key'>base</span>.OnSetOptionDotLocation(op, pt, nIndex);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//you can set the rectangle of STNodeOption when the AutoSize is true</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_class'>Rectangle</span> OnSetOptionTextRectangle(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Rectangle</span> rect, <span class='code_key'>int</span> nIndex) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (op == m_op_out) <span class='code_key'>return</span> <span class='code_key'>new</span> <span class='code_class'>Rectangle</span>(rect.X, rect.Y + 20, rect.Width, rect.Height);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_key'>base</span>.OnSetOptionTextRectangle(op, rect, nIndex);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=208 src='./images/tu_mynode_autosize_onset.png'/>
+<p>You can see that in the code, the point and text area of the <span class='span_mark'>STNodeOption</span> connection line are modified by overloading the function. Why is it not designed to be <span class='span_mark'>STNodeOption.DotLeft=xxx</span> because the author thinks it will be more troublesome.</p>
+<p>The <span class='span_mark'>pt</span> and <span class='span_mark'>rect</span> passed in the overloaded function are all automatically calculated data so that the developer will have a certain reference when modifying the position. If the method is <span class='span_mark'>STNodeOption.DotLeft=xxx</span>, the developer cannot Obtaining a reference position requires all calculations by yourself</p>
+<p>It also needs to bind events such as <span class='span_mark'>STNode.Resize</span> to monitor the changes in the size of <span class='span_mark'>STNode</span> to recalculate the position, so the <span class='span_mark'>OnSetOptionXXX</span> method is more friendly in comparison.</p>
+<p>All instances currently have no functions. In the next cases, functions will be added.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_h'>e.g. - ClockNode</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodeOption</span> can get all the data input of this option by binding to the <span class='span_mark'>DataTransfer</span> event</p>
+<p><span class='span_mark'>STNodeOption.TransferData(object)</span> function can transfer data to all connections on this option</p>
+<p>Next, implement a functional node. The best example for now is to create a clock node.</p>
+<p>Because the content introduced so far is not enough to be able to freely provide arbitrary data to nodes, a node that can generate data by itself is needed.</p>
+<p>The node outputs the current system time every second</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ClockNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>Thread</span> m_thread;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out_time;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ClockNode"</span>;
+<span class='span_code_line'></span>        m_op_out_time = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"Time"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//when the owner changed</span> 
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnOwnerChanged() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnOwnerChanged();
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (<span class='code_key'>this</span>.Owner == <span class='code_key'>null</span>) {   <span class='code_note'>//when the owner is null abort thread</span>
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (m_thread != <span class='code_key'>null</span>) m_thread.Abort();
+<span class='span_code_line'></span>            <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Owner.SetTypeColor(<span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_class'>Color</span>.DarkCyan);
+<span class='span_code_line'></span>        m_thread = <span class='code_key'>new</span> <span class='code_class'>Thread</span>(() =&gt; {
+<span class='span_code_line'></span>            <span class='code_key'>while</span> (<span class='code_key'>true</span>) {
+<span class='span_code_line'></span>                <span class='code_class'>Thread</span>.Sleep(1000);
+<span class='span_code_line'></span>                <span class='code_note'>//STNodeOption.TransferData(object) will automatically post data to all connections on the option</span>
+<span class='span_code_line'></span>                <span class='code_note'>//STNodeOption.TransferData(object) will set STNodeOption.Data automatically</span>
+<span class='span_code_line'></span>                m_op_out_time.TransferData(<span class='code_class'>DateTime</span>.Now);
+<span class='span_code_line'></span>                <span class='code_note'>//if you need to operate across UI threads in a thread, the node provides Begin/Invoke() to complete the operation.</span>
+<span class='span_code_line'></span>                <span class='code_note'>//this.BeginInvoke(new MethodInvoker(() =&gt; m_op_out_time.TransferData(DateTime.Now)));</span>
+<span class='span_code_line'></span>            }
+<span class='span_code_line'></span>        }) { IsBackground = <span class='code_key'>true</span> };
+<span class='span_code_line'></span>        m_thread.Start();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>Of course, we can directly display the time of the above node, but in order to demonstrate the data transfer, we also need a node that accepts the data</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ShowClockNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_time_in;
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ShowTime"</span>;
+<span class='span_code_line'></span>        <span class='code_note'>//use "single-connection" model</span>
+<span class='span_code_line'></span>        m_op_time_in = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"--"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//This event is triggered when data is transferred to m_op_time_in</span>
+<span class='span_code_line'></span>        m_op_time_in.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(op_DataTransfer);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> op_DataTransfer(<span class='code_key'>object</span> sender, <span class='code_class'>STNodeOptionEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_note'>//This event is not only triggered when there is data coming in.</span>
+<span class='span_code_line'></span>        <span class='code_note'>//This event is also triggered when there is a connection or disconnection,</span>
+<span class='span_code_line'></span>        <span class='code_note'>//so you need to check the connection status.</span>
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (e.Status != <span class='code_class'>ConnectionStatus</span>.Connected || e.TargetOption.Data == <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>            <span class='code_note'>//When STNode.AutoSize=true, it is not recommended to use STNode.SetOptionText</span>
+<span class='span_code_line'></span>            <span class='code_note'>//the STNode will recalculate the layout every time the Text changes.</span>
+<span class='span_code_line'></span>            <span class='code_note'>//It should be displayed by adding controls.</span>
+<span class='span_code_line'></span>            <span class='code_note'>//Since STNodeControl has not yet been mentioned, the current design will be used for now.</span>
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_time_in, <span class='code_string'>"--"</span>);
+<span class='span_code_line'></span>        } <span class='code_key'>else</span> {
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_time_in, ((<span class='code_class'>DateTime</span>)e.TargetOption.Data).ToString());
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>add to STNodeEditor</p>
+<img src='./images/tu_clockshowtime.gif'/>
+<p>You can see that <span class='span_mark'>ShowClockNode</span> is refreshing every second</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_i'>STNode.SetOptionXXX</h2></div>
+<hr/>
+<p>In the above and previous examples, we can see that when some properties of <span class='span_mark'>STNodeOption</span> need to be modified, they are not modified in the way of <span class='span_mark'>STNodeOption.XXX=XXX</span>. This design is for safety.</p>
+<p>The author thinks that <span class='span_mark'>STNodeOption</span> can only be modified by its owner, and the method of <span class='span_mark'>STNodeOption.XXX=XXX</span> cannot know who modified it and <span class='span_mark'>STNode.SetOptionXXX()</span> is marked by <span class='span_mark'>protected</span> only internally Is called and inside the function will check whether <span class='span_mark'>STNodeOption.Owner</span> is the current class</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_j'>About TransferData</h2></div>
+<hr/>
+<p class='p_hightlight'>It is not necessary to <span class='span_mark'>STNodeOption.TransferData(object)</span> to transfer data. <span class='span_mark'>TransferData(object)</span> only actively <span class='span_mark'>updates data</span></p>
+<p>When a new connection is successful, the <span class='span_mark'>DataTransfer</span> event will also be triggered, the following will modify the code of <span class='span_mark'>ClockNode</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ClockNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>Thread</span> m_thread;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out_time;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ClockNode"</span>;
+<span class='span_code_line'></span>        m_op_out_time = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"Time"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>DateTime</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>        <span class='code_note'>//Assign value to option data</span>
+<span class='span_code_line'></span>        m_op_out_time.Data = <span class='code_class'>DateTime</span>.Now;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img src='./images/tu_clocknode_data.gif'/>
+<p>You can see that <span class='span_mark'>ShowClockNode</span> still shows the time but the data does not change because the <span class='span_mark'>DataTransfer</span> event will be triggered when the connection is successful. In the event, <span class='span_mark'>ShowClockNode</span> gets the data of the <span class='span_mark'>ClockNode</span> option through <span class='span_mark'>e.TargetOption.Data</span></p>
+<p>When a connection is successful and disconnected, the event trigger sequence is as follows</p>
+<p><span class='span_mark'>Connecting</span>-<span class='span_mark'>Connected</span>-<span class='span_mark'>DataTransfer</span> | <span class='span_mark'>DisConnecting</span>-<span class='span_mark'>DataTransfer</span>-<span class='span_mark'>DisConnected</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_k'>STNodeHub</h2></div>
+<hr/>
+<img src='./images/stnodehub.gif'/>
+<p><span class='span_mark'>STNodeHub</span> is a built-in node that can disperse one output to multiple inputs or concentrate multiple outputs on one input point to prevent repeated connections. It can also be used for layout when the node connection is complicated.</p>
+<h1 class='h_title anchor_point' anchor='a_l'>[basic]STNodeControl</h1>
+<p>As the base class of <span class='span_mark'>STNode</span> control, <span class='span_mark'>STNodeControl</span> has many properties and events with the same name as <span class='span_mark'>System.Windows.Forms.Control</span>, allowing developers to develop a node like a <span class='span_mark'>WinForm</span> program.</p>
+<p class='p_hightlight'>In this version (2.0), no available control is provided. Only the <span class='span_mark'>STNodeControl</span> base class needs to be extended by the developer. If available later, the author will improve it.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_m'>add a control</h2></div>
+<hr/>
+<p>Same as <span class='span_mark'>System.Windows.Forms.Control</span> <span class='span_mark'>STNode</span> has the <span class='span_mark'>Controls</span> collection and its data type is <span class='span_mark'>STNodeControl</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"MyNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(100, 100);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>var</span> ctrl = <span class='code_key'>new</span> <span class='code_class'>STNodeControl</span>();
+<span class='span_code_line'></span>        ctrl.Text = <span class='code_string'>"Button"</span>;
+<span class='span_code_line'></span>        ctrl.Location = <span class='code_key'>new</span> <span class='code_class'>Point</span>(10, 10);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Controls.Add(ctrl);
+<span class='span_code_line'></span>        ctrl.MouseClick += <span class='code_key'>new</span> <span class='code_class'>MouseEventHandler</span>(ctrl_MouseClick);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> ctrl_MouseClick(<span class='code_key'>object</span> sender, <span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_class'>MessageBox</span>.Show(<span class='code_string'>"MouseClick"</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=273 src='./images/tu_mynode_ctrl.png'/>
+<p>You can see that there is almost no difference between developing a <span class='span_mark'>WinForm</span> program. The only difference is that <span class='span_mark'>STNode</span> does not yet provide a WYSIWYG UI designer.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_n'>Customize a Button</h2></div>
+<hr/>
+<p>Although the above code looks like it adds a button control, in fact it is just the default drawing style of <span class='span_mark'>STNodeControl</span></p>
+<p>The following is to customize a <span class='span_mark'>Button</span> control with mouse hovering and clicking effects to make it more like a button</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>STNodeButton</span> : <span class='code_class'>STNodeControl</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>bool</span> m_b_enter;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>bool</span> m_b_down;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseEnter(<span class='code_class'>EventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseEnter(e);
+<span class='span_code_line'></span>        m_b_enter = <span class='code_key'>true</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseLeave(<span class='code_class'>EventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseLeave(e);
+<span class='span_code_line'></span>        m_b_enter = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseDown(<span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseDown(e);
+<span class='span_code_line'></span>        m_b_down = <span class='code_key'>true</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseUp(<span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseUp(e);
+<span class='span_code_line'></span>        m_b_down = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnPaint(<span class='code_class'>DrawingTools</span> dt) {
+<span class='span_code_line'></span>        <span class='code_note'>//base.OnPaint(dt);</span>
+<span class='span_code_line'></span>        <span class='code_class'>Graphics</span> g = dt.Graphics;
+<span class='span_code_line'></span>        <span class='code_class'>SolidBrush</span> brush = dt.<span class='code_class'>SolidBrush</span>;
+<span class='span_code_line'></span>        brush.<span class='code_class'>Color</span> = <span class='code_key'>base</span>.BackColor;
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_b_down) brush.<span class='code_class'>Color</span> = <span class='code_class'>Color</span>.SkyBlue;
+<span class='span_code_line'></span>        <span class='code_key'>else</span> <span class='code_key'>if</span> (m_b_enter) brush.<span class='code_class'>Color</span> = <span class='code_class'>Color</span>.DodgerBlue;
+<span class='span_code_line'></span>        g.FillRectangle(brush, 0, 0, <span class='code_key'>this</span>.Width, <span class='code_key'>this</span>.Height);
+<span class='span_code_line'></span>        g.DrawString(<span class='code_key'>this</span>.Text, <span class='code_key'>this</span>.Font, <span class='code_class'>Brushes</span>.White, <span class='code_key'>this</span>.ClientRectangle, <span class='code_key'>base</span>.m_sf);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img src='./images/tu_mynode_btn.gif'/>
+<p>Of course, in order to make the code as simple as possible, the effect of the button is written in the code. The above code is just to demonstrate how to build a custom control. Of course, you need to have some <span class='span_mark'>GDI</span> related knowledge before this.</p>
+<p>&lt;GDI+Programming&gt; is a good book</p>
+<img src='./images/gdip.png'/>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_o'>e.g. - Image info</h2></div>
+<hr/>
+<p>In the above <span class='span_mark'>ClockNode</span> case, the data for the data is written in the node through code. Next, in this case, the data is obtained through the <span class='span_mark'>STNodeButton</span> for output.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ImageShowNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ImageShowNode"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.AutoSize = <span class='code_key'>false</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(160, 150);
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>""</span>, <span class='code_key'>typeof</span>(<span class='code_class'>Image</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        <span class='code_key'>var</span> ctrl = <span class='code_key'>new</span> <span class='code_class'>STNodeButton</span>();
+<span class='span_code_line'></span>        ctrl.Text = <span class='code_string'>"Open Image"</span>;
+<span class='span_code_line'></span>        ctrl.Location = <span class='code_key'>new</span> <span class='code_class'>Point</span>(5, 0);
+<span class='span_code_line'></span>        ctrl.Size = <span class='code_key'>new</span> <span class='code_class'>Size</span>(150, 20);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Controls.Add(ctrl);
+<span class='span_code_line'></span>        ctrl.MouseClick += <span class='code_key'>new</span> <span class='code_class'>MouseEventHandler</span>(ctrl_MouseClick);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> ctrl_MouseClick(<span class='code_key'>object</span> sender, <span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        OpenFileDialog ofd = <span class='code_key'>new</span> OpenFileDialog();
+<span class='span_code_line'></span>        ofd.Filter = <span class='code_string'>"*.png|*.png|*.jpg|*.jpg"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (ofd.ShowDialog() != DialogResult.OK) <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        m_op_out.TransferData(<span class='code_class'>Image</span>.FromFile(ofd.FileName), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnDrawBody(<span class='code_class'>DrawingTools</span> dt) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnDrawBody(dt);
+<span class='span_code_line'></span>        <span class='code_note'>//of course you can extended STNodeControl to build a "STNodePictureBox" for display image</span>
+<span class='span_code_line'></span>        <span class='code_class'>Graphics</span> g = dt.<span class='code_class'>Graphics</span>;
+<span class='span_code_line'></span>        <span class='code_class'>Rectangle</span> rect = <span class='code_key'>new</span> <span class='code_class'>Rectangle</span>(<span class='code_key'>this</span>.Left + 5, <span class='code_key'>this</span>.Top + <span class='code_key'>this</span>.TitleHeight + 20, 150, 105);
+<span class='span_code_line'></span>        g.FillRectangle(<span class='code_class'>Brushes</span>.Gray, rect);
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_op_out.Data != <span class='code_key'>null</span>)
+<span class='span_code_line'></span>            g.DrawImage((<span class='code_class'>Image</span>)m_op_out.Data, rect);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>Now we need a node to get image size.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ImageSizeNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ImageSize"</span>;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.TitleColor = <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Goldenrod);
+<span class='span_code_line'></span>        m_op_in = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"--"</span>, <span class='code_key'>typeof</span>(<span class='code_class'>Image</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        m_op_in.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(m_op_in_DataTransfer);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> m_op_in_DataTransfer(<span class='code_key'>object</span> sender, <span class='code_class'>STNodeOptionEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (e.Status != <span class='code_class'>ConnectionStatus</span>.Connected || e.TargetOption.Data == <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_in, <span class='code_string'>"--"</span>);
+<span class='span_code_line'></span>        } <span class='code_key'>else</span> { 
+<span class='span_code_line'></span>            <span class='code_class'>Image</span> img = (<span class='code_class'>Image</span>)e.TargetOption.Data;
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_in, <span class='code_string'>"W:"</span> + img.Width + <span class='code_string'>" H:"</span> + img.Height);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=418 src='./images/tu_imagenode.png'/>
+<p>clickthe <span class='span_mark'>Open Image</span> button, you can select an image and display it in the node. After the <span class='span_mark'>ImageSizeNode</span> is connected, the size of the image will be display.</p>
+<p>The code of the <span class='span_mark'>ImageChannel</span> node is not given here. The code is used in the <span class='span_mark'>WinNodeEditorDemo</span> project to extract the RGB channel of an image. For <span class='span_mark'>ImageShowNode</span>, it just provides the data source and displays it. For the <span class='span_mark'>ImageSizeNode</span> and <span class='span_mark'>ImageChannel</span> nodes, they don"t know what node will be connected. They just complete their functions and package the results to the output option, waiting to be connected by the next node</p>
+<p>The execution logic is completely connected by the user to connect their functions together. During the development, there is no interaction between nodes and nodes. The only thing that ties them together is an <span class='span_mark'>Image</span> data type, so that nodes and nodes There is no coupling relationship between them. High class poly low coupling.</p>
+<h1 class='h_title anchor_point' anchor='a_p'>[basic]STNodeEditor</h1>
+<p><span class='span_mark'>STNodeEditor</span> as a container of <span class='span_mark'>STNode</span> also provides a large number of properties and events for developers to use. For more detailed API list of <span class='span_mark'>STNodeEditor</span>, please refer to <a target='_bank' href='./doc.html'>API document</a></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_q'>Save canvas</h2></div>
+<hr/>
+<p>The relationship between nodes and connections in <span class='span_mark'>STNodeEditor</span> can be saved to a file</p>
+<p>The contents of the canvas can be saved to a file through the <span class='span_mark'>STNodeEditor.SaveCanvas(string strFileName)</span> function</p>
+<p class='p_hightlight'>Note that the <span class='span_mark'>SaveCanvas()</span> function will call the <span class='span_mark'>internal byte[] STNode.GetSaveData()</span> function to get the binary data of each node</p>
+<p>The <span class='span_mark'>GetSaveData()</span> function does not serialize the node itself. The <span class='span_mark'>GetSaveData()</span> function binarizes the basic data and original attributes of the node itself and then calls <span class='span_mark'>virtual OnSaveNode(Dictionary&lt;string, byte[]&gt; dic)</span> to The expansion node asks for the data that the node needs to save</p>
+<p class='p_hightlight'>If there is a saving requirement, the node developer may need to override the <span class='span_mark'>OnSaveNode()</span> function to ensure that some required data can be saved</p>
+<p>More content about saving nodes will be introduced in the following content</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_r'>Load canvas</h2></div>
+<hr/>
+<p>The saved data can be loaded from the file through the <span class='span_mark'>STNodeEditor.LoadCanvas(string strFileName)</span> function</p>
+<p class='p_hightlight'>If <span class='span_mark'>STNodeEditor</span> has nodes in other assemblies, you need to load the assembly by calling <span class='span_mark'>STNodeEditor.LoadAssembly(string strFile)</span> to ensure that the nodes in the file can be restored correctly</p>
+<p>Because the restored node is not serialized, a node is dynamically created by <span class='span_mark'>(STNode)Activator.CreateInstance(stNodeType)</span> and then called <span class='span_mark'>virtual OnSaveNode(Dictionary&lt;string, byte[]&gt; dic)</span> to restore the data, while <span class='span_mark'>dic</span> Is the data saved by <span class='span_mark'>OnSaveNode()</span></p>
+<p class='p_hightlight'>Because the restore node is dynamically created through reflection, an empty parameter constructor must be provided in the extended <span class='span_mark'>STNode</span></p>
+<p>More content about saving nodes will be introduced in the following content</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_s'>useful event</h2></div>
+<hr/>
+<p><span class='span_mark'>ActiveChanged</span>,<span class='span_mark'>SelectedChanged</span> can monitor the selected changes of the node in the control</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.ActiveChanged += (s, e) =&gt; <span class='code_class'>Console</span>.WriteLine(stNodeEditor1.ActiveNode.Title);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>stNodeEditor1.SelectedChanged += (s, e) =&gt; {
+<span class='span_code_line'></span>    <span class='code_key'>foreach</span>(<span class='code_key'>var</span> n <span class='code_key'>in</span> stNodeEditor1.GetSelectedNode()){
+<span class='span_code_line'></span>        <span class='code_class'>Console</span>.WriteLine(n.Title);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>};</pre>
+</div>
+<p>If you want to display the scale on the editor after each zoom of the canvas, you can get it through the <span class='span_mark'>CanvasScaled</span> event</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.CanvasScaled += (s, e) =&gt; {
+<span class='span_code_line'></span>    stNodeEditor1.ShowAlert(stNodeEditor1.CanvasScale.ToString(<span class='code_string'>"F2"</span>),
+<span class='span_code_line'></span>        <span class='code_class'>Color</span>.White, <span class='code_class'>Color</span>.FromArgb(127, 255, 255, 0));
+<span class='span_code_line'></span>};</pre>
+</div>
+<p>If you want to display the connection status when there are nodes connected in the canvas, you can get the status through the <span class='span_mark'>OptionConnected</span> event</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.OptionConnected += (s, e) =&gt; {
+<span class='span_code_line'></span>    stNodeEditor1.ShowAlert(e.Status.ToString(), <span class='code_class'>Color</span>.White,
+<span class='span_code_line'></span>        <span class='code_class'>Color</span>.FromArgb(125, e.Status <span class='code_class'>ConnectionStatus</span>.Connected ? <span class='code_class'>Color</span>.Lime : <span class='code_class'>Color</span>.Red));
+<span class='span_code_line'></span>};</pre>
+</div>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_t'>useful function</h2></div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Move the origin position of the canvas to the specified control position</span></span> 
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>(cannot be moved when there is no Node)</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"x"</span>&gt;<span class='code_note_1'>X</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"y"</span>&gt;<span class='code_note_1'>Y</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bAnimation"</span>&gt;<span class='code_note_1'>use animation</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"ma"</span>&gt;<span class='code_note_1'>Specify the position that needs to be modified</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> MoveCanvas(<span class='code_key'>float</span> x, <span class='code_key'>float</span> y, <span class='code_key'>bool</span> bAnimation, <span class='code_class'>CanvasMoveArgs</span> ma);</pre>
+</div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Scale Canvas(cannot be moved when there is no Node)</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"f"</span>&gt;<span class='code_note_1'>scale</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"x"</span>&gt;<span class='code_note_1'>The position of the zoom center X on the control</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"y"</span>&gt;<span class='code_note_1'>The position of the zoom center Y on the control</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> ScaleCanvas(<span class='code_key'>float</span> f, <span class='code_key'>float</span> x, <span class='code_key'>float</span> y);</pre>
+</div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Add the default data type color to the editor</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"t"</span>&gt;<span class='code_note_1'>data type</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"clr"</span>&gt;<span class='code_note_1'>color</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bReplace"</span>&gt;<span class='code_note_1'>replace</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>new color</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Color</span> SetTypeColor(<span class='code_class'>Type</span> t, <span class='code_class'>Color</span> clr, <span class='code_key'>bool</span> bReplace);</pre>
+</div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Display information in the canvas</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>message text</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"foreColor"</span>&gt;<span class='code_note_1'>fore color</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"backColor"</span>&gt;<span class='code_note_1'>back color</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nTime"</span>&gt;<span class='code_note_1'>time</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"al"</span>&gt;<span class='code_note_1'>message location</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bRedraw"</span>&gt;<span class='code_note_1'>redraw</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>void</span> ShowAlert(<span class='code_key'>string</span> strText, <span class='code_class'>Color</span> foreColor, <span class='code_class'>Color</span> backColor, <span class='code_key'>int</span> nTime, <span class='code_class'>AlertLocation</span> al, <span class='code_key'>bool</span> bRedraw);
+<span class='span_code_line'></span><span class='code_note'>//e.g.</span>
+<span class='span_code_line'></span>stNodeEditor1.ShowAlert(<span class='code_string'>"this is test info"</span>, <span class='code_class'>Color</span>.White, <span class='code_class'>Color</span>.FromArgb(200, <span class='code_class'>Color</span>.Yellow));</pre>
+</div>
+<img width=208 src='./images/tu_editor_alert.png'/>
+<p>For more <span class='span_mark'>property</span><span class='span_mark'>function</span><span class='span_mark'>events</span>of<span class='span_mark'>STNodeEditor</span>, please refer to <a target='_bank' href='./doc.html'>API document</a> This document pays more attention to the example of <span class='span_mark'>STNode</span></p>
+<h1 class='h_title anchor_point' anchor='a_u'>STNodePropertyGrid</h1>
+<p><span class='span_mark'>STNodePropertyGrid</span> is another control released with the class library and can be used with <span class='span_mark'>STNodeEditor</span></p>
+<img width=462 src='./images/tu_stnodepropertygrid.png'/>
+<p>There are two panels in <span class='span_mark'>STNodePropertyGrid</span>, which can be switched by the button on the top <span class='span_mark'>Property Panel</span> and <span class='span_mark'>Node Information Panel</span>.</p>
+<p class='p_hightlight'>Only include <span class='span_mark'>attribute</span> or <span class='span_mark'>node information</span> will display their panel</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_v'>how to use</h2></div>
+<hr/>
+<p>The core method of <span class='span_mark'>STNodePropertyGrid</span> is <span class='span_mark'>SetNode(STNode)</span> usually used with <span class='span_mark'>STNodeEditor</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeEditor1.ActiveChanged += (s, e) =&gt; stNodePropertyGrid1.SetNode(stNodeEditor1.ActiveNode);</pre>
+</div>
+<p><span class='span_mark'>STNode</span> is a <span class='span_mark'>class</span> which of course can have properties, and <span class='span_mark'>STNodePropertyGrid</span> is to display and modify them, just like what you see in the UI designer during the development of <span class='span_mark'>WinForm</span></p>
+<p>Let"s try it</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_1.png'/>
+<p>You will find that the <span class='span_mark'>Number</span> property is not displayed as you expected</p>
+<p>The difference with <span class='span_mark'>System.Windows.Forms.PropertyGrid</span> is that <span class='span_mark'>PropertyGrid</span> will display all the properties in <span class='span_mark'>class</span> while <span class='span_mark'>STNodePropertyGrid</span> does not.</p>
+<p>S T N O D E PropertyGrid This is <span class='span_mark'>STNodePropertyGrid</span> and does not display a property casually, because the author thinks that the developer may not want all the properties in <span class='span_mark'>STNode</span> to be displayed, even if it needs to be displayed, the developer may not want to display a property. What you see in the window is <span class='span_mark'>Number</span> but a different name. After all, <span class='span_mark'>Number</span> is used when writing code</p>
+<p class='p_hightlight'>Only property with the <span class='span_mark'>STNodePropertyAttribute</span> feature added will be displayed in the <span class='span_mark'>STNodePropertyGrid</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_w'>STNodePropertyAttribute</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodePropertyAttribute</span> has three properties <span class='span_mark'>Name</span>, <span class='span_mark'>Description</span> and <span class='span_mark'>DescriptorType</span></p>
+<p><span class='span_mark'>Name</span>-the name of this property that you want to display on <span class='span_mark'>STNodePropertyGrid</span></p>
+<p><span class='span_mark'>Description</span>-The description you want to display when the <span class='span_mark'>left mouse button</span> is <span class='span_mark'>long press</span> the property name on <span class='span_mark'>STNodePropertyGrid</span></p>
+<p><span class='span_mark'>DescriptorType</span>-Data interaction interface with properoty editor, this property will be mentioned later</p>
+<p>The constructor of <span class='span_mark'>STNodePropertyAttribute</span> is <span class='span_mark'>STNodePropertyAttribute(string strName,string strDescription)</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Name"</span>, <span class='code_string'>"Description for this property"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_2.png'/>
+<p>Now you can see that the property is displayed correctly and can be set, and long press the property name will display the description information</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_x'>STNodeAttribute</h2></div>
+<hr/>
+<p>If you want to display node information, <span class='span_mark'>STNode</span> needs to be marked with the <span class='span_mark'>STNodeAttribute</span> feature</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>[<span class='code_class'>STNode</span>(<span class='code_string'>"AA/BB"</span>, <span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Description"</span>)]
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Name"</span>, <span class='code_string'>"Description for this property"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>You can switch between panels through the button in the top</p>
+<p class='p_hightlight'>The <span class='span_mark'>AA/BB</span> is used to construct the path in <span class='span_mark'>STNodeTreeView</span></p>
+<img width=462 src='./images/tu_property_5.png'/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodePropertyGrid1.SetInfoKey(<span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Show Help"</span>);</pre>
+</div>
+<p>The key of the content of the <span class='span_mark'>Information Panel</span> can be used to set the language through the <span class='span_mark'>SetInfoKey()</span> function, which is displayed in simplified Chinese by default.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_y'>Show help</h2></div>
+<hr/>
+<p>In the example of <span class='span_mark'>Information Panel</span>, you can see that the <span class='span_mark'>Show Help</span> button is not available. If you want it to be available, you need to provide a <span class='span_mark'>magic method</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>[<span class='code_class'>STNode</span>(<span class='code_string'>"AA/BB"</span>, <span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Description"</span>)]
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>PropertyTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Name"</span>, <span class='code_string'>"Description for this property"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { _Number = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"PropertyTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span>    <span class='code_note'>/// <span class='code_note_1'>This method is a magic method</span></span>
+<span class='span_code_line'></span>    <span class='code_note'>/// <span class='code_note_1'>If there is <span class='code_string'>"static void ShowHelpInfo(string)"</span> and this class is marked by <span class='code_string'>"STNodeAttribute"</span></span></span>
+<span class='span_code_line'></span>    <span class='code_note'>/// <span class='code_note_1'>Then this method will be used as the <span class='code_string'>"Show Help"</span> function on the property editor</span></span>
+<span class='span_code_line'></span>    <span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span>    <span class='code_note'>/// &lt;param name=<span class='code_string'>"strFileName"</span>&gt;<span class='code_note_1'>The file path of the module where this class is located.</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>static</span> <span class='code_key'>void</span> ShowHelpInfo(<span class='code_key'>string</span> strFileName) {
+<span class='span_code_line'></span>        <span class='code_class'>MessageBox</span>.Show(<span class='code_string'>"this is -&gt; ShowHelpInfo(string);\r\n"</span> + strFileName);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_6.png'/>
+<p>Now find that the <span class='span_mark'>Show Help</span> button has become enabled. STNodeAttribute also provides two <span class='span_mark'>static</span> functions.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Get help method for stNodeType</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>stNodeType</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>MethodInfo</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>static</span> <span class='code_class'>MethodInfo</span> GetHelpMethod(<span class='code_class'>Type</span> stNodeType);
+<span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Excute the <span class='code_string'>"ShowHelpInfo"</span> for stNodeType</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>节点类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>static</span> <span class='code_key'>void</span> ShowHelp(<span class='code_class'>Type</span> stNodeType);</pre>
+</div>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='a_z'>e.g. - Add number</h2></div>
+<hr/>
+<p><span class='span_mark'>STNodePropertyGrid</span> can display and modify properties. Then this case will provide a data input through the <span class='span_mark'>STNodePropertyGrid</span>.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>NumberInputNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_key'>int</span> _Number;
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"Input"</span>, <span class='code_string'>"Input number"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_key'>int</span> Number {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> _Number; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> {
+<span class='span_code_line'></span>            _Number = <span class='code_key'>value</span>;
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetOptionText(m_op_out, <span class='code_key'>value</span>.ToString());
+<span class='span_code_line'></span>            m_op_out.TransferData(<span class='code_key'>value</span>);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"NumberInput"</span>;
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>NumberAddNode</span> : <span class='code_class'>STNode</span> {
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in_1;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_in_2;
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>STNodeOption</span> m_op_out;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"NumberAdd"</span>;
+<span class='span_code_line'></span>        m_op_in_1 = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        m_op_in_2 = <span class='code_key'>this</span>.InputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>true</span>);
+<span class='span_code_line'></span>        m_op_out = <span class='code_key'>this</span>.OutputOptions.Add(<span class='code_string'>"0"</span>, <span class='code_key'>typeof</span>(<span class='code_key'>int</span>), <span class='code_key'>false</span>);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>        m_op_in_1.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(m_op_in_DataTransfer);
+<span class='span_code_line'></span>        m_op_in_2.DataTransfer += <span class='code_key'>new</span> STNodeOptionEventHandler(m_op_in_DataTransfer);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>void</span> m_op_in_DataTransfer(<span class='code_key'>object</span> sender, <span class='code_class'>STNodeOptionEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (e.Status != <span class='code_class'>ConnectionStatus</span>.Connected || e.TargetOption == <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_1) m_op_in_1.Data = 0;
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_2) m_op_in_2.Data = 0;
+<span class='span_code_line'></span>        } <span class='code_key'>else</span> {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_1) m_op_in_1.Data = e.TargetOption.Data;
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (sender == m_op_in_2) m_op_in_2.Data = e.TargetOption.Data;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_op_in_1.Data == <span class='code_key'>null</span>) m_op_in_1.Data = 0;
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_op_in_2.Data == <span class='code_key'>null</span>) m_op_in_2.Data = 0;
+<span class='span_code_line'></span>        <span class='code_key'>int</span> nResult = (<span class='code_key'>int</span>)m_op_in_1.Data + (<span class='code_key'>int</span>)m_op_in_2.Data;
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.SetOptionText(m_op_in_1, m_op_in_1.Data.ToString());
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.SetOptionText(m_op_in_2, m_op_in_2.Data.ToString());
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.SetOptionText(m_op_out, nResult.ToString());
+<span class='span_code_line'></span>        m_op_out.TransferData(nResult);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_property_3.png'/>
+<p>Pass the entered number through the <span class='span_mark'>set</span> accessor of the <span class='span_mark'>Number</span> property.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_a'>ReadOnlyModel</h2></div>
+<hr/>
+<p>In some cases, you don’t want <span class='span_mark'>STNodePropertyGrid</span> to set the properties, you just want to display the properties, you can enable <span class='span_mark'>ReadOnlyModel</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodePropertyGrid1.ReadOnlyModel = <span class='code_key'>true</span>;</pre>
+</div>
+<img width=462 src='./images/tu_property_4.png'/>
+<p>You can not set the properoty value from <span class='span_mark'>STNodePropertyGrid</span> when the <span class='span_mark'>ReadOnlyModel</span> is <span class='span_mark'>true</span></p>
+<h1 class='h_title anchor_point' anchor='b_b'>STNodePropertyDescriptor</h1>
+<p>The <span class='span_mark'>Name</span> and <span class='span_mark'>Description</span> properties of <span class='span_mark'>STNodePropertyAttribute</span> are introduced above. There is also a properoty <span class='span_mark'>DescriptorType</span> whose data type is <span class='span_mark'>Type</span> and the default value is <span class='span_mark'>typeof(STNodePropertyDescriptor)</span></p>
+<p>Although from the current case, there is no problem with the above operation, but not all data type properties can be correctly supported by <span class='span_mark'>STNodePropertyGrid</span>. The default <span class='span_mark'>STNodePropertyDescriptor</span> only supports the following data types.</p>
+<p><span class='span_mark'>int</span><span class='span_mark'>float</span><span class='span_mark'>double</span><span class='span_mark'>bool</span><span class='span_mark'>string</span><span class='span_mark'>Enum</span> and their <span class='span_mark'>Array</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_c'>e.g. - ColorTestNode</h2></div>
+<hr/>
+<p>Create a node below and add an properoty of type <span class='span_mark'>Color</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"TitleColor"</span>, <span class='code_string'>"Get or set the node TitleColor"</span>)]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_class'>Color</span> ColorTest {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> <span class='code_key'>this</span>.TitleColor; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { <span class='code_key'>this</span>.TitleColor = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ColorNode"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_colornode_1.png'/>
+<p>If you run the above code, you will find that there will be errors when setting properties through <span class='span_mark'>STNodePropertyGrid</span>, and the display of property values in <span class='span_mark'>STNodePropertyGrid</span> is also very strange.</p>
+<p>Even though <span class='span_mark'>System.Windows.Forms.PropertyGrid</span> can support many data types, it does not support all types. For example, when the property type is a user-defined type, the property editor cannot know how to interact with the properties on the property grid.</p>
+<p>The solution for <span class='span_mark'>System.Windows.Forms.PropertyGrid</span> is to provide <span class='span_mark'>TypeConverter</span>, mark the target type with <span class='span_mark'>TypeConverter</span> and implement overloading so that <span class='span_mark'>PropertyGrid</span> can know how to interact with the <span class='span_mark'>PropertyGrid</span> through <span class='span_mark'>TypeConverter</span> .</p>
+<p>The solution provided by <span class='span_mark'>STNodePropertyGrid</span> is <span class='span_mark'>STNodePropertyDescriptor</span>.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_d'>about properoty discriptor</h2></div>
+<hr/>
+<p class='p_hightlight'><span class='span_mark'>STNodePropertyGrid</span> can correctly obtain and modify the value of the <span class='span_mark'>STNode</span> property, because <span class='span_mark'>STNodePropertyDescriptor</span> is performing data conversion and responding to some event operations on the property window.</p>
+<p class='p_hightlight'>The property marked by <span class='span_mark'>STNodePropertyAttribute</span> will be packaged as <span class='span_mark'>STNodePropertyDescriptor</span> and passed to <span class='span_mark'>STNodePropertyGrid</span>. A <span class='span_mark'>STNodePropertyDescriptor</span> contains the <span class='span_mark'>Name</span> and <span class='span_mark'>Description</span> in <span class='span_mark'>STNodePropertyAttribute</span> and the position information of the attribute will be displayed on <span class='span_mark'>STNodePropertyGrid</span>, and How to respond to mouse events or keyboard events.</p>
+<p>It can be considered that <span class='span_mark'>STNodePropertyDescriptor</span> is a graphical interface for each properoty marked by <span class='span_mark'>STNodePropertyAttribute</span>, and the main function is to transfer data between the graphical interface and the real properoty.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_e'>GetValueFromString()</h2></div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Convert the value of the string to the value of the property's type.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Only int float double string bool and the above types of Array are supported by default</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>If the target type is not in the above, please override the function to convert it by yourself.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>text</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>the properoty value</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText);</pre>
+</div>
+<p class='p_hightlight'>The <span class='span_mark'>GetValueFromString()</span> function converts the string entered by the user in the <span class='span_mark'>STNodePropertyGrid</span> into the real value required by the property.</p>
+<p>For example: If the property is <span class='span_mark'>int</span> type value and the user can only enter the string <span class='span_mark'>123</span> in <span class='span_mark'>STNodePropertyGrid</span>, then the default <span class='span_mark'>GetValueFromString()</span> function will be <span class='span_mark'>int.Parse(strText)</span> such as <span class='span_mark'>string</span> Type <span class='span_mark'>123</span> becomes <span class='span_mark'>123</span> of type <span class='span_mark'>int</span></p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_f'>GetStringFromValue()</h2></div>
+<hr/>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Convert the value of the properoty to a string.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Calling Tostring() of the property value is the default operation.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>If you need special processing, please override this function to convert by yourself</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>string</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>string</span> GetStringFromValue();</pre>
+</div>
+<p class='p_hightlight'>The <span class='span_mark'>GetStringFromValue()</span> function converts the property value into a string and displays it in the <span class='span_mark'>STNodePropertyGrid</span>. The default <span class='span_mark'>GetStringFromValue()</span> internally just calls the property value <span class='span_mark'>ToString()</span>.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_g'>e.g. - ColorTestNode</h2></div>
+<hr/>
+<p>Extend the <span class='span_mark'>STNodePropertyDescriptor</span> of <span class='span_mark'>ColorTestNode.ColorTest</span> in the above failed example.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorTestNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_note'>//Specify to use the extended STNodePropertyDescriptor in order to complete the support for the Color type.</span>
+<span class='span_code_line'></span>    [<span class='code_class'>STNodeProperty</span>(<span class='code_string'>"TitleColor"</span>, <span class='code_string'>"Get or set the node TitleColor"</span>, DescriptorType = <span class='code_key'>typeof</span>(<span class='code_class'>ColorDescriptor</span>))]
+<span class='span_code_line'></span>    <span class='code_key'>public</span> <span class='code_class'>Color</span> ColorTest {
+<span class='span_code_line'></span>        <span class='code_key'>get</span> { <span class='code_key'>return</span> <span class='code_key'>this</span>.TitleColor; }
+<span class='span_code_line'></span>        <span class='code_key'>set</span> { <span class='code_key'>this</span>.TitleColor = <span class='code_key'>value</span>; }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"ColorNode"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorDescriptor</span> : <span class='code_class'>STNodePropertyDescriptor</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText) {
+<span class='span_code_line'></span>        <span class='code_key'>string</span>[] strs = strText.Split(<span class='code_string'>','</span>);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_class'>Color</span>.FromArgb(<span class='code_key'>int</span>.Parse(strs[0]), <span class='code_key'>int</span>.Parse(strs[1]), <span class='code_key'>int</span>.Parse(strs[2]), <span class='code_key'>int</span>.Parse(strs[3]));
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetValueFromString(strText);</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>string</span> GetStringFromValue() {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> v = (<span class='code_class'>Color</span>)<span class='code_key'>this</span>.GetValue(<span class='code_key'>null</span>);<span class='code_note'>//get the value</span>
+<span class='span_code_line'></span>        <span class='code_key'>return</span> v.A + <span class='code_string'>","</span> + v.R + <span class='code_string'>","</span> + v.G + <span class='code_string'>","</span> + v.B;
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetStringFromValue();</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_colornode_2.png'/>
+<p>At this time, the property value can be displayed and set correctly, because <span class='span_mark'>GetValueFromString()</span> and <span class='span_mark'>GetStringFromValue()</span> correctly complete the conversion between the property value and the string.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_h'>e.g. - ColorTestNode</h2></div>
+<hr/>
+<p>Although the above example can be used to set the <span class='span_mark'>Color</span> property through ARGB,but this method is not friendly enough.</p>
+<img width=462 src='./images/tu_colornode_3.png'/>
+<p>Can it be the same as <span class='span_mark'>System.Windows.Forms.PropertyGrid</span> to allow users to make visual settings. <span class='span_mark'>STNodePropertyDescriptor</span> can of course do it.</p>
+<p class='p_hightlight'><span class='span_mark'>STNodePropertyDescriptor</span> can be regarded as a custom control that displays properties. Since it is a custom control, it can respond to mouse events.</p>
+<p>now add some code to <span class='span_mark'>ColorDescriptor</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>ColorDescriptor</span> : <span class='code_class'>STNodePropertyDescriptor</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_note'>//This rect is used as a color preview for drawing on the STNodePropertyGrid.</span>
+<span class='span_code_line'></span>    <span class='code_key'>private</span> <span class='code_class'>Rectangle</span> m_rect;
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText) {
+<span class='span_code_line'></span>        <span class='code_key'>string</span>[] strs = strText.Split(<span class='code_string'>','</span>);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> <span class='code_class'>Color</span>.FromArgb(<span class='code_key'>int</span>.Parse(strs[0]), <span class='code_key'>int</span>.Parse(strs[1]), <span class='code_key'>int</span>.Parse(strs[2]), <span class='code_key'>int</span>.Parse(strs[3]));
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetValueFromString(strText);</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>string</span> GetStringFromValue() {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> v = (<span class='code_class'>Color</span>)<span class='code_key'>this</span>.GetValue(<span class='code_key'>null</span>);
+<span class='span_code_line'></span>        <span class='code_key'>return</span> v.A + <span class='code_string'>","</span> + v.R + <span class='code_string'>","</span> + v.G + <span class='code_string'>","</span> + v.B;
+<span class='span_code_line'></span>        <span class='code_note'>//return base.GetStringFromValue();</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_note'>//Called when the position of this property is confirmed in the STNodePropertyGrid.</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnSetItemLocation() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnSetItemLocation();
+<span class='span_code_line'></span>        <span class='code_class'>Rectangle</span> rect = <span class='code_key'>base</span>.RectangleR;
+<span class='span_code_line'></span>        m_rect = <span class='code_key'>new</span> <span class='code_class'>Rectangle</span>(rect.Right - 25, rect.Top + 5, 19, 12);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_note'>//Called when drawing this properoty value area in the STNodePropertyGrid</span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnDrawValueRectangle(<span class='code_class'>DrawingTools</span> dt) {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnDrawValueRectangle(dt);<span class='code_note'>//call the base and then draw color preview</span>
+<span class='span_code_line'></span>        dt.SolidBrush.<span class='code_class'>Color</span> = (<span class='code_class'>Color</span>)<span class='code_key'>this</span>.GetValue(<span class='code_key'>null</span>);
+<span class='span_code_line'></span>        dt.<span class='code_class'>Graphics</span>.FillRectangle(dt.SolidBrush, m_rect);<span class='code_note'>//fill color</span>
+<span class='span_code_line'></span>        dt.<span class='code_class'>Graphics</span>.DrawRectangle(<span class='code_class'>Pens</span>.Black, m_rect);   <span class='code_note'>//draw rectangle</span>
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseClick(<span class='code_class'>MouseEventArgs</span> e) {
+<span class='span_code_line'></span>        <span class='code_note'>//If the user clicks in the color preview area, show system color dialog.</span>
+<span class='span_code_line'></span>        <span class='code_key'>if</span> (m_rect.Contains(e.Location)) {
+<span class='span_code_line'></span>            ColorDialog cd = <span class='code_key'>new</span> ColorDialog();
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (cd.ShowDialog() != DialogResult.OK) <span class='code_key'>return</span>;
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.SetValue(cd.<span class='code_class'>Color</span>, <span class='code_key'>null</span>);
+<span class='span_code_line'></span>            <span class='code_key'>this</span>.Invalidate();
+<span class='span_code_line'></span>            <span class='code_key'>return</span>;
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>        <span class='code_note'>//Otherwise, show the text input box by default.</span>
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnMouseClick(e);
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<img width=462 src='./images/tu_colornode_4.png'/>
+<p>At this point, you can see that compared with the previous example, there is one more color preview area, and clicking the preview area will pop up the system color dialog box to set the property value. If you click in the non-preview area, the default operation method will be show text input box to input ARGB.</p>
+<p class='p_hightlight'>About <span class='span_mark'>STNodePropertyDescriptor</span> there are two important overloaded functions <span class='span_mark'>GetBytesFromValue()</span> and <span class='span_mark'>SetValue(byte[])</span> which will be introduced in <span class='span_mark'>Save Canvas</span> later.</p>
+<h1 class='h_title anchor_point' anchor='b_i'>STNodeTreeView</h1>
+<p><span class='span_mark'>STNodeTreeView</span>, like <span class='span_mark'>STNodePropertyGrid</span>, is another control released with the class library and can be used with <span class='span_mark'>STNodeEditor</span>.</p>
+<img src='./images/stnodetreeview.gif'/>
+<p>The nodes in <span class='span_mark'>STNodeTreeView</span> can be dragged and dropped into <span class='span_mark'>STNodeEditor</span>, and preview and search functions are provided.</p>
+<p><span class='span_mark'>STNodeTreeView</span> is easy to use, and there is no need to create a tree directory by yourself like <span class='span_mark'>System.Windows.Forms.TreeView</span>.</p>
+<p>Mark the <span class='span_mark'>STNode</span> subclass by <span class='span_mark'>STNodeAttribute</span> to set the path you want to display in <span class='span_mark'>STNodeTreeView</span> and the information you want to display in <span class='span_mark'>STNodePropertyGrid</span>.</p>
+<p class='p_hightlight'>Note: If you want nodes to be displayed in <span class='span_mark'>STNodeTreeView</span>, you must use <span class='span_mark'>STNodeAttribute</span> to mark the <span class='span_mark'>STNode</span> subclass.</p>
+<div><h2 class='h_option anchor_point' anchor='b_j'>how to use</h2></div>
+<p>The nodes in the above example are all added through the <span class='span_mark'>STNodeEditor.Nodes.Add(STNode)</span> method, and then added through the <span class='span_mark'>STNodeTreeView</span> drag-and-drop method. But before that, you need to add the nodes to the <span class='span_mark'>STNodeTreeView</span> first.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>[<span class='code_class'>STNode</span>(<span class='code_string'>"AA/BB"</span>, <span class='code_string'>"Author"</span>, <span class='code_string'>"Mail"</span>, <span class='code_string'>"Link"</span>, <span class='code_string'>"Description"</span>)]
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>class</span> <span class='code_class'>MyNode</span> : <span class='code_class'>STNode</span>
+<span class='span_code_line'></span>{
+<span class='span_code_line'></span>    <span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnCreate() {
+<span class='span_code_line'></span>        <span class='code_key'>base</span>.OnCreate();
+<span class='span_code_line'></span>        <span class='code_key'>this</span>.Title = <span class='code_string'>"TreeViewTest"</span>;
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>//add to STNodeTreeView</span>
+<span class='span_code_line'></span>stNodeTreeView1.AddNode(<span class='code_key'>typeof</span>(<span class='code_class'>MyNode</span>));</pre>
+</div>
+<img width=462 src='./images/tu_treeview_1.png'/>
+<p>You can see that the added nodes are displayed in <span class='span_mark'>STNodeTreeView</span> and the path is automatically created. The nodes can be previewed and dragged to <span class='span_mark'>STNodeEditor</span>.</p>
+<p class='p_hightlight'>There cannot be a node with the same name in the same path, otherwise it will be overwritten.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_k'>Load assembly</h2></div>
+<hr/>
+<p>In addition to <span class='span_mark'>STNodeTreeView.AddNode(Type)</span> to add nodes to the tree, you can also load nodes from an assembly through the <span class='span_mark'>LoadAssembly(string)</span> method. <span class='span_mark'>LoadAssembly(string)</span> will automatically check the nodes marked by <span class='span_mark'>STNodeAttribute</span> in the assembly and add them, and will create a root node display with the assembly name.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span>stNodeTreeView1.AddNode(<span class='code_key'>typeof</span>(<span class='code_class'>MyNode</span>));
+<span class='span_code_line'></span>stNodeTreeView1.LoadAssembly(Application.ExecutablePath);
+<span class='span_code_line'></span><span class='code_note'>//If the node is in another assembly, STNodeEditor should do the same to confirm that the node is recognized by STNodeEditor.</span>
+<span class='span_code_line'></span>stNodeEditor1.LoadAssembly(Application.ExecutablePath);</pre>
+</div>
+<img width=462 src='./images/tu_treeview_2.png'/>
+<p>You can see that there are two root nodes <span class='span_mark'>AA</span> and <span class='span_mark'>WinNodeEditorDemo</span>. In fact, <span class='span_mark'>MyNode</span> belongs to the <span class='span_mark'>WinNodeEditorDemo</span> assembly, but it cannot be found in the child nodes of <span class='span_mark'>WinNodeEditorDemo</span>. Because <span class='span_mark'>MyNode</span> is added before loading the assembly, when the loading assembly recognizes that <span class='span_mark'>MyNode</span> has been added repeatedly, it is skipped.</p>
+<p class='p_hightlight'><span class='span_mark'>STNodeTreeView</span> cannot add a node of the same type and the same name with the same path.</p>
+<h1 class='h_title anchor_point' anchor='b_l'>Save nodes</h1>
+<p>In the introduction of <span class='span_mark'>STNodeEditor</span> above, we mentioned the saving and loading of canvas. Here we will introduce it in detail.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_m'>Save</h2></div>
+<hr/>
+<p>When <span class='span_mark'>STNodeEditor.SaveCanvas()</span>, <span class='span_mark'>STNodeEditor</span> will call <span class='span_mark'>internal byte[] STNode.GetSaveData()</span> of each <span class='span_mark'>Nodes</span> to get the binary data of each node.</p>
+<p><span class='span_mark'>GetSaveData()</span> is an internal method modified by <span class='span_mark'>internal</span>. The method body is as follows.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>internal</span> <span class='code_key'>byte</span>[] GetSaveData() {
+<span class='span_code_line'></span>    <span class='code_class'>List</span>&lt;<span class='code_key'>byte</span>&gt; lst = <span class='code_key'>new</span> <span class='code_class'>List</span>&lt;<span class='code_key'>byte</span>&gt;();
+<span class='span_code_line'></span>    <span class='code_class'>Type</span> t = <span class='code_key'>this</span>.GetType();
+<span class='span_code_line'></span>    <span class='code_key'>byte</span>[] byData = <span class='code_class'>Encoding</span>.UTF8.GetBytes(t.Module.Name + <span class='code_string'>"|"</span> + t.FullName);
+<span class='span_code_line'></span>    lst.Add((<span class='code_key'>byte</span>)byData.Length);
+<span class='span_code_line'></span>    lst.AddRange(byData);
+<span class='span_code_line'></span>    byData = <span class='code_class'>Encoding</span>.UTF8.GetBytes(t.GUID.ToString());
+<span class='span_code_line'></span>    lst.Add((<span class='code_key'>byte</span>)byData.Length);
+<span class='span_code_line'></span>    lst.AddRange(byData);
+<span class='span_code_line'></span>
+<span class='span_code_line'></span>    <span class='code_key'>var</span> dic = <span class='code_key'>this</span>.OnSaveNode();
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic != <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>        <span class='code_key'>foreach</span> (<span class='code_key'>var</span> v <span class='code_key'>in</span> dic) {
+<span class='span_code_line'></span>            byData = <span class='code_class'>Encoding</span>.UTF8.GetBytes(v.Key);
+<span class='span_code_line'></span>            lst.AddRange(<span class='code_class'>BitConverter</span>.GetBytes(byData.Length));
+<span class='span_code_line'></span>            lst.AddRange(byData);
+<span class='span_code_line'></span>            lst.AddRange(<span class='code_class'>BitConverter</span>.GetBytes(v.Value.Length));
+<span class='span_code_line'></span>            lst.AddRange(v.Value);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>return</span> lst.ToArray();
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>You can see that <span class='span_mark'>GetSaveData()</span> gets the binary of its own basic data, and then calls <span class='span_mark'>OnSaveNode()</span> to get a dictionary.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>internal</span> <span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; OnSaveNode() {
+<span class='span_code_line'></span>    <span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic = <span class='code_key'>new</span> <span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt;();
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Guid"</span>, <span class='code_key'>this</span>._Guid.ToByteArray());
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Left"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Left));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Top"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Top));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Width"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Width));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"Height"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>._Height));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"AutoSize"</span>, <span class='code_key'>new</span> <span class='code_key'>byte</span>[] { (<span class='code_key'>byte</span>)(<span class='code_key'>this</span>._AutoSize ? 1 : 0) });
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (<span class='code_key'>this</span>._Mark != <span class='code_key'>null</span>) dic.Add(<span class='code_string'>"Mark"</span>, <span class='code_class'>Encoding</span>.UTF8.GetBytes(<span class='code_key'>this</span>._Mark));
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"LockOption"</span>, <span class='code_key'>new</span> <span class='code_key'>byte</span>[] { (<span class='code_key'>byte</span>)(<span class='code_key'>this</span>._LockLocation ? 1 : 0) });
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"LockLocation"</span>, <span class='code_key'>new</span> <span class='code_key'>byte</span>[] { (<span class='code_key'>byte</span>)(<span class='code_key'>this</span>._LockLocation ? 1 : 0) });
+<span class='span_code_line'></span>    <span class='code_class'>Type</span> t = <span class='code_key'>this</span>.GetType();
+<span class='span_code_line'></span>    <span class='code_key'>foreach</span> (<span class='code_key'>var</span> p <span class='code_key'>in</span> t.GetProperties()) {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> attrs = p.GetCustomAttributes(<span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_key'>foreach</span> (<span class='code_key'>var</span> a <span class='code_key'>in</span> attrs) {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(a <span class='code_key'>is</span> <span class='code_class'>STNodePropertyAttribute</span>)) <span class='code_key'>continue</span>;
+<span class='span_code_line'></span>            <span class='code_key'>var</span> attr = a <span class='code_key'>as</span> <span class='code_class'>STNodePropertyAttribute</span>;<span class='code_note'>//Get the property marked by STNodePropertyAttribute and save them automatically.</span>
+<span class='span_code_line'></span>            <span class='code_key'>object</span> obj = <span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(obj <span class='code_key'>is</span> <span class='code_class'>STNodePropertyDescriptor</span>))
+<span class='span_code_line'></span>                <span class='code_key'>throw</span> <span class='code_key'>new</span> <span class='code_class'>InvalidOperationException</span>(<span class='code_string'>"[STNodePropertyAttribute.Type]参数值必须为[STNodePropertyDescriptor]或者其子类的类型"</span>);
+<span class='span_code_line'></span>            <span class='code_key'>var</span> desc = (<span class='code_class'>STNodePropertyDescriptor</span>)<span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            desc.Node = <span class='code_key'>this</span>;
+<span class='span_code_line'></span>            desc.PropertyInfo = p;
+<span class='span_code_line'></span>            <span class='code_key'>byte</span>[] byData = desc.GetBytesFromValue();<span class='code_note'>//Get the binary data of the property through STNodePropertyDescriptor.</span>
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (byData == <span class='code_key'>null</span>) <span class='code_key'>continue</span>;
+<span class='span_code_line'></span>            dic.Add(p.Name, byData);
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>    <span class='code_key'>this</span>.OnSaveNode(dic);
+<span class='span_code_line'></span>    <span class='code_key'>return</span> dic;
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>When saving the node, get the data that needs to be saved from the expansion node.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Note: Saving is not serialization. When restoring, only re-create this Node through the empty parameter constructor,</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>and then call OnLoadNode() to restore the saved data.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dic"</span>&gt;<span class='code_note_1'>the data need to save</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnSaveNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) { }</pre>
+</div>
+<p>From the above code, you can see that <span class='span_mark'>STNode</span> will save binary data of its own basic property, and will recognize the property marked by <span class='span_mark'>STNodePropertyAttribute</span> and get the property binary data through <span class='span_mark'>GetBytesFromValue()</span>, and then call <span class='span_mark'>OnSaveNode(dic)</span> Ask the expansion node for the data that needs to be saved.</p>
+<p>If there is an properoty that needs to be saved, it should be marked with <span class='span_mark'>STNodePropertyAttribute</span> and make sure that <span class='span_mark'>GetBytesFromValue()</span> can correctly get the binary data of the property, or save it through <span class='span_mark'>OnSaveNode(dic)</span></p>
+<p>If there are private fields that need to be saved, they should be saved through <span class='span_mark'>OnSaveNode(dic)</span>.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_n'>OnSaveNode(dic)</h2></div>
+<hr/>
+<p><span class='span_mark'>OnSaveNode(dic)</span> and <span class='span_mark'>OnLoadNode(dic)</span> correspond to each other.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnSaveNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    dic.Add(<span class='code_string'>"count"</span>, <span class='code_class'>BitConverter</span>.GetBytes(<span class='code_key'>this</span>.InputOptionsCount));
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    <span class='code_key'>base</span>.OnLoadNode(dic);
+<span class='span_code_line'></span>    <span class='code_key'>int</span> nCount = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"count"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>while</span> (<span class='code_key'>this</span>.InputOptionsCount &lt; nCount &amp;&amp; <span class='code_key'>this</span>.InputOptionsCount != nCount) <span class='code_key'>this</span>.Addhub();
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>The above code snippet is the overload of <span class='span_mark'>OnSaveNode(dic)</span> and <span class='span_mark'>OnLoadNode(dic)</span> in <span class='span_mark'>STNodeHub</span>. You can see that an additional <span class='span_mark'>count</span> data is saved because the option of <span class='span_mark'>STNodeHub</span> is dynamically created, and a newly created <span class='span_mark'>STNodeHub</span> has only one line of connection. Therefore, you need to record the status when saving to ensure that the connection status can be restored correctly, and then restore the status in <span class='span_mark'>OnLoadNode(dic)</span>.</p>
+<p class='p_hightlight'>In addition to saving node data, <span class='span_mark'>STNodeEditor</span> also saves the connection relationship of node options. It will number each <span class='span_mark'>STNodeOption</span> of all nodes in the current canvas and save the numbering information. Therefore, when saving and restoring <span class='span_mark'>STNodeHub</span>, make sure that the number of <span class='span_mark'>STNodeOption</span> is unchanged.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_o'>GetBytesFromValue()</h2></div>
+<hr/>
+<p>For properties marked by <span class='span_mark'>STNodePropertyAttribute</span>, <span class='span_mark'>STNodePropertyDescriptor.GetBytesFromValue()</span> will be automatically called when saving to get the binary data of the attribute.</p>
+<p><span class='span_mark'>GetBytesFromValue()</span> and <span class='span_mark'>GetValueFromBytes()</span> correspond to each other</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Convert properoty value to binary It is called when saving node properoty.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>By default, GetStringFromValue() is called and then the string is converted to binary data.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>If you need special processing, please override this method to convert by yourself and override GetValueFromBytes()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>binary data</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>byte</span>[] GetBytesFromValue() {
+<span class='span_code_line'></span>    <span class='code_key'>string</span> strText = <span class='code_key'>this</span>.GetStringFromValue();
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (strText == <span class='code_key'>null</span>) <span class='code_key'>return</span> <span class='code_key'>null</span>;
+<span class='span_code_line'></span>    <span class='code_key'>return</span> <span class='code_class'>Encoding</span>.UTF8.GetBytes(strText);
+<span class='span_code_line'></span>}
+<span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>When restoring the properoty value, convert the binary to the properoty value.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Convert it to a string by default and then call GetValueFromString(string).</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>If override this method,you should override GetBytesFromValue() together.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"byData"</span>&gt;<span class='code_note_1'>binary data</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>properoty value</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValueFromBytes(<span class='code_key'>byte</span>[] byData) {
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (byData == <span class='code_key'>null</span>) <span class='code_key'>return</span> <span class='code_key'>null</span>;
+<span class='span_code_line'></span>    <span class='code_key'>string</span> strText = <span class='code_class'>Encoding</span>.UTF8.GetString(byData);
+<span class='span_code_line'></span>    <span class='code_key'>return</span> <span class='code_key'>this</span>.GetValueFromString(strText);
+<span class='span_code_line'></span>}</pre>
+</div>
+<p><span class='span_mark'>STNodePropertyDescriptor.GetBytesFromValue()</span> calls <span class='span_mark'>STNodePropertyDescriptor.GetStringFromValue()</span> by default to get the string value of the property and then converts the string to <span class='span_mark'>byte[]</span>.</p>
+<p class='p_hightlight'>If <span class='span_mark'>GetStringFromValue()</span> and <span class='span_mark'>GetValueFromString(strText)</span> can run correctly, then the property value can be saved correctly using the default processing method.</p>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_p'>OnLoadNode(dic)</h2></div>
+<hr/>
+<p>When restoring a node, <span class='span_mark'>STNodeEditor</span> creates a node through <span class='span_mark'>(STNode)Activator.CreateInstance(stNodeType)</span> and then calls <span class='span_mark'>OnLoadNode(dic)</span>.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"AutoSize"</span>)) <span class='code_key'>this</span>._AutoSize = dic[<span class='code_string'>"AutoSize"</span>][0] == 1;
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"LockOption"</span>)) <span class='code_key'>this</span>._LockOption = dic[<span class='code_string'>"LockOption"</span>][0] == 1;
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"LockLocation"</span>)) <span class='code_key'>this</span>._LockLocation = dic[<span class='code_string'>"LockLocation"</span>][0] == 1;
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Guid"</span>)) <span class='code_key'>this</span>._Guid = <span class='code_key'>new</span> Guid(dic[<span class='code_string'>"Guid"</span>]);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Left"</span>)) <span class='code_key'>this</span>._Left = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Left"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Top"</span>)) <span class='code_key'>this</span>._Top = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Top"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Width"</span>) &amp;&amp; !<span class='code_key'>this</span>._AutoSize) <span class='code_key'>this</span>._Width = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Width"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Height"</span>) &amp;&amp; !<span class='code_key'>this</span>._AutoSize) <span class='code_key'>this</span>._Height = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"Height"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>if</span> (dic.ContainsKey(<span class='code_string'>"Mark"</span>)) <span class='code_key'>this</span>.Mark = <span class='code_class'>Encoding</span>.UTF8.GetString(dic[<span class='code_string'>"Mark"</span>]);
+<span class='span_code_line'></span>    <span class='code_class'>Type</span> t = <span class='code_key'>this</span>.GetType();
+<span class='span_code_line'></span>    <span class='code_key'>foreach</span> (<span class='code_key'>var</span> p <span class='code_key'>in</span> t.GetProperties()) {
+<span class='span_code_line'></span>        <span class='code_key'>var</span> attrs = p.GetCustomAttributes(<span class='code_key'>true</span>);
+<span class='span_code_line'></span>        <span class='code_key'>foreach</span> (<span class='code_key'>var</span> a <span class='code_key'>in</span> attrs) {
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(a <span class='code_key'>is</span> <span class='code_class'>STNodePropertyAttribute</span>)) <span class='code_key'>continue</span>;
+<span class='span_code_line'></span>            <span class='code_key'>var</span> attr = a <span class='code_key'>as</span> <span class='code_class'>STNodePropertyAttribute</span>;
+<span class='span_code_line'></span>            <span class='code_key'>object</span> obj = <span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            <span class='code_key'>if</span> (!(obj <span class='code_key'>is</span> <span class='code_class'>STNodePropertyDescriptor</span>))
+<span class='span_code_line'></span>                <span class='code_key'>throw</span> <span class='code_key'>new</span> <span class='code_class'>InvalidOperationException</span>(<span class='code_string'>"[STNodePropertyAttribute.Type]参数值必须为[STNodePropertyDescriptor]或者其子类的类型"</span>);
+<span class='span_code_line'></span>            <span class='code_key'>var</span> desc = (<span class='code_class'>STNodePropertyDescriptor</span>)<span class='code_class'>Activator</span>.CreateInstance(attr.DescriptorType);
+<span class='span_code_line'></span>            desc.Node = <span class='code_key'>this</span>;
+<span class='span_code_line'></span>            desc.PropertyInfo = p;
+<span class='span_code_line'></span>            <span class='code_key'>try</span> {
+<span class='span_code_line'></span>                <span class='code_key'>if</span> (dic.ContainsKey(p.Name)) desc.SetValue(dic[p.Name]);
+<span class='span_code_line'></span>            } <span class='code_key'>catch</span> (<span class='code_class'>Exception</span> ex) {
+<span class='span_code_line'></span>                <span class='code_key'>string</span> strErr = <span class='code_string'>"属性["</span> + <span class='code_key'>this</span>.Title + <span class='code_string'>"."</span> + p.Name + <span class='code_string'>"]的值无法被还原 可通过重写[STNodePropertyAttribute.GetBytesFromValue(),STNodePropertyAttribute.GetValueFromBytes(byte[])]确保保存和加载时候的二进制数据正确"</span>;
+<span class='span_code_line'></span>                <span class='code_class'>Exception</span> e = ex;
+<span class='span_code_line'></span>                <span class='code_key'>while</span> (e != <span class='code_key'>null</span>) {
+<span class='span_code_line'></span>                    strErr += <span class='code_string'>"\r\n----\r\n["</span> + e.GetType().Name + <span class='code_string'>"] -&gt; "</span> + e.Message;
+<span class='span_code_line'></span>                    e = e.InnerException;
+<span class='span_code_line'></span>                }
+<span class='span_code_line'></span>                <span class='code_key'>throw</span> <span class='code_key'>new</span> <span class='code_class'>InvalidOperationException</span>(strErr, ex);
+<span class='span_code_line'></span>            }
+<span class='span_code_line'></span>        }
+<span class='span_code_line'></span>    }
+<span class='span_code_line'></span>}</pre>
+</div>
+<p>The default <span class='span_mark'>OnLoadNode(dic)</span> only restores its own basic properties and properties marked by <span class='span_mark'>STNodePropertyAttribute</span>.</p>
+<p>For <span class='span_mark'>OnLoadNode(dic)</span> of <span class='span_mark'>STNodeHub</span></p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic) {
+<span class='span_code_line'></span>    <span class='code_key'>base</span>.OnLoadNode(dic);<span class='code_note'>//First restore its own properties.</span>
+<span class='span_code_line'></span>    <span class='code_key'>int</span> nCount = <span class='code_class'>BitConverter</span>.ToInt32(dic[<span class='code_string'>"count"</span>], 0);
+<span class='span_code_line'></span>    <span class='code_key'>while</span> (<span class='code_key'>this</span>.InputOptionsCount &lt; nCount &amp;&amp; <span class='code_key'>this</span>.InputOptionsCount != nCount) <span class='code_key'>this</span>.Addhub();
+<span class='span_code_line'></span>}</pre>
+</div>
+<hr/>
+<div><h2 class='h_option anchor_point' anchor='b_q'>OnEditorLoadCompleted</h2></div>
+<hr/>
+<p>If some nodes need some initialization operations after the canvas is restored, you can override <span class='span_mark'>OnEditorLoadCompleted</span> to complete the operation.</p>
+<div class='div_code'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>Occurs when the editor has finished loading all nodes.</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnEditorLoadCompleted();</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_r'>THE END</h1>
+<p>Thank you for reading. Thank you for choosing STNodeEditor. If you think STNodeEditor is not bad, you can recommend it to your friends.</p>
+
+</div>
+</div>
+</body>
+</html>

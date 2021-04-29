@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>STNodeEditor - Document and tutorials</title>
+        <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+        <style type="text/css">
+            body{margin:0px;}
+            iframe{border:none;}
+            #left{
+                position:absolute;
+                width:50%;
+                left:0px;
+                top:0px;
+                height:100%;
+            }
+            #right{
+                border-left:solid 1px black;
+                position:absolute;
+                width:50%;
+                left:50%;
+                top:0px;
+                height:100%;
+            }
+            .a_btn{
+                position: fixed;
+                display: block;
+                width: 30px;
+                height: 30px;
+                top: 5px;
+                background-color: rgba(125,125,125,.8);
+                z-index: 1;
+                border-radius: 15px;
+                background-size: cover;
+                opacity:0.6;
+            }
+            .a_btn:hover{background-color:dodgerblue;}
+            .active:after{
+                content: ' ';
+                display: block;
+                width: 28px;
+                height: 28px;
+                border-radius: 14px;
+                border: solid 1px dodgerblue;
+            }
+            #a_btn_lr{
+                right:85px;
+                background-image:url('./images/layout_lr.png');
+            }
+            #a_btn_l{
+                right:50px;
+                background-image:url('./images/layout_l.png');
+            }
+            #a_btn_r{
+                right:15px;
+                background-image:url('./images/layout_l.png');
+            }
+        </style>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var e_l = $("#left"), e_r = $("#right");
+                $("#a_btn_l").click(function(){
+                    e_l.css({opacity:1,width:"100%"});
+                    e_r.css({opacity:0});
+                });
+                $("#a_btn_r").click(function(){
+                    e_l.css({opacity:0});
+                    e_r.css({opacity:1,left:0,width:"100%"});
+                });
+                $("#a_btn_lr").click(function(){
+                    e_l.css({opacity:1,width:"50%"});
+                    e_r.css({opacity:1,left:"50%",width:"50%"});
+                });
+                $(".a_btn").click(function(){
+                    $('.a_btn').removeClass('active');
+                    $(this).addClass('active');
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <a id="a_btn_lr" class="a_btn active"></a><a id="a_btn_l" class="a_btn"></a><a id="a_btn_r" class="a_btn"></a>
+        <iframe id="left" src="./tutorials_en.html"></iframe>
+        <iframe id="right" src="./api.html"></iframe>
+    </body>
+</html>

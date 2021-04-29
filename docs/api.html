@@ -1,0 +1,1681 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+<title>{THIS IS TITLE}</title>
+<link rel="stylesheet" type="text/css" href="./css/stdoc.css"/>
+<script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="./js/stdoc.js"></script>
+</head>
+<body>
+<div id="div_body">
+<div id="div_left">
+<div id="div_left_list">
+<ul class='ul_group_root'>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_a'>STNodeEditor</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_b'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_c'>Protected fields</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_d'>Events</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_e'>Virtual method</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_f'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_g'>STNode</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_h'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_i'>Protected fields</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_j'>Virtual method</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_k'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_l'>STNodeOption</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_m'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_n'>Events</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_o'>Constructor</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_p'>Virtual method</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_q'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_r'>STNodePropertyGrid</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_s'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_t'>Protected fields</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_u'>Virtual method</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_v'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='a_w'>STNodeTreeView</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_x'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_y'>Virtual method</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='a_z'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_a'>STNodeTreeCollection</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_b'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_c'>Constructor</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_d'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_e'>STNodeEditorPannel</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_f'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_g'>public method</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_h'>STNodeAttribute</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_i'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_j'>Constructor</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_k'>STNodePropertyAttribute</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_l'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_m'>Constructor</a></li>
+    </ul>
+</li>
+<li>
+    <a class='a_node_root anchor_btn' anchor='b_n'>STNodePropertyDescriptor</a>
+    <ul>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_o'>Properties</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_p'>Virtual method</a></li>
+        <li class='li_node_sub'><a class='anchor_btn' anchor='b_q'>public method</a></li>
+    </ul>
+</li>
+</ul><span class='span_time'>2021-04-29</span>
+</div>
+</div>
+<div id="div_right">
+<div>
+<h1 class='h_title anchor_point' anchor='a_a'>STNodeEditor</h1>
+<div><h2 class='h_option anchor_point' anchor='a_b'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>CanvasOffsetX</td><td>float</td><td>获取画布原点相对于控件 X 方向上的偏移位置</td></tr>
+<tr class='tr_hight'><td>CanvasOffsetY</td><td>float</td><td>获取画布原点相对于控件 Y 方向上的偏移位置</td></tr>
+<tr><td>CanvasOffset</td><td>PointF</td><td>获取画布原点相对于控件偏移位置</td></tr>
+<tr class='tr_hight'><td>CanvasValidBounds</td><td>Rectangle</td><td>获取画布中的有被用到的有效区域</td></tr>
+<tr><td>CanvasScale</td><td>float</td><td>获取画布的缩放比例</td></tr>
+<tr class='tr_hight'><td>Curvature</td><td>float</td><td>获取或设置 Option 之间连线的曲度</td></tr>
+<tr><td>ShowMagnet</td><td>bool</td><td>获取或设置移动画布中 Node 时候 是否启用磁铁效果</td></tr>
+<tr class='tr_hight'><td>ShowBorder</td><td>bool</td><td>获取或设置 移动画布中是否显示 Node 边框</td></tr>
+<tr><td>ShowGrid</td><td>bool</td><td>获取或设置画布中是否绘制背景网格线条</td></tr>
+<tr class='tr_hight'><td>ShowLocation</td><td>bool</td><td>获取或设置是否在画布边缘显示超出视角的 Node 位置信息</td></tr>
+<tr><td>Nodes</td><td>STNodeCollection</td><td>获取画布中 Node 集合</td></tr>
+<tr class='tr_hight'><td>ActiveNode</td><td>STNode</td><td>获取当前画布中被选中的活动 Node</td></tr>
+<tr><td>HoverNode</td><td>STNode</td><td>获取当前画布中鼠标悬停的 Node</td></tr>
+<tr class='tr_hight'><td>GridColor</td><td>Color</td><td>获取或设置绘制画布背景时 网格线条颜色</td></tr>
+<tr><td>BorderColor</td><td>Color</td><td>获取或设置画布中 Node 边框颜色</td></tr>
+<tr class='tr_hight'><td>BorderHoverColor</td><td>Color</td><td>获取或设置画布中悬停 Node 边框颜色</td></tr>
+<tr><td>BorderSelectedColor</td><td>Color</td><td>获取或设置画布中选中 Node 边框颜色</td></tr>
+<tr class='tr_hight'><td>BorderActiveColor</td><td>Color</td><td>获取或设置画布中活动 Node 边框颜色</td></tr>
+<tr><td>MarkForeColor</td><td>Color</td><td>获取或设置画布绘制 Node 标记详情采用的前景色</td></tr>
+<tr class='tr_hight'><td>MarkBackColor</td><td>Color</td><td>获取或设置画布绘制 Node 标记详情采用的背景色</td></tr>
+<tr><td>MagnetColor</td><td>Color</td><td>获取或设置画布中移动 Node 时候 磁铁标记颜色</td></tr>
+<tr class='tr_hight'><td>SelectedRectangleColor</td><td>Color</td><td>获取或设置画布中选择矩形区域的颜色</td></tr>
+<tr><td>HighLineColor</td><td>Color</td><td>获取或设置画布中高亮连线的颜色</td></tr>
+<tr class='tr_hight'><td>LocationForeColor</td><td>Color</td><td>获取或设置画布中边缘位置提示区域前景色</td></tr>
+<tr><td>LocationBackColor</td><td>Color</td><td>获取或设置画布中边缘位置提示区域背景色</td></tr>
+<tr class='tr_hight'><td>UnknownTypeColor</td><td>Color</td><td>获取或设置画布中当 Node 中 Option 数据类型无法确定时应当使用的颜色</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_c'>Protected fields</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>m_pt_in_control</td><td>Point</td><td>当前鼠标在控件中的实时位置</td></tr>
+<tr class='tr_hight'><td>m_pt_in_canvas</td><td>PointF</td><td>当前鼠标在画布中的实时位置</td></tr>
+<tr><td>m_pt_down_in_control</td><td>Point</td><td>鼠标点击时在控件上的位置</td></tr>
+<tr class='tr_hight'><td>m_pt_down_in_canvas</td><td>PointF</td><td>鼠标点击时在画布中的位置</td></tr>
+<tr><td>m_pt_canvas_old</td><td>PointF</td><td>用于鼠标点击移动画布时候 鼠标点下时候的画布坐标位置</td></tr>
+<tr class='tr_hight'><td>m_pt_dot_down</td><td>Point</td><td>用于保存连线过程中保存点下 Option 的起点坐标</td></tr>
+<tr><td>m_option_down</td><td>STNodeOption</td><td>用于保存连线过程中鼠标点下的起点Option 当MouseUP时候 确定是否连接此节点</td></tr>
+<tr class='tr_hight'><td>m_node_down</td><td>STNode</td><td>当前鼠标点下的 STNode</td></tr>
+<tr><td>m_mouse_in_control</td><td>bool</td><td>当前鼠标是否位于控件中</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_d'>Events</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>ActiveChanged</td><td>活动的节点发生变化时候发生</td></tr>
+<tr class='tr_hight'><td>SelectedChanged</td><td>选择的节点发生变化时候发生</td></tr>
+<tr><td>HoverChanged</td><td>悬停的节点发生变化时候发生</td></tr>
+<tr class='tr_hight'><td>NodeAdded</td><td>当节点被添加时候发生</td></tr>
+<tr><td>NodeRemoved</td><td>当节点被移除时候发生</td></tr>
+<tr class='tr_hight'><td>CanvasMoved</td><td>移动画布原点时候发生</td></tr>
+<tr><td>CanvasScaled</td><td>缩放画布时候发生</td></tr>
+<tr class='tr_hight'><td>OptionConnected</td><td>连接节点选项时候发生</td></tr>
+<tr><td>OptionConnecting</td><td>正在连接节点选项时候发生</td></tr>
+<tr class='tr_hight'><td>OptionDisConnected</td><td>断开节点选项时候发生</td></tr>
+<tr><td>OptionDisConnecting</td><td>正在断开节点选项时候发生</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_e'>Virtual method</h2></div>
+<span style='display:block'><span class='span_code_title'>OnDrawGrid</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制背景网格线时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nWidth"</span>&gt;<span class='code_note_1'>需要绘制宽度</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nHeight"</span>&gt;<span class='code_note_1'>需要绘制高度</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawGrid(<span class='code_class'>DrawingTools</span> dt, <span class='code_key'>int</span> nWidth, <span class='code_key'>int</span> nHeight);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制 Node 时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>可视画布区域大小</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawNode(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawNodeBorder</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制 Node 边框时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"node"</span>&gt;<span class='code_note_1'>目标node</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawNodeBorder(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNode</span> node);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawConnectedLine</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制已连接路径时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawConnectedLine(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawMark</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制 Mark 详情信息时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawMark(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawMagnet</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当移动 Node 时候 需要显示对齐参考线时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"mi"</span>&gt;<span class='code_note_1'>匹配的磁铁信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawMagnet(<span class='code_class'>DrawingTools</span> dt, MagnetInfo mi);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawSelectedRectangle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制选择的矩形区域</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rectf"</span>&gt;<span class='code_note_1'>位于控件上的矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawSelectedRectangle(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>RectangleF</span> rectf);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawNodeOutLocation</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制超出视觉区域的 Node 位置提示信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"sz"</span>&gt;<span class='code_note_1'>提示框边距</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"lstPts"</span>&gt;<span class='code_note_1'>超出视觉区域的 Node 位置信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawNodeOutLocation(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>Size</span> sz, <span class='code_class'>List</span>&lt;<span class='code_class'>Point</span>&gt; lstPts);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawAlert</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制提示信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>需要绘制区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>需要绘制文本</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"foreColor"</span>&gt;<span class='code_note_1'>信息前景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"backColor"</span>&gt;<span class='code_note_1'>信息背景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"al"</span>&gt;<span class='code_note_1'>信息位置</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawAlert(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>Rectangle</span> rect, <span class='code_key'>string</span> strText, <span class='code_class'>Color</span> foreColor, <span class='code_class'>Color</span> backColor, <span class='code_class'>AlertLocation</span> al);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetAlertRectangle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取提示信息需要绘制的矩形区域</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"g"</span>&gt;<span class='code_note_1'>绘图表面</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>需要绘制文本</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"al"</span>&gt;<span class='code_note_1'>信息位置</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>矩形区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_class'>Rectangle</span> GetAlertRectangle(<span class='code_class'>Graphics</span> g, <span class='code_key'>string</span> strText, <span class='code_class'>AlertLocation</span> al);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_f'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>FindNodeFromPoint</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>通过画布坐标进行寻找</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"pt"</span>&gt;<span class='code_note_1'>画布中的坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>寻找到的数据</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>NodeFindInfo</span> FindNodeFromPoint(<span class='code_class'>PointF</span> pt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetSelectedNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取已经被选择的 Node 集合</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>Node 集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNode</span>[] GetSelectedNode();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>CanvasToControl</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将画布坐标转换为控件坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"number"</span>&gt;<span class='code_note_1'>参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"isX"</span>&gt;<span class='code_note_1'>是否为 X 坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的坐标</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>float</span> CanvasToControl(<span class='code_key'>float</span> number, <span class='code_key'>bool</span> isX);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>CanvasToControl</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将画布坐标转换为控件坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"pt"</span>&gt;<span class='code_note_1'>坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的坐标</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>PointF</span> CanvasToControl(<span class='code_class'>PointF</span> pt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>CanvasToControl</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将画布坐标转换为控件坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"pt"</span>&gt;<span class='code_note_1'>坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的坐标</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Point</span> CanvasToControl(<span class='code_class'>Point</span> pt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>CanvasToControl</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将画布坐标转换为控件坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的矩形区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Rectangle</span> CanvasToControl(<span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>CanvasToControl</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将画布坐标转换为控件坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的矩形区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>RectangleF</span> CanvasToControl(<span class='code_class'>RectangleF</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ControlToCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将控件坐标转换为画布坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"number"</span>&gt;<span class='code_note_1'>参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"isX"</span>&gt;<span class='code_note_1'>是否为 X 坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的坐标</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>float</span> ControlToCanvas(<span class='code_key'>float</span> number, <span class='code_key'>bool</span> isX);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ControlToCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将控件坐标转换为画布坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"pt"</span>&gt;<span class='code_note_1'>坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的坐标</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Point</span> ControlToCanvas(<span class='code_class'>Point</span> pt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ControlToCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将控件坐标转换为画布坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"pt"</span>&gt;<span class='code_note_1'>坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的坐标</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>PointF</span> ControlToCanvas(<span class='code_class'>PointF</span> pt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ControlToCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将控件坐标转换为画布坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Rectangle</span> ControlToCanvas(<span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ControlToCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将控件坐标转换为画布坐标</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>转换后的区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>RectangleF</span> ControlToCanvas(<span class='code_class'>RectangleF</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>MoveCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>移动画布原点坐标到指定的控件坐标位置</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当不存在 Node 时候 无法移动</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"x"</span>&gt;<span class='code_note_1'>X 坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"y"</span>&gt;<span class='code_note_1'>Y 坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bAnimation"</span>&gt;<span class='code_note_1'>移动过程中是否启动动画效果</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"ma"</span>&gt;<span class='code_note_1'>指定需要修改的坐标参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> MoveCanvas(<span class='code_key'>float</span> x, <span class='code_key'>float</span> y, <span class='code_key'>bool</span> bAnimation, <span class='code_class'>CanvasMoveArgs</span> ma);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ScaleCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>缩放画布</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当不存在 Node 时候 无法缩放</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"f"</span>&gt;<span class='code_note_1'>缩放比例</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"x"</span>&gt;<span class='code_note_1'>缩放中心X位于控件上的坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"y"</span>&gt;<span class='code_note_1'>缩放中心Y位于控件上的坐标</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> ScaleCanvas(<span class='code_key'>float</span> f, <span class='code_key'>float</span> x, <span class='code_key'>float</span> y);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetConnectionInfo</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取当前已连接的 Option 对应关系</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>连接信息集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>ConnectionInfo</span>[] GetConnectionInfo();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetCanvasImage</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取画布中指定矩形区域图像</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>画布中指定的矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>图像</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Image</span> GetCanvasImage(<span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetCanvasImage</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取画布中指定矩形区域图像</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>画布中指定的矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"fScale"</span>&gt;<span class='code_note_1'>缩放比例</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>图像</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Image</span> GetCanvasImage(<span class='code_class'>Rectangle</span> rect, <span class='code_key'>float</span> fScale);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SaveCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>保存画布中的类容到文件中</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strFileName"</span>&gt;<span class='code_note_1'>文件路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> SaveCanvas(<span class='code_key'>string</span> strFileName);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SaveCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>保存画布中的类容到数据流</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"s"</span>&gt;<span class='code_note_1'>数据流对象</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> SaveCanvas(<span class='code_class'>Stream</span> s);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetCanvasData</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取画布中内容二进制数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>二进制数据</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>byte</span>[] GetCanvasData();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadAssembly</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>加载程序集</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strFiles"</span>&gt;<span class='code_note_1'>程序集集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>存在STNode类型的文件的个数</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>int</span> LoadAssembly(<span class='code_key'>string</span>[] strFiles);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadAssembly</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>加载程序集</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strFile"</span>&gt;<span class='code_note_1'>指定需要加载的文件</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否加载成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> LoadAssembly(<span class='code_key'>string</span> strFile);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetTypes</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取当前编辑器中已加载的Node类型</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>类型集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Type</span>[] GetTypes();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>从文件中加载数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>注意: 此方法并不会清空画布中数据 而是数据叠加</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strFileName"</span>&gt;<span class='code_note_1'>文件路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> LoadCanvas(<span class='code_key'>string</span> strFileName);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>从二进制加载数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>注意: 此方法并不会清空画布中数据 而是数据叠加</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"byData"</span>&gt;<span class='code_note_1'>二进制数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> LoadCanvas(<span class='code_key'>byte</span>[] byData);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadCanvas</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>从数据流中加载数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>注意: 此方法并不会清空画布中数据 而是数据叠加</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"s"</span>&gt;<span class='code_note_1'>数据流对象</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> LoadCanvas(<span class='code_class'>Stream</span> s);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ShowAlert</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在画布中显示提示信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>要显示的信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"foreColor"</span>&gt;<span class='code_note_1'>信息前景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"backColor"</span>&gt;<span class='code_note_1'>信息背景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> ShowAlert(<span class='code_key'>string</span> strText, <span class='code_class'>Color</span> foreColor, <span class='code_class'>Color</span> backColor);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ShowAlert</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在画布中显示提示信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>要显示的信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"foreColor"</span>&gt;<span class='code_note_1'>信息前景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"backColor"</span>&gt;<span class='code_note_1'>信息背景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"al"</span>&gt;<span class='code_note_1'>信息要显示的位置</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> ShowAlert(<span class='code_key'>string</span> strText, <span class='code_class'>Color</span> foreColor, <span class='code_class'>Color</span> backColor, <span class='code_class'>AlertLocation</span> al);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ShowAlert</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在画布中显示提示信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>要显示的信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"foreColor"</span>&gt;<span class='code_note_1'>信息前景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"backColor"</span>&gt;<span class='code_note_1'>信息背景色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nTime"</span>&gt;<span class='code_note_1'>信息持续时间</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"al"</span>&gt;<span class='code_note_1'>信息要显示的位置</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bRedraw"</span>&gt;<span class='code_note_1'>是否立即重绘</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> ShowAlert(<span class='code_key'>string</span> strText, <span class='code_class'>Color</span> foreColor, <span class='code_class'>Color</span> backColor, <span class='code_key'>int</span> nTime, <span class='code_class'>AlertLocation</span> al, <span class='code_key'>bool</span> bRedraw);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetActiveNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置画布中活动的节点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"node"</span>&gt;<span class='code_note_1'>需要被设置为活动的节点</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>设置前的活动节点</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNode</span> SetActiveNode(<span class='code_class'>STNode</span> node);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>AddSelectedNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向画布中添加一个被选中的节点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"node"</span>&gt;<span class='code_note_1'>需要被选中的节点</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否添加成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> AddSelectedNode(<span class='code_class'>STNode</span> node);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>RemoveSelectedNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向画布中移除一个被选中的节点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"node"</span>&gt;<span class='code_note_1'>需要被移除的节点</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是移除否成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> RemoveSelectedNode(<span class='code_class'>STNode</span> node);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetTypeColor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向编辑器中添加默认数据类型颜色</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"t"</span>&gt;<span class='code_note_1'>数据类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"clr"</span>&gt;<span class='code_note_1'>对应颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>被设置后的颜色</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Color</span> SetTypeColor(<span class='code_class'>Type</span> t, <span class='code_class'>Color</span> clr);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetTypeColor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向编辑器中添加默认数据类型颜色</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"t"</span>&gt;<span class='code_note_1'>数据类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"clr"</span>&gt;<span class='code_note_1'>对应颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bReplace"</span>&gt;<span class='code_note_1'>若已经存在是否替换颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>被设置后的颜色</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>Color</span> SetTypeColor(<span class='code_class'>Type</span> t, <span class='code_class'>Color</span> clr, <span class='code_key'>bool</span> bReplace);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='a_g'>STNode</h1>
+<div><h2 class='h_option anchor_point' anchor='a_h'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Owner</td><td>STNodeEditor</td><td>获取当前 Node 所有者</td></tr>
+<tr class='tr_hight'><td>IsSelected</td><td>bool</td><td>获取或设置 Node 是否处于被选中状态</td></tr>
+<tr><td>IsActive</td><td>bool</td><td>获取 Node 是否处于活动状态</td></tr>
+<tr class='tr_hight'><td>TitleColor</td><td>Color</td><td>获取或设置标题背景颜色</td></tr>
+<tr><td>MarkColor</td><td>Color</td><td>获取或设置标记信息背景颜色</td></tr>
+<tr class='tr_hight'><td>ForeColor</td><td>Color</td><td>获取或设置当前 Node 前景色</td></tr>
+<tr><td>BackColor</td><td>Color</td><td>获取或设置当前 Node 背景色</td></tr>
+<tr class='tr_hight'><td>Title</td><td>string</td><td>获取或设置 Node 标题</td></tr>
+<tr><td>Mark</td><td>string</td><td>获取或设置 Node 标记信息</td></tr>
+<tr class='tr_hight'><td>Left</td><td>int</td><td>获取或设置 Node 左边坐标</td></tr>
+<tr><td>Top</td><td>int</td><td>获取或设置 Node 上边坐标</td></tr>
+<tr class='tr_hight'><td>Width</td><td>int</td><td>获取或设置 Node 宽度 当AutoSize被设置时 无法设置此值</td></tr>
+<tr><td>Height</td><td>int</td><td>获取或设置 Node 高度 当AutoSize被设置时 无法设置此值</td></tr>
+<tr class='tr_hight'><td>ItemHeight</td><td>int</td><td>获取或设置 Node 每个选项的高度</td></tr>
+<tr><td>AutoSize</td><td>bool</td><td>获取或设置 Node 是否自动计算宽高</td></tr>
+<tr class='tr_hight'><td>Right</td><td>int</td><td>获取 Node 右边边坐标</td></tr>
+<tr><td>Bottom</td><td>int</td><td>获取 Node 下边坐标</td></tr>
+<tr class='tr_hight'><td>Rectangle</td><td>Rectangle</td><td>获取 Node 矩形区域</td></tr>
+<tr><td>TitleRectangle</td><td>Rectangle</td><td>获取 Node 标题矩形区域</td></tr>
+<tr class='tr_hight'><td>MarkRectangle</td><td>Rectangle</td><td>获取 Node 标记矩形区域</td></tr>
+<tr><td>TitleHeight</td><td>int</td><td>获取或设置 Node 标题高度</td></tr>
+<tr class='tr_hight'><td>InputOptionsCount</td><td>int</td><td>获取输入选项集合个数</td></tr>
+<tr><td>OutputOptionsCount</td><td>int</td><td>获取输出选项个数</td></tr>
+<tr class='tr_hight'><td>ControlsCount</td><td>int</td><td>获取 Node 所包含的控件集合个数</td></tr>
+<tr><td>Location</td><td>Point</td><td>获取 Node 坐标位置</td></tr>
+<tr class='tr_hight'><td>Size</td><td>Size</td><td>获取 Node 大小</td></tr>
+<tr><td>LockOption</td><td>bool</td><td>获取或设置是否锁定Option选项 锁定后不在接受连接</td></tr>
+<tr class='tr_hight'><td>LockLocation</td><td>bool</td><td>获取或设置是否锁定Node位置 锁定后不可移动</td></tr>
+<tr><td>ContextMenuStrip</td><td>ContextMenuStrip</td><td>获取或设置当前Node 上下文菜单</td></tr>
+<tr class='tr_hight'><td>Tag</td><td>object</td><td>获取或设置用户自定义保存的数据</td></tr>
+<tr><td>Guid</td><td>Guid</td><td>获取全局唯一标识</td></tr>
+<tr class='tr_hight'><td>LetGetOptions</td><td>bool</td><td>获取或设置是否允许外部访问STNodeOption</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_i'>Protected fields</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>m_ctrl_active</td><td>STNodeControl</td><td>当前Node中 活动的控件</td></tr>
+<tr class='tr_hight'><td>m_ctrl_hover</td><td>STNodeControl</td><td>当前Node中 悬停的控件</td></tr>
+<tr><td>m_ctrl_down</td><td>STNodeControl</td><td>当前Node中 鼠标点下的控件</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_j'>Virtual method</h2></div>
+<span style='display:block'><span class='span_code_title'>OnCreate</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当Node被构造时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnCreate();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制整个Node</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawNode(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawTitle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制Node标题部分</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawTitle(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawBody</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制Node主体部分 除去标题部分</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawBody(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawMark</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制标记信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawMark(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawOptionDot</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制选项连线的点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>指定的选项</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawOptionDot(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeOption</span> op);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawOptionText</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制选项的文本</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>指定的选项</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawOptionText(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeOption</span> op);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnSetOptionDotLocation</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当计算Option连线点位置时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>需要计算的Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"pt"</span>&gt;<span class='code_note_1'>自动计算出的位置</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nIndex"</span>&gt;<span class='code_note_1'>当前Option的索引</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>新的位置</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_class'>Point</span> OnSetOptionDotLocation(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Point</span> pt, <span class='code_key'>int</span> nIndex);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnSetOptionTextRectangle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当计算Option文本区域时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>需要计算的Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>自动计算出的区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nIndex"</span>&gt;<span class='code_note_1'>当前Option的索引</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>新的区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_class'>Rectangle</span> OnSetOptionTextRectangle(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Rectangle</span> rect, <span class='code_key'>int</span> nIndex);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetDefaultNodeSize</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取当前STNode所需要的默认大小</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>返回的大小并不会限制绘制区域 任然可以在此区域之外绘制</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>但是并不会被STNodeEditor所接受 并触发对应事件</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"g"</span>&gt;<span class='code_note_1'>绘图面板</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>计算出来的大小</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_class'>Size</span> GetDefaultNodeSize(<span class='code_class'>Graphics</span> g);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnBuildMarkRectangle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>计算当前Mark所需要的矩形区域</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>返回的大小并不会限制绘制区域 任然可以在此区域之外绘制</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>但是并不会被STNodeEditor所接受 并触发对应事件</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"g"</span>&gt;<span class='code_note_1'>绘图面板</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>计算后的区域</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_class'>Rectangle</span> OnBuildMarkRectangle(<span class='code_class'>Graphics</span> g);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnSaveNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当需要保存时候 此Node有哪些需要额外保存的数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>注意: 保存时并不会进行序列化 还原时候仅重新通过空参数构造器创建此Node</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>然后调用 OnLoadNode() 将保存的数据进行还原</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dic"</span>&gt;<span class='code_note_1'>需要保存的数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnSaveNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnLoadNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当还原该节点时候会将 OnSaveNode() 所返回的数据重新传入此函数</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dic"</span>&gt;<span class='code_note_1'>保存时候的数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnLoadNode(<span class='code_class'>Dictionary</span>&lt;<span class='code_key'>string</span>, <span class='code_key'>byte</span>[]&gt; dic);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnEditorLoadCompleted</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当编辑器加载完成所有的节点时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnEditorLoadCompleted();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetOptionText</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置Option的文本信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>目标Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>文本</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>bool</span> SetOptionText(<span class='code_class'>STNodeOption</span> op, <span class='code_key'>string</span> strText);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetOptionTextColor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置Option文本信息颜色</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>目标Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"clr"</span>&gt;<span class='code_note_1'>颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>bool</span> SetOptionTextColor(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Color</span> clr);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetOptionDotColor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置Option连线点颜色</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>目标Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"clr"</span>&gt;<span class='code_note_1'>颜色</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>bool</span> SetOptionDotColor(<span class='code_class'>STNodeOption</span> op, <span class='code_class'>Color</span> clr);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnOwnerChanged</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当所有者发生改变时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnOwnerChanged();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnSelectedChanged</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当选中状态改变时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnSelectedChanged();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnActiveChanged</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当活动状态改变时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnActiveChanged();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetOptionsLocation</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>计算每个Option的位置</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetOptionsLocation();</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_k'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>Invalidate</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>重绘Node</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> Invalidate();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Invalidate</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>重绘 Node 指定区域</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>Node 指定区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> Invalidate(<span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetInputOptions</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取此Node所包含的输入Option集合</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>Option集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodeOption</span>[] GetInputOptions();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetOutputOptions</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取此Node所包含的输出Option集合</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>Option集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodeOption</span>[] GetOutputOptions();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetSelected</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置Node的选中状态</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bSelected"</span>&gt;<span class='code_note_1'>是否选中</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bRedraw"</span>&gt;<span class='code_note_1'>是否重绘</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> SetSelected(<span class='code_key'>bool</span> bSelected, <span class='code_key'>bool</span> bRedraw);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='a_l'>STNodeOption</h1>
+<div><h2 class='h_option anchor_point' anchor='a_m'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Owner</td><td>STNode</td><td>获取当前 Option 所属的 Node</td></tr>
+<tr class='tr_hight'><td>IsSingle</td><td>bool</td><td>获取当前 Option 是否仅能被连接一次</td></tr>
+<tr><td>IsInput</td><td>bool</td><td>获取当前 Option 是否是输入选项</td></tr>
+<tr class='tr_hight'><td>TextColor</td><td>Color</td><td>获取或设置当前 Option 文本颜色</td></tr>
+<tr><td>DotColor</td><td>Color</td><td>获取或设置当前 Option 连接点的颜色</td></tr>
+<tr class='tr_hight'><td>Text</td><td>string</td><td>获取或设置当前 Option 显示文本          当AutoSize被设置时 无法修改此属性</td></tr>
+<tr><td>DotLeft</td><td>int</td><td>获取当前 Option 连接点的左边坐标</td></tr>
+<tr class='tr_hight'><td>DotTop</td><td>int</td><td>获取当前 Option 连接点的上边坐标</td></tr>
+<tr><td>DotSize</td><td>int</td><td>获取当前 Option 连接点的宽度</td></tr>
+<tr class='tr_hight'><td>TextRectangle</td><td>Rectangle</td><td>获取当前 Option 文本区域</td></tr>
+<tr><td>Data</td><td>object</td><td>获取或者设置当前 Option 所包含的数据</td></tr>
+<tr class='tr_hight'><td>DataType</td><td>Type</td><td>获取当前 Option 数据类型</td></tr>
+<tr><td>DotRectangle</td><td>Rectangle</td><td>获取当前 Option 连接点的区域</td></tr>
+<tr class='tr_hight'><td>ConnectionCount</td><td>int</td><td>获取当前 Option 被连接的个数</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_n'>Events</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Description</th></tr>
+<tr><td>Connected</td><td>当被连接时候发生</td></tr>
+<tr class='tr_hight'><td>Connecting</td><td>当连接开始发生时发生</td></tr>
+<tr><td>DisConnected</td><td>当连接断开时候发生</td></tr>
+<tr class='tr_hight'><td>DisConnecting</td><td>当连接开始断开时发生</td></tr>
+<tr><td>DataTransfer</td><td>当有数据传递时候发生</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_o'>Constructor</h2></div>
+<span style='display:block'><span class='span_code_title'>Constructor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>构造一个 Option</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>显示文本</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dataType"</span>&gt;<span class='code_note_1'>数据类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bSingle"</span>&gt;<span class='code_note_1'>是否为单连接</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodeOption</span>(<span class='code_key'>string</span> strText, <span class='code_class'>Type</span> dataType, <span class='code_key'>bool</span> bSingle);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_p'>Virtual method</h2></div>
+<span style='display:block'><span class='span_code_title'>Invalidate</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>重绘整个控件</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>void</span> Invalidate();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>ConnectingOption</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当前 Option 开始连接目标 Option</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>需要连接的 Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否允许继续操作</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>bool</span> ConnectingOption(<span class='code_class'>STNodeOption</span> op);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>DisConnectingOption</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当前 Option 开始断开目标 Option</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"op"</span>&gt;<span class='code_note_1'>需要断开的 Option</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否允许继续操作</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>bool</span> DisConnectingOption(<span class='code_class'>STNodeOption</span> op);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_q'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>DisConnectionAll</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>断开当前 Option 的所有连接</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> DisConnectionAll();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetConnectedOption</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取当前 Option 所连接的 Option 集合</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>如果为null 则表示不存在所有者 否则返回集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>List</span>&lt;<span class='code_class'>STNodeOption</span>&gt; GetConnectedOption();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>TransferData</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向当前 Option 所连接的所有 Option 投递数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> TransferData();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>TransferData</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向当前 Option 所连接的所有 Option 投递数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"data"</span>&gt;<span class='code_note_1'>需要投递的数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> TransferData(<span class='code_key'>object</span> data);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>TransferData</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向当前 Option 所连接的所有 Option 投递数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"data"</span>&gt;<span class='code_note_1'>需要投递的数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"bDisposeOld"</span>&gt;<span class='code_note_1'>是否释放旧数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> TransferData(<span class='code_key'>object</span> data, <span class='code_key'>bool</span> bDisposeOld);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='a_r'>STNodePropertyGrid</h1>
+<div><h2 class='h_option anchor_point' anchor='a_s'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>STNode</td><td>STNode</td><td>当前显示的STNode</td></tr>
+<tr class='tr_hight'><td>ItemHoverColor</td><td>Color</td><td>获取或设置属性选项被鼠标悬停时候背景色</td></tr>
+<tr><td>ItemSelectedColor</td><td>Color</td><td>获取或设置属性选项被选中时候背景色 当AutoColor被设置时此属性不能被设置</td></tr>
+<tr class='tr_hight'><td>ItemValueBackColor</td><td>Color</td><td>获取或设置属性选项值背景色</td></tr>
+<tr><td>TitleColor</td><td>Color</td><td>获取或设置默认标题背景色</td></tr>
+<tr class='tr_hight'><td>ErrorColor</td><td>Color</td><td>获取或设置属性设置错误时候提示信息背景色</td></tr>
+<tr><td>DescriptionColor</td><td>Color</td><td>获取或设置属性描述信息背景色</td></tr>
+<tr class='tr_hight'><td>ShowTitle</td><td>bool</td><td>获取或设置是否显示节点标题</td></tr>
+<tr><td>AutoColor</td><td>bool</td><td>获取或设置是否根据STNode自动设置控件高亮颜色</td></tr>
+<tr class='tr_hight'><td>InfoFirstOnDraw</td><td>bool</td><td>获取或当节点被设置时候 是否优先绘制信息面板</td></tr>
+<tr><td>ReadOnlyModel</td><td>bool</td><td>获取或设置当前属性编辑器是否处于只读模式</td></tr>
+<tr class='tr_hight'><td>ScrollOffset</td><td>int</td><td>获取当前滚动条高度</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_t'>Protected fields</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>m_rect_link</td><td>Rectangle</td><td>作者链接地址区域</td></tr>
+<tr class='tr_hight'><td>m_rect_help</td><td>Rectangle</td><td>查看帮助按钮区域</td></tr>
+<tr><td>m_rect_title</td><td>Rectangle</td><td>编辑器标题区域</td></tr>
+<tr class='tr_hight'><td>m_rect_switch</td><td>Rectangle</td><td>面板切换按钮区域</td></tr>
+<tr><td>m_nOffsetY</td><td>int</td><td>控件在绘制过程中使用的垂直滚动偏移</td></tr>
+<tr class='tr_hight'><td>m_nInfoOffsetY</td><td>int</td><td>保存的信息面板垂直滚动偏移</td></tr>
+<tr><td>m_nPropertyOffsetY</td><td>int</td><td>保存的属性面板垂直滚动偏移</td></tr>
+<tr class='tr_hight'><td>m_nVHeight</td><td>int</td><td>控件在绘制过程中使用的绘图区域总高度</td></tr>
+<tr><td>m_nInfoVHeight</td><td>int</td><td>保存的信息面板需要的总高度</td></tr>
+<tr class='tr_hight'><td>m_nPropertyVHeight</td><td>int</td><td>保存的属性面板需要的总高度</td></tr>
+<tr><td>m_nInfoLeft</td><td>int</td><td>信息面板中Key显示需要的水平宽度</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_u'>Virtual method</h2></div>
+<span style='display:block'><span class='span_code_title'>OnPaint</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当控件重绘时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnPaint(PaintEventArgs e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseMove</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在控件上移动时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseMove(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseDown</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在控件上点下时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseDown(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseUp</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在控件上抬起时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseUp(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseLeave</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标离开控件时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseLeave(<span class='code_class'>EventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseWheel</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在控件上滚动滚轮时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnMouseWheel(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnResize</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当控件尺寸发生改变时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>override</span> <span class='code_key'>void</span> OnResize(<span class='code_class'>EventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawPropertyItem</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制属性选项时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"item"</span>&gt;<span class='code_note_1'>目标属性选项描述器</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nIndex"</span>&gt;<span class='code_note_1'>选项所在索引</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawPropertyItem(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodePropertyDescriptor</span> item, <span class='code_key'>int</span> nIndex);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawTitle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>绘制属性窗口标题</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawTitle(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawDescription</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当需要绘制属性描述信息时发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawDescription(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawErrorInfo</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当需要绘制错误信息时发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawErrorInfo(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawInfo</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制节点信息时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawInfo(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnProcessPropertyMouseDown</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当在属性面板鼠标点下时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>鼠标事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnProcessPropertyMouseDown(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnProcessInfoMouseDown</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当在信息面板鼠标点下时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>鼠标事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnProcessInfoMouseDown(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnProcessPropertyMouseMove</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当在属性面板鼠标移动时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>鼠标事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnProcessPropertyMouseMove(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnProcessHelpMouseMove</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当在信息面板鼠标移动时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>鼠标事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnProcessHelpMouseMove(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_v'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>SetNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置需要显示的STNode节点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"node"</span>&gt;<span class='code_note_1'>目标节点</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> SetNode(<span class='code_class'>STNode</span> node);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetInfoKey</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置信息页面Key的显示文本</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strAuthor"</span>&gt;<span class='code_note_1'>作者</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strMail"</span>&gt;<span class='code_note_1'>邮箱</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strLink"</span>&gt;<span class='code_note_1'>连接</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strHelp"</span>&gt;<span class='code_note_1'>查看帮助</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> SetInfoKey(<span class='code_key'>string</span> strAuthor, <span class='code_key'>string</span> strMail, <span class='code_key'>string</span> strLink, <span class='code_key'>string</span> strHelp);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetErrorMessage</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置要显示的错误信息</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>错误信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> SetErrorMessage(<span class='code_key'>string</span> strText);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='a_w'>STNodeTreeView</h1>
+<div><h2 class='h_option anchor_point' anchor='a_x'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>ItemBackColor</td><td>Color</td><td>获取或设置每行属性选项背景色</td></tr>
+<tr class='tr_hight'><td>ItemHoverColor</td><td>Color</td><td>获取或设置属性选项被鼠标悬停时候背景色</td></tr>
+<tr><td>TitleColor</td><td>Color</td><td>获取或设置顶部检索区域背景色</td></tr>
+<tr class='tr_hight'><td>TextBoxColor</td><td>Color</td><td>获取或设置检索文本框的背景色</td></tr>
+<tr><td>HightLightTextColor</td><td>Color</td><td>获取或设置检索时候高亮文本颜色</td></tr>
+<tr class='tr_hight'><td>InfoButtonColor</td><td>Color</td><td>获取或设置信息显示按钮颜色 若设置AutoColor无法设置此属性值</td></tr>
+<tr><td>FolderCountColor</td><td>Color</td><td>获取或设置统计个数的文本颜色</td></tr>
+<tr class='tr_hight'><td>ShowFolderCount</td><td>bool</td><td>获取或设置是否统计STNode的个数</td></tr>
+<tr><td>ShowInfoButton</td><td>bool</td><td>获取或设置是否显示信息按钮</td></tr>
+<tr class='tr_hight'><td>InfoPanelIsLeftLayout</td><td>bool</td><td>获取或设置预览窗口是否是向左布局</td></tr>
+<tr><td>AutoColor</td><td>bool</td><td>获取或设置控件中部分颜色来之对应的STNode的标题颜色</td></tr>
+<tr class='tr_hight'><td>Editor</td><td>STNodeEditor</td><td>获取节点预览时候使用的STNodeEditor</td></tr>
+<tr><td>PropertyGrid</td><td>STNodePropertyGrid</td><td>获取节点预览时候使用的STNodePropertyGrid</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_y'>Virtual method</h2></div>
+<span style='display:block'><span class='span_code_title'>OnDrawSearch</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制检索文本区域时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawSearch(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnStartDrawItem</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当开始绘制树节点的每一个节点时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"Items"</span>&gt;<span class='code_note_1'>当前需要绘制的集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nCounter"</span>&gt;<span class='code_note_1'>已经绘制个数的计数器</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nLevel"</span>&gt;<span class='code_note_1'>当前位于第几级子集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>已经绘制个数</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>int</span> OnStartDrawItem(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeTreeCollection</span> Items, <span class='code_key'>int</span> nCounter, <span class='code_key'>int</span> nLevel);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawItem</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制树节点每一个节点时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"items"</span>&gt;<span class='code_note_1'>当前需要绘制的集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nCounter"</span>&gt;<span class='code_note_1'>已经绘制个数的计数器</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"nLevel"</span>&gt;<span class='code_note_1'>当前位于第几级子集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawItem(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeTreeCollection</span> items, <span class='code_key'>int</span> nCounter, <span class='code_key'>int</span> nLevel);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawSwitch</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制树节点展开与关闭开关时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"items"</span>&gt;<span class='code_note_1'>当前需要绘制的集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawSwitch(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeTreeCollection</span> items);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawItemText</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制树节点的文本时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"items"</span>&gt;<span class='code_note_1'>当前需要绘制的集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>文本域所在矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawItemText(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeTreeCollection</span> items, <span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawItemIcon</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制树节点图标时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"items"</span>&gt;<span class='code_note_1'>当前需要绘制的集合</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"rect"</span>&gt;<span class='code_note_1'>文本域所在矩形区域</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawItemIcon(<span class='code_class'>DrawingTools</span> dt, <span class='code_class'>STNodeTreeCollection</span> items, <span class='code_class'>Rectangle</span> rect);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='a_z'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>Search</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在控件中检索STNode</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>需要检索的文本</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> Search(<span class='code_key'>string</span> strText);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>AddNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向控件中添加一个STNode类型</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>STNode类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否添加成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> AddNode(<span class='code_class'>Type</span> stNodeType);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadAssembly</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>从文件中向控件添加STNode类型</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strFile"</span>&gt;<span class='code_note_1'>指定文件路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>添加成功个数</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>int</span> LoadAssembly(<span class='code_key'>string</span> strFile);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Clear</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>清空控件中所有STNode类型</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> Clear();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>RemoveNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向控件中移除一个STNode类型</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>STNode类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否移除成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> RemoveNode(<span class='code_class'>Type</span> stNodeType);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_a'>STNodeTreeCollection</h1>
+<p><span class='span_mark'>STNodeTreeCollection</span>类被<span class='span_mark'>protected</span>修饰 在<span class='span_mark'>STNodeTreeView</span>内部 仅继承<span class='span_mark'>STNodeTreeView</span>才能访问</p>
+<div><h2 class='h_option anchor_point' anchor='b_b'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td>string</td><td>获取当前树节点显示名称</td></tr>
+<tr class='tr_hight'><td>NameLower</td><td>string</td><td>获取当前树节点显示名称的小写字符串</td></tr>
+<tr><td>STNodeType</td><td>Type</td><td>获取当前树节点对应的STNode类型</td></tr>
+<tr class='tr_hight'><td>Parent</td><td>STNodeTreeCollection</td><td>获取当前树节点的父级树节点</td></tr>
+<tr><td>STNodeCount</td><td>int</td><td>获取当前树节点下拥有的STNode类型个数</td></tr>
+<tr class='tr_hight'><td>Path</td><td>string</td><td>获取当前树节点对应STNode类型在树控件中对应路径</td></tr>
+<tr><td>IsOpen</td><td>bool</td><td>获取当前或设置树节点是否为打开状态</td></tr>
+<tr class='tr_hight'><td>IsLibraryRoot</td><td>bool</td><td>获取当前树节点是否为加载模块的根路劲节点</td></tr>
+<tr><td>DisplayRectangle</td><td>Rectangle</td><td>获取当前树节点在控件中的显示区域</td></tr>
+<tr class='tr_hight'><td>SwitchRectangle</td><td>Rectangle</td><td>获取当前树节点在控件中的开关按钮区域</td></tr>
+<tr><td>InfoRectangle</td><td>Rectangle</td><td>获取当前树节点在控件中的信息按钮区域</td></tr>
+<tr class='tr_hight'><td>STNodeTypeColor</td><td>Color</td><td>获取当前树节点对应STNode类型的标题颜色</td></tr>
+<tr><td>Count</td><td>int</td><td>获取当前树节点所包含子节点个数</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_c'>Constructor</h2></div>
+<span style='display:block'><span class='span_code_title'>Constructor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>构造一颗树节点集合</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strName"</span>&gt;<span class='code_note_1'>当前树节点在控件中的显示名称</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodeTreeCollection</span>(<span class='code_key'>string</span> strName);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_d'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>Add</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向当前树节点中添加一个子节点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strName"</span>&gt;<span class='code_note_1'>节点显示名称</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>添加后的子节点集合</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodeTreeCollection</span> Add(<span class='code_key'>string</span> strName);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Remove</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向当前树节点中删除一个子集合</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strName"</span>&gt;<span class='code_note_1'>子集合名称</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"isAutoDelFolder"</span>&gt;<span class='code_note_1'>是否递归向上自动清空无用节点</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否删除成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> Remove(<span class='code_key'>string</span> strName, <span class='code_key'>bool</span> isAutoDelFolder);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Clear</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>清空当前树节点中所有子节点</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> Clear();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetKeys</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>获取当前树节点中所有的名称数组</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'></span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>string</span>[] GetKeys();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Copy</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>拷贝当前树节点集合中所有数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>拷贝的副本</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodeTreeCollection</span> Copy();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetEnumerator</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>返回 System.Collections.IEnumerator 的 Array</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'></span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>IEnumerator</span> GetEnumerator();</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_e'>STNodeEditorPannel</h1>
+<div><h2 class='h_option anchor_point' anchor='b_f'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>LeftLayout</td><td>bool</td><td>获取或设置是否是左边布局</td></tr>
+<tr class='tr_hight'><td>SplitLineColor</td><td>Color</td><td>获取或这是分割线颜色</td></tr>
+<tr><td>HandleLineColor</td><td>Color</td><td>获取或设置分割线手柄颜色</td></tr>
+<tr class='tr_hight'><td>ShowScale</td><td>bool</td><td>获取或设置编辑器缩放时候显示比例</td></tr>
+<tr><td>ShowConnectionStatus</td><td>bool</td><td>获取或设置节点连线时候是否显示状态</td></tr>
+<tr class='tr_hight'><td>X</td><td>int</td><td>获取或设置分割线水平宽度</td></tr>
+<tr><td>Y</td><td>int</td><td>获取或设置分割线垂直高度</td></tr>
+<tr class='tr_hight'><td>Editor</td><td>STNodeEditor</td><td>获取面板中的STNodeEditor</td></tr>
+<tr><td>TreeView</td><td>STNodeTreeView</td><td>获取面板中的STNodeTreeView</td></tr>
+<tr class='tr_hight'><td>PropertyGrid</td><td>STNodePropertyGrid</td><td>获取面板中的STNodePropertyGrid</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_g'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>AddSTNode</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>向树控件中添加一个STNode</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"stNodeType"</span>&gt;<span class='code_note_1'>STNode类型</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>是否添加成功</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>bool</span> AddSTNode(<span class='code_class'>Type</span> stNodeType);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>LoadAssembly</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>从程序集中加载STNode</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strFileName"</span>&gt;<span class='code_note_1'>程序集路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>添加成功个数</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>int</span> LoadAssembly(<span class='code_key'>string</span> strFileName);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetConnectionStatusText</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>设置编辑器显示连接状态的文本</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"status"</span>&gt;<span class='code_note_1'>连接状态</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>对应显示文本</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>旧文本</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>string</span> SetConnectionStatusText(<span class='code_class'>ConnectionStatus</span> status, <span class='code_key'>string</span> strText);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_h'>STNodeAttribute</h1>
+<div><h2 class='h_option anchor_point' anchor='b_i'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Path</td><td>string</td><td>获取STNode节点期望在树形控件的路径</td></tr>
+<tr class='tr_hight'><td>Author</td><td>string</td><td>获取STNode节点的作者名称</td></tr>
+<tr><td>Mail</td><td>string</td><td>获取STNode节点的作者邮箱</td></tr>
+<tr class='tr_hight'><td>Link</td><td>string</td><td>获取STNode节点的作者链接</td></tr>
+<tr><td>Description</td><td>string</td><td>获取STNode节点的描述信息</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_j'>Constructor</h2></div>
+<span style='display:block'><span class='span_code_title'>Constructor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>构造一个STNode特性</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strPath"</span>&gt;<span class='code_note_1'>期望路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> STNodeAttribute(<span class='code_key'>string</span> strPath) : <span class='code_key'>this</span>(strPath, <span class='code_key'>null</span>, <span class='code_key'>null</span>, <span class='code_key'>null</span>, <span class='code_key'>null</span>);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Constructor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>构造一个STNode特性</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strPath"</span>&gt;<span class='code_note_1'>期望路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strDescription"</span>&gt;<span class='code_note_1'>描述信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> STNodeAttribute(<span class='code_key'>string</span> strPath, <span class='code_key'>string</span> strDescription) : <span class='code_key'>this</span>(strPath, <span class='code_key'>null</span>, <span class='code_key'>null</span>, <span class='code_key'>null</span>, strDescription);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>Constructor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>构造一个STNode特性</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strPath"</span>&gt;<span class='code_note_1'>期望路径</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strAuthor"</span>&gt;<span class='code_note_1'>STNode作者名称</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strMail"</span>&gt;<span class='code_note_1'>STNode作者邮箱</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strLink"</span>&gt;<span class='code_note_1'>STNode作者链接</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strDescription"</span>&gt;<span class='code_note_1'>STNode节点描述信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> STNodeAttribute(<span class='code_key'>string</span> strPath, <span class='code_key'>string</span> strAuthor, <span class='code_key'>string</span> strMail, <span class='code_key'>string</span> strLink, <span class='code_key'>string</span> strDescription);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_k'>STNodePropertyAttribute</h1>
+<div><h2 class='h_option anchor_point' anchor='b_l'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Name</td><td>string</td><td>获取属性需要在属性编辑器上显示的名称</td></tr>
+<tr class='tr_hight'><td>Description</td><td>string</td><td>获取属性需要在属性编辑器上显示的描述</td></tr>
+<tr><td>DescriptorType</td><td>Type</td><td>获取属性描述器类型</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_m'>Constructor</h2></div>
+<span style='display:block'><span class='span_code_title'>Constructor</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>构造一个STNode属性特性</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strKey"</span>&gt;<span class='code_note_1'>需要显示的名称</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strDesc"</span>&gt;<span class='code_note_1'>需要显示的描述信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_class'>STNodePropertyAttribute</span>(<span class='code_key'>string</span> strKey, <span class='code_key'>string</span> strDesc);</pre>
+</div>
+<h1 class='h_title anchor_point' anchor='b_n'>STNodePropertyDescriptor</h1>
+<div><h2 class='h_option anchor_point' anchor='b_o'>Properties</h2></div>
+<div class='div_table'>
+<table>
+<tr><th>Name</th><th>Type</th><th>Description</th></tr>
+<tr><td>Node</td><td>STNode</td><td>获取目标节点</td></tr>
+<tr class='tr_hight'><td>Control</td><td>STNodePropertyGrid</td><td>获取所属的节点属性编辑器控件</td></tr>
+<tr><td>Rectangle</td><td>Rectangle</td><td>获取选项所在区域</td></tr>
+<tr class='tr_hight'><td>RectangleL</td><td>Rectangle</td><td>获取选项名称所在区域</td></tr>
+<tr><td>RectangleR</td><td>Rectangle</td><td>获取选项值所在区域</td></tr>
+<tr class='tr_hight'><td>Name</td><td>string</td><td>获取选项需要显示的名称</td></tr>
+<tr><td>Description</td><td>string</td><td>获取属性对应的描述信息</td></tr>
+<tr class='tr_hight'><td>PropertyInfo</td><td>PropertyInfo</td><td>获取属性信息</td></tr>
+</table>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_p'>Virtual method</h2></div>
+<span style='display:block'><span class='span_code_title'>OnSetItemLocation</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当确定STNode属性在属性编辑器上的位置时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnSetItemLocation();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetValueFromString</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将字符串形式的属性值转换为属性目标类型的值</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认只支持 int float double string bool 以及上述类型的Array</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>若目标类型不在上述中 请重写此函数自行转换</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strText"</span>&gt;<span class='code_note_1'>字符串形式的属性值</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性真实目标类型的值</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValueFromString(<span class='code_key'>string</span> strText);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetStringFromValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将属性目标类型的值转换为字符串形式的值</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认对类型值进行 ToString() 操作</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>如需特殊处理 请重写此函数自行转换</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性值的字符串形式</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>string</span> GetStringFromValue();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetValueFromBytes</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将二进制形式的属性值转换为属性目标类型的值 用于从文件存储中的数据还原属性值</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认将其转换为字符串然后调用 GetValueFromString(string)</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数与 GetBytesFromValue() 相对应 若需要重写函数应当两个函数一起重写</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"byData"</span>&gt;<span class='code_note_1'>二进制数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性真实目标类型的值</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValueFromBytes(<span class='code_key'>byte</span>[] byData);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetBytesFromValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>将属性目标类型的值转换为二进制形式的值 用于文件存储时候调用</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>默认调用 GetStringFromValue() 然后将字符串转换为二进制数据</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>如需特殊处理 请重写此函数自行转换 并且重写 GetValueFromBytes()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性值的二进制形式</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>byte</span>[] GetBytesFromValue();</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>GetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.GetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"index"</span>&gt;<span class='code_note_1'>索引属性的可选索引值 对于非索引属性 此值应为null</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;returns&gt;<span class='code_note_1'>属性值</span>&lt;/returns&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>object</span> GetValue(<span class='code_key'>object</span>[] index);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.SetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"value"</span>&gt;<span class='code_note_1'>需要设置的属性值</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetValue(<span class='code_key'>object</span> <span class='code_key'>value</span>);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.SetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在调用之前会默认进行 GetValueFromString(strValue) 处理</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strValue"</span>&gt;<span class='code_note_1'>需要设置的属性字符串形式的值</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetValue(<span class='code_key'>string</span> strValue);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.SetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在调用之前会默认进行 GetValueFromBytes(byte[]) 处理</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"byData"</span>&gt;<span class='code_note_1'>需要设置的属性二进制数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetValue(<span class='code_key'>byte</span>[] byData);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.SetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"value"</span>&gt;<span class='code_note_1'>需要设置的属性值</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"index"</span>&gt;<span class='code_note_1'>索引属性的可选索引值 对于非索引属性 此值应为null</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetValue(<span class='code_key'>object</span> <span class='code_key'>value</span>, <span class='code_key'>object</span>[] index);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.SetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在调用之前会默认进行 GetValueFromString(strValue) 处理</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"strValue"</span>&gt;<span class='code_note_1'>需要设置的属性字符串形式的值</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"index"</span>&gt;<span class='code_note_1'>索引属性的可选索引值 对于非索引属性 此值应为null</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetValue(<span class='code_key'>string</span> strValue, <span class='code_key'>object</span>[] index);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>SetValue</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>此函数对应 System.Reflection.PropertyInfo.SetValue()</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>在调用之前会默认进行 GetValueFromBytes(byte[]) 处理</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"byData"</span>&gt;<span class='code_note_1'>需要设置的属性二进制数据</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"index"</span>&gt;<span class='code_note_1'>索引属性的可选索引值 对于非索引属性 此值应为null</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> SetValue(<span class='code_key'>byte</span>[] byData, <span class='code_key'>object</span>[] index);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnSetValueError</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当设置属性值发生错误时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"ex"</span>&gt;<span class='code_note_1'>异常信息</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnSetValueError(<span class='code_class'>Exception</span> ex);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnDrawValueRectangle</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当绘制属性在属性编辑器上的值所在区域时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"dt"</span>&gt;<span class='code_note_1'>绘制工具</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnDrawValueRectangle(<span class='code_class'>DrawingTools</span> dt);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseEnter</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标进入属性值所在区域时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnMouseEnter(<span class='code_class'>EventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseDown</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在属性值所在区域点击时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnMouseDown(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseMove</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在属性值所在区域移动时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnMouseMove(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseUp</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在属性值所在区域抬起时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnMouseUp(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseLeave</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在属性值所在区域离开时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnMouseLeave(<span class='code_class'>EventArgs</span> e);</pre>
+</div>
+<span style='display:block'><span class='span_code_title'>OnMouseClick</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>当鼠标在属性值所在区域点击时候发生</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;param name=<span class='code_string'>"e"</span>&gt;<span class='code_note_1'>事件参数</span>&lt;/param&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>protected</span> <span class='code_key'>internal</span> <span class='code_key'>virtual</span> <span class='code_key'>void</span> OnMouseClick(<span class='code_class'>MouseEventArgs</span> e);</pre>
+</div>
+<div><h2 class='h_option anchor_point' anchor='b_q'>public method</h2></div>
+<span style='display:block'><span class='span_code_title'>Invalidate</span></span>
+<div class='div_code title'>
+<pre class='pre_code'><span class='span_code_line'></span><span class='code_note'>/// &lt;summary&gt;</span>
+<span class='span_code_line'></span><span class='code_note'>/// <span class='code_note_1'>重绘选项区域</span></span>
+<span class='span_code_line'></span><span class='code_note'>/// &lt;/summary&gt;</span>
+<span class='span_code_line'></span><span class='code_key'>public</span> <span class='code_key'>void</span> Invalidate();</pre>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

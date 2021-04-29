@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <base target="_blank" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+        <title>STNodeEditor - home</title>
+        <link rel="stylesheet" type="text/css" href="./css/index.css"/>
+        <script type="text/javascript" src="./js/jquery-1.10.2.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                var nCount = 0;
+                var e_mix = $('#img_node_mix'), e_frm = $('#img_node_frm');
+                setInterval(function(){
+                    nCount++;
+                    if(nCount <= 20){
+                        e_mix.css("opacity", (nCount / 10) / 2);
+                    }else if(nCount > 30 && nCount <= 50){
+                        e_frm.css("opacity", ((nCount - 30) / 10) / 2);
+                    }
+                    if(nCount == 60){
+                        e_mix.css("opacity", 0);
+                        e_frm.css("opacity", 0);
+                    }
+                    if(nCount == 70) nCount = 0;
+                },100);
+            });
+        </script>
+    </head>
+    <body>
+        <div id="div_top">
+            <div id="div_top_left"><img src="./images/page_top.png"/></div>
+            <div id="div_top_right">
+                <h1 id="h1_title">STNodeEditor</h1>
+                <p style="margin-top:2rem;text-align:left;">STNodeEditor is a lightweight and powerful node editor, very simple to use. Provides a wealth of properties and events, which can easily complete the data interaction and notification between nodes. A large number of overloaded functions are available for developers to use. It is very free.</p>
+                <center>
+                <a id="a_btn_down" href="https://github.com/DebugST/DotNet_WinForm_NodeEditor/releases">Download STNodeEditor</a><br/>
+                <a class="a_icon" style="background-image:url('./images/github.png'") href="https://github.com/DebugST/DotNet_WinForm_NodeEditor"></a>
+                <a class="a_icon" style="background-image:url('./images/gitee.png')" href="https://gitee.com/DebugST/DotNet_WinForm_NodeEditor"></a>
+                <a class="a_icon" style="background-image:url('./images/api.png')" href="./doc_en.html"></a>
+                </center>
+            </div>
+        </div>
+        <div style="clear:both;text-shadow: 0px 1px 1px #ddd;">
+            <div style="text-align:center;padding:30px;">
+                <h1 style="margin-top:0px;">STNodeEditor 2.0</h1>
+                <p class="quote_symbol">In this case, only a node editor control is provided, and the TreeView,PropertyGrid is not included. If I have time later, I will make a complete framework.</p>
+                <p>The above is what the author of the first version mentioned in the document. <span style="font-size:2rem;color:hotpink">NOW <span style="font-size:1.2rem;"> it's </span> COME TRUE</span></p>
+                <p><span class="span_mark">STNodeEditor</span><span class="span_mark">STNodeTreeView</span><span class="span_mark">STNodePropertyGrid</span><span class="span_mark">STNodeEditorPannel</span></p>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodeeditor.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeEditor</h1>
+                        <p><span class="span_key">STNodeEditor</span>has a very powerful function. It supports the movement and zooming of the canvas and can lock the position of the node and the connection. When connecting, it will automatically check whether the data type is compatible, and whether the connection is repeated or whether it is a loop path, etc.</p>
+                        <ul>
+                            <li>Drag the title to move the node</li>
+                            <li>Right-click the title to pop up the menu <span style="color:gray;">(set<span class="span_key">ContextMenuStrip</span>)</span></li>
+                            <li>Drag the connection points to connect</li>
+                            <li>Right-click on the connection to disconnect</li>
+                            <li>Middle-drag to move the canvas <span style="color:gray;">(If the notebook touchpad supports it, it can be dragged with two fingers)</span></li>
+                            <li>CTRL+mouse wheel to zoom the canvas</li>
+                        </ul>
+                        <p style="color:hotpink">Note: The operation editor performed in the node client area will not respond, because the operations in the node client area will be converted into node events.</p>
+                        <p style="color:hotpink">Because the author regards a node as a Form and the editor container is Desktop, the developer can develop a node like a WinForm program.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodehub.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeHub</h1>
+                        <p><span class="span_key">STNodeHub</span>is a built-in node that can disperse one output to multiple inputs or concentrate multiple outputs on one input point to prevent repeated connections. It can also be used for layout when the node connection is complicated</p>
+                        <p>The input and output of HUB are of <span class="span_key">object</span> type by default. When a connection is connected, the data type will be automatically changed and a new row will be added.</p>
+                        <p style="color:hotpink">Note: Only <span class='span_key'>STNodeHub</span> can modify the data type of the connection point. Because the field is marked <span class='span_key'>internal</span>, the data type of the added connection point cannot be modified in the extended <span class='span_key'>STNode</span>.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodetreeview.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeTreeView</h1>
+                        <p><span class='span_key'>STNodeTreeView</span> is easy to use, and there is no need to create a tree directory by yourself like <span class='span_key'>System.Windows.Forms.TreeView</span>.</p>
+                        <p>Mark the <span class='span_key'>STNode</span> subclass by <span class='span_key'>STNodeAttribute</span> to set the path you want to display in <span class='span_key'>STNodeTreeView</span> and the information you want to display in <span class='span_key'>STNodePropertyGrid</span>.</p>
+                        <p style='color:hotpink'>Note: If you want nodes to be displayed in <span class='span_key'>STNodeTreeView</span>, you must use <span class='span_key'>STNodeAttribute</span> to mark the <span class='span_key'>STNode</span> subclass.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img style="border:solid 1px black;" src="./images/stnodepropertygrid.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodePropertyGrid</h1>
+                        <p>If the property in <span class='span_key'>STNode</span> is marked by <span class='span_key'>STNodePropertyAttribute</span>, it will be displayed in <span class='span_key'>STNodePropertyGrid</span>. By default, <span class='span_key'>int, float, double, bool, string, enum</span> and <span class='span_key'>Array</span> of the above data types are supported. If the property data type you want to display is not supported, you can extended <span class='span_key'>STNodePropertyDesciptor</span>, please refer to DEMO for details.</p>
+                        <p>You can see that some information about the node can be displayed in the <span class='span_key'>STNodePropertyGrid</span> panel. The author believes that this is a framework, and everyone can build another framework based on this framework. <span style='color:hotpink'>And the <span class='span_key'>Coder</span> that writes the node for the framework can add personal information for this node.</span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img src="./images/stnodeeditorpannel.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>STNodeEditorPannel</h1>
+                        <p><span class='span_key'>STNodeEditorPannel</span> is a combination control of <span class='span_key'>STNodeEditor</span> <span class='span_key'>STNodeTreeView</span> <span class='span_key'>STNodePropertyGrid</span>.</p>
+                        <p>You can control the layout by dragging the handle</span>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body" style="height:auto;text-align:center;">
+                <p id="p_mengbi" attr_text='This is good question,The author doesn’t know how to answer' style="position:relative;display:inline-block;"><span id="span_sticker" style="font-size:2rem;color:hotpink;">SO </span> what <span style="font-size:3rem;color:hotpink;"> CAN </span> it <span class="question_symbol" style="font-size:2rem;color:hotpink;"> DO</span></p>
+                <p style="margin-bottom:45px;"><span style="transform: rotate(-20deg);">What's this???</span><span style="transform: rotate(180deg);">flow chart???</span> <span style="transform: rotate(15deg);">SOAR?????</span></p>
+                <div id="div_img_pannel">
+                    <img src="./images/node_show_back.png"/>
+                    <img id="img_node_mix" style="position:absolute;left:0px;top:0px;opacity:0" src="./images/node_show_mix.png"/>
+                    <img id="img_node_frm" style="position:absolute;left:0px;top:0px;opacity:0" src="./images/node_show_frm.png"/>
+                </div>
+                <p style="color:gray;font-size:0.8rem;">This animation is the best explanation the author can think of</p>
+                <p>When there are many applications (modules), they need to call each other to transfer data to complete a set of processes.<br/>
+                It is easy to develop a single-function application (module), but it is tedious to develop a whole set of applications that call each other with many functions.<br/>
+                Developers using this framework only need to define the data type, and then develop a single function node, as for the execution process, hand it over to the framework and the user connection.</p>
+                <img src="./images/node_scan.png" width=1056 style="max-width:100%"/>
+                <p style="color:gray;font-size:0.8rem;">The process is the program The program is the process, and the function is visualized.</p>
+            </div>
+            <div class="div_content_body" style="background-color:ghostwhite;">
+                <div class="div_content_left">
+                    <div class="div_content_img">PNG<img src="./images/node_ui.png"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>About UI customization</h1>
+                        <p>From the picture, you can see that the node UI definition is very free.</p>
+                        <p><span class='span_key'>STNodeControl</span> provides the same common functions and properties as <span class='span_key'>System.Windows.Forms.Control</span>, so developers only need to develop <span class='span_key'>STNode</span> controls like <span class='span_key'>WinForm</span> controls.</p>
+                        <p>The <span class='span_key'>AttrTestNode</span> node in the picture does not have special UI definition requirements. You only need to provide <span class='span_key'>STNode</span> with the input and output data types and display text. <span class='span_key'>STNode.AutoSize</span> will automatically calculate the size and layout. <span class='span_key'>STNode.AutoSize</span> is <span class='span_key'>true</span> by default.</p>
+                        <p>For more details, please refer to DEMO</p>
+                    </div>
+                </div>
+            </div>
+            <div class="div_content_body">
+                <div class="div_content_left">
+                    <div class="div_content_img">GIF<img width=537 src="./images/node.gif"/></div>
+                </div>
+                <div class="div_content_right">
+                    <div class="div_content_text">
+                        <h1>About node editor</h1>
+                        <p>Maybe you have never used node editing, but node editing is more and more, especially in the design software Blender, C4D, Houdini, Davinci, etc.</p>
+                        <p>The biggest advantage of node editing is the visual operation. A single function is completed in the node and the user can combine the required logic through the node connection to make the process visible, instead of fixing the execution process of the function in the program. Of course, the data type of the node needs to be defined before this. <span style="color:orangered">Incompatible data types are not allowed to connect.</span> Normally, the connection points of the same color have the same data type.</p>
+                        <p>Let developers only need to focus on the development of a single function, so that the coupling between functions and functions is reduced. The developer completes the required function in the node without knowing how to call the next program. You only need to pack the result data into the output option, no matter how complicated the node connection is, the node editor will automatically complete the data transfer.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="background-color:ghostwhite;text-align:center;padding:30px;position:relative;overflow:hidden">
+                <h1 class="question_symbol" style="margin-top:0px;position:relative;display:inline-block">STNodeEditor 3.0</h1><br/>
+                <p class="quote_symbol">In this case, only a few node control writing examples are provided in the Demo, and the control is not included. If there is time, the author will make some common controls that can be used by the node.</p>
+                <p>The above is what the author mentioned when this version was released <span style="font-size:2rem;color:hotpink">Are you <span style="font-size:1.2rem;">looking forward to</span> completion</span> ???</p>
+                <a id="a_fork_me" href="#">Fork me on Github</a>
+            </div>
+            <div style="background-color:black;padding:20px;font-size:0.8rem;position:relative;color:white;text-shadow: 0px 1px 1px black;">
+                <table style="width:100%;">
+                    <tr><td style="width:70px;">.Net:</td><td>.Net Framework 3.5</td><td></td></tr>
+                    <tr><td>&nbsp; VS:</td><td>Visual Studio 2010</td><td style="text-align:right;">2021-04-27</td></tr>
+                </table>
+                <center>DebugST is the most handsome programmer in the world!</center>
+            </div>
+        </div>
+    </body>
+</html>
