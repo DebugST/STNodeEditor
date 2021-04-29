@@ -5,6 +5,7 @@
     background-repeat:no-repeat;
     -webkit-font-smoothing:antialiased;
 }
+::-webkit-scrollbar { display: none; }
 h1{
     font-size:2.75rem;
 }

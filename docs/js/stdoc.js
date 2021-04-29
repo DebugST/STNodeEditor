@@ -25,14 +25,23 @@ $(document).ready(function(){
     
     $(document).on("touchstart","#div_left",function(e){});
     
-    if(navigator.userAgent.toLowerCase().indexOf('webkit') == -1){
-        console.log('what the fuck...!!!!!!');
-        $('body').append("<div id='div_fuck_the_kernel'>"
-            + "都TM2021年了 Windows还在采用可视滚动条 然而只有WebKit提供了滚动条样式的支持"
+    var strUA = navigator.userAgent.toLowerCase();
+    if(strUA.indexOf('windows') != -1 && strUA.indexOf('webkit') == -1){
+        //console.log('what the fuck...!!!!!!');
+        //我是真没想到都2021年了 windows还在采用可视化滚动条
+        //而且还只有webkit内核提供了滚动条样式的支持
+        //我一直以为现在这个年代 滚动条基本都是隐藏式了的吧
+        //且不说windows 浏览器厂商就这么赤裸裸的使用系统原生滚动条真棒
+        //我不是吐槽没有解决方案 而是这种设计
+        //当发现问题后 我仅仅是想通过样式隐藏滚动条 而只有webkit能做到
+        //::-webkit-scrollbar { display: none; }
+        $('body').append(
+            "<div id='WO_TE_ME_DE_YE_HEN_JUE_WANG_A_CAO'>"
+            + "老铁!用WebKit浏览器,不然滚动条太丑了,不想改页面了！<br/>"
+            + "(Use the WebKit browser as much as possible!!)"
             + "</div>"
         );
-        var e = $('#div_fuck_the_kernel');
-        e.css({
+        $('#WO_TE_ME_DE_YE_HEN_JUE_WANG_A_CAO').css({
             position:"fixed",
             top:0,
             left:0,
@@ -40,10 +49,10 @@ $(document).ready(function(){
             color:"white",
             "line-height":"20px",
             "text-align":"center",
-            "background-color":"rgba(255,255,0,.5)",
+            "background-color":"rgba(255,255,0,.6)",
             border:"solid 1px yellow",
+            "text-shadow":"0px 1px 1px black",
             "z-index":100
-        });
-        e.click(function(){e.remove();});
+        }).click(function(){$(this).remove();});
     }
 });
