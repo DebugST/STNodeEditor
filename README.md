@@ -1,6 +1,8 @@
 # STNodeEditor
 
-STNodeEditor 是一个轻量且功能强大的节点编辑器 使用方式非常简洁 提供了丰富的属性以及事件可以非常方便的完成节点之间数据的交互及通知 大量的重载函数供开发者使用具有很高的自由性
+STNodeEditor 是一个轻量且功能强大的节点编辑器 纯`GDI`实现无任何依赖库仅仅`100+Kb` 使用方式非常简洁 提供了丰富的属性以及事件可以非常方便的完成节点之间数据的交互及通知 大量的虚函数可供开发者重写具有很高的自由性
+
+Environment: VS2010(.NET 3.5)
 
 ![STNodeEditor](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/page_top.png)
 
