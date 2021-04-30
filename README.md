@@ -39,7 +39,7 @@ HUB的输入输出默认为`object`类型 当一个连接被连入时候将会�
 
 __注:仅`STNodeHub`可以修改连接点的数据类型 因为相应字段被`internal`标记 而作为第三方扩展的STNode中是无法修改已添加连接点的数据类型的__
 
-## STNodeTreeView
+# STNodeTreeView
 
 ![STNodeTreeView](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/stnodetreeview.gif)
 
@@ -69,7 +69,7 @@ __而为框架编写节点的`Coder`应该有权利选择是否留下个人信�
 
 可以通过拖动手柄控制布局 
 
-## 关于作者
+# 关于作者
 * Github: [DebugST](https://github.com/DebugST/)
 * Blog: [Crystal_lz](http://st233.com)
 * Mail: (2212233137@qq.com)
