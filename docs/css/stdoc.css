@@ -23,7 +23,8 @@ hr{
 body{
     margin:0px;
     position:relative;
-    font-size:14px;
+    font-size:0.85rem;
+    line-height:1rem;
     background-color:#343434;
 }
 a{ 
@@ -196,12 +197,16 @@ td{
     color:white;
     font-size: 12px;
     border-radius: 2px;
-    background-color: gray;
+    background-color: rgba(125,125,125,.5);
     padding: 1px 4px;
     margin:0px 4px;
 }
 .p_hightlight{
-    color:hotpink;
+    color: dimgray;
+    background-color: goldenrod;
+    padding: 5px;
+    border-radius: 5px;
+}
 }
 .div_table{
     overflow:auto;
@@ -215,6 +220,7 @@ td{
     display:inline-block;
     max-width:100%;
     margin-bottom:10px;
+    line-height:0px;
 }
 .span_code_title{
     display: inline-block;
@@ -224,13 +230,14 @@ td{
 }
 .pre_code{
     background-color: #1a1a1a;
-    font-size: 12px;
+    font-size: 0.75rem;
     overflow: auto;
     padding:10px 10px 10px 35px;
     display:inline-block;
     margin:0px;
     min-width:680px;
     position:relative;
+    line-height:1rem;
 }
 .pre_code:before{
     content: ' ';
