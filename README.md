@@ -1,22 +1,24 @@
 # STNodeEditor
+[![.NET35](https://img.shields.io/badge/.Net-3.5-blue)](https://www.microsoft.com/zh-cn/download/details.aspx?id=25150) [![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/DebugST/STNodeEditor/blob/main/LICENSE) [![NuGet](https://img.shields.io/badge/NuGet-5.9-blue)](https://www.nuget.org/packages/ST.Library.UI/)
 
 STNodeEditor 是一个轻量且功能强大的节点编辑器 纯`GDI`实现无任何依赖库仅仅`100+Kb` 使用方式非常简洁 提供了丰富的属性以及事件可以非常方便的完成节点之间数据的交互及通知 大量的虚函数可供开发者重写具有很高的自由性
 
 Environment: VS2010(.NET 3.5)
 
-![STNodeEditor](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/page_top.png)
+![STNodeEditor](https://debugst.github.io/STNodeEditor/images/page_top.png)
+![STNodeEditor](https://debugst.github.io/STNodeEditor/images/node_scan.png)
 
-项目主页 (Project home):  [DebugST.github.io/DotNet_WinForm_NodeEditor](https://DebugST.github.io/DotNet_WinForm_NodeEditor) (简体中文, English)
+项目主页 (Project home):  [DebugST.github.io/STNodeEditor](https://DebugST.github.io/STNodeEditor) (简体中文, English)
 
-教程文档: [DebugST.github.io/DotNet_WinForm_NodeEditor/doc_cn.html](https://DebugST.github.io/DotNet_WinForm_NodeEditor/doc_cn.html)
+教程文档: [DebugST.github.io/STNodeEditor/doc_cn.html](https://DebugST.github.io/STNodeEditor/doc_cn.html)
 
-Tutorials and API: [DebugST.github.io/DotNet_WinForm_NodeEditor/doc_en.html](https://DebugST.github.io/DotNet_WinForm_NodeEditor/doc_en.html)
+Tutorials and API: [DebugST.github.io/STNodeEditor/doc_en.html](https://DebugST.github.io/STNodeEditor/doc_en.html)
 
 Mail: (2212233137@qq.com)
 
 # STNodeEditor
 
-![STNodeEditor](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/stnodeeditor.gif)
+![STNodeEditor](https://debugst.github.io/STNodeEditor/images/stnodeeditor.gif)
 
 `STNodeEditor`拥有非常强大的功能 支持画布的移动和缩放 可以对节点位置以及连线进行锁定 连线时候会自动检测数据类型是否兼容 以及连线是否重复或者构成环形线路等问题
 
@@ -33,7 +35,7 @@ __因为作者将一个节点视为一个`Form` 而编辑器容器则为`Desktop
 
 # STNodeHub
 
-![STNodeHub](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/stnodehub.gif)
+![STNodeHub](https://debugst.github.io/STNodeEditor/images/stnodehub.gif)
 
 `STNodeHub`是一个内置的节点 其主要作用分线 可以将一个输出分散到多个输入或多个输出集中到一个输入点上以避免重复布线 也可在节点布线复杂时用于绕线
 
@@ -43,7 +45,7 @@ __注:仅`STNodeHub`可以修改连接点的数据类型 因为相应字段被`i
 
 # STNodeTreeView
 
-![STNodeTreeView](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/stnodetreeview.gif)
+![STNodeTreeView](https://debugst.github.io/STNodeEditor/images/stnodetreeview.gif)
 
 `STNodeTreeView`可与`STNodeEditor`结合使用`STNodeTreeView`中的节点可直接拖拽进`STNodeEditor`中 并且提供预览和检索功能
 
@@ -55,7 +57,7 @@ __注:若希望节点能够在`STNodeTreeView`中显示 必须使用`STNodeAttri
 
 # STNodePropertyGrid
 
-![STNodePropertyGrid](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/stnodepropertygrid.gif)
+![STNodePropertyGrid](https://debugst.github.io/STNodeEditor/images/stnodepropertygrid.gif)
 
 若`STNode`中的属性被`STNodePropertyAttribute`标记则会在`STNodePropertyGrid`中显示 默认情况下支持`int,float,double,bool,string,enum`以及上述数据类型的`Array` 若希望显示的属性数据类型不被支持 可以对`DescriptorType`进行扩展重写 详细请参考DEMO
 
@@ -65,7 +67,7 @@ __而为框架编写节点的`Coder`应该有权利选择是否留下个人信�
 
 # STNodeEditorPannel
 
-![STNodeEditorPannel](https://debugst.github.io/DotNet_WinForm_NodeEditor/images/stnodeeditorpannel.gif)
+![STNodeEditorPannel](https://debugst.github.io/STNodeEditor/images/stnodeeditorpannel.gif)
 
 `STNodeEditorPannel`是`STNodeEditor` `STNodeTreeView` `STNodePropertyGrid`的一套组合控件
 
