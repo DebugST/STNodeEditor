@@ -1,5 +1,5 @@
 # STNodeEditor
-[![.NET35](https://img.shields.io/badge/.Net-3.5-blue)](https://www.microsoft.com/zh-cn/download/details.aspx?id=25150) [![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/DebugST/STNodeEditor/blob/main/LICENSE) [![NuGet](https://img.shields.io/badge/NuGet-5.9-blue)](https://www.nuget.org/packages/ST.Library.UI/)
+[![VS2010](https://img.shields.io/badge/Visual%20Studio-2010-blueviolet)](https://visualstudio.microsoft.com/zh-hans/vs/)   [![.NET35](https://img.shields.io/badge/DotNet-3.5-blue)](https://www.microsoft.com/zh-cn/download/details.aspx?id=25150)    [![NuGet](https://img.shields.io/badge/NuGet-5.9-blue)](https://www.nuget.org/packages/ST.Library.UI/)    [![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/DebugST/STNodeEditor/blob/main/LICENSE)
 
 STNodeEditor 是一个轻量且功能强大的节点编辑器 纯`GDI`实现无任何依赖库仅仅`100+Kb` 使用方式非常简洁 提供了丰富的属性以及事件可以非常方便的完成节点之间数据的交互及通知 大量的虚函数可供开发者重写具有很高的自由性
 
@@ -15,6 +15,12 @@ Environment: VS2010(.NET 3.5)
 Tutorials and API: [DebugST.github.io/STNodeEditor/doc_en.html](https://DebugST.github.io/STNodeEditor/doc_en.html)
 
 Mail: (2212233137@qq.com)
+
+NuGet: [https://www.nuget.org/packages/ST.Library.UI/](https://www.nuget.org/packages/ST.Library.UI/)
+
+```
+PM> Install-Package ST.Library.UI -Version 2.0.0
+```
 
 # STNodeEditor
 
