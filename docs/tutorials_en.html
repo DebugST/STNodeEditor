@@ -101,10 +101,10 @@
 <h1 class='h_title anchor_point' anchor='a_a'>Foreword</h1>
 <div><h2 class='h_option anchor_point' anchor='a_b'>Introduction</h2></div>
 <p>It was a winter. The author who was studying radio security used <a target='_bank' href='https://www.gnuradio.org/'>GNURadio</a>. That was the first time the author used the node editor.</p>
-<p>-&gt; What? Excuse me... What"s this?.. What the hell is this?...</p>
-<p>It was a spring season, and I don"t know why the whole world has changed after the Chinese New Year. Everyone was forced to stay at home. The extremely boring author learned <a target='_bank' href='https://www.blender.org/'>Blender</a>. That was the second time the author used the node editor.</p>
+<p>-&gt; What? Excuse me... What's this?.. What the hell is this?...</p>
+<p>It was a spring season, and I don't know why the whole world has changed after the Chinese New Year. Everyone was forced to stay at home. The extremely boring author learned <a target='_bank' href='https://www.blender.org/'>Blender</a>. That was the second time the author used the node editor.</p>
 <p>-&gt; Wo...It turns out that this one is really convenient to use.</p>
-<p>So some ideas gradually emerged in the author"s mind, making the author want to make one.</p>
+<p>So some ideas gradually emerged in the author's mind, making the author want to make one.</p>
 <p>It was a summer, I don’t know why the author started to learn <a target='_bank' href='http://www.blackmagicdesign.com/cn/products/davinciresolve/'>Davinci</a> again. That was the third time the author used the node editor. The use of this time has doubled the author"s favor with the node editor. The author instantly felt that as long as it is a program that can be modularized and streamlined, everything can be nodeized.</p>
 <p>So <span class='span_mark'>STNodeEditor</span> appeared.</p>
 <img width=990 src='./images/page_top.png'/>
@@ -196,8 +196,8 @@
 <span class='span_code_line'></span>}</pre>
 </div>
 <img width=208 src='./images/tu_mynode_single.png'/>
-<p class='p_hightlight'>In <span class='span_mark'>multi-connection</span> mode, an option can be connected by multiple options of <span class='span_mark'>the same data type</span> (rectangle)</p>
-<p class='p_hightlight'>In single-connection mode, an option can only be connected by one option of the same data type (circle)</p>
+<p class='p_hightlight'>In <span class='span_mark'>multi-connection</span> mode, an option can be connected by multiple options of the same data type (rectangle)</p>
+<p class='p_hightlight'>In  <span class='span_mark'>single-connection</span> mode, an option can only be connected by one option of the same data type (circle)</p>
 <hr/>
 <div><h2 class='h_option anchor_point' anchor='a_f'>STNodeOption.Empty</h2></div>
 <hr/>
@@ -534,8 +534,8 @@
 <span class='span_code_line'></span>}</pre>
 </div>
 <img width=418 src='./images/tu_imagenode.png'/>
-<p>clickthe <span class='span_mark'>Open Image</span> button, you can select an image and display it in the node. After the <span class='span_mark'>ImageSizeNode</span> is connected, the size of the image will be display.</p>
-<p>The code of the <span class='span_mark'>ImageChannel</span> node is not given here. The code is used in the <span class='span_mark'>WinNodeEditorDemo</span> project to extract the RGB channel of an image. For <span class='span_mark'>ImageShowNode</span>, it just provides the data source and displays it. For the <span class='span_mark'>ImageSizeNode</span> and <span class='span_mark'>ImageChannel</span> nodes, they don"t know what node will be connected. They just complete their functions and package the results to the output option, waiting to be connected by the next node</p>
+<p>click the <span class='span_mark'>Open Image</span> button, you can select an image and display it in the node. After the <span class='span_mark'>ImageSizeNode</span> is connected, the size of the image will be display.</p>
+<p>The code of the <span class='span_mark'>ImageChannel</span> node is not given here. The code is used in the <span class='span_mark'>WinNodeEditorDemo</span> project to extract the RGB channel of an image. For <span class='span_mark'>ImageShowNode</span>, it just provides the data source and displays it. For the <span class='span_mark'>ImageSizeNode</span> and <span class='span_mark'>ImageChannel</span> nodes, they don't know what node will be connected. They just complete their functions and package the results to the output option, waiting to be connected by the next node</p>
 <p>The execution logic is completely connected by the user to connect their functions together. During the development, there is no interaction between nodes and nodes. The only thing that ties them together is an <span class='span_mark'>Image</span> data type, so that nodes and nodes There is no coupling relationship between them. High class poly low coupling.</p>
 <h1 class='h_title anchor_point' anchor='a_p'>[basic]STNodeEditor</h1>
 <p><span class='span_mark'>STNodeEditor</span> as a container of <span class='span_mark'>STNode</span> also provides a large number of properties and events for developers to use. For more detailed API list of <span class='span_mark'>STNodeEditor</span>, please refer to <a target='_bank' href='./doc.html'>API document</a></p>
