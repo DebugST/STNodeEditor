@@ -2,31 +2,45 @@ Since the `3.0` version may be partially refactored, it was decided to start a n
 
 Although there are not many users, thanks to those who have been using `STNodeEditor`, where the author got some feedback. The following adjustments will be made:
 
-Fix known bugs
+`Fix known bugs`
 
-Add high DPI support
+`Add high DPI support`
 
-Add json format serialization file
+`Add json format serialization file`
 
-Add mini-map
+`Add mini-map`
 
-Node option hover hint text
+`Node option hover hint text`
     
 
 Add Controls：
+
     `Panel` 
+    
     `lable` 
+    
     `button` 
+    
     `textbox` 
+    
     `listview` 
+    
     `chekcbox` 
+    
     `radiobutton`
+    
     `combobox` 
-    `groupbox` 
+    
+    `groupbox`
+    
     `picturebox`
+    
     `progressbar` 
+    
     `trackbar` 
+    
     `NumericUpDown`
+    
 Controls will maintain the `WinForm` usage habits as much as possible.
     
 Add `STNodeEditorLayer.cs`

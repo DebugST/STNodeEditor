@@ -2,31 +2,45 @@
 
 虽然用户量不多，但是感谢那些一直在使用`STNodeEditor`的用户，在他们那里作者得到了一些反馈。将做如下调整：
 
-修复已知bug
+`修复已知bug`
 
-增加高DPI支持
+`增加高DPI支持`
 
-添加json格式序列化文件
+`添加json格式序列化文件`
 
-添加缩略图
+`添加缩略图`
 
-节点选项悬浮提示信息
+`节点选项悬浮提示信息`
     
 
 添加控件支持：
+
     `Panel` 
+    
     `lable` 
+    
     `button` 
+    
     `textbox` 
+    
     `listview` 
+    
     `chekcbox` 
+    
     `radiobutton`
+    
     `combobox` 
+    
     `groupbox` 
+    
     `picturebox`
+    
     `progressbar` 
+    
     `trackbar` 
+    
     `NumericUpDown`
+    
 控件将尽可能保持`WinForm`的使用习惯。
     
 添加`STNodeEditorLayer.cs`
