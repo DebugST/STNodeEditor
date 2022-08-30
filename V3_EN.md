@@ -15,31 +15,31 @@ Although there are not many users, thanks to those who have been using `STNodeEd
 
 Add Controls：
 
-    `Panel` 
-    
-    `lable` 
-    
-    `button` 
-    
-    `textbox` 
-    
-    `listview` 
-    
-    `chekcbox` 
-    
-    `radiobutton`
-    
-    `combobox` 
-    
-    `groupbox`
-    
-    `picturebox`
-    
-    `progressbar` 
-    
-    `trackbar` 
-    
-    `NumericUpDown`
+`Panel` 
+
+`lable` 
+
+`button` 
+
+`textbox` 
+
+`listview` 
+
+`chekcbox` 
+
+`radiobutton` 
+
+`combobox` 
+
+`groupbox` 
+
+`picturebox` 
+
+`progressbar` 
+
+`trackbar` 
+
+`NumericUpDown` 
     
 Controls will maintain the `WinForm` usage habits as much as possible.
     
