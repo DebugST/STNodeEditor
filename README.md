@@ -1,3 +1,14 @@
+# Version 3.0
+
+现在: 2022-08-30
+
+`3.0`版本进入排期开发，开发进度将同步更新。具体说明请查看 [V3_CN.md](./V3_CN.md)
+
+
+now: 2022-08-30
+
+The version `3.0` has been start coding,The development progress is updated synchronously. more info refer [V3_EN.md](./V3_EN.md)
+
 # STNodeEditor
 [![VS2010](https://img.shields.io/badge/Visual%20Studio-2010-blueviolet)](https://visualstudio.microsoft.com/zh-hans/vs/)   [![.NET35](https://img.shields.io/badge/DotNet-3.5-blue)](https://www.microsoft.com/zh-cn/download/details.aspx?id=25150)    [![NuGet](https://img.shields.io/badge/NuGet-5.9-blue)](https://www.nuget.org/packages/ST.Library.UI/)    [![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/DebugST/STNodeEditor/blob/main/LICENSE)
 
