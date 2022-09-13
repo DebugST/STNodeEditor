@@ -4,7 +4,7 @@ Although there are not many users, thanks to those who have been using `STNodeEd
 
 `Fix known bugs`
 
-`Add high DPI support`
+(2022-09-12)`Add high DPI support`
 
 `Add json format serialization file`
 
