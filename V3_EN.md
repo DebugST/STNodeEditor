@@ -2,6 +2,14 @@ Since the `3.0` version may be partially refactored, it was decided to start a n
 
 Although there are not many users, thanks to those who have been using `STNodeEditor`, where the author got some feedback. The following adjustments will be made:
 
+|Items|Status|Complete time|Note|
+|:---|:---|:---|:---|
+|Add high DPI support               |✅  |2022-09-12|-|
+|Add json format serialization file |☑️ |-|-|
+|Add mini-map                       |☑️ |-|-|
+|Node option hover hint text        |☑️ |-|-|
+|Add mini-map                       |☑️ |-|-|
+
 `Fix known bugs`
 
 (2022-09-12)`Add high DPI support`
@@ -15,31 +23,21 @@ Although there are not many users, thanks to those who have been using `STNodeEd
 
 Add Controls：
 
-`Panel` 
-
-`lable` 
-
-`button` 
-
-`textbox` 
-
-`listview` 
-
-`chekcbox` 
-
-`radiobutton` 
-
-`combobox` 
-
-`groupbox` 
-
-`picturebox` 
-
-`progressbar` 
-
-`trackbar` 
-
-`NumericUpDown` 
+|Items|Status|Complete time|Note|
+|:---|:---|:---|:---|
+|Panel          |☑️     |-|-|
+|lable          |☑️     |-|-| 
+|button         |☑️     |-|-|
+|textbox        |☑️     |-|-|
+|listview       |☑️     |-|-|
+|chekcbox       |☑️     |-|-|
+|radiobutton    |☑️     |-|-|
+|combobox       |☑️     |-|-|
+|groupbox       |☑️     |-|-|
+|picturebox     |☑️     |-|-|
+|progressbar    |☑️     |-|-|
+|trackbar       |☑️     |-|-|
+|NumericUpDown  |☑️     |-|-|
     
 Controls will maintain the `WinForm` usage habits as much as possible.
     
