@@ -5,7 +5,7 @@ Although there are not many users, thanks to those who have been using `STNodeEd
 |Items|Status|Complete time|Note|
 |:---|:---|:---|:---|
 |Add high DPI support               |✅  |2022-09-12|-|
-|Add json format serialization file |☑️ |-|-|
+|Add json format serialization file |☑️ |-|`STJson`Project was completed|
 |Add mini-map                       |☑️ |-|-|
 |Node option hover hint text        |☑️ |-|-|
 |Add mini-map                       |☑️ |-|-|
