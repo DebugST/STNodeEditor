@@ -10,17 +10,6 @@ Although there are not many users, thanks to those who have been using `STNodeEd
 |Node option hover hint text        |☑️ |-|-|
 |Add mini-map                       |☑️ |-|-|
 
-`Fix known bugs`
-
-(2022-09-12)`Add high DPI support`
-
-`Add json format serialization file`
-
-`Add mini-map`
-
-`Node option hover hint text`
-    
-
 Add Controls：
 
 |Items|Status|Complete time|Note|
