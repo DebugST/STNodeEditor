@@ -4,11 +4,12 @@
 
 |内容|状态|完成时间|备注|
 |:---|:---|:---|:---|
-|增加高DPI支持           |✅  |2022-09-12|创建了`STGraphics`|
-|添加json格式序列化文件  |☑️ |-|已经完成 [STJson](https://github.com/DebugST/STJson) 项目|
-|添加缩略图              |☑️ |-|-|
-|节点选项悬浮提示信息    |☑️ |-|-|
-|修复已知bug             |☑️ |-|-|
+|增加高DPI支持             |✅  |2022-09-12|创建了 `STGraphics`|
+|添加json格式序列化文件    |✅  |2022-09-30|添加新项目 [STJson](https://github.com/DebugST/STJson)|
+|添加`STNodeEditorCanvas`  |☑️ |开始|-|
+|添加缩略图                |☑️ |-|-|
+|节点选项悬浮提示信息      |☑️ |-|-|
+|修复已知bug               |☑️ |-|-|
 
 添加控件支持：
 
@@ -30,19 +31,19 @@
 
 控件将尽可能保持`WinForm`的使用习惯。
     
-添加`STNodeEditorLayer.cs`
+添加`STNodeEditorCanvas.cs`
 
 替代原本的`STNodeEditor.cs`
 
 ```cs
-var layer = new STNodeEditorLayer("layer_name");
-layer.Nodes.add(new STNode_1());
-layer.Nodes.add(new STNode_2());
-STNodeEditor_1.Layer = layer;
-// STNodeEditor.Layers.Add(layer) 此方式先待定
+var canvas = new STNodeEditorCanvas("layer_name");
+canvas.Nodes.add(new STNode_1());
+canvas.Nodes.add(new STNode_2());
+STNodeEditor_1.Canvas = canvas;
+// STNodeEditor.Layers.Add(canvas) 此方式先待定
 /*
     这样做的目的是想实现类似TabControl的效果，用户可能有多个画布需要加载，
-    所以他不得不添加多个STNodeEditor做切换。所以用STNodeEditorLayer代替原本的STNodeEditor
+    所以他不得不添加多个STNodeEditor做切换。所以用STNodeEditorCanvas代替原本的STNodeEditor
     而STNodeEditor仅仅作为一个画布容器
 */
 ```

@@ -5,7 +5,8 @@ Although there are not many users, thanks to those who have been using `STNodeEd
 |Items|Status|Complete time|Note|
 |:---|:---|:---|:---|
 |Add high DPI support               |✅  |2022-09-12|Create `STGraphics`|
-|Add json format serialization file |☑️ |-|[STJson](https://github.com/DebugST/STJson) Project was completed|
+|Add json format serialization file |✅  |2022-09-30|Add new project [STJson](https://github.com/DebugST/STJson)|
+|Add `STNodeEditorCanvas`           |☑️ |start|-|
 |Add mini-map                       |☑️ |-|-|
 |Node option hover hint text        |☑️ |-|-|
 |Add mini-map                       |☑️ |-|-|
@@ -30,19 +31,19 @@ Add Controls：
     
 Controls will maintain the `WinForm` usage habits as much as possible.
     
-Add `STNodeEditorLayer.cs`
+Add `STNodeEditorCanvas.cs`
 
 To replace `STNodeEditor.cs`
 
 ```cs
-var layer = new STNodeEditorLayer("layer_name");
-layer.Nodes.add(new STNode_1());
-layer.Nodes.add(new STNode_2());
-STNodeEditor_1.Layer = layer;
-// STNodeEditor.Layers.Add(layer) This method is pending.
+var canvas = new STNodeEditorCanvas("layer_name");
+canvas.Nodes.add(new STNode_1());
+canvas.Nodes.add(new STNode_2());
+STNodeEditor_1.Canvas = canvas;
+// STNodeEditor.Layers.Add(canvas) This method is pending.
 /*
     The purpose of this is to achieve a TabControl-like effect, where the user may have multiple canvases to load.
-    So he had to add multiple STNodeEditors for switching. So use STNodeEditorLayer to replace the original STNodeEditor.
+    So he had to add multiple STNodeEditors for switching. So use STNodeEditorCanvas to replace the original STNodeEditor.
     And STNodeEditor only acts as a canvas container.
 */
 ```
