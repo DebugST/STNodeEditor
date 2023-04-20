@@ -9,6 +9,10 @@ now: 2022-08-30
 
 The version `3.0` has been start coding,The development progress is updated synchronously. more info refer [V3_EN.md](./V3_EN.md)
 
+2023-04-20
+
+老铁们，最近问更新情况的人比较多。确实摆烂了一段时间，什么也不想做。不过现在陆陆续续回到状态了。不过在继续更新之前手里还有一个[STJson](https://github.com/DebugST/STJson)。也正是当前项目需要的。`STJson`项目也摆烂很久了。。不过这两天应该会完工了，提供了全套的`Json`解析操作包括`JsonPath`的支持。。如果有经常使用`Json`的小伙伴可以关注一下。现在已经进入最后的调试和文档教程编写阶段。。等完工后回到`STNodeEditor`的开发，并且`STNodeEditor`的数据保存也将提供`Json`格式。
+
 # STNodeEditor
 [![VS2010](https://img.shields.io/badge/Visual%20Studio-2010-blueviolet)](https://visualstudio.microsoft.com/zh-hans/vs/)   [![.NET35](https://img.shields.io/badge/DotNet-3.5-blue)](https://www.microsoft.com/zh-cn/download/details.aspx?id=25150)    [![NuGet](https://img.shields.io/badge/NuGet-5.9-blue)](https://www.nuget.org/packages/ST.Library.UI/)    [![license](https://img.shields.io/badge/License-MIT-green)](https://github.com/DebugST/STNodeEditor/blob/main/LICENSE)
 
