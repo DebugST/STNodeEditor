@@ -974,7 +974,7 @@ namespace ST.Library.UI.NodeEditor
         protected internal virtual void OnMouseWheel(MouseEventArgs e) {
             Point pt = e.Location;
             pt.Y -= this._TitleHeight;
-            if (m_ctrl_hover != null && m_ctrl_active.Enabled && m_ctrl_hover.Visable) {
+            if (m_ctrl_hover != null && m_ctrl_hover.Enabled && m_ctrl_hover.Visable) {
                 m_ctrl_hover.OnMouseWheel(new MouseEventArgs(e.Button, e.Clicks, e.X - m_ctrl_hover.Left, pt.Y - m_ctrl_hover.Top, e.Delta));
                 return;
             }
