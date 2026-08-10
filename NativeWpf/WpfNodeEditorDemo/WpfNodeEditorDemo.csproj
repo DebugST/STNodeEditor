@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <AssemblyName>WpfNodeEdittorDemo</AssemblyName>
+    <RootNamespace>WpfNodeEditorDemo</RootNamespace>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>disable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ColorVision.UI" Version="1.5.7" />
+    <ProjectReference Include="..\ST.Library.UI.WPF\ST.Library.UI.WPF.csproj" />
+  </ItemGroup>
+</Project>

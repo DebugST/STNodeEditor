@@ -1,0 +1,199 @@
+﻿<Window x:Class="WpfNodeEditorDemo.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfNodeEditorDemo"
+        xmlns:st="clr-namespace:ST.Library.UI.NodeEditor;assembly=ST.Library.UI.WPF"
+        mc:Ignorable="d"
+        Title="STNodeEditor WPF Demo"
+        Height="720"
+        Width="1280"
+        MinHeight="480"
+        MinWidth="760"
+        Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style x:Key="ToolbarButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="42"/>
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Padding" Value="0"/>
+            <Setter Property="FontFamily" Value="Segoe Fluent Icons"/>
+            <Setter Property="FontSize" Value="17"/>
+            <Setter Property="Foreground" Value="#FF252525"/>
+            <Setter Property="Background" Value="#FFFDFDFD"/>
+            <Setter Property="BorderBrush" Value="#18000000"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="ButtonBorder"
+                                Background="{TemplateBinding Background}"
+                                BorderBrush="{TemplateBinding BorderBrush}"
+                                BorderThickness="{TemplateBinding BorderThickness}"
+                                CornerRadius="7">
+                            <ContentPresenter HorizontalAlignment="Center"
+                                              VerticalAlignment="Center"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#FFE8F3FF"/>
+                                <Setter TargetName="ButtonBorder" Property="BorderBrush" Value="#553A96DD"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter TargetName="ButtonBorder" Property="Background" Value="#FFD4E9FA"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="False">
+                                <Setter Property="Opacity" Value="0.4"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <Grid x:Name="Grid1" Background="#FFF2F2F2">
+        <st:STNodeEditor x:Name="STNodeEditorMain"
+                         LimitCanvasToContentBounds="False"
+                         ShowLocation="False"
+                         ShowCanvasDragLockButton="True"
+                         AutoSwitchCanvasDragBySelection="False"
+                         HighlightGridOrigin="False"
+                         ShowNodeShadow="True"
+                         NodeCornerRadius="10"
+                         HorizontalAlignment="Stretch"
+                         VerticalAlignment="Stretch" />
+
+        <Canvas x:Name="OverlayCanvas"
+                Panel.ZIndex="20">
+            <Border x:Name="PropertyFlyout"
+                    Width="370"
+                    MaxHeight="440"
+                    Padding="0"
+                    Background="#F6FFFFFF"
+                    BorderBrush="#40000000"
+                    BorderThickness="1"
+                    CornerRadius="12"
+                    Visibility="Collapsed">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="18"
+                                      ShadowDepth="3"
+                                      Opacity="0.32"
+                                      Color="#FF303030" />
+                </Border.Effect>
+                <DockPanel LastChildFill="True">
+                    <Border DockPanel.Dock="Top"
+                            Padding="12,8"
+                            Background="#EAF4FAFF"
+                            CornerRadius="12,12,0,0">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock x:Name="PropertyTitle"
+                                           VerticalAlignment="Center"
+                                           FontSize="15"
+                                           FontWeight="SemiBold"
+                                           Foreground="#FF202020" />
+                                <TextBlock Margin="8,0,0,0"
+                                           VerticalAlignment="Center"
+                                           Text="配置"
+                                           Foreground="#FF1672B8" />
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Width="28"
+                                    Height="26"
+                                    Padding="0"
+                                    Background="Transparent"
+                                    BorderThickness="0"
+                                    Content="&#xE711;"
+                                    FontFamily="Segoe Fluent Icons"
+                                    ToolTip="关闭属性面板"
+                                    Click="CloseProperties_Click" />
+                        </Grid>
+                    </Border>
+                    <ScrollViewer MaxHeight="390"
+                                  Padding="7"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Disabled">
+                        <ContentControl x:Name="PropertyEditorHost" />
+                    </ScrollViewer>
+                </DockPanel>
+            </Border>
+        </Canvas>
+
+        <Border HorizontalAlignment="Center"
+                VerticalAlignment="Top"
+                Margin="0,14,0,0"
+                Padding="6"
+                Background="#F3FFFFFF"
+                BorderBrush="#26000000"
+                BorderThickness="1"
+                CornerRadius="14"
+                Panel.ZIndex="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="14"
+                                  ShadowDepth="2"
+                                  Opacity="0.26"
+                                  Color="#FF404040"/>
+            </Border.Effect>
+            <StackPanel Orientation="Horizontal">
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE710;"
+                            ToolTip="添加节点"
+                            Click="AddNode_Click"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE768;"
+                            ToolTip="执行示例"
+                            Click="Execute_Click"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE8E5;"
+                            ToolTip="打开画布"
+                            Click="Button_Click_Open"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE74E;"
+                            ToolTip="保存画布"
+                            Click="Button_Click_Save"/>
+                    <Rectangle Width="1" Margin="5,7" Fill="#22000000"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE7A7;"
+                            ToolTip="撤销"
+                            Click="Undo_Click"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE7A6;"
+                            ToolTip="重做"
+                            Click="Redo_Click"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE74D;"
+                            ToolTip="删除所选节点"
+                            Click="Delete_Click"/>
+                    <Rectangle Width="1" Margin="5,7" Fill="#22000000"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE8AB;"
+                            ToolTip="自动布局"
+                            Click="AutoLayout_Click"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE9A6;"
+                            ToolTip="适应画布"
+                            Click="AutoAlignment_Click"/>
+                    <Button Style="{StaticResource ToolbarButtonStyle}"
+                            Content="&#xE713;"
+                            ToolTip="编辑所选节点属性"
+                            Click="Properties_Click"/>
+                    <Slider x:Name="ZoomSlider"
+                            Width="105"
+                            Margin="8,0,5,0"
+                            VerticalAlignment="Center"
+                            Value="{Binding CanvasScale, Mode=TwoWay}"
+                            Maximum="5"
+                            Minimum="0.2"
+                            TickFrequency="0.05"
+                            ToolTip="缩放"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
