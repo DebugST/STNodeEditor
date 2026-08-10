@@ -5,7 +5,6 @@ using System.Text;
 
 using System.Drawing;
 using ST.Library.UI.NodeEditor;
-using SkiaSharp;
 
 namespace WinNodeEditorDemo.Blender
 {
@@ -29,22 +28,15 @@ namespace WinNodeEditorDemo.Blender
         }
 
         protected override void OnPaint(DrawingTools dt) {
-            SkiaDrawingHelper.RenderToCanvas(dt.Canvas, canvas => {
-                using (var bg = new SKPaint { Color = new SKColor(0, 0, 0, 80), Style = SKPaintStyle.Fill, IsAntialias = true })
-                using (var text = new SKPaint { Color = SKColors.White, TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true })
-                using (var arrow = new SKPaint { Color = SKColors.Gray, Style = SKPaintStyle.Fill, IsAntialias = true }) {
-                    canvas.DrawRect(0, 0, this.Width, this.Height, bg);
-                    var metrics = text.FontMetrics;
-                    float y = (this.Height - (metrics.Descent - metrics.Ascent)) / 2 - metrics.Ascent;
-                    canvas.DrawText(this.Enum == null ? string.Empty : this.Enum.ToString(), 2, y, text);
-                    using (var path = new SKPath()) {
-                        path.MoveTo(this.Width - 25, 7);
-                        path.LineTo(this.Width - 15, 7);
-                        path.LineTo(this.Width - 20, 12);
-                        path.Close();
-                        canvas.DrawPath(path, arrow);
-                    }
-                }
+            Graphics g = dt.Graphics;
+            dt.SolidBrush.Color = Color.FromArgb(80, 0, 0, 0);
+            g.FillRectangle(dt.SolidBrush, this.ClientRectangle);
+            m_sf.Alignment = StringAlignment.Near;
+            g.DrawString(this.Enum.ToString(), this.Font, Brushes.White, this.ClientRectangle, m_sf);
+            g.FillPolygon(Brushes.Gray, new Point[]{
+                new Point(this.Right - 25, 7),
+                new Point(this.Right - 15, 7),
+                new Point(this.Right - 20, 12)
             });
         }
 

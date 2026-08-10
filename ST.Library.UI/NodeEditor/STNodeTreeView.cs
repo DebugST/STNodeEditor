@@ -8,8 +8,6 @@ using System.Reflection;
 using System.Windows.Forms;
 using System.ComponentModel;
 using System.Collections;
-using SkiaSharp;
-using SkiaSharp.Views.Desktop;
 /*
 MIT License
 
@@ -43,7 +41,7 @@ SOFTWARE.
  */
 namespace ST.Library.UI.NodeEditor
 {
-    public class STNodeTreeView : SKControl
+    public class STNodeTreeView : Control
     {
         private Color _ItemBackColor = Color.FromArgb(255, 45, 45, 45);
         /// <summary>
@@ -197,7 +195,6 @@ namespace ST.Library.UI.NodeEditor
         private SolidBrush m_brush;
         private StringFormat m_sf;
         private DrawingTools m_dt;
-        private SKCanvas m_canvas;
         private Color m_clr_item_1 = Color.FromArgb(10, 0, 0, 0);// Color.FromArgb(255, 40, 40, 40);
         private Color m_clr_item_2 = Color.FromArgb(10, 255, 255, 255);// Color.FromArgb(255, 50, 50, 50);
 
@@ -369,22 +366,21 @@ namespace ST.Library.UI.NodeEditor
             m_rect_clear = new Rectangle(this.Width - 20, 9, 12, 12);
         }
 
-        protected override void OnPaintSurface(SKPaintSurfaceEventArgs e) {
-            base.OnPaintSurface(e);
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
             m_nOffsetY = string.IsNullOrEmpty(m_str_search) ? m_nSourceOffsetY : m_nSearchOffsetY;
-            m_canvas = e.Surface.Canvas;
-            m_canvas.Clear(SkiaDrawingHelper.ToSKColor(this.BackColor));
-            m_canvas.Save();
-            m_canvas.Translate(0, m_nOffsetY);
+            Graphics g = e.Graphics;
+            m_dt.Graphics = g;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            g.TranslateTransform(0, m_nOffsetY);
             int nCounter = 0;
             foreach (STNodeTreeCollection v in m_items_draw)
                 nCounter = this.OnStartDrawItem(m_dt, v, nCounter, 0);
             m_nVHeight = (nCounter + 1) * m_nItemHeight;
             foreach (STNodeTreeCollection v in m_items_draw)
                 this.OnDrawSwitch(m_dt, v);
-            m_canvas.Restore();
+            g.ResetTransform();
             this.OnDrawSearch(m_dt);
-            m_canvas = null;
         }
 
         protected override void OnMouseMove(MouseEventArgs e) {
@@ -482,20 +478,24 @@ namespace ST.Library.UI.NodeEditor
         /// </summary>
         /// <param name="dt">绘制工具</param>
         protected virtual void OnDrawSearch(DrawingTools dt) {
-            if (m_canvas == null) return;
-            using (var title = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._TitleColor), Style = SKPaintStyle.Fill, IsAntialias = true })
-            using (var box = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(m_tbx.BackColor), Style = SKPaintStyle.Fill, IsAntialias = true })
-            using (var stroke = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this.ForeColor), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) {
-                m_canvas.DrawRect(0, 0, this.Width, m_nItemHeight, title);
-                m_canvas.DrawRect(5, 5, this.Width - 10, m_nItemHeight - 10, box);
-                if (string.IsNullOrEmpty(m_str_search)) {
-                    m_canvas.DrawOval(new SKRect(this.Width - 17, 8, this.Width - 9, 16), stroke);
-                    m_canvas.DrawLine(this.Width - 13, 17, this.Width - 13, m_nItemHeight - 9, stroke);
-                } else {
-                    m_canvas.DrawOval(new SKRect(this.Width - 20, 9, this.Width - 10, 19), stroke);
-                    m_canvas.DrawLine(this.Width - 18, 11, this.Width - 12, 17, stroke);
-                    m_canvas.DrawLine(this.Width - 12, 11, this.Width - 18, 17, stroke);
-                }
+            Graphics g = dt.Graphics;
+            m_brush.Color = this._TitleColor;
+            g.FillRectangle(m_brush, 0, 0, this.Width, m_nItemHeight);
+            m_brush.Color = m_tbx.BackColor;
+            g.FillRectangle(m_brush, 5, 5, this.Width - 10, m_nItemHeight - 10);
+            m_pen.Color = this.ForeColor;
+            if (string.IsNullOrEmpty(m_str_search)) {
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.DrawEllipse(m_pen, this.Width - 17, 8, 8, 8);
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+                g.DrawLine(m_pen, this.Width - 13, 17, this.Width - 13, m_nItemHeight - 9);
+            } else {
+                m_pen.Color = this.ForeColor;
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                g.DrawEllipse(m_pen, this.Width - 20, 9, 10, 10);
+                g.DrawLine(m_pen, this.Width - 18, 11, this.Width - 12, 17);
+                g.DrawLine(m_pen, this.Width - 12, 11, this.Width - 18, 17);
+                g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
             }
         }
         /// <summary>
@@ -507,6 +507,7 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="nLevel">当前位于第几级子集合</param>
         /// <returns>已经绘制个数</returns>
         protected virtual int OnStartDrawItem(DrawingTools dt, STNodeTreeCollection Items, int nCounter, int nLevel) {
+            Graphics g = dt.Graphics;
             Items.DisplayRectangle = new Rectangle(0, m_nItemHeight * (nCounter + 1), this.Width, m_nItemHeight);
             Items.SwitchRectangle = new Rectangle(5 + nLevel * 10, (nCounter + 1) * m_nItemHeight, 10, m_nItemHeight);
             if (this._ShowInfoButton && Items.STNodeType != null)
@@ -533,26 +534,23 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="nCounter">已经绘制个数的计数器</param>
         /// <param name="nLevel">当前位于第几级子集合</param>
         protected virtual void OnDrawItem(DrawingTools dt, STNodeTreeCollection items, int nCounter, int nLevel) {
-            if (m_canvas == null) return;
-            using (var fill = new SKPaint { Style = SKPaintStyle.Fill, IsAntialias = true })
-            using (var line = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) {
-                fill.Color = SkiaDrawingHelper.ToSKColor(nCounter % 2 == 0 ? m_clr_item_1 : m_clr_item_2);
-                m_canvas.DrawRect(items.DisplayRectangle.Left, items.DisplayRectangle.Top, items.DisplayRectangle.Width, items.DisplayRectangle.Height, fill);
-                if (items == m_item_hover) {
-                    fill.Color = SkiaDrawingHelper.ToSKColor(this._ItemHoverColor);
-                    m_canvas.DrawRect(items.DisplayRectangle.Left, items.DisplayRectangle.Top, items.DisplayRectangle.Width, items.DisplayRectangle.Height, fill);
-                }
-                Rectangle rect = new Rectangle(45 + nLevel * 10, items.SwitchRectangle.Top, this.Width - 45 - nLevel * 10, m_nItemHeight);
-                line.Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(100, 125, 125, 125));
-                m_canvas.DrawLine(9, items.SwitchRectangle.Top + m_nItemHeight / 2, items.SwitchRectangle.Left + 19, items.SwitchRectangle.Top + m_nItemHeight / 2, line);
-                if (nCounter != 0) {
-                    for (int i = 0; i <= nLevel; i++) {
-                        m_canvas.DrawLine(9 + i * 10, items.SwitchRectangle.Top - m_nItemHeight / 2, 9 + i * 10, items.SwitchRectangle.Top + m_nItemHeight / 2 - 1, line);
-                    }
-                }
-                this.OnDrawItemText(dt, items, rect);
-                this.OnDrawItemIcon(dt, items, rect);
+            Graphics g = dt.Graphics;
+            m_brush.Color = nCounter % 2 == 0 ? m_clr_item_1 : m_clr_item_2;
+            g.FillRectangle(m_brush, items.DisplayRectangle);
+            if (items == m_item_hover) {
+                m_brush.Color = this._ItemHoverColor;
+                g.FillRectangle(m_brush, items.DisplayRectangle);
             }
+            Rectangle rect = new Rectangle(45 + nLevel * 10, items.SwitchRectangle.Top, this.Width - 45 - nLevel * 10, m_nItemHeight);
+            m_pen.Color = Color.FromArgb(100, 125, 125, 125);
+            g.DrawLine(m_pen, 9, items.SwitchRectangle.Top + m_nItemHeight / 2, items.SwitchRectangle.Left + 19, items.SwitchRectangle.Top + m_nItemHeight / 2);
+            if (nCounter != 0) {
+                for (int i = 0; i <= nLevel; i++) {
+                    g.DrawLine(m_pen, 9 + i * 10, items.SwitchRectangle.Top - m_nItemHeight / 2, 9 + i * 10, items.SwitchRectangle.Top + m_nItemHeight / 2 - 1);
+                }
+            }
+            this.OnDrawItemText(dt, items, rect);
+            this.OnDrawItemIcon(dt, items, rect);
         }
         /// <summary>
         /// 当绘制树节点展开与关闭开关时候发生
@@ -560,15 +558,15 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="dt">绘制工具</param>
         /// <param name="items">当前需要绘制的集合</param>
         protected virtual void OnDrawSwitch(DrawingTools dt, STNodeTreeCollection items) {
-            if (m_canvas == null) return;
+            Graphics g = dt.Graphics;
             if (items.Count != 0) {
-                using (var stroke = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._SwitchColor), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) {
-                    int nT = items.SwitchRectangle.Y + m_nItemHeight / 2 - 4;
-                    m_canvas.DrawRect(items.SwitchRectangle.Left, nT, 8, 8, stroke);
-                    m_canvas.DrawLine(items.SwitchRectangle.Left + 1, nT + 4, items.SwitchRectangle.Right - 3, nT + 4, stroke);
-                    if (items.IsOpen) return;
-                    m_canvas.DrawLine(items.SwitchRectangle.Left + 4, nT + 1, items.SwitchRectangle.Left + 4, nT + 7, stroke);
-                }
+                m_pen.Color = this._SwitchColor;
+                m_brush.Color = m_pen.Color;
+                int nT = items.SwitchRectangle.Y + m_nItemHeight / 2 - 4;
+                g.DrawRectangle(m_pen, items.SwitchRectangle.Left, nT, 8, 8);
+                g.DrawLine(m_pen, items.SwitchRectangle.Left + 1, nT + 4, items.SwitchRectangle.Right - 3, nT + 4);
+                if (items.IsOpen) return;
+                g.DrawLine(m_pen, items.SwitchRectangle.Left + 4, nT + 1, items.SwitchRectangle.Left + 4, nT + 7);
                 //if (items.IsOpen) {
                 //    //g.FillPolygon(m_brush, new Point[]{
                 //    //    new Point(items.DotRectangle.Left + 0, items.DotRectangle.Top + m_nItemHeight / 2 - 2),
@@ -596,30 +594,28 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="items">当前需要绘制的集合</param>
         /// <param name="rect">文本域所在矩形区域</param>
         protected virtual void OnDrawItemText(DrawingTools dt, STNodeTreeCollection items, Rectangle rect) {
-            if (m_canvas == null) return;
+            Graphics g = dt.Graphics;
             rect.Width -= 20;
-            using (var textNormal = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(items.STNodeType == null ? Color.FromArgb(this.ForeColor.A * 2 / 3, this.ForeColor) : this.ForeColor), TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true })
-            using (var textHi = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._HightLightTextColor), TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                var fm = textNormal.FontMetrics;
-                float y = rect.Top + (rect.Height - (fm.Descent - fm.Ascent)) / 2 - fm.Ascent;
-                string name = items.Name ?? string.Empty;
-                if (!string.IsNullOrEmpty(m_str_search)) {
-                    int idx = items.NameLower.IndexOf(m_str_search);
-                    if (idx >= 0) {
-                        string pre = name.Substring(0, idx);
-                        string hit = name.Substring(idx, Math.Min(m_str_search.Length, name.Length - idx));
-                        string suf = name.Substring(idx + hit.Length);
-                        float x = rect.Left;
-                        m_canvas.DrawText(pre, x, y, textNormal);
-                        x += textNormal.MeasureText(pre);
-                        m_canvas.DrawText(hit, x, y, textHi);
-                        x += textHi.MeasureText(hit);
-                        m_canvas.DrawText(suf, x, y, textNormal);
-                        return;
-                    }
+            m_sf.FormatFlags = StringFormatFlags.NoWrap;
+            if (!string.IsNullOrEmpty(m_str_search)) {
+                int nIndex = items.NameLower.IndexOf(m_str_search);
+                if (nIndex != -1) {
+                    CharacterRange[] chrs = { new CharacterRange(nIndex, m_str_search.Length) };//global
+                    m_sf.SetMeasurableCharacterRanges(chrs);
+                    Region[] regions = g.MeasureCharacterRanges(items.Name, this.Font, rect, m_sf);
+                    g.SetClip(regions[0], System.Drawing.Drawing2D.CombineMode.Intersect);
+                    m_brush.Color = this._HightLightTextColor;
+                    g.DrawString(items.Name, this.Font, m_brush, rect, m_sf);
+                    g.ResetClip();
+                    g.SetClip(regions[0], System.Drawing.Drawing2D.CombineMode.Exclude);
+                    m_brush.Color = items.STNodeType == null ? Color.FromArgb(this.ForeColor.A * 1 / 2, this.ForeColor) : this.ForeColor;
+                    g.DrawString(items.Name, this.Font, m_brush, rect, m_sf);
+                    g.ResetClip();
+                    return;
                 }
-                m_canvas.DrawText(name, rect.Left, y, textNormal);
             }
+            m_brush.Color = items.STNodeType == null ? Color.FromArgb(this.ForeColor.A * 2 / 3, this.ForeColor) : this.ForeColor;
+            g.DrawString(items.Name, this.Font, m_brush, rect, m_sf);
         }
         /// <summary>
         /// 当绘制树节点图标时候发生
@@ -628,52 +624,43 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="items">当前需要绘制的集合</param>
         /// <param name="rect">文本域所在矩形区域</param>
         protected virtual void OnDrawItemIcon(DrawingTools dt, STNodeTreeCollection items, Rectangle rect) {
-            if (m_canvas == null) return;
+            Graphics g = dt.Graphics;
             if (items.STNodeType != null) {
-                using (var stroke = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._AutoColor ? items.STNodeTypeColor : Color.DarkCyan), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true })
-                using (var fill = new SKPaint { Color = SKColors.LightGray, Style = SKPaintStyle.Fill, IsAntialias = true }) {
-                    m_canvas.DrawRect(rect.Left - 15, rect.Top + m_nItemHeight / 2 - 5, 11, 10, stroke);
-                    m_canvas.DrawRect(rect.Left - 17, rect.Top + m_nItemHeight / 2 - 2, 5, 5, fill);
-                    m_canvas.DrawRect(rect.Left - 6, rect.Top + m_nItemHeight / 2 - 2, 5, 5, fill);
-                    if (m_item_hover == items && m_bHoverInfo) {
-                        fill.Color = SkiaDrawingHelper.ToSKColor(this.BackColor);
-                        m_canvas.DrawRect(items.InfoRectangle.Left, items.InfoRectangle.Top, items.InfoRectangle.Width, items.InfoRectangle.Height, fill);
-                    }
+                m_pen.Color = this._AutoColor ? items.STNodeTypeColor : Color.DarkCyan;
+                m_brush.Color = Color.LightGray;
+                g.DrawRectangle(m_pen, rect.Left - 15, rect.Top + m_nItemHeight / 2 - 5, 11, 10);
+                g.FillRectangle(m_brush, rect.Left - 17, rect.Top + m_nItemHeight / 2 - 2, 5, 5);
+                g.FillRectangle(m_brush, rect.Left - 6, rect.Top + m_nItemHeight / 2 - 2, 5, 5);
+                if (m_item_hover == items && m_bHoverInfo) {
+                    m_brush.Color = this.BackColor;
+                    g.FillRectangle(m_brush, items.InfoRectangle);
                 }
-                using (var info = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._AutoColor ? items.STNodeTypeColor : this._InfoButtonColor), Style = SKPaintStyle.Stroke, StrokeWidth = 2, IsAntialias = true }) {
-                    m_canvas.DrawLine(items.InfoRectangle.X + 4, items.InfoRectangle.Y + 3, items.InfoRectangle.X + 10, items.InfoRectangle.Y + 3, info);
-                    m_canvas.DrawLine(items.InfoRectangle.X + 4, items.InfoRectangle.Y + 6, items.InfoRectangle.X + 10, items.InfoRectangle.Y + 6, info);
-                    m_canvas.DrawLine(items.InfoRectangle.X + 4, items.InfoRectangle.Y + 11, items.InfoRectangle.X + 10, items.InfoRectangle.Y + 11, info);
-                    m_canvas.DrawLine(items.InfoRectangle.X + 7, items.InfoRectangle.Y + 7, items.InfoRectangle.X + 7, items.InfoRectangle.Y + 10, info);
-                }
-                using (var box = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._AutoColor ? items.STNodeTypeColor : this._InfoButtonColor), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) {
-                    m_canvas.DrawRect(items.InfoRectangle.X, items.InfoRectangle.Y, items.InfoRectangle.Width - 1, items.InfoRectangle.Height - 1, box);
-                }
+                m_pen.Color = this._AutoColor ? items.STNodeTypeColor : this._InfoButtonColor;
+                m_pen.Width = 2;
+                g.DrawLine(m_pen, items.InfoRectangle.X + 4, items.InfoRectangle.Y + 3, items.InfoRectangle.X + 10, items.InfoRectangle.Y + 3);
+                g.DrawLine(m_pen, items.InfoRectangle.X + 4, items.InfoRectangle.Y + 6, items.InfoRectangle.X + 10, items.InfoRectangle.Y + 6);
+                g.DrawLine(m_pen, items.InfoRectangle.X + 4, items.InfoRectangle.Y + 11, items.InfoRectangle.X + 10, items.InfoRectangle.Y + 11);
+                g.DrawLine(m_pen, items.InfoRectangle.X + 7, items.InfoRectangle.Y + 7, items.InfoRectangle.X + 7, items.InfoRectangle.Y + 10);
+                m_pen.Width = 1;
+                g.DrawRectangle(m_pen, items.InfoRectangle.X, items.InfoRectangle.Y, items.InfoRectangle.Width - 1, items.InfoRectangle.Height - 1);
             } else {
-                using (var stroke = new SKPaint { Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) {
-                    if (items.IsLibraryRoot) {
-                        Rectangle rect_box = new Rectangle(rect.Left - 15, rect.Top + m_nItemHeight / 2 - 5, 11, 10);
-                        stroke.Color = SKColors.Gray;
-                        m_canvas.DrawRect(rect_box.Left, rect_box.Top, rect_box.Width, rect_box.Height, stroke);
-                        stroke.Color = SKColors.Cyan;
-                        m_canvas.DrawLine(rect_box.X - 2, rect_box.Top, rect_box.X + 2, rect_box.Top, stroke);
-                        m_canvas.DrawLine(rect_box.X, rect_box.Y - 2, rect_box.X, rect_box.Y + 2, stroke);
-                        m_canvas.DrawLine(rect_box.Right - 2, rect_box.Bottom, rect_box.Right + 2, rect_box.Bottom, stroke);
-                        m_canvas.DrawLine(rect_box.Right, rect_box.Bottom - 2, rect_box.Right, rect_box.Bottom + 2, stroke);
-                    } else {
-                        stroke.Color = SKColors.Goldenrod;
-                        m_canvas.DrawRect(rect.Left - 16, rect.Top + m_nItemHeight / 2 - 6, 8, 3, stroke);
-                        m_canvas.DrawRect(rect.Left - 16, rect.Top + m_nItemHeight / 2 - 3, 13, 9, stroke);
-                    }
+                if (items.IsLibraryRoot) {
+                    Rectangle rect_box = new Rectangle(rect.Left - 15, rect.Top + m_nItemHeight / 2 - 5, 11, 10);
+                    g.DrawRectangle(Pens.Gray, rect_box);
+                    g.DrawLine(Pens.Cyan, rect_box.X - 2, rect_box.Top, rect_box.X + 2, rect_box.Top);
+                    g.DrawLine(Pens.Cyan, rect_box.X, rect_box.Y - 2, rect_box.X, rect_box.Y + 2);
+                    g.DrawLine(Pens.Cyan, rect_box.Right - 2, rect_box.Bottom, rect_box.Right + 2, rect_box.Bottom);
+                    g.DrawLine(Pens.Cyan, rect_box.Right, rect_box.Bottom - 2, rect_box.Right, rect_box.Bottom + 2);
+                } else {
+                    g.DrawRectangle(Pens.Goldenrod, new Rectangle(rect.Left - 16, rect.Top + m_nItemHeight / 2 - 6, 8, 3));
+                    g.DrawRectangle(Pens.Goldenrod, new Rectangle(rect.Left - 16, rect.Top + m_nItemHeight / 2 - 3, 13, 9));
                 }
                 if (!this._ShowFolderCount) return;
-                using (var text = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._FolderCountColor), TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                    string t = "[" + items.STNodeCount.ToString() + "]";
-                    float w = text.MeasureText(t);
-                    var fm = text.FontMetrics;
-                    float y = rect.Top + (rect.Height - (fm.Descent - fm.Ascent)) / 2 - fm.Ascent;
-                    m_canvas.DrawText(t, rect.Right - w - 4, y, text);
-                }
+                m_sf.Alignment = StringAlignment.Far;
+                m_brush.Color = this._FolderCountColor;
+                rect.X -= 4;
+                g.DrawString("[" + items.STNodeCount.ToString() + "]", this.Font, m_brush, rect, m_sf);
+                m_sf.Alignment = StringAlignment.Near;
             }
         }
 

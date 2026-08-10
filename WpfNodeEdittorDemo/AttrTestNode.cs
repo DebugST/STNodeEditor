@@ -5,7 +5,6 @@ using System.Text;
 
 using ST.Library.UI.NodeEditor;
 using System.Drawing;
-using SkiaSharp;
 using System.Windows.Forms;
 
 namespace WinNodeEditorDemo
@@ -88,8 +87,9 @@ namespace WinNodeEditorDemo
         //绘制属性窗口值区域时候调用
         protected override void OnDrawValueRectangle(DrawingTools dt) {
             base.OnDrawValueRectangle(dt);//先采用默认的绘制 并再绘制颜色预览
-            var color = SkiaDrawingHelper.ToSKColor((Color)this.GetValue(null));
-            SkiaDrawingHelper.RenderToCanvas(dt.Canvas, canvas => { using (var fill = new SKPaint { Color = color, Style = SKPaintStyle.Fill, IsAntialias = true }) using (var stroke = new SKPaint { Color = SKColors.Black, Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) { canvas.DrawRect(m_rect.Left, m_rect.Top, m_rect.Width, m_rect.Height, fill); canvas.DrawRect(m_rect.Left, m_rect.Top, m_rect.Width, m_rect.Height, stroke);} });
+            dt.SolidBrush.Color = (Color)this.GetValue(null);
+            dt.Graphics.FillRectangle(dt.SolidBrush, m_rect);//填充颜色
+            dt.Graphics.DrawRectangle(Pens.Black, m_rect);   //绘制边框
         }
 
         protected override void OnMouseClick(MouseEventArgs e) {

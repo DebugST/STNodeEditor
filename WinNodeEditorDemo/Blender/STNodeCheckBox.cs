@@ -5,7 +5,6 @@ using System.Text;
 
 using System.Drawing;
 using ST.Library.UI.NodeEditor;
-using SkiaSharp;
 
 namespace WinNodeEditorDemo.Blender
 {
@@ -36,17 +35,14 @@ namespace WinNodeEditorDemo.Blender
         }
 
         protected override void OnPaint(DrawingTools dt) {
-            SkiaDrawingHelper.RenderToCanvas(dt.Canvas, canvas => {
-                using (var gray = new SKPaint { Color = SKColors.Gray, Style = SKPaintStyle.Fill, IsAntialias = true })
-                using (var black = new SKPaint { Color = SKColors.Black, Style = SKPaintStyle.Fill, IsAntialias = true })
-                using (var textPaint = new SKPaint { Color = SKColors.LightGray, TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                    canvas.DrawRect(0, 5, 10, 10, gray);
-                    var metrics = textPaint.FontMetrics;
-                    float textY = (20 - (metrics.Descent - metrics.Ascent)) / 2 - metrics.Ascent;
-                    canvas.DrawText(this.Text ?? string.Empty, 15, textY, textPaint);
-                    if (this.Checked) canvas.DrawRect(2, 7, 6, 6, black);
-                }
-            });
+            //base.OnPaint(dt);
+            Graphics g = dt.Graphics;
+            g.FillRectangle(Brushes.Gray, 0, 5, 10, 10);
+            m_sf.Alignment = StringAlignment.Near;
+            g.DrawString(this.Text, this.Font, Brushes.LightGray, new Rectangle(15, 0, this.Width - 20, 20), m_sf);
+            if (this.Checked) {
+                g.FillRectangle(Brushes.Black, 2, 7, 6, 6);
+            }
         }
     }
 }

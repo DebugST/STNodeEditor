@@ -5,7 +5,6 @@ using System.Text;
 
 using ST.Library.UI.NodeEditor;
 using System.Drawing;
-using SkiaSharp;
 
 namespace WinNodeEditorDemo
 {
@@ -34,7 +33,8 @@ namespace WinNodeEditorDemo
             ctrl.Paint += (s, e) => {
                 m_sf.Alignment = StringAlignment.Far;
                 STNodeControl c = s as STNodeControl;
-                SkiaDrawingHelper.RenderToCanvas(e.DrawingTools.Canvas, canvas => { using (var text = new SKPaint { Color = SKColors.White, TextSize = Math.Max(10f, ctrl.Font.Size), IsAntialias = true }) { var fm = text.FontMetrics; float y = (c.Height - (fm.Descent - fm.Ascent)) / 2 - fm.Ascent; float w = text.MeasureText("0"); canvas.DrawText("0", c.Width - w - 2, y, text); } });
+                Graphics g = e.DrawingTools.Graphics;
+                g.DrawString("0", ctrl.Font, Brushes.White, c.ClientRectangle, m_sf);
             };
 
             string[] strs = { //按钮文本
@@ -58,7 +58,8 @@ namespace WinNodeEditorDemo
                 if (i == 8) ctrl.Paint += (s, e) => {
                     m_sf.Alignment = StringAlignment.Center;
                     STNodeControl c = s as STNodeControl;
-                    SkiaDrawingHelper.RenderToCanvas(e.DrawingTools.Canvas, canvas => { using (var text = new SKPaint { Color = SKColors.White, TextSize = Math.Max(10f, ctrl.Font.Size), IsAntialias = true }) { var fm = text.FontMetrics; float y = (c.Height - (fm.Descent - fm.Ascent)) / 2 - fm.Ascent; float w = text.MeasureText("_"); canvas.DrawText("_", (c.Width - w) / 2, y, text); } });
+                    Graphics g = e.DrawingTools.Graphics;
+                    g.DrawString("_", ctrl.Font, Brushes.White, c.ClientRectangle, m_sf);
                 };
                 ctrl.MouseClick += (s, e) => System.Windows.Forms.MessageBox.Show(((STNodeControl)s).Text);
             }

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
-using SkiaSharp;
 /*
 MIT License
 
@@ -196,19 +195,15 @@ namespace ST.Library.UI.NodeEditor
         }
 
         protected internal virtual void OnPaint(DrawingTools dt) {
-            if (dt.Canvas != null) {
-                using (var bg = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._BackColor), Style = SKPaintStyle.Fill, IsAntialias = true }) {
-                    dt.Canvas.DrawRect(0, 0, this.Width, this.Height, bg);
-                }
-                if (!string.IsNullOrEmpty(this._Text)) {
-                    using (var text = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._ForeColor), TextSize = Math.Max(10f, this._Font.Size), IsAntialias = true }) {
-                        var fm = text.FontMetrics;
-                        float y = (this.Height - (fm.Descent - fm.Ascent)) / 2 - fm.Ascent;
-                        float w = text.MeasureText(this._Text);
-                        float x = (this.Width - w) / 2;
-                        dt.Canvas.DrawText(this._Text, x, y, text);
-                    }
-                }
+            Graphics g = dt.Graphics;
+            SolidBrush brush = dt.SolidBrush;
+            g.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.None;
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            brush.Color = this._BackColor;
+            g.FillRectangle(brush, 0, 0, this.Width, this.Height);
+            if (!string.IsNullOrEmpty(this._Text)) {
+                brush.Color = this._ForeColor;
+                g.DrawString(this._Text, this._Font, brush, this.ClientRectangle, m_sf);
             }
             if (this.Paint != null) this.Paint(this, new STNodeControlPaintEventArgs(dt));
         }

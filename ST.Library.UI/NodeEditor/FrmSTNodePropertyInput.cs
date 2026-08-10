@@ -6,7 +6,6 @@ using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using ST.Library.UI.NodeEditor;
-using SkiaSharp;
 
 namespace ST.Library.UI
 {
@@ -14,6 +13,8 @@ namespace ST.Library.UI
     {
         private STNodePropertyDescriptor m_descriptor;
         private Rectangle m_rect;
+        private Pen m_pen;
+        private SolidBrush m_brush;
         private TextBox m_tbx;
 
         public FrmSTNodePropertyInput(STNodePropertyDescriptor descriptor) {
@@ -28,6 +29,8 @@ namespace ST.Library.UI
             this.ShowInTaskbar = false;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.BackColor = descriptor.Control.AutoColor ? descriptor.Node.TitleColor : descriptor.Control.ItemSelectedColor;
+            m_pen = new Pen(descriptor.Control.ForeColor, 1);
+            m_brush = new SolidBrush(this.BackColor);
         }
 
         protected override void OnLoad(EventArgs e) {
@@ -54,6 +57,36 @@ namespace ST.Library.UI
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
+            Graphics g = e.Graphics;
+            m_brush.Color = m_tbx.BackColor;
+            g.FillRectangle(m_brush, 1, 1, this.Width - 2 - m_rect.Height, this.Height - 2);
+            m_brush.Color = m_descriptor.Control.ForeColor;
+            //Enter
+            g.FillPolygon(m_brush, new Point[]{
+                new Point(this.Width - 21, this.Height - 2),
+                new Point(this.Width - 14, this.Height - 2),
+                new Point(this.Width - 14, this.Height - 8)
+            });
+            g.DrawLine(m_pen, this.Width - 14, this.Height - 3, this.Width - 4, this.Height - 3);
+            g.DrawLine(m_pen, this.Width - 4, this.Height - 3, this.Width - 4, 14);
+            g.DrawLine(m_pen, this.Width - 8, 13, this.Width - 4, 13);
+            //----
+            g.DrawLine(m_pen, this.Width - 19, 11, this.Width - 4, 11);
+            //E
+            g.DrawLine(m_pen, this.Width - 19, 3, this.Width - 16, 3);
+            g.DrawLine(m_pen, this.Width - 19, 6, this.Width - 16, 6);
+            g.DrawLine(m_pen, this.Width - 19, 9, this.Width - 16, 9);
+            g.DrawLine(m_pen, this.Width - 19, 3, this.Width - 19, 9);
+            //S
+            g.DrawLine(m_pen, this.Width - 13, 3, this.Width - 10, 3);
+            g.DrawLine(m_pen, this.Width - 13, 6, this.Width - 10, 6);
+            g.DrawLine(m_pen, this.Width - 13, 9, this.Width - 10, 9);
+            g.DrawLine(m_pen, this.Width - 13, 3, this.Width - 13, 6);
+            g.DrawLine(m_pen, this.Width - 10, 6, this.Width - 10, 9);
+            //C
+            g.DrawLine(m_pen, this.Width - 7, 3, this.Width - 4, 3);
+            g.DrawLine(m_pen, this.Width - 7, 9, this.Width - 4, 9);
+            g.DrawLine(m_pen, this.Width - 7, 3, this.Width - 7, 9);
         }
 
         void tbx_KeyDown(object sender, KeyEventArgs e) {

@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using System.Drawing;
-using SkiaSharp;
 using System.Windows.Forms;
 
 namespace WinNodeEditorDemo.Blender
@@ -49,6 +48,13 @@ namespace WinNodeEditorDemo.Blender
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
+            Graphics g = e.Graphics;
+            g.ScaleTransform(m_scale, m_scale);
+            Rectangle rect = new Rectangle(0, 0, this.Width, 20);
+            foreach (var v in m_lst) {
+                g.DrawString(v.ToString(), this.Font, Brushes.White, rect, m_sf);
+                rect.Y += rect.Height;
+            }
         }
 
         protected override void OnMouseClick(MouseEventArgs e) {

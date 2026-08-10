@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using SkiaSharp;
 
 namespace ST.Library.UI.NodeEditor
 {
@@ -28,6 +27,8 @@ namespace ST.Library.UI.NodeEditor
         private STNodeEditor m_editor;
         private STNodePropertyGrid m_property;
 
+        private Pen m_pen = new Pen(Color.Black);
+        private SolidBrush m_brush = new SolidBrush(Color.Black);
         private static FrmNodePreviewPanel m_last_frm;
 
         [DllImport("user32.dll")]
@@ -90,7 +91,11 @@ namespace ST.Library.UI.NodeEditor
             m_rect_panel.Y = this.Top;
             m_region = new Region(new Rectangle(Point.Empty, this.Size));
             m_region.Exclude(m_rect_exclude);
-            FrmNodePreviewPanel.SetWindowRgn(this.Handle, IntPtr.Zero, false);
+            using (Graphics g = this.CreateGraphics()) {
+                IntPtr h = m_region.GetHrgn(g);
+                FrmNodePreviewPanel.SetWindowRgn(this.Handle, h, false);
+                m_region.ReleaseHrgn(h);
+            }
 
             this.MouseLeave += Event_MouseLeave;
             m_editor.MouseLeave += Event_MouseLeave;
@@ -117,6 +122,23 @@ namespace ST.Library.UI.NodeEditor
 
         protected override void OnPaint(PaintEventArgs e) {
             base.OnPaint(e);
+            Graphics g = e.Graphics;
+            m_pen.Color = this.AutoBorderColor ? m_node.TitleColor : this.BorderColor;
+            m_brush.Color = m_pen.Color;
+            g.DrawRectangle(m_pen, 0, 0, this.Width - 1, this.Height - 1);
+            g.FillRectangle(m_brush, m_rect_exclude.X - 1, m_rect_exclude.Y - 1, m_rect_exclude.Width + 2, m_rect_exclude.Height + 2);
+
+            Rectangle rect = this.RectangleToClient(m_rect_handle);
+            rect.Y = (m_nHandleSize - 14) / 2;
+            rect.X += rect.Y + 1;
+            rect.Width = rect.Height = 14;
+            m_pen.Width = 2;
+            g.DrawLine(m_pen, rect.X + 4, rect.Y + 3, rect.X + 10, rect.Y + 3);
+            g.DrawLine(m_pen, rect.X + 4, rect.Y + 6, rect.X + 10, rect.Y + 6);
+            g.DrawLine(m_pen, rect.X + 4, rect.Y + 11, rect.X + 10, rect.Y + 11);
+            g.DrawLine(m_pen, rect.X + 7, rect.Y + 7, rect.X + 7, rect.Y + 10);
+            m_pen.Width = 1;
+            g.DrawRectangle(m_pen, rect.X, rect.Y, rect.Width - 1, rect.Height - 1);
         }
     }
 }

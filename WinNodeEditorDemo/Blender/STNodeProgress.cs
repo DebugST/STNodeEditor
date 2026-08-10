@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using ST.Library.UI.NodeEditor;
-using SkiaSharp;
 using System.Drawing;
 
 namespace WinNodeEditorDemo.Blender
@@ -33,21 +32,14 @@ namespace WinNodeEditorDemo.Blender
 
         protected override void OnPaint(DrawingTools dt) {
             base.OnPaint(dt);
-            float progress = (float)this._Value / 100;
-            SkiaDrawingHelper.RenderToCanvas(dt.Canvas, canvas => {
-                using (var bg = new SKPaint { Color = SKColors.Gray, Style = SKPaintStyle.Fill, IsAntialias = true })
-                using (var fg = new SKPaint { Color = SKColors.CornflowerBlue, Style = SKPaintStyle.Fill, IsAntialias = true })
-                using (var text = new SKPaint { Color = SKColors.White, TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                    canvas.DrawRect(0, 0, this.Width, this.Height, bg);
-                    canvas.DrawRect(0, 0, this.Width * progress, this.Height, fg);
-                    var metrics = text.FontMetrics;
-                    float y = (this.Height - (metrics.Descent - metrics.Ascent)) / 2 - metrics.Ascent;
-                    canvas.DrawText(this.Text ?? string.Empty, 2, y, text);
-                    var pct = progress.ToString("F2");
-                    float tw = text.MeasureText(pct);
-                    canvas.DrawText(pct, this.Width - tw - 2, y, text);
-                }
-            });
+            Graphics g = dt.Graphics;
+            g.FillRectangle(Brushes.Gray, this.ClientRectangle);
+            g.FillRectangle(Brushes.CornflowerBlue, 0, 0, (int)((float)this._Value / 100 * this.Width), this.Height);
+            m_sf.Alignment = StringAlignment.Near;
+            g.DrawString(this.Text, this.Font, Brushes.White, this.ClientRectangle, m_sf);
+            m_sf.Alignment = StringAlignment.Far;
+            g.DrawString(((float)this._Value / 100).ToString("F2"), this.Font, Brushes.White, this.ClientRectangle, m_sf);
+
         }
 
         protected override void OnMouseDown(System.Windows.Forms.MouseEventArgs e) {

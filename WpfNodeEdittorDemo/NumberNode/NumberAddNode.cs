@@ -5,7 +5,6 @@ using System.Text;
 
 using ST.Library.UI.NodeEditor;
 using System.Drawing;
-using SkiaSharp;
 
 namespace WinNodeEditorDemo.NumberNode
 {
@@ -68,7 +67,7 @@ namespace WinNodeEditorDemo.NumberNode
                 m_sf.Alignment = StringAlignment.Far;
                 strText = (m_nNum1 + m_nNum2).ToString();
             }
-            SkiaDrawingHelper.RenderToCanvas(dt.Canvas, canvas => { using (var text = new SKPaint { Color = SKColors.White, TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) { var fm = text.FontMetrics; float y = op.TextRectangle.Top + (op.TextRectangle.Height - (fm.Descent - fm.Ascent)) / 2 - fm.Ascent; float x = m_sf.Alignment == StringAlignment.Far ? op.TextRectangle.Right - text.MeasureText(strText) - 2 : op.TextRectangle.Left + 2; canvas.DrawText(strText, x, y, text); } });
+            dt.Graphics.DrawString(strText, this.Font, Brushes.White, op.TextRectangle, m_sf);
         }
     }
 }

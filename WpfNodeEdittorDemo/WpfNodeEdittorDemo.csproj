@@ -11,7 +11,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\ST.Library.UI\ST.Library.UI.csproj" />
-    <PackageReference Include="SkiaSharp" Version="2.88.9" />
   </ItemGroup>
 
   <ItemGroup>

@@ -5,14 +5,12 @@ using System.Text;
 
 using System.Windows.Forms;
 using System.Drawing;
-using SkiaSharp;
-using SkiaSharp.Views.Desktop;
 using System.Runtime.InteropServices;
 using System.ComponentModel;
 
 namespace ST.Library.UI.NodeEditor
 {
-    public class STNodeEditorPannel : SKControl
+    public class STNodeEditorPannel : Control
     {
         private bool _LeftLayout = true;
         /// <summary>
@@ -125,6 +123,7 @@ namespace ST.Library.UI.NodeEditor
         private Point m_pt_down;
         private bool m_is_mx;
         private bool m_is_my;
+        private Pen m_pen;
 
         private bool m_nInited;
         private Dictionary<ConnectionStatus, string> m_dic_status_key = new Dictionary<ConnectionStatus, string>();
@@ -164,6 +163,7 @@ namespace ST.Library.UI.NodeEditor
             this.MinimumSize = new Size(250, 250);
             this.BackColor = Color.FromArgb(255, 34, 34, 34);
 
+            m_pen = new Pen(this.BackColor, 3);
 
             Type t = typeof(ConnectionStatus);
             var vv = Enum.GetValues(t);
@@ -208,27 +208,25 @@ namespace ST.Library.UI.NodeEditor
             base.SetBoundsCore(x, y, width, height, specified);
         }
 
-        protected override void OnPaintSurface(SKPaintSurfaceEventArgs e) {
-            base.OnPaintSurface(e);
-            var splitColor = SkiaDrawingHelper.ToSKColor(this._SplitLineColor);
-            this._HandleLineColor = Color.Gray;
-            var handleColor = SkiaDrawingHelper.ToSKColor(this._HandleLineColor);
-            var canvas = e.Surface.Canvas;
-            canvas.Clear(SkiaDrawingHelper.ToSKColor(this.BackColor));
-            using (var split = new SKPaint { Color = splitColor, StrokeWidth = 3, IsAntialias = true, Style = SKPaintStyle.Stroke })
-            using (var handle = new SKPaint { Color = handleColor, StrokeWidth = 1, IsAntialias = true, Style = SKPaintStyle.Stroke }) {
-                canvas.DrawLine(this._X, 0, this._X, this.Height, split);
-                int nX;
-                if (this._LeftLayout) {
-                    canvas.DrawLine(0, this._Y, this._X - 1, this._Y, split);
-                    nX = this._X / 2;
-                } else {
-                    canvas.DrawLine(this._X + 2, this._Y, this.Width, this._Y, split);
-                    nX = this._X + (this.Width - this._X) / 2;
-                }
-                canvas.DrawLine(this._X, this._Y - 10, this._X, this._Y + 10, handle);
-                canvas.DrawLine(nX - 10, this._Y, nX + 10, this._Y, handle);
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+            Graphics g = e.Graphics;
+            m_pen.Width = 3;
+            m_pen.Color = this._SplitLineColor;
+            g.DrawLine(m_pen, this._X, 0, this._X, this.Height);
+            int nX = 0;
+            if (this._LeftLayout) {
+                g.DrawLine(m_pen, 0, this._Y, this._X - 1, this._Y);
+                nX = this._X / 2;
+            } else {
+                g.DrawLine(m_pen, this._X + 2, this._Y, this.Width, this._Y);
+                nX = this._X + (this.Width - this._X) / 2;
             }
+            m_pen.Width = 1;
+            this._HandleLineColor = Color.Gray;
+            m_pen.Color = this._HandleLineColor;
+            g.DrawLine(m_pen, this._X, this._Y - 10, this._X, this._Y + 10);
+            g.DrawLine(m_pen, nX - 10, this._Y, nX + 10, this._Y);
         }
 
         private void SetLocation() {

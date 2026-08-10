@@ -11,8 +11,6 @@ using System.Threading;
 using System.ComponentModel;
 using System.Reflection;
 using System.IO.Compression;
-using SkiaSharp;
-using SkiaSharp.Views.Desktop;
 /*
 MIT License
 
@@ -46,7 +44,7 @@ SOFTWARE.
  */
 namespace ST.Library.UI.NodeEditor
 {
-    public class STNodeEditor : SKControl
+    public class STNodeEditor : Control
     {
         private const UInt32 WM_MOUSEHWHEEL = 0x020E;
         protected static readonly Type m_type_node = typeof(STNode);
@@ -464,7 +462,6 @@ namespace ST.Library.UI.NodeEditor
         #region private fields --------------------------------------------------------------------------------------
 
         private DrawingTools m_drawing_tools;
-        private SKCanvas m_canvas;
         private NodeFindInfo m_find = new NodeFindInfo();
         private MagnetInfo m_mi = new MagnetInfo();
 
@@ -648,76 +645,47 @@ namespace ST.Library.UI.NodeEditor
             } catch { /*add code*/ }
         }
 
-        protected override void OnPaintSurface(SKPaintSurfaceEventArgs e) {
-            base.OnPaintSurface(e);
-            m_canvas = e.Surface.Canvas;
-            m_drawing_tools.Canvas = m_canvas;
-            m_canvas.Clear(SkiaDrawingHelper.ToSKColor(this.BackColor));
-            this.RenderEditorToCanvas(m_canvas);
-            m_canvas = null;
-        }
+        protected override void OnPaint(PaintEventArgs e) {
+            base.OnPaint(e);
+            Graphics g = e.Graphics;
+            g.Clear(this.BackColor);
+            g.TextRenderingHint = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            m_drawing_tools.Graphics = g;
+            SolidBrush brush = m_drawing_tools.SolidBrush;
 
-        private void RenderEditorToCanvas(SKCanvas canvas) {
-            if (canvas == null) return;
-            using (var bitmap = this.RenderEditorToBitmap()) {
-                canvas.DrawBitmap(bitmap, 0, 0);
-            }
-        }
-
-        private SKBitmap RenderEditorToBitmap() {
-            var bitmap = new SKBitmap(Math.Max(this.Width, 1), Math.Max(this.Height, 1), true);
-            using (var canvas = new SKCanvas(bitmap)) {
-                canvas.Clear(SkiaDrawingHelper.ToSKColor(this.BackColor));
-                this.RenderEditorToCanvasLegacy(canvas);
-            }
-            return bitmap;
-        }
-
-        private void RenderEditorToCanvasLegacy(SKCanvas canvas) {
-            if (canvas == null) return;
-            m_canvas = canvas;
-            m_drawing_tools.Canvas = m_canvas;
             if (this._ShowGrid) this.OnDrawGrid(m_drawing_tools, this.Width, this.Height);
 
-            this.RenderLegacyNodeLayer(canvas);
-
-            switch (m_ca) {
-                case CanvasAction.MoveNode:
-                    if (this._ShowMagnet && this._ActiveNode != null) this.OnDrawMagnet(m_drawing_tools, m_mi);
-                    break;
-                case CanvasAction.SelectRectangle:
-                    this.OnDrawSelectedRectangle(m_drawing_tools, this.CanvasToControl(m_rect_select));
-                    break;
-                case CanvasAction.DrawMarkDetails:
-                    if (!string.IsNullOrEmpty(m_find.Mark)) this.OnDrawMark(m_drawing_tools);
-                    break;
-            }
-            return bitmap;
-        }
-
-            if (this._ShowLocation) this.OnDrawNodeOutLocation(m_drawing_tools, this.Size, m_lst_node_out);
-            this.OnDrawAlert();
-        }
-
-        private void RenderLegacyNodeLayer(SKCanvas canvas) {
-            if (canvas == null) return;
-            m_drawing_tools.Canvas = canvas;
-            canvas.Save();
-            canvas.Translate(this._CanvasOffsetX, this._CanvasOffsetY);
-            canvas.Scale(this._CanvasScale, this._CanvasScale);
+            g.TranslateTransform(this._CanvasOffsetX, this._CanvasOffsetY); //移动坐标系
+            g.ScaleTransform(this._CanvasScale, this._CanvasScale);         //缩放绘图表面
 
             this.OnDrawConnectedLine(m_drawing_tools);
             this.OnDrawNode(m_drawing_tools, this.ControlToCanvas(this.ClientRectangle));
 
-            if (m_ca == CanvasAction.ConnectOption) {
-                using (var high = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._HighLineColor), Style = SKPaintStyle.Stroke, StrokeWidth = 2f, IsAntialias = true }) {
-                    if (m_option_down.IsInput)
-                        this.DrawBezier(canvas, high, m_pt_in_canvas, m_pt_dot_down, this._Curvature);
-                    else
-                        this.DrawBezier(canvas, high, m_pt_dot_down, m_pt_in_canvas, this._Curvature);
-                }
+            if (m_ca == CanvasAction.ConnectOption) {                       //如果正在连线
+                m_drawing_tools.Pen.Color = this._HighLineColor;
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                if (m_option_down.IsInput)
+                    this.DrawBezier(g, m_drawing_tools.Pen, m_pt_in_canvas, m_pt_dot_down, this._Curvature);
+                else
+                    this.DrawBezier(g, m_drawing_tools.Pen, m_pt_dot_down, m_pt_in_canvas, this._Curvature);
             }
-            canvas.Restore();
+            //重置绘图坐标 我认为除了节点以外的其它 修饰相关的绘制不应该在Canvas坐标系中绘制 而应该使用控件的坐标进行绘制 不然会受到缩放比影响
+            g.ResetTransform();
+
+            switch (m_ca) {
+                case CanvasAction.MoveNode:                                 //移动过程中 绘制对齐参考线
+                    if (this._ShowMagnet && this._ActiveNode != null) this.OnDrawMagnet(m_drawing_tools, m_mi);
+                    break;
+                case CanvasAction.SelectRectangle:                          //绘制矩形选取
+                    this.OnDrawSelectedRectangle(m_drawing_tools, this.CanvasToControl(m_rect_select));
+                    break;
+                case CanvasAction.DrawMarkDetails:                          //绘制标记信息详情
+                    if (!string.IsNullOrEmpty(m_find.Mark)) this.OnDrawMark(m_drawing_tools);
+                    break;
+            }
+
+            if (this._ShowLocation) this.OnDrawNodeOutLocation(m_drawing_tools, this.Size, m_lst_node_out);
+            this.OnDrawAlert(g);
         }
 
         protected override void OnMouseDown(MouseEventArgs e) {
@@ -1011,19 +979,21 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="nWidth">需要绘制宽度</param>
         /// <param name="nHeight">需要绘制高度</param>
         protected virtual void OnDrawGrid(DrawingTools dt, int nWidth, int nHeight) {
-            if (m_canvas == null) return;
-            using (var p1 = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(30, this._GridColor)), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true })
-            using (var p2 = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(65, this._GridColor)), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true }) {
-                float nIncrement = (20 * this._CanvasScale);
-                int n = 5 - (int)(this._CanvasOffsetX / nIncrement);
-                for (float f = this._CanvasOffsetX % nIncrement; f < nWidth; f += nIncrement)
-                    m_canvas.DrawLine(f, 0, f, nHeight, (n++ % 5 == 0 ? p2 : p1));
-                n = 5 - (int)(this._CanvasOffsetY / nIncrement);
-                for (float f = this._CanvasOffsetY % nIncrement; f < nHeight; f += nIncrement)
-                    m_canvas.DrawLine(0, f, nWidth, f, (n++ % 5 == 0 ? p2 : p1));
-                p1.Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(this._Nodes.Count == 0 ? 255 : 120, this._GridColor));
-                m_canvas.DrawLine(this._CanvasOffsetX, 0, this._CanvasOffsetX, nHeight, p1);
-                m_canvas.DrawLine(0, this._CanvasOffsetY, nWidth, this._CanvasOffsetY, p1);
+            Graphics g = dt.Graphics;
+            using (Pen p_2 = new Pen(Color.FromArgb(65, this._GridColor))) {
+                using (Pen p_1 = new Pen(Color.FromArgb(30, this._GridColor))) {
+                    float nIncrement = (20 * this._CanvasScale);             //网格间的间隔 根据比例绘制
+                    int n = 5 - (int)(this._CanvasOffsetX / nIncrement);
+                    for (float f = this._CanvasOffsetX % nIncrement; f < nWidth; f += nIncrement)
+                        g.DrawLine((n++ % 5 == 0 ? p_2 : p_1), f, 0, f, nHeight);
+                    n = 5 - (int)(this._CanvasOffsetY / nIncrement);
+                    for (float f = this._CanvasOffsetY % nIncrement; f < nHeight; f += nIncrement)
+                        g.DrawLine((n++ % 5 == 0 ? p_2 : p_1), 0, f, nWidth, f);
+                    //原点两天线
+                    p_1.Color = Color.FromArgb(this._Nodes.Count == 0 ? 255 : 120, this._GridColor);
+                    g.DrawLine(p_1, this._CanvasOffsetX, 0, this._CanvasOffsetX, nHeight);
+                    g.DrawLine(p_1, 0, this._CanvasOffsetY, nWidth, this._CanvasOffsetY);
+                }
             }
         }
         /// <summary>
@@ -1053,84 +1023,81 @@ namespace ST.Library.UI.NodeEditor
             else if (node.IsSelected) img_border = m_img_border_selected;
             else if (this._HoverNode == node) img_border = m_img_border_hover;
             else img_border = m_img_border;
-            this.RenderBorder(m_canvas, node.Rectangle, img_border);
-            if (!string.IsNullOrEmpty(node.Mark)) this.RenderBorder(m_canvas, node.MarkRectangle, img_border);
+            this.RenderBorder(dt.Graphics, node.Rectangle, img_border);
+            if (!string.IsNullOrEmpty(node.Mark)) this.RenderBorder(dt.Graphics, node.MarkRectangle, img_border);
         }
         /// <summary>
         /// 当绘制已连接路径时候发生
         /// </summary>
         /// <param name="dt">绘制工具</param>
         protected virtual void OnDrawConnectedLine(DrawingTools dt) {
-            if (m_canvas == null) return;
+            Graphics g = dt.Graphics;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+            m_p_line_hover.Color = Color.FromArgb(50, 0, 0, 0);
             var t = typeof(object);
-            using (var hover = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(50, 0, 0, 0)), Style = SKPaintStyle.Stroke, StrokeWidth = 4f, IsAntialias = true })
-            using (var line = new SKPaint { Color = SKColors.Cyan, Style = SKPaintStyle.Stroke, StrokeWidth = 2f, IsAntialias = true }) {
-                foreach (STNode n in this._Nodes) {
-                    foreach (STNodeOption op in n.OutputOptions) {
-                        if (op == STNodeOption.Empty) continue;
-                        Color lineColor;
-                        if (op.DotColor != Color.Transparent) lineColor = op.DotColor;
-                        else if (op.DataType == t) lineColor = this._UnknownTypeColor;
-                        else lineColor = this._TypeColor.ContainsKey(op.DataType) ? this._TypeColor[op.DataType] : this._UnknownTypeColor;
-                        line.Color = SkiaDrawingHelper.ToSKColor(lineColor);
-
-                        foreach (var v in op.ConnectedOption) {
-                            this.DrawBezier(m_canvas, hover, op.DotLeft + op.DotSize, op.DotTop + op.DotSize / 2,
-                                v.DotLeft - 1, v.DotTop + v.DotSize / 2, this._Curvature);
-                            this.DrawBezier(m_canvas, line, op.DotLeft + op.DotSize, op.DotTop + op.DotSize / 2,
-                                v.DotLeft - 1, v.DotTop + v.DotSize / 2, this._Curvature);
-                            if (m_is_buildpath) {
-                                GraphicsPath gp = this.CreateBezierPath(op.DotLeft + op.DotSize, op.DotTop + op.DotSize / 2,
-                                    v.DotLeft - 1, v.DotTop + v.DotSize / 2, this._Curvature);
-                                m_dic_gp_info.Add(gp, new ConnectionInfo() { Output = op, Input = v });
-                            }
-                        }
+            foreach (STNode n in this._Nodes) {
+                foreach (STNodeOption op in n.OutputOptions) {
+                    if (op == STNodeOption.Empty) continue;
+                    if (op.DotColor != Color.Transparent)       //确定线条颜色
+                        m_p_line.Color = op.DotColor;
+                    else {
+                        if (op.DataType == t)
+                            m_p_line.Color = this._UnknownTypeColor;
+                        else
+                            m_p_line.Color = this._TypeColor.ContainsKey(op.DataType) ? this._TypeColor[op.DataType] : this._UnknownTypeColor;//value can not be null
                     }
-                }
-                if (m_gp_hover != null) {
-                    using (var hp = this.ToSKPath(m_gp_hover)) {
-                        if (hp != null) {
-                            hover.Color = SkiaDrawingHelper.ToSKColor(this._HighLineColor);
-                            m_canvas.DrawPath(hp, hover);
+                    foreach (var v in op.ConnectedOption) {
+                        this.DrawBezier(g, m_p_line_hover, op.DotLeft + op.DotSize, op.DotTop + op.DotSize / 2,
+                            v.DotLeft - 1, v.DotTop + v.DotSize / 2, this._Curvature);
+                        this.DrawBezier(g, m_p_line, op.DotLeft + op.DotSize, op.DotTop + op.DotSize / 2,
+                            v.DotLeft - 1, v.DotTop + v.DotSize / 2, this._Curvature);
+                        if (m_is_buildpath) {                       //如果当前绘制需要重新建立已连接的路径缓存
+                            GraphicsPath gp = this.CreateBezierPath(op.DotLeft + op.DotSize, op.DotTop + op.DotSize / 2,
+                                v.DotLeft - 1, v.DotTop + v.DotSize / 2, this._Curvature);
+                            m_dic_gp_info.Add(gp, new ConnectionInfo() { Output = op, Input = v });
                         }
                     }
                 }
             }
-            m_is_buildpath = false;
+            m_p_line_hover.Color = this._HighLineColor;
+            if (m_gp_hover != null) {       //如果当前有被悬停的连接路劲 则高亮绘制
+                g.DrawPath(m_p_line_hover, m_gp_hover);
+            }
+            m_is_buildpath = false;         //重置标志 下次绘制时候 不再重新建立路径缓存
         }
-
         /// <summary>
         /// 当绘制 Mark 详情信息时候发生
         /// </summary>
         /// <param name="dt">绘制工具</param>
         protected virtual void OnDrawMark(DrawingTools dt) {
-            if (m_canvas == null || string.IsNullOrEmpty(m_find.Mark)) return;
-            using (var textPaint = new SKPaint { TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                float textWidth = textPaint.MeasureText(m_find.Mark);
-                Rectangle rect = new Rectangle(m_pt_in_control.X + 15,
-                    m_pt_in_control.Y + 10,
-                    (int)Math.Ceiling(textWidth) + 6,
-                    4 + (this.Font.Height + 4) * m_find.MarkLines.Length);
+            Graphics g = dt.Graphics;
+            SizeF sz = g.MeasureString(m_find.Mark, this.Font);             //确认文字需要的大小
+            Rectangle rect = new Rectangle(m_pt_in_control.X + 15,
+                m_pt_in_control.Y + 10,
+                (int)sz.Width + 6,
+                4 + (this.Font.Height + 4) * m_find.MarkLines.Length);      //sz.Height并没有考虑文字的行距 所以这里高度自己计算
 
-                if (rect.Right > this.Width) rect.X = this.Width - rect.Width;
-                if (rect.Bottom > this.Height) rect.Y = this.Height - rect.Height;
-                if (rect.X < 0) rect.X = 0;
-                if (rect.Y < 0) rect.Y = 0;
+            if (rect.Right > this.Width) rect.X = this.Width - rect.Width;
+            if (rect.Bottom > this.Height) rect.Y = this.Height - rect.Height;
+            if (rect.X < 0) rect.X = 0;
+            if (rect.Y < 0) rect.Y = 0;
 
-                using (var bg = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._MarkBackColor), Style = SKPaintStyle.Fill, IsAntialias = false })
-                using (var border = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(255, this._MarkBackColor)), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = false })
-                using (var fg = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._MarkForeColor), TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                    m_canvas.DrawRect(rect.Left, rect.Top, rect.Width, rect.Height, bg);
-                    m_canvas.DrawRect(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1, border);
+            dt.SolidBrush.Color = this._MarkBackColor;
+            g.SmoothingMode = SmoothingMode.None;
+            g.FillRectangle(dt.SolidBrush, rect);                             //绘制背景区域
+            rect.Width--; rect.Height--;
+            dt.Pen.Color = Color.FromArgb(255, this._MarkBackColor);
+            g.DrawRectangle(dt.Pen, rect);
+            dt.SolidBrush.Color = this._MarkForeColor;
 
-                    var fm = fg.FontMetrics;
-                    float baseY = rect.Y + 2 - fm.Ascent;
-                    float textX = rect.X + 4;
-                    for (int i = 0; i < m_find.MarkLines.Length; i++) {
-                        float y = baseY + i * (this.Font.Height + 4);
-                        m_canvas.DrawText(m_find.MarkLines[i], textX, y, fg);
-                    }
-                }
+            m_sf.LineAlignment = StringAlignment.Center;
+            //g.SmoothingMode = SmoothingMode.HighQuality;
+            rect.X += 2; rect.Width -= 3;
+            rect.Height = this.Font.Height + 4;
+            int nY = rect.Y + 2;
+            for (int i = 0; i < m_find.MarkLines.Length; i++) {             //绘制文字
+                rect.Y = nY + i * (this.Font.Height + 4);
+                g.DrawString(m_find.MarkLines[i], this.Font, dt.SolidBrush, rect, m_sf);
             }
         }
         /// <summary>
@@ -1139,39 +1106,38 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="dt">绘制工具</param>
         /// <param name="mi">匹配的磁铁信息</param>
         protected virtual void OnDrawMagnet(DrawingTools dt, MagnetInfo mi) {
-            if (m_canvas == null || this._ActiveNode == null) return;
-            using (var line = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._MagnetColor), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = false })
-            using (var fill = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(Color.FromArgb(this._MagnetColor.A / 3, this._MagnetColor)), Style = SKPaintStyle.Fill, IsAntialias = false }) {
-                if (mi.XMatched) {
-                    float x = this.CanvasToControl(mi.X, true);
-                    m_canvas.DrawLine(x, 0, x, this.Height, line);
-                }
-                if (mi.YMatched) {
-                    float y = this.CanvasToControl(mi.Y, false);
-                    m_canvas.DrawLine(0, y, this.Width, y, line);
-                }
-
-                m_canvas.Save();
-                m_canvas.Translate(this._CanvasOffsetX, this._CanvasOffsetY);
-                m_canvas.Scale(this._CanvasScale, this._CanvasScale);
-
-                if (mi.XMatched) {
-                    foreach (STNode n in this._Nodes) {
-                        if (n.Left == mi.X || n.Right == mi.X || n.Left + n.Width / 2 == mi.X) {
-                            m_canvas.DrawRect(n.Left, n.Top, n.Width, n.Height, fill);
-                        }
+            if (this._ActiveNode == null) return;
+            Graphics g = dt.Graphics;
+            Pen pen = m_drawing_tools.Pen;
+            SolidBrush brush = dt.SolidBrush;
+            pen.Color = this._MagnetColor;
+            brush.Color = Color.FromArgb(this._MagnetColor.A / 3, this._MagnetColor);
+            g.SmoothingMode = SmoothingMode.None;
+            int nL = this._ActiveNode.Left, nMX = this._ActiveNode.Left + this._ActiveNode.Width / 2, nR = this._ActiveNode.Right;
+            int nT = this._ActiveNode.Top, nMY = this._ActiveNode.Top + this._ActiveNode.Height / 2, nB = this._ActiveNode.Bottom;
+            if (mi.XMatched) g.DrawLine(pen, this.CanvasToControl(mi.X, true), 0, this.CanvasToControl(mi.X, true), this.Height);
+            if (mi.YMatched) g.DrawLine(pen, 0, this.CanvasToControl(mi.Y, false), this.Width, this.CanvasToControl(mi.Y, false));
+            g.TranslateTransform(this._CanvasOffsetX, this._CanvasOffsetY); //移动坐标系
+            g.ScaleTransform(this._CanvasScale, this._CanvasScale);         //缩放绘图表面
+            if (mi.XMatched) {
+                //g.DrawLine(pen, this.CanvasToControl(mi.X, true), 0, this.CanvasToControl(mi.X, true), this.Height);
+                foreach (STNode n in this._Nodes) {
+                    if (n.Left == mi.X || n.Right == mi.X || n.Left + n.Width / 2 == mi.X) {
+                        //g.DrawRectangle(pen, n.Left, n.Top, n.Width - 1, n.Height - 1);
+                        g.FillRectangle(brush, n.Rectangle);
                     }
                 }
-                if (mi.YMatched) {
-                    foreach (STNode n in this._Nodes) {
-                        if (n.Top == mi.Y || n.Bottom == mi.Y || n.Top + n.Height / 2 == mi.Y) {
-                            m_canvas.DrawRect(n.Left, n.Top, n.Width, n.Height, fill);
-                        }
-                    }
-                }
-
-                m_canvas.Restore();
             }
+            if (mi.YMatched) {
+                //g.DrawLine(pen, 0, this.CanvasToControl(mi.Y, false), this.Width, this.CanvasToControl(mi.Y, false));
+                foreach (STNode n in this._Nodes) {
+                    if (n.Top == mi.Y || n.Bottom == mi.Y || n.Top + n.Height / 2 == mi.Y) {
+                        //g.DrawRectangle(pen, n.Left, n.Top, n.Width - 1, n.Height - 1);
+                        g.FillRectangle(brush, n.Rectangle);
+                    }
+                }
+            }
+            g.ResetTransform();
         }
         /// <summary>
         /// 绘制选择的矩形区域
@@ -1179,14 +1145,12 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="dt">绘制工具</param>
         /// <param name="rectf">位于控件上的矩形区域</param>
         protected virtual void OnDrawSelectedRectangle(DrawingTools dt, RectangleF rectf) {
-            if (m_canvas == null) return;
-            var fill = Color.FromArgb(this._SelectedRectangleColor.A / 3, this._SelectedRectangleColor);
-            Rectangle rect = this.CanvasToControl(m_rect_select);
-            using (var stroke = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._SelectedRectangleColor), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = true })
-            using (var bg = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(fill), Style = SKPaintStyle.Fill, IsAntialias = true }) {
-                m_canvas.DrawRect(rectf.Left, rectf.Top, rectf.Width, rectf.Height, stroke);
-                m_canvas.DrawRect(rect.Left, rect.Top, rect.Width, rect.Height, bg);
-            }
+            Graphics g = dt.Graphics;
+            SolidBrush brush = dt.SolidBrush;
+            dt.Pen.Color = this._SelectedRectangleColor;
+            g.DrawRectangle(dt.Pen, rectf.Left, rectf.Y, rectf.Width, rectf.Height);
+            brush.Color = Color.FromArgb(this._SelectedRectangleColor.A / 3, this._SelectedRectangleColor);
+            g.FillRectangle(brush, this.CanvasToControl(m_rect_select));
         }
         /// <summary>
         /// 绘制超出视觉区域的 Node 位置提示信息
@@ -1195,25 +1159,25 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="sz">提示框边距</param>
         /// <param name="lstPts">超出视觉区域的 Node 位置信息</param>
         protected virtual void OnDrawNodeOutLocation(DrawingTools dt, Size sz, List<Point> lstPts) {
-            if (m_canvas == null) return;
-            using (var back = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._LocationBackColor), Style = SKPaintStyle.Fill, IsAntialias = false })
-            using (var fore = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(this._LocationForeColor), Style = SKPaintStyle.Fill, IsAntialias = false }) {
-                if (lstPts.Count == this._Nodes.Count && this._Nodes.Count != 0) {
-                    Rectangle r = this.CanvasToControl(this._CanvasValidBounds);
-                    m_canvas.DrawRect(r.Left, r.Top, r.Width, r.Height, back);
-                }
-                m_canvas.DrawRect(0, 0, 4, sz.Height, back);
-                m_canvas.DrawRect(sz.Width - 4, 0, 4, sz.Height, back);
-                m_canvas.DrawRect(4, 0, sz.Width - 8, 4, back);
-                m_canvas.DrawRect(4, sz.Height - 4, sz.Width - 8, 4, back);
-                foreach (var v in lstPts) {
-                    var pt = this.CanvasToControl(v);
-                    if (pt.X < 0) pt.X = 0;
-                    if (pt.Y < 0) pt.Y = 0;
-                    if (pt.X > sz.Width) pt.X = sz.Width - 4;
-                    if (pt.Y > sz.Height) pt.Y = sz.Height - 4;
-                    m_canvas.DrawRect(pt.X, pt.Y, 4, 4, fore);
-                }
+            Graphics g = dt.Graphics;
+            SolidBrush brush = dt.SolidBrush;
+            brush.Color = this._LocationBackColor;
+            g.SmoothingMode = SmoothingMode.None;
+            if (lstPts.Count == this._Nodes.Count && this._Nodes.Count != 0) {  //如果超出个数和集合个数一样多 则全部超出 绘制外切矩形
+                g.FillRectangle(brush, this.CanvasToControl(this._CanvasValidBounds));
+            }
+            g.FillRectangle(brush, 0, 0, 4, sz.Height);                       //绘制四边背景
+            g.FillRectangle(brush, sz.Width - 4, 0, 4, sz.Height);
+            g.FillRectangle(brush, 4, 0, sz.Width - 8, 4);
+            g.FillRectangle(brush, 4, sz.Height - 4, sz.Width - 8, 4);
+            brush.Color = this._LocationForeColor;
+            foreach (var v in lstPts) {                                         //绘制点
+                var pt = this.CanvasToControl(v);
+                if (pt.X < 0) pt.X = 0;
+                if (pt.Y < 0) pt.Y = 0;
+                if (pt.X > sz.Width) pt.X = sz.Width - 4;
+                if (pt.Y > sz.Height) pt.Y = sz.Height - 4;
+                g.FillRectangle(brush, pt.X, pt.Y, 4, 4);
             }
         }
         /// <summary>
@@ -1226,17 +1190,21 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="backColor">信息背景色</param>
         /// <param name="al">信息位置</param>
         protected virtual void OnDrawAlert(DrawingTools dt, Rectangle rect, string strText, Color foreColor, Color backColor, AlertLocation al) {
-            if (m_alpha_alert == 0 || m_canvas == null) return;
-            using (var bg = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(backColor), Style = SKPaintStyle.Fill, IsAntialias = false })
-            using (var border = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(backColor), Style = SKPaintStyle.Stroke, StrokeWidth = 1, IsAntialias = false })
-            using (var text = new SKPaint { Color = SkiaDrawingHelper.ToSKColor(foreColor), TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                m_canvas.DrawRect(rect.Left, rect.Top, rect.Width, rect.Height, bg);
-                m_canvas.DrawRect(rect.Left, rect.Top, rect.Width - 1, rect.Height - 1, border);
-                var fm = text.FontMetrics;
-                float x = rect.Left + (rect.Width - text.MeasureText(strText)) / 2f;
-                float y = rect.Top + (rect.Height - (fm.Descent - fm.Ascent)) / 2f - fm.Ascent;
-                m_canvas.DrawText(strText, x, y, text);
-            }
+            if (m_alpha_alert == 0) return;
+            Graphics g = dt.Graphics;
+            SolidBrush brush = dt.SolidBrush;
+
+            g.SmoothingMode = SmoothingMode.None;
+            brush.Color = backColor;
+            dt.Pen.Color = brush.Color;
+            g.FillRectangle(brush, rect);
+            g.DrawRectangle(dt.Pen, rect.Left, rect.Top, rect.Width - 1, rect.Height - 1);
+
+            brush.Color = foreColor;
+            m_sf.Alignment = StringAlignment.Center;
+            m_sf.LineAlignment = StringAlignment.Center;
+            g.SmoothingMode = SmoothingMode.HighQuality;
+            g.DrawString(strText, this.Font, brush, rect, m_sf);
         }
         /// <summary>
         /// 获取提示信息需要绘制的矩形区域
@@ -1245,13 +1213,10 @@ namespace ST.Library.UI.NodeEditor
         /// <param name="strText">需要绘制文本</param>
         /// <param name="al">信息位置</param>
         /// <returns>矩形区域</returns>
-        protected virtual Rectangle GetAlertRectangle(string strText, AlertLocation al) {
-            using (var text = new SKPaint { TextSize = Math.Max(10f, this.Font.Size), IsAntialias = true }) {
-                var fm = text.FontMetrics;
-                float w = text.MeasureText(m_str_alert);
-                float h = fm.Descent - fm.Ascent;
-                Size sz = new Size((int)Math.Round(w + 10), (int)Math.Round(h + 4));
-                Rectangle rect = new Rectangle(4, this.Height - sz.Height - 4, sz.Width, sz.Height);
+        protected virtual Rectangle GetAlertRectangle(Graphics g, string strText, AlertLocation al) {
+            SizeF szf = g.MeasureString(m_str_alert, this.Font);
+            Size sz = new Size((int)Math.Round(szf.Width + 10), (int)Math.Round(szf.Height + 4));
+            Rectangle rect = new Rectangle(4, this.Height - sz.Height - 4, sz.Width, sz.Height);
 
             switch (al) {
                 case AlertLocation.Left:
@@ -1283,8 +1248,7 @@ namespace ST.Library.UI.NodeEditor
                     rect.X = this.Width - sz.Width - 4;
                     break;
             }
-                return rect;
-            }
+            return rect;
         }
 
         #endregion protected
@@ -1298,8 +1262,8 @@ namespace ST.Library.UI.NodeEditor
             this.Invalidate();
         }
 
-        internal void OnDrawAlert() {
-            m_rect_alert = this.GetAlertRectangle(m_str_alert, m_al);
+        internal void OnDrawAlert(Graphics g) {
+            m_rect_alert = this.GetAlertRectangle(g, m_str_alert, m_al);
             Color clr_fore = Color.FromArgb((int)((float)m_alpha_alert / 255 * m_forecolor_alert.A), m_forecolor_alert);
             Color clr_back = Color.FromArgb((int)((float)m_alpha_alert / 255 * m_backcolor_alert.A), m_backcolor_alert);
             this.OnDrawAlert(m_drawing_tools, m_rect_alert, m_str_alert, clr_fore, clr_back, m_al);
@@ -1381,23 +1345,19 @@ namespace ST.Library.UI.NodeEditor
         }
 
         private Image CreateBorderImage(Color clr) {
-            using (var bitmap = new SKBitmap(12, 12, true))
-            using (var canvas = new SKCanvas(bitmap))
-            using (var paint = new SKPaint { IsAntialias = true, Style = SKPaintStyle.Fill }) {
-                var center = SkiaDrawingHelper.ToSKColor(Color.FromArgb(200, clr));
-                var edge = SkiaDrawingHelper.ToSKColor(Color.FromArgb(10, clr));
-                using (var shader = SKShader.CreateRadialGradient(new SKPoint(5.5f, 5.5f), 5.5f,
-                    new[] { center, edge },
-                    new float[] { 0f, 1f }, SKShaderTileMode.Clamp)) {
-                    paint.Shader = shader;
-                    canvas.DrawCircle(5.5f, 5.5f, 5.5f, paint);
-                }
-                using (var image = SKImage.FromBitmap(bitmap))
-                using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
-                using (var ms = new MemoryStream(data.ToArray())) {
-                    return Image.FromStream(ms);
+            Image img = new Bitmap(12, 12);
+            using (Graphics g = Graphics.FromImage(img)) {
+                g.SmoothingMode = SmoothingMode.HighQuality;
+                using (GraphicsPath gp = new GraphicsPath()) {
+                    gp.AddEllipse(new Rectangle(0, 0, 11, 11));
+                    using (PathGradientBrush b = new PathGradientBrush(gp)) {
+                        b.CenterColor = Color.FromArgb(200, clr);
+                        b.SurroundColors = new Color[] { Color.FromArgb(10, clr) };
+                        g.FillPath(b, gp);
+                    }
                 }
             }
+            return img;
         }
 
         private ConnectionStatus DisConnectionHover() {
@@ -1530,19 +1490,18 @@ namespace ST.Library.UI.NodeEditor
             return m_mi;
         }
 
-        private void DrawBezier(SKCanvas canvas, SKPaint paint, PointF ptStart, PointF ptEnd, float f) {
-            this.DrawBezier(canvas, paint, ptStart.X, ptStart.Y, ptEnd.X, ptEnd.Y, f);
+        private void DrawBezier(Graphics g, Pen p, PointF ptStart, PointF ptEnd, float f) {
+            this.DrawBezier(g, p, ptStart.X, ptStart.Y, ptEnd.X, ptEnd.Y, f);
         }
 
-        private void DrawBezier(SKCanvas canvas, SKPaint paint, float x1, float y1, float x2, float y2, float f) {
-            if (canvas == null || paint == null) return;
+        private void DrawBezier(Graphics g, Pen p, float x1, float y1, float x2, float y2, float f) {
             float n = (Math.Abs(x1 - x2) * f);
             if (this._Curvature != 0 && n < 30) n = 30;
-            using (var path = new SKPath()) {
-                path.MoveTo(x1, y1);
-                path.CubicTo(x1 + n, y1, x2 - n, y2, x2, y2);
-                canvas.DrawPath(path, paint);
-            }
+            g.DrawBezier(p,
+                x1, y1,
+                x1 + n, y1,
+                x2 - n, y2,
+                x2, y2);
         }
 
         private GraphicsPath CreateBezierPath(float x1, float y1, float x2, float y2, float f) {
@@ -1558,35 +1517,25 @@ namespace ST.Library.UI.NodeEditor
             return gp;
         }
 
-        private SKPath ToSKPath(GraphicsPath gp) {
-            if (gp == null) return null;
-            var points = gp.PathPoints;
-            if (points == null || points.Length < 2) return null;
-            var path = new SKPath();
-            path.MoveTo(points[0].X, points[0].Y);
-            int i = 1;
-            while (i + 2 < points.Length) {
-                path.CubicTo(points[i].X, points[i].Y, points[i + 1].X, points[i + 1].Y, points[i + 2].X, points[i + 2].Y);
-                i += 3;
-            }
-            return path;
-        }
-
-        private void RenderBorder(SKCanvas canvas, Rectangle rect, Image img) {
-            if (canvas == null || img == null) return;
-            using (var bmp = SkiaDrawingHelper.ToSKBitmap(img)) {
-                if (bmp == null) return;
-                //填充四个角
-                canvas.DrawBitmap(bmp, new SKRect(0, 0, 5, 5), new SKRect(rect.X - 5, rect.Y - 5, rect.X, rect.Y));
-                canvas.DrawBitmap(bmp, new SKRect(img.Width - 5, 0, img.Width, 5), new SKRect(rect.Right, rect.Y - 5, rect.Right + 5, rect.Y));
-                canvas.DrawBitmap(bmp, new SKRect(0, img.Height - 5, 5, img.Height), new SKRect(rect.X - 5, rect.Bottom, rect.X, rect.Bottom + 5));
-                canvas.DrawBitmap(bmp, new SKRect(img.Width - 5, img.Height - 5, img.Width, img.Height), new SKRect(rect.Right, rect.Bottom, rect.Right + 5, rect.Bottom + 5));
-                //四边
-                canvas.DrawBitmap(bmp, new SKRect(0, 5, 5, img.Height - 10), new SKRect(rect.X - 5, rect.Y, rect.X, rect.Bottom));
-                canvas.DrawBitmap(bmp, new SKRect(5, 0, img.Width - 10, 5), new SKRect(rect.X, rect.Y - 5, rect.Right, rect.Y));
-                canvas.DrawBitmap(bmp, new SKRect(img.Width - 5, 5, img.Width, img.Height - 10), new SKRect(rect.Right, rect.Y, rect.Right + 5, rect.Bottom));
-                canvas.DrawBitmap(bmp, new SKRect(5, img.Height - 5, img.Width - 10, img.Height), new SKRect(rect.X, rect.Bottom, rect.Right, rect.Bottom + 5));
-            }
+        private void RenderBorder(Graphics g, Rectangle rect, Image img) {
+            //填充四个角
+            g.DrawImage(img, new Rectangle(rect.X - 5, rect.Y - 5, 5, 5),
+                new Rectangle(0, 0, 5, 5), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(rect.Right, rect.Y - 5, 5, 5),
+                new Rectangle(img.Width - 5, 0, 5, 5), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(rect.X - 5, rect.Bottom, 5, 5),
+                new Rectangle(0, img.Height - 5, 5, 5), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(rect.Right, rect.Bottom, 5, 5),
+                new Rectangle(img.Width - 5, img.Height - 5, 5, 5), GraphicsUnit.Pixel);
+            //四边
+            g.DrawImage(img, new Rectangle(rect.X - 5, rect.Y, 5, rect.Height),
+                new Rectangle(0, 5, 5, img.Height - 10), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(rect.X, rect.Y - 5, rect.Width, 5),
+                new Rectangle(5, 0, img.Width - 10, 5), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(rect.Right, rect.Y, 5, rect.Height),
+                new Rectangle(img.Width - 5, 5, 5, img.Height - 10), GraphicsUnit.Pixel);
+            g.DrawImage(img, new Rectangle(rect.X, rect.Bottom, rect.Width, 5),
+                new Rectangle(5, img.Height - 5, img.Width - 10, 5), GraphicsUnit.Pixel);
         }
 
         #endregion private
@@ -1837,27 +1786,22 @@ namespace ST.Library.UI.NodeEditor
         /// <returns>图像</returns>
         public Image GetCanvasImage(Rectangle rect, float fScale) {
             if (fScale < 0.5) fScale = 0.5f; else if (fScale > 3) fScale = 3;
-            using (var bitmap = new SKBitmap((int)(rect.Width * fScale), (int)(rect.Height * fScale), true))
-            using (var canvas = new SKCanvas(bitmap)) {
-                canvas.Clear(SkiaDrawingHelper.ToSKColor(this.BackColor));
-                m_canvas = canvas;
-                m_drawing_tools.Canvas = canvas;
+            Image img = new Bitmap((int)(rect.Width * fScale), (int)(rect.Height * fScale));
+            using (Graphics g = Graphics.FromImage(img)) {
+                g.Clear(this.BackColor);
+                g.ScaleTransform(fScale, fScale);
+                m_drawing_tools.Graphics = g;
 
-                if (fScale != 1f) canvas.Scale(fScale, fScale);
                 if (this._ShowGrid) this.OnDrawGrid(m_drawing_tools, rect.Width, rect.Height);
-                canvas.Translate(-rect.X, -rect.Y);
+                g.TranslateTransform(-rect.X, -rect.Y); //移动坐标系
                 this.OnDrawNode(m_drawing_tools, rect);
                 this.OnDrawConnectedLine(m_drawing_tools);
-                canvas.ResetMatrix();
 
-                if (this._ShowLocation) this.OnDrawNodeOutLocation(m_drawing_tools, new Size(bitmap.Width, bitmap.Height), m_lst_node_out);
-                using (var image = SKImage.FromBitmap(bitmap))
-                using (var data = image.Encode(SKEncodedImageFormat.Png, 100))
-                using (var ms = new MemoryStream(data.ToArray())) {
-                    m_canvas = null;
-                    return Image.FromStream(ms);
-                }
+                g.ResetTransform();
+
+                if (this._ShowLocation) this.OnDrawNodeOutLocation(m_drawing_tools, img.Size, m_lst_node_out);
             }
+            return img;
         }
         /// <summary>
         /// 保存画布中的类容到文件中

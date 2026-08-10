@@ -4,7 +4,6 @@ using System.Linq;
 using System.Text;
 
 using System.Drawing;
-using SkiaSharp;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -264,31 +263,25 @@ namespace ST.Library.UI.NodeEditor
         /// </summary>
         /// <param name="dt">绘制工具</param>
         protected internal virtual void OnDrawValueRectangle(DrawingTools dt) {
+            Graphics g = dt.Graphics;
+            SolidBrush brush = dt.SolidBrush;
             STNodePropertyGrid ctrl = this.Control;
+            //STNodePropertyItem item = this._PropertyItem;
+            brush.Color = ctrl.ItemValueBackColor;
+
+            g.FillRectangle(brush, this.RectangleR);
             Rectangle rect = this.RectangleR;
             rect.Width--; rect.Height--;
-            var textValue = this.GetStringFromValue();
-            var backColor = SkiaDrawingHelper.ToSKColor(ctrl.ItemValueBackColor);
-            var textColor = SkiaDrawingHelper.ToSKColor(this.Control.ForeColor);
-            SkiaDrawingHelper.RenderToCanvas(dt.Canvas, canvas => {
-                using (var fill = new SKPaint { Color = backColor, Style = SKPaintStyle.Fill, IsAntialias = true })
-                using (var text = new SKPaint { Color = textColor, TextSize = Math.Max(10f, ctrl.Font.Size), IsAntialias = true }) {
-                    canvas.DrawRect(rect.Left, rect.Top, rect.Width + 1, rect.Height + 1, fill);
-                    var metrics = text.FontMetrics;
-                    float textY = rect.Top + (rect.Height - (metrics.Descent - metrics.Ascent)) / 2 - metrics.Ascent;
-                    canvas.DrawText(textValue ?? string.Empty, rect.Left + 2, textY, text);
-                    if (this.PropertyInfo.PropertyType.IsEnum || this.PropertyInfo.PropertyType == m_t_bool) {
-                        using (var arrow = new SKPaint { Color = SKColors.Gray, Style = SKPaintStyle.Fill, IsAntialias = true })
-                        using (var path = new SKPath()) {
-                            path.MoveTo(rect.Right - 13, rect.Top + rect.Height / 2 - 2);
-                            path.LineTo(rect.Right - 4, rect.Top + rect.Height / 2 - 2);
-                            path.LineTo(rect.Right - 9, rect.Top + rect.Height / 2 + 3);
-                            path.Close();
-                            canvas.DrawPath(path, arrow);
-                        }
-                    }
-                }
-            });
+            brush.Color = this.Control.ForeColor;
+            g.DrawString(this.GetStringFromValue(), ctrl.Font, brush, this.RectangleR, m_sf);
+
+            if (this.PropertyInfo.PropertyType.IsEnum || this.PropertyInfo.PropertyType == m_t_bool) {
+                g.FillPolygon(Brushes.Gray, new Point[]{
+                        new Point(rect.Right - 13, rect.Top + rect.Height / 2 - 2),
+                        new Point(rect.Right - 4, rect.Top + rect.Height / 2 - 2),
+                        new Point(rect.Right - 9, rect.Top + rect.Height / 2 + 3)
+                    });
+            }
         }
         /// <summary>
         /// 当鼠标进入属性值所在区域时候发生
