@@ -108,7 +108,7 @@ public class STNodePropertyDescriptor
 				}
 				return array3;
 			}
-			if (elementType == m_t_int)
+			if (elementType == m_t_double)
 			{
 				double[] array4 = new double[array.Length];
 				for (int k = 0; k < array.Length; k++)
@@ -117,7 +117,7 @@ public class STNodePropertyDescriptor
 				}
 				return array4;
 			}
-			if (elementType == m_t_int)
+			if (elementType == m_t_bool)
 			{
 				bool[] array5 = new bool[array.Length];
 				for (int l = 0; l < array.Length; l++)
