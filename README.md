@@ -158,9 +158,9 @@ public class MyNode : STNode {
         base.OnCreate();
         this.Title = "MyNode";
         this.TitleColor = Color.FromArgb(200, Color.Goldenrod);
-        //multi-connection
-        this.InputOptions.Add("Single", typeof(string), true);
         //single-connection
+        this.InputOptions.Add("Single", typeof(string), true);
+        //multi-connection
         this.OutputOptions.Add("Multi", typeof(string), false);
     }
 }
@@ -350,7 +350,7 @@ public void OnClickStart() {
     List<OutputNode> lst_output = new List<OutputNode>();
     List<BaseNode> lst_other = new List<BaseNode>();
     foreach (var v in stNodeEditor.Nodes) {
-        if ((v is BaseNode)) continue;
+        if (!(v is BaseNode)) continue;
         if (v is InputNode) {
             lst_input.Add((InputNode)v);
         } else if (v is OutputNode) {
