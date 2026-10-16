@@ -381,7 +381,7 @@ namespace ST.Library.UI.NodeEditor
             if (this._Owner == null) return null;
             if (this._Owner.Owner == null) return null;
             foreach (var v in this._Owner.Owner.GetConnectionInfo()) {
-                if (v.Output == this) lst.Add(v.Input);
+                if (v.Input == this) lst.Add(v.Output);
             }
             return lst;
         }

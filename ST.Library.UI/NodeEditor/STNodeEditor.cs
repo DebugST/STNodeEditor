@@ -1749,7 +1749,15 @@ namespace ST.Library.UI.NodeEditor
         /// </summary>
         /// <returns>连接信息集合</returns>
         public ConnectionInfo[] GetConnectionInfo() {
-            return m_dic_gp_info.Values.ToArray();
+            List<ConnectionInfo> connections = new List<ConnectionInfo>();
+            foreach (STNode node in this._Nodes) {
+                foreach (STNodeOption output in node.OutputOptions) {
+                    if (output == STNodeOption.Empty) continue;
+                    foreach (STNodeOption input in output.ConnectedOption)
+                        connections.Add(new ConnectionInfo() { Output = output, Input = input });
+                }
+            }
+            return connections.ToArray();
         }
         /// <summary>
         /// 判断两个 Node 之间是否存在连接路径
@@ -1763,6 +1771,7 @@ namespace ST.Library.UI.NodeEditor
         }
         private static bool CanFindNodePath(STNode nodeStart, STNode nodeFind, HashSet<STNode> hs) {
             foreach (STNodeOption op_1 in nodeStart.OutputOptions) {
+                if (op_1 == STNodeOption.Empty) continue;
                 foreach (STNodeOption op_2 in op_1.ConnectedOption) {
                     if (op_2.Owner == nodeFind) return true;
                     if (hs.Add(op_2.Owner)) {
@@ -1836,8 +1845,9 @@ namespace ST.Library.UI.NodeEditor
                         throw new Exception("获取节点数据出错-" + node.Title, ex);
                     }
                 }
-                gs.Write(BitConverter.GetBytes(m_dic_gp_info.Count), 0, 4);
-                foreach (var v in m_dic_gp_info.Values)
+                ConnectionInfo[] connections = this.GetConnectionInfo();
+                gs.Write(BitConverter.GetBytes(connections.Length), 0, 4);
+                foreach (var v in connections)
                     gs.Write(BitConverter.GetBytes(((dic[v.Output] << 32) | dic[v.Input])), 0, 8);
             }
         }
