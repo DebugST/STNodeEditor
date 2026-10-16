@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>net48;net8.0-windows</TargetFrameworks>
+    <UseWindowsForms Condition="'$(TargetFramework)' == 'net48'">true</UseWindowsForms>
+    <UseWPF Condition="'$(TargetFramework)' == 'net8.0-windows'">true</UseWPF>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net48'">
+    <ProjectReference Include="../../ST.Library.UI/ST.Library.UI.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net8.0-windows'">
+    <ProjectReference Include="../../NativeWpf/ST.Library.UI.WPF/ST.Library.UI.WPF.csproj" />
+  </ItemGroup>
+</Project>

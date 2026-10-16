@@ -506,9 +506,9 @@ public class STNodeOption
 		for (int i = 0; i < connectionInfo.Length; i++)
 		{
 			ConnectionInfo connectionInfo2 = connectionInfo[i];
-			if (connectionInfo2.Output == this)
+			if (connectionInfo2.Input == this)
 			{
-				list.Add(connectionInfo2.Input);
+				list.Add(connectionInfo2.Output);
 			}
 		}
 		return list;
