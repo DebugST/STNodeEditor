@@ -1956,7 +1956,19 @@ namespace ST.Library.UI.NodeEditor
                     long id = BitConverter.ToInt64(byData, 0);
                     long op_out = id >> 32;
                     long op_in = (int)id;
-                    dic[op_out].ConnectOption(dic[op_in]);
+                    STNode outputNode = dic[op_out].Owner;
+                    STNode inputNode = dic[op_in].Owner;
+                    bool outputLocked = outputNode.LockOption;
+                    bool inputLocked = inputNode.LockOption;
+                    try {
+                        // Locks prevent edits, not restoration of already saved connections.
+                        outputNode.LockOption = false;
+                        inputNode.LockOption = false;
+                        dic[op_out].ConnectOption(dic[op_in]);
+                    } finally {
+                        outputNode.LockOption = outputLocked;
+                        inputNode.LockOption = inputLocked;
+                    }
                 }
                 this.ScaleCanvas(scale, 0, 0);
                 this.MoveCanvas(x, y, false, CanvasMoveArgs.All);

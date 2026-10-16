@@ -525,7 +525,7 @@ namespace ST.Library.UI.NodeEditor
             dic.Add("Height", BitConverter.GetBytes(this._Height));
             dic.Add("AutoSize", new byte[] { (byte)(this._AutoSize ? 1 : 0) });
             if (this._Mark != null) dic.Add("Mark", Encoding.UTF8.GetBytes(this._Mark));
-            dic.Add("LockOption", new byte[] { (byte)(this._LockLocation ? 1 : 0) });
+            dic.Add("LockOption", new byte[] { (byte)(this._LockOption ? 1 : 0) });
             dic.Add("LockLocation", new byte[] { (byte)(this._LockLocation ? 1 : 0) });
             Type t = this.GetType();
             foreach (var p in t.GetProperties()) {
